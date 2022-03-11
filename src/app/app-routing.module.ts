@@ -4,6 +4,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { AuthModule } from './auth/auth.module';
 import { ContactusComponent } from './contactus/contactus.component';
 import { HomeComponent } from './home/home.component';
+import { TestimonialComponent } from './testimonial/testimonial.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path:'contact',
     component:ContactusComponent
+  },
+  {
+    path:'testimonial',
+    component:TestimonialComponent
   },
   {
     path:'',
