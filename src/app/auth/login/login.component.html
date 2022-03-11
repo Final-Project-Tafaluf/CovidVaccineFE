@@ -17,7 +17,7 @@
           Email is <strong>required</strong>
         </mat-error>
         <input id="password" type="password" [formControl]="password" name="password" title="password" placeholder="Password" required>
-        <mat-error *ngIf="password.hasError('minlsngth') && !password.hasError('required')">
+        <mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')">
           Please enter a Strong Password
         </mat-error>
         <mat-error *ngIf="password.hasError('required')">
@@ -25,7 +25,7 @@
         </mat-error>
         <div class="level options">
           <div class="checkbox level-left">
-            <input type="checkbox" id="checkbox" class="regular-checkbox">
+            <input type="checkbox" id="checkbox" [checked]="isChecked" [formControl]="isChecked" class="regular-checkbox">
             <label for="checkbox"></label>
             <span>Remember me</span>
           </div>
