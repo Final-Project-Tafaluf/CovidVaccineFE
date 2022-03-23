@@ -8,11 +8,13 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { TestimonialComponent } from './testimonial/testimonial.component';
-import { AuthModule } from './auth/auth.module';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule,ToastNoAnimationModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -20,18 +22,24 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ContactusComponent,
     AboutusComponent,
     HomeComponent,
-    TestimonialComponent
+    TestimonialComponent,
+ 
     ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    NgxSpinnerModule,
-    SharedModule,
-    NgbModule
-  ],
+    imports: [
+      BrowserModule,
+      AppRoutingModule,
+      BrowserAnimationsModule,
+      NgxSpinnerModule,
+      SharedModule,
+      ToastNoAnimationModule.forRoot(),
+      ToastrModule.forRoot({
+        timeOut: 5000,
+        positionClass: 'toast-bottom-center',
+        preventDuplicates: true,
+      }),
+      HttpClientModule
+      ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

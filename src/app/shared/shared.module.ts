@@ -6,6 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { RouterModule } from '@angular/router';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+
+
 
 
 @NgModule({
@@ -19,7 +23,9 @@ import { RouterModule } from '@angular/router';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   exports:[
     MatFormFieldModule,
@@ -27,7 +33,9 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MatDialogModule,
+    MatButtonModule
   ]
 })
 export class SharedModule { }

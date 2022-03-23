@@ -22,5 +22,5 @@
   > Stagging code.
 - git commit -m "what modification you made"
   > Prepare your code before push.
-- git push origin "yourBranchName"
+-  "yourBranchName"
   > To push your code to gitHub. 
