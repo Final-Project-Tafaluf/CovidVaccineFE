@@ -6,12 +6,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { RouterModule } from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import { CustomeDatePipe } from '../Pipes/custome-date.pipe';
+
+
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CustomeDatePipe
+
   ],
   imports: [
     CommonModule,
@@ -19,7 +26,9 @@ import { RouterModule } from '@angular/router';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    MatButtonModule,
+    MatDialogModule
   ],
   exports:[
     MatFormFieldModule,
@@ -27,7 +36,10 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MatButtonModule,
+    MatDialogModule,
+    CustomeDatePipe
   ]
 })
 export class SharedModule { }

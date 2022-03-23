@@ -12,8 +12,10 @@ export class LoginComponent implements OnInit {
 
   email = new FormControl(localStorage.getItem("email"),[Validators.required,Validators.email]);
   password = new FormControl(localStorage.getItem("password"),[Validators.required,Validators.minLength(8)]);
+
   isCheckedLocal = localStorage.getItem("isChecked") == "true" ? true : false;
   isChecked =  new FormControl(this.isCheckedLocal);
+
   constructor(private spinner :NgxSpinnerService, private router:Router) {}
   ngOnInit(): void {
     // this.email = new FormControl() localStorage.getItem("email");

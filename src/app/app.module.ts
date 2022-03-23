@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastNoAnimationModule, ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -25,14 +27,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
     SharedModule,
-    NgbModule
-  ],
+    ToastNoAnimationModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-bottom-center',
+      preventDuplicates: true,
+    }),
+    HttpClientModule
+    ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }
