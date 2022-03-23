@@ -9,7 +9,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
   email = new FormControl(localStorage.getItem("email"),[Validators.required,Validators.email]);
   password = new FormControl(localStorage.getItem("password"),[Validators.required,Validators.minLength(8)]);
 
