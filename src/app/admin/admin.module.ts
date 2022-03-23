@@ -6,6 +6,7 @@ import { ContentComponent } from './content/content.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateHealthCenterComponent } from './create-health-center/create-health-center.component';
 import { ManageHealthcenterComponent } from './manage-healthcenter/manage-healthcenter.component';
+import { ManageUserComponent } from './manage-user/manage-user.component';
 import { SharedModule } from '../shared/shared.module';
 
 
@@ -14,7 +15,8 @@ import { SharedModule } from '../shared/shared.module';
     ContentComponent,
     DashboardComponent,
     CreateHealthCenterComponent,
-    ManageHealthcenterComponent
+    ManageHealthcenterComponent,
+    ManageUserComponent
   ],
   imports: [
     CommonModule,

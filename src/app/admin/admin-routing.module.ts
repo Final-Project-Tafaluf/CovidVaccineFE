@@ -4,6 +4,7 @@ import { ContentComponent } from './content/content.component';
 import { CreateHealthCenterComponent } from './create-health-center/create-health-center.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ManageHealthcenterComponent } from './manage-healthcenter/manage-healthcenter.component';
+import { ManageUserComponent } from './manage-user/manage-user.component';
 
 const routes: Routes = [
 
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path:'createHealthCenter',
     component:CreateHealthCenterComponent
+  },
+  {
+    path:'manageuser',
+    component:ManageUserComponent
   }
 ];
 

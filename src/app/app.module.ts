@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,9 +12,9 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
-import { ToastrModule,ToastNoAnimationModule } from 'ngx-toastr';
+import { ToastNoAnimationModule, ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -41,6 +41,6 @@ import { ToastrModule,ToastNoAnimationModule } from 'ngx-toastr';
       ],
   
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }
