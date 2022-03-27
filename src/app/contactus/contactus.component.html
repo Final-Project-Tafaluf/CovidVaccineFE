@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div id="getintouch" class="section wb wow fadeIn" style="padding-bottom:0;">
-<div class="container">
+<div class="container width_100">
     <div class="heading">
       <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
       <h2>Get in Touch</h2>
@@ -8,35 +8,54 @@
 </div>
 <div class="contact-section">
 <div class="form-contant">
-    <form id="ajax-contact" action="assets/mailer.php" method="post">
+    <form [formGroup]="CreateForm">
       <div class="row">
           <div class="col-md-6">
-            <div class="form-group in_name">
-                <input type="text" class="form-control" placeholder="Name" required="required">
-            </div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input type="text"  matInput formControlName="name" placeholder="Name">
+                <mat-error *ngIf="CreateForm.controls['name'].hasError('required')">
+                  Name is <strong>required</strong>
+                 </mat-error>
+            </mat-form-field>
           </div>
           <div class="col-md-6">
-            <div class="form-group in_email">
-                <input type="email" class="form-control" placeholder="E-mail" required="required">
-            </div>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <input type="text"  matInput formControlName="email" placeholder="Email">
+              <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
+               Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
           </div>
           <div class="col-md-6">
-            <div class="form-group in_email">
-                <input type="tel" class="form-control" id="phone" placeholder="Phone" required="required">
-            </div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input type="text"  matInput formControlName="phone_Number" id="phone" placeholder="Phone">
+                <mat-error *ngIf="CreateForm.controls['phone_Number'].hasError('required')">
+                  Phone number is <strong>required</strong>
+                 </mat-error>
+              </mat-form-field>
           </div>
           <div class="col-md-6">
-            <div class="form-group in_email">
-                <input type="text" class="form-control" id="subject" placeholder="Subject" required="required">
-            </div>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Subject</mat-label>
+              <select matNativeControl formControlName="subject">
+                <option value=""></option>
+                <option value="General">General</option>
+                <option value="Testimonial" selected>Testimonial</option>
+                <option value="Ask for help">Ask for help</option>
+              </select>
+              <mat-error *ngIf="CreateForm.controls['subject'].hasError('required')"> Subject is <strong>required</strong></mat-error>
+            </mat-form-field>
           </div>
           <div class="col-md-12">
-            <div class="form-group in_message">
-                <textarea class="form-control" id="message" rows="5" placeholder="Message" required="required"></textarea>
-            </div>
-            <div class="actions">
-                <input type="submit" value="Send Message" name="submit" id="submitButton" class="btn small" title="Submit Your Message!">
-            </div>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <textarea  rows="5" matInput formControlName="MSG" placeholder="Message"></textarea>  
+                <mat-error *ngIf="CreateForm.controls['MSG'].hasError('required')">
+                  MSG is <strong>required</strong>
+               </mat-error>
+              </mat-form-field>
+          </div>
+          <div class="actions">
+            <button [disabled]="!CreateForm.valid" mat-button (click)="send()"  cdkFocusInitial value="Send Message" name="submit"  class="btn small" >Send Message</button>
           </div>
       </div>
     </form>
