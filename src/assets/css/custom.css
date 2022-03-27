@@ -721,20 +721,19 @@ body.clinic_version .footer .widget-title h3 {
     color: #fff;
 }
 .contact-section {
-    float: left;
+    /* float: left; */
+    display: flex;
+    position:relative;
     width: 100%;
-    min-height: 450px;
-    background: yellow;
-}
-.contact-section {
-	position:relative;
+    height: 500px;
+    background: none; /*Edited*/ 
 }
 .form-contant {
     float: left;
-    position: absolute;
+    position: relative;
     width: 40%;
     height: 100%;
-    background: rgba(0,0,0,.8);
+    background: #c8d8e4;
     z-index: 1;
     padding: 60px;
 }
@@ -1236,22 +1235,23 @@ body.clinic_version .desc {
 }
 .form-contant {
     float: left;
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,.8);
+    background: #c8d8e4;
     z-index: 1;
     padding: 20px 40px;
 }
 .contact-section {
-    float: left;
+    /* float: left;
     width: 100%;
     min-height: 540px;
-    background: yellow;
+    background: none; 
+    *//*Edited*/ 
 }
-.contact-section #googleMap {
+/* .contact-section #googleMap {
     height: 550px !important;
-}
+} */
 .footer-info h3, .subcriber-info h3 {
     margin-bottom: 20px;
     margin-top: 10px;
@@ -1302,8 +1302,8 @@ nav.main-menu .navbar-toggle {border: solid #fff 2px;}
 .service-time.one {margin-top: -340px;}
 .serv p {display: none;}
 .inner-services {margin: 0 0;}
-.form-contant {float: left;position: absolute;width: 40%;height: 100%;background: rgba(0,0,0,.8);z-index: 1;padding: 15px 30px;}
-#googleMap {height: 540px !important;}
+.form-contant {float: left;position: relative;width: 40%;height: 100%;background: #c8d8e4;z-index: 1;padding: 15px 30px;}
+/* #googleMap {height: 540px !important;} */
 .footer-info h3, .subcriber-info h3 {float: left;width: 100%;}
 .footer-info p {float: left;width: 100%;}
 	
@@ -1323,7 +1323,7 @@ nav.main-menu .navbar-toggle {border: solid #fff 2px;}
 .service-time.middle::before,.service-time.middle::after {display:none;}
 .serv p {display: none;}
 .inner-services {margin: 0 0;}
-.form-contant {float: left;position: absolute;width: 40%;height: 100%;background: rgba(0,0,0,.8);z-index: 1;padding: 15px 30px;}
+.form-contant {float: left;position: relative;width: 40%;height: 100%;background: #c8d8e4;z-index: 1;padding: 15px 30px;}
 .footer-info h3, .subcriber-info h3 {float: left;width: 100%;}
 .footer-info p {float: left;width: 100%;}
 .service-time {padding: 50px 25px;}
@@ -1344,7 +1344,9 @@ nav.main-menu .navbar-toggle {border: solid #fff 2px;}
 .info-inner {float: left;margin-left: 30px;}
 
 }
-
+.mapouter{
+    width: 60%;
+}
 
 
 

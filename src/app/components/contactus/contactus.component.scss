@@ -22,3 +22,18 @@
 input#submitButton {
     border-bottom: none;
 }
+
+.mat-form-field {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    text-align: left;
+}
+.width_100{
+    width:100% !important;
+    background-color:  #52ab9861 ;
+    
+}
+.form-contant{
+box-shadow: 2px 2px 4px 1px rgb(0 0 0 / 20%);
+}
