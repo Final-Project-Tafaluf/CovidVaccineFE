@@ -1,7 +1,7 @@
 /********** Template CSS **********/
 :root {
-    --primary: #FEA116;
-    --light: #F1F8FF;
+    --primary: #52ab98;
+    --light: #c8d8e4;
     --dark: #0F172B;
 }
 
@@ -82,7 +82,7 @@
 
 
 /*** Navbar ***/
-.navbar-dark .navbar-nav .nav-link {
+/* .navbar-dark .navbar-nav .nav-link {
     position: relative;
     margin-left: 25px;
     padding: 35px 0;
@@ -92,49 +92,49 @@
     font-weight: 500;
     outline: none;
     transition: .5s;
-}
+} */
 
-.sticky-top.navbar-dark .navbar-nav .nav-link {
+/* .sticky-top.navbar-dark .navbar-nav .nav-link {
     padding: 20px 0;
-}
+} */
 
-.navbar-dark .navbar-nav .nav-link:hover,
+/* .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
     color: var(--primary) !important;
-}
+} */
 
-.navbar-dark .navbar-brand img {
+/* .navbar-dark .navbar-brand img {
     max-height: 60px;
     transition: .5s;
-}
+} */
 
-.sticky-top.navbar-dark .navbar-brand img {
+/* .sticky-top.navbar-dark .navbar-brand img {
     max-height: 45px;
-}
+} */
 
 @media (max-width: 991.98px) {
-    .sticky-top.navbar-dark {
+    /* .sticky-top.navbar-dark {
         position: relative;
-    }
+    } */
 
-    .navbar-dark .navbar-collapse {
+    /* .navbar-dark .navbar-collapse {
         margin-top: 15px;
         border-top: 1px solid rgba(255, 255, 255, .1)
-    }
+    } */
 
-    .navbar-dark .navbar-nav .nav-link,
+    /* .navbar-dark .navbar-nav .nav-link,
     .sticky-top.navbar-dark .navbar-nav .nav-link {
         padding: 10px 0;
         margin-left: 0;
-    }
+    } */
 
-    .navbar-dark .navbar-brand img {
+    /* .navbar-dark .navbar-brand img {
         max-height: 45px;
-    }
+    } */
 }
 
 @media (min-width: 992px) {
-    .navbar-dark {
+    /* .navbar-dark {
         position: absolute;
         width: 100%;
         top: 0;
@@ -146,7 +146,7 @@
     .sticky-top.navbar-dark {
         position: fixed;
         background: var(--dark) !important;
-    }
+    } */
 }
 
 
@@ -227,9 +227,9 @@
 
 
 /*** Food Menu ***/
-.nav-pills .nav-item .active {
+/* .nav-pills .nav-item .active {
     border-bottom: 2px solid var(--primary);
-}
+} */
 
 
 /*** Youtube Video ***/

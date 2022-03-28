@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
-import { AdminModule } from './admin/admin.module';
-import { AuthModule } from './auth/auth.module';
 import { ContactusComponent } from './components/contactus/contactus.component';
-import { DashboardModuleModule } from './dashboard-module/dashboard-module.module';
 import { HomeComponent } from './components/home/home.component';
-import { ServicesModuleModule } from './services-module/services-module.module';
 import { TestimonialComponent } from './components/testimonial/testimonial.component';
+import { AdminModule } from './modules/admin/admin.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { DashboardModuleModule } from './modules/dashboard-module/dashboard-module.module';
+import { ServicesModuleModule } from './modules/services-module/services-module.module';
 
 
 
