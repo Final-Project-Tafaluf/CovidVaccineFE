@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { HomeComponent } from './components/home/home.component';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from './modules/shared/shared.module';
 import { TestimonialComponent } from './components/testimonial/testimonial.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

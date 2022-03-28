@@ -1,0 +1,23 @@
+#home{
+    // background-image:url('../../../assets/life_care/images/slider-bg.png');
+    background: linear-gradient(rgba(15, 23, 43, .6), rgba(15, 23, 43, .6)), url('../../../assets/life_care/images/slider-bg.png');
+    // background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 2px 4px 0px rgb(0 0 0 / 30%)
+}
+.custom_p{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.custom_h5{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0;
+}

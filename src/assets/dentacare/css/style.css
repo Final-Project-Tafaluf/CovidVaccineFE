@@ -173,9 +173,13 @@ pre {
 figure {
   margin: 0 0 1rem; }
 
-img {
-  vertical-align: middle;
-  border-style: none; }
+  .post-thumbnail img {
+    vertical-align: middle;
+    border-style: none;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
 
 svg:not(:root) {
   overflow: hidden; }
