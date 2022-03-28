@@ -1,0 +1,39 @@
+.heading h2 {
+    font-size: 35px;
+    text-transform: none;
+    font-weight: 400;
+    letter-spacing: -1px;
+    color: #333;
+    margin: 5px 0;
+    padding: 0px;
+    position: relative;
+    padding-top: 80px;
+}
+
+#submitButton {
+    padding: 15px 30px;
+    background:  #52ab98 ;
+    color: #fff;
+    border-radius: 50px;
+    margin-top: 10px;
+    transition: ease all 1s;
+}
+
+input#submitButton {
+    border-bottom: none;
+}
+
+.mat-form-field {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    text-align: left;
+}
+.width_100{
+    width:100% !important;
+    background-color:  #52ab9861 ;
+    
+}
+.form-contant{
+box-shadow: 2px 2px 4px 1px rgb(0 0 0 / 20%);
+}

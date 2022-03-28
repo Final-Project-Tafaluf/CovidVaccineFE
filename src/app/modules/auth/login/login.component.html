@@ -1,0 +1,41 @@
+<app-header></app-header>>
+<div id="login">
+  <div class="login-card">
+    <div class="card-title">
+      <h1>Please Sign In</h1>
+    </div>
+
+    <div class="content">
+      <form method="POST" action="#">
+
+        <input id="email" type="email" [formControl]="email" name="email" title="email" placeholder="Email" required autofocus>
+        <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="email.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+        <input id="password" type="password" [formControl]="password" name="password" title="password" placeholder="Password" required>
+        <mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')">
+          Please enter a Strong Password
+        </mat-error>
+        <mat-error *ngIf="password.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+        <div class="level options">
+          <div class="checkbox level-left">
+            <input type="checkbox" id="checkbox" [checked]="isChecked" [formControl]="isChecked" class="regular-checkbox">
+            <label for="checkbox"></label>
+            <span>Remember me</span>
+          </div>
+
+          <a class="btn btn-link level-right" href="#">Forgot Password?</a>
+        </div>
+
+        <button  [disabled]="!email.valid || !password.valid" (click)="Onsubmit()">Login </button>
+        <p style="cursor: pointer; text-align: center;" (click)="goToRegister()">Create New Account</p>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
