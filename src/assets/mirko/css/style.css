@@ -637,7 +637,8 @@ li {
 		box-shadow: none;
 		transition: all 0.2s;
 		padding-top: 1.75rem;
-		background-color: transparent;
+		background-color: #0f0b0b80;
+    height: 80px;
 	}
 
 	.navbar.top-nav-collapse {
