@@ -24,7 +24,7 @@
             <div class="input-field col s12">
               <input [formControl]="password" id="password" type="password" class="validate">
               <label for="password">Password</label>
-              <mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')">
+              <mat-error *ngIf="!password.hasError('required')">
                 Please enter a Strong Password
               </mat-error>
               <mat-error *ngIf="password.hasError('required')">
@@ -33,7 +33,9 @@
             </div>
           </div>
           <br>
-            <button class="btn waves-effect waves-light teal btnn" type="submit" name="action">Connect</button>
+            <button class="btn waves-effect waves-light teal btnn" type="submit" name="action"
+            [disabled]="!email.valid || !password.valid" (click)="submit()"
+            >Connect</button>
             <br>
             <br>
             <div class="level options">
