@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { HomeService } from 'src/app/Services/home.service';
+import { HomeService } from 'src/app/Services/rest/home.service';
 @Component({
   selector: 'app-manage-user',
   templateUrl: './manage-user.component.html',
