@@ -1,1 +1,56 @@
-<p>add-user-request works!</p>
+<app-header></app-header>
+<div>
+    <div id="ol-map" class="map-container"></div>
+    <form [formGroup]="CreateForm" class="form-contant_mod">
+      <div class="row">
+
+            <mat-form-field class="col-md-12" appearance="fill">
+              <mat-label>Vaccine type</mat-label>
+              <select matNativeControl formControlName="VACCINE_TYPE">
+                <option value=""></option>
+                <option value="General">Sinopharm</option>
+                <option value="Testimonial" selected>Visor</option>
+                <option value="Ask for help">Moderna</option>
+              </select>
+              <mat-error *ngIf="CreateForm.controls['VACCINE_TYPE'].hasError('required')"> Subject is <strong>required</strong></mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="col-md-12" appearance="fill">
+              <mat-label>Health center</mat-label>
+              <select matNativeControl formControlName="HEALTH_CENTER">
+                <option value=""></option>
+                <option value="General">General</option>
+                <option value="Testimonial" selected>Testimonial</option>
+                <option value="Ask for help">Ask for help</option>
+              </select>
+              <mat-error *ngIf="CreateForm.controls['HEALTH_CENTER'].hasError('required')"> Subject is <strong>required</strong></mat-error>
+            </mat-form-field>
+
+            <!-- <mat-form-field class="col-md-12" appearance="fill">
+                <input type="text"  matInput formControlName="REQUEST_DATE" placeholder="REQUEST_DATE">
+                <mat-error *ngIf="CreateForm.controls['REQUEST_DATE'].hasError('required')">
+                  Name is <strong>required</strong>
+                 </mat-error>
+            </mat-form-field> -->
+
+            <mat-form-field appearance="fill">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="REQUEST_DATE">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill" hidden="true">
+                <input type="text"  matInput formControlName="USER_ID" placeholder="USER_ID">
+                <mat-error *ngIf="CreateForm.controls['USER_ID'].hasError('required')">
+                  Name is <strong>required</strong>
+                 </mat-error>
+            </mat-form-field>
+          <div class="actions">
+            <button [disabled]="!CreateForm.valid" mat-button (click)="sendRequest()"  cdkFocusInitial value="Send Message" name="submit"  class="btn small" >Send Request</button>
+          </div>
+      </div>
+    </form>
+</div>
+<app-footer></app-footer>

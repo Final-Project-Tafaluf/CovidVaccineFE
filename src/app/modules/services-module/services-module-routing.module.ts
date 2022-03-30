@@ -4,7 +4,7 @@ import { AddUserRequestComponent } from './add-user-request/add-user-request.com
 
 const routes: Routes = [
   {
-    path: "add-user-request",
+    path: "request-vac",
     component:AddUserRequestComponent
   }
 ];
