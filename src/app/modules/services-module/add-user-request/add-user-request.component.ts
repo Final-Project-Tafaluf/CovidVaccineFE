@@ -63,7 +63,7 @@ export class AddUserRequestComponent implements OnInit {
       view: new View({
         projection: 'EPSG:4326',
         center: [39.2384,31.5852 ],
-        zoom: 1,
+        zoom: 7,
       }),
       layers: [
         new TileLayer({
