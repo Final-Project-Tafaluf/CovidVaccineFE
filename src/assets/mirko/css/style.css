@@ -636,16 +636,17 @@ li {
 	.navbar {
 		box-shadow: none;
 		transition: all 0.2s;
-		padding-top: 1.75rem;
+		/* padding-top: 0; */
 		background-color: #0f0b0b80;
-    height: 80px;
+		height: 65px;
 	}
 
 	.navbar.top-nav-collapse {
 		padding-top: 0.5rem;
 		padding-bottom: 0.5rem;
+		height: 50px;
 		background-color: var(--primary);
-		box-shadow: 0 2px 4px 0px rgb(0 0 0 / 30%)
+		box-shadow: 0 2px 4px 0px rgb(0 0 0 / 30%);
 	}
 
 	.offcanvas-collapse {
