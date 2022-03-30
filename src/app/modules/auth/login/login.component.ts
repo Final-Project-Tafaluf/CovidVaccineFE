@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { HomeService } from 'src/app/Services/rest/home.service';
+import { AuthService } from 'src/app/Services/rest/auth-rest.service';
 
 @Component({
   selector: 'app-login',
@@ -10,38 +12,58 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class LoginComponent implements OnInit {
   email = new FormControl(localStorage.getItem("email"),[Validators.required,Validators.email]);
-  password = new FormControl(localStorage.getItem("password"),[Validators.required,Validators.minLength(8)]);
+  password = new FormControl(localStorage.getItem("password"));
 
   isCheckedLocal = localStorage.getItem("isChecked") == "true" ? true : false;
   isChecked =  new FormControl(this.isCheckedLocal);
+  user:any={}
 
-  constructor(private spinner :NgxSpinnerService, private router:Router) {}
+
+
+  constructor(private spinner :NgxSpinnerService, private router:Router,
+    public home:HomeService, public auth:AuthService) {}
   ngOnInit(): void {
-    // this.email = new FormControl() localStorage.getItem("email");
     console.log("this.isCheckedLocal",this.isCheckedLocal)
     console.log("this.isChecked",this.isChecked)
 
   }
-
-  Onsubmit(){
-    console.log(this.email.value);
-    console.log(this.password.value);
-    if( this.isChecked.value==true){
-    localStorage.setItem("email" , this.email.value);
-    localStorage.setItem("password" , this.password.value);
-    localStorage.setItem("isChecked",JSON.stringify(this.isChecked.value));
-    }else{
-      localStorage.setItem("email" , "");
-      localStorage.setItem("password" , "");
-      localStorage.setItem("isChecked",JSON.stringify(this.isChecked.value));
+  CreateForm :FormGroup =new FormGroup
+  (
+    {
+    first_Name:new FormControl(),
+    Ssn:new FormControl(),
+    gender:new FormControl(),
+    birthdate:new FormControl(),
+    address:new FormControl(),
+    image:new FormControl(),
+    phone:new FormControl(),
+    email:new FormControl(),
+    password:new FormControl(),
+    username:new FormControl(),
     }
-    this.spinner.show();
-    setTimeout(() => {
+  )
+  uploadFile(file:any){
+    if(file.length===0){
+      return ;
+    }
+    let fileUpload=<File>file[0];
+    // file[0]:'angular.png';
+    const fromData=new FormData();
+    fromData.append('file',fileUpload,fileUpload.name);
+    this.home.uploadAttachment(fromData);
+  }
+  save(){
+    this.home.createUser(this.CreateForm.value);
+    window.location.reload();
+  }
+  submit(){
+    this.auth.submit(this.email,this.password);
+    }
+
+    goToRegister(){
+      this.spinner.show();
+      this.router.navigate(['security/register'])
       this.spinner.hide();
-    }, 3000)
-  }
-  goToRegister(){
-    this.router.navigate(['security/register'])
-  }
+    }
 
 }
