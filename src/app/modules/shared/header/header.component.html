@@ -30,7 +30,7 @@
  <!-- Navigation -->
  <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Main navigation">
   <div class="container">
-      <li>   <a class="navbar-brand" href=""><img src="../../../assets/life_care/images/logo.png" alt="image"></a> </li>
+      <li>   <a class="navbar-brand" routerLink=""><img src="../../../assets/life_care/images/logo.png" alt="image"></a> </li>
 
       <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -43,38 +43,36 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="contact">Contact Us  </a>
+                <a class="nav-link" routerLink="contact">Contact Us  </a>
             </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Dashboard </a>
+                  <a class="nav-link" routerLink="#">Dashboard </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Profile</a>
+                  <a class="nav-link" routerLink="#">Profile</a>
               </li>
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false" href="#">Services</a>
 
                   <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                      <li><a class="dropdown-item" href="#">Vaccine page</a></li>
-                       <!-- <li><div class="dropdown-divider"></div></li>
-                      <li><a class="dropdown-item" href="terms.html">Terms Conditions</a></li>
-                      <li><div class="dropdown-divider"></div></li>
-                      <li><a class="dropdown-item" href="privacy.html">Privacy Policy</a></li>  -->
+                      <li><a class="dropdown-item" routerLink="services/request-vac">Request vaccine</a></li>
+                      <li><a class="dropdown-item" routerLink="#">My schedule</a></li>
                   </ul>
               </li>
 
+
               <li class="nav-item">
-                <a class="nav-link" href="#">User schedual</a>
+                <a class="nav-link"  routerLink="about">About US</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="security/register">SignUp</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="security/login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="#">Sign out</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link"  href="about">About US</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="security/register">SignUp</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="security/login">Login</a>
-            </li>
           </ul>
 
       </div> <!-- end of navbar-collapse -->
