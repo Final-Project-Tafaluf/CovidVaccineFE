@@ -10,13 +10,16 @@ export class UserProfileRestService {
 
   constructor(private spinner :NgxSpinnerService, private http:HttpClient, private toastr:ToastrService) { }
   data :any;
-  
-  /* getUserProfileInfoByID(id:number){
+  selectedUser:any={};
+
+  getUserProfileInfoByID(id:number){
     //show spinner 
     this.spinner.show();
-    //hits api 
-    this.http.get('https://localhost:44320/api/course/'+id).subscribe((res)=>{
-      this.selectedCourse=res;
+    //hits api
+    debugger; 
+    this.http.get('https://localhost:44327/User/GetUserById/'+id).subscribe((res)=>{
+      debugger;
+      this.selectedUser=res;
       this.spinner.hide();
       this.toastr.success('Data Retieved !!')
     }, err=>{
@@ -26,11 +29,11 @@ export class UserProfileRestService {
       this.toastr.error(err.message);
       this.toastr.error(err.status);
     })
-     } */
+     }
 
   updateUserProfile(body:any){
     debugger
-    this.http.put('https://localhost:44327/api/UserDTO/UpdateUser/',body).subscribe((res)=>{
+    this.http.put('https://localhost:44327/User/UpdateUser/',body).subscribe((res)=>{
       debugger
       this.toastr.success('updated Successfully :)');
       window.location.reload();

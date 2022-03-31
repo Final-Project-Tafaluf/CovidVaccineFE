@@ -87,12 +87,9 @@ ol.breadcrumb {
 }
 
 button.btn.btn-info {
-    /* Cursor: text !important; */
     Text-Decoration: None !important;
     pointer-events: painted;
     background-color: #17a2b8;
-    /* &: not(.disable):hover {;
-    }: ; */
 }
 
 button.btn.btn-primary {
@@ -107,16 +104,20 @@ button.btn.btn-primary {
     color: #17a2b8;
 }
 
-/* .homeWord: hover {
-    color:#17a2b8;
-} */
-
-/* .btn.btn-primary{
-    background-color: #17a2b8 !important;
-    color: #ffffff !important;
-} */
-
 input.btn.btn-primary.px-4 {
     background-color: #17a2b8 !important;
     color: #ffffff !important;
 }
+
+
+/* to make edit dialog bigger but it isn't applied!!! */ 
+
+mat-dialog-container#mat-dialog-1 {
+    width: 1500vw !important;
+}
+
+div#cdk-overlay-0 {
+    max-width: 500vw !important;
+}
+
+/* to make edit dialog bigger but it isn't apply!!!! */ 

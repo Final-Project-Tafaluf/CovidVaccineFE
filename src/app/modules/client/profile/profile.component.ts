@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
   constructor(private dialog:MatDialog,public userProfileRestService:UserProfileRestService) { }
   userProfile:any={};
   ngOnInit(): void {
+    this.userProfileRestService.getUserProfileInfoByID(1);
   }
 
 
@@ -25,14 +26,6 @@ export class ProfileComponent implements OnInit {
 
 
   /* ---------------------------------------------dialog section---------------------- */
-  /* update(){
-    this.schedualRestService.updateUserRequest(this.UpdateForm.value);
-  } */
-
-  /* openUpdateDialog(){
-     
-     this.dialog.open(this.callUpdateDialog);
-   } */
 
    update(){
     this.userProfileRestService.updateUserProfile(this.UpdateForm.value);
