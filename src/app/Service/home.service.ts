@@ -75,6 +75,8 @@ export class HomeService {
   //     this.toastr.error(err.status,err.message);
   //   })
   // }
+
+  
   updateHeathCenter(body:any){
     // body.imagename=this.display_Image;
     debugger
