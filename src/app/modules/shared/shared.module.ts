@@ -9,9 +9,8 @@ import { RouterModule } from '@angular/router';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { CustomeDatePipe } from 'src/app/Pipes/custome-date.pipe';
-
-
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 @NgModule({
@@ -29,8 +28,9 @@ import { CustomeDatePipe } from 'src/app/Pipes/custome-date.pipe';
     ReactiveFormsModule,
     RouterModule,
     MatDialogModule,
-    MatButtonModule
-   
+    MatButtonModule,
+    MatNativeDateModule,
+    MatDatepickerModule
   ],
   exports:[
     MatFormFieldModule,
@@ -41,7 +41,9 @@ import { CustomeDatePipe } from 'src/app/Pipes/custome-date.pipe';
     FooterComponent,
     MatButtonModule,
     MatDialogModule,
-    CustomeDatePipe
+    CustomeDatePipe,
+    MatNativeDateModule,
+    MatDatepickerModule
   ]
 })
 export class SharedModule { }
