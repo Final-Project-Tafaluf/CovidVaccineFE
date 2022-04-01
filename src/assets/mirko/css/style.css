@@ -169,6 +169,7 @@ li {
 	transition: transform 0.2s ease-in-out, visibility 0.2s ease-in-out;
 }
 
+
 .offcanvas-collapse.open {
 	visibility: visible;
 	transform: translateX(-100%);
@@ -636,7 +637,6 @@ li {
 	.navbar {
 		box-shadow: none;
 		transition: all 0.2s;
-		/* padding-top: 0; */
 		background-color: #0f0b0b80;
 		height: 65px;
 	}
@@ -648,6 +648,9 @@ li {
 		background-color: var(--primary);
 		box-shadow: 0 2px 4px 0px rgb(0 0 0 / 30%);
 	}
+  .navbar.top-nav-collapse .nav-item a{
+    color: #0f0f11;
+  }
 
 	.offcanvas-collapse {
 		position: static;

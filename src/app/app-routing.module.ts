@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { TestimonialComponent } from './components/testimonial/testimonial.component';
 import { AdminModule } from './modules/admin/admin.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { ClientModule } from './modules/client/client.module';
 import { DashboardModuleModule } from './modules/dashboard-module/dashboard-module.module';
 import { ServicesModuleModule } from './modules/services-module/services-module.module';
 
@@ -43,6 +44,10 @@ const routes: Routes = [
   {
     path:'dashboard',
     loadChildren:()=>DashboardModuleModule,
+  },
+  {
+    path:'client',
+    loadChildren:()=>ClientModule,
   }
 ];
 
