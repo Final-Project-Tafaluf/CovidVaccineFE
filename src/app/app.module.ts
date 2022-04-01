@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastNoAnimationModule, ToastrModule } from 'ngx-toastr';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { ToastNoAnimationModule, ToastrModule } from 'ngx-toastr';
     AboutusComponent,
     HomeComponent,
     TestimonialComponent,
+ 
 
  
     ],
