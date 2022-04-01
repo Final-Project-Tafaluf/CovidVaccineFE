@@ -19,4 +19,9 @@ export class DashboardComponent implements OnInit {
   logout(){
     this.router.navigate(['security/login'])
     localStorage.clear();  }
+
+    goToUsers(){
+      this.toggle=false;
+      this.router.navigate(['admin/manageUsers']);
+    }
 }
