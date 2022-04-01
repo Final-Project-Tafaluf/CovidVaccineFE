@@ -636,7 +636,6 @@ li {
 	.navbar {
 		box-shadow: none;
 		transition: all 0.2s;
-		/* padding-top: 0; */
 		background-color: #0f0b0b80;
 		height: 65px;
 	}

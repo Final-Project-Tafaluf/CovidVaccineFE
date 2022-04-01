@@ -26,17 +26,16 @@
 
 
 //css vision & mission
-svg{
+.svg{
     width: 100%;
     height: 100%;
-    padding-left: 231px;
   }
- 
+
   svg path:hover {
   transition-duration: 1.5s;
         fill: #52ab98;
       }
-      
+
       text{
     display:none;
     fill:#fff;
@@ -44,7 +43,7 @@ svg{
     font-family:arial;
   pointer-events:none;
   }
-  
+
   text.sub-mission{
     display:none;
     fill:#fff;
@@ -52,7 +51,7 @@ svg{
     font-family:arial;
   pointer-events:none;
   }
-  
+
   text.sub-text{
     display:none;
     fill:#fff;
@@ -60,19 +59,19 @@ svg{
     font-family:arial;
   pointer-events:none;
   }
-  
+
   g > text{
     display:block;
   }
-  
+
   g:hover > text{
     display:block;
   }
-  
 
 
 
-  
+
+
 //   testmonial
 
 .card {
