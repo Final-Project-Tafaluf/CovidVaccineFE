@@ -1,82 +1,43 @@
-
-<header>
-
-<!-- <div class="header-bottom wow fadeIn">
-    <div class="container">
-      <nav class="main-menu">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i class="fa fa-bars" aria-hidden="true"></i></button>
-          </div>
-
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li>   <a class="navbar-brand" href="index.html"><img src="./assets/images/logo.png" alt="image"></a> </li>
-                <li><a [class]="activeObj.active_home" (click)="activeNav('active_home')" routerLink="">Home</a></li>
-                <li><a data-scroll href="#testimonials">Testimonials</a></li>
-                <li><a [class]="activeObj.active_contact" (click)="activeNav('active_contact')"  data-scroll routerLink="contact">Contact</a></li>
-                <li><a [class]="activeObj.active_service" (click)="activeNav('active_service')"  data-scroll routerLink="#service">Services</a></li>
-                <li><a [class]="activeObj.active_register" (click)="activeNav('active_register')"  data-scroll routerLink="security/register">Register</a></li>
-                <li><a [class]="activeObj.active_login" (click)="activeNav('active_login')"  data-scroll routerLink="security/login">Login</a></li>
-                <li><a [class]="activeObj.active_about" (click)="activeNav('active_about')" data-scroll routerLink="about">About us</a></li>
-            </ul>
-          </div>
-      </nav>
-    </div>
-</div> -->
-
-
-
-
- <!-- Navigation -->
- <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Main navigation">
+<div id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Main navigation">
   <div class="container">
-      <li>   <a class="navbar-brand" routerLink=""><img src="../../../assets/life_care/images/logo.png" alt="image"></a> </li>
-
-      <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault" >
-          <ul class="navbar-nav ms-auto navbar-nav-scroll">
-              <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="">Home</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" routerLink="contact">Contact Us  </a>
-            </li>
-              <li class="nav-item">
-                  <a class="nav-link" routerLink="#">Dashboard </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" routerLink="#">Profile</a>
-              </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false" href="#">Services</a>
-
-                  <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                      <li><a class="dropdown-item" routerLink="services/request-vac">Request vaccine</a></li>
-                      <li><a class="dropdown-item" routerLink="#">My schedule</a></li>
-                  </ul>
-              </li>
-
-
-              <li class="nav-item">
-                <a class="nav-link"  routerLink="about">About US</a>
+    <div>
+      <a class="navbar-brand" routerLink=""><img src="../../../assets/life_care/images/logo.png" alt="image"></a>
+    </div>
+    <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault" >
+      <ul class="navbar-nav ms-auto navbar-nav-scroll">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="security/register">SignUp</a>
+              <a class="nav-link" routerLink="contact">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="#">Dashboard </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="#">Profile</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false" href="#">Services</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                    <li><a class="dropdown-item" routerLink="services/request-vac">Request vaccine</a></li>
+                    <li><a class="dropdown-item" routerLink="#">My schedule</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  routerLink="about">About US</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="security/login">SignUp</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink="security/login">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="#">Sign out</a>
-              </li>
-          </ul>
+                <a class="nav-link" (click)="logout()">Sign out</a>
+            </li>
+        </ul>
 
-      </div> <!-- end of navbar-collapse -->
-  </div> <!-- end of container -->
-</nav> <!-- end of navbar -->
-<!-- end of navigation -->
-</header>
+    </div>
+</div>
+</div>
