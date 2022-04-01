@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { HomeService } from './home.service';
+import jwt_decode from "jwt-decode";
+
 
 @Injectable({
   providedIn: 'root'
@@ -26,47 +28,26 @@ export class AuthService {
         headers:new HttpHeaders(headerDir)
       }
       debugger;
-      this.http.post('https://localhost:44327/api/login/',body,requestOptions)
+      this.http.post('https://localhost:44327/api/JWT/login/',body,requestOptions)
       .subscribe((res:any)=>{
+        debugger
         console.log(res);
-       // res=res.toString()
-        const responce ={
-          token:res.toString()
-        }
-        localStorage.setItem('token', responce.token);
-         let data:any= jwt_decode(responce.token);
+        var response=res.toString()
+        localStorage.setItem('token', response);
+        let data:any= jwt_decode(response);
 
-         localStorage.setItem('user',JSON.stringify({...data}))
+        localStorage.setItem('user',JSON.stringify({...data}))
         if(data.role=='admin')
-        this.router.navigate(['about'
-        ])
+        window.location.href = "";
         else if (data.role=='client')
         this.router.navigate(['contact'])
       },err=>{
+        debugger
         this.router.navigate(['security/login']);
         this.toaster.error('Somthing error ')
       })
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
-function jwt_decode(token: any): any {
-  throw new Error('Function not implemented.');
 }
 
