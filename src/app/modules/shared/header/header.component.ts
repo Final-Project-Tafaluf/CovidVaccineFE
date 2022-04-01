@@ -17,14 +17,54 @@ export class HeaderComponent implements OnInit {
     active_login:"",
   };
 
+  loginFlag : boolean = true;
+  dashboardFlag : boolean = false;
+  profileFlag : boolean = false;
+  signoutFlag : boolean = false;
+  contactFlag : boolean = false;
+  serviceFlag : boolean = false;
+
+
   constructor(private router:Router) { }
 
   ngOnInit(): void {
+  debugger
+  this.checkLogin();
 
   }
+
+checkLogin():void{
+  debugger
+  var token = localStorage.getItem('token');
+
+  if(token){
+  var parseToken = JSON.parse(token)
+  let data:any= jwt_decode(parseToken.token);
+
+  if(data.role != null){
+    this.loginFlag  = false;
+    this.profileFlag  = true;
+    this.signoutFlag  = true;
+    this.contactFlag  = true;
+    this.serviceFlag = true;
+    if(data.role == 'admin'){
+
+      this.dashboardFlag  = true;
+    }
+    else{
+      this.dashboardFlag = false
+    }
+  }
+  }
+
+
+
+
+}
+
   activeNav(value :string){
   debugger
-   for (let key in this.activeObj) {
+  for (let key in this.activeObj) {
     debugger
     if(key ==value){
       //this.activeObj[key] ="active";
@@ -32,18 +72,17 @@ export class HeaderComponent implements OnInit {
       //this.activeObj[key]  ="";
     }
     console.log(this.activeObj)
-   }
+  }
   }
   logout(){
     this.router.navigate(['security/login'])
     localStorage.clear();
   }
-
-
-
-
-
 }
 
 
+
+function jwt_decode(token: string | null): any {
+  throw new Error('Function not implemented.');
+}
 

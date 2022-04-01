@@ -9,32 +9,32 @@
                 <a class="nav-link active" aria-current="page" href="">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="contact">Contact Us</a>
+              <a class="nav-link" *ngIf='contactFlag' routerLink="contact">Contact Us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="#">Dashboard </a>
+                <a class="nav-link" *ngIf='dashboardFlag' routerLink="#">Dashboard </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="#">Profile</a>
+                <a class="nav-link" *ngIf='profileFlag' routerLink="client/MyProfile">Profile</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false" href="#">Services</a>
+                <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false" *ngIf='serviceFlag' href="#">Services</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                    <li><a class="dropdown-item" routerLink="services/request-vac">Request vaccine</a></li>
-                    <li><a class="dropdown-item" routerLink="#">My schedule</a></li>
+                    <li><a class="dropdown-item" *ngIf='serviceFlag' routerLink="services/request-vac">Request vaccine</a></li>
+                    <li><a class="dropdown-item" *ngIf='serviceFlag' routerLink="#">My schedule</a></li>
                 </ul>
             </li>
             <li class="nav-item">
               <a class="nav-link"  routerLink="about">About US</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="security/login">SignUp</a>
+                <a class="nav-link" *ngIf='loginFlag' href="security/login">SignUp</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="security/login">Login</a>
+                <a class="nav-link" *ngIf='loginFlag' href="security/login">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" (click)="logout()">Sign out</a>
+                <a class="nav-link" *ngIf='signoutFlag'  (click)="logout()">Sign out</a>
             </li>
         </ul>
 

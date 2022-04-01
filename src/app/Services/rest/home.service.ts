@@ -57,13 +57,19 @@ createUser(data:any){
   debugger;
   data.image=this.display_Image;
   data.role_Id = 2;
-  this.http.post('https://localhost:44327/User/CreateUser/',data).subscribe((res)=>{
-    console.log('done');
+  this.http.post('https://localhost:44327/User/CreateUser/',data).subscribe((res)=>
+  {
+  if(res != "false")
+  {
     this.spinner.hide();
-    this.toastr.success('Saved Successfully :) ')
+    this.toastr.success('Saved Successfully')
+  }
+  else{
+    this.spinner.hide();
+    this.toastr.error('Please Enter Valid SSN/Email/Username');
+  }
   }, err=>{
     console.log('faild');
-
     this.spinner.hide();
     this.toastr.error(err.message , err.status)
   })

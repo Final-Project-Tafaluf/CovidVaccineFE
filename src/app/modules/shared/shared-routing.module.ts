@@ -6,6 +6,7 @@ import { HomeComponent } from 'src/app/components/home/home.component';
 
 import { AdminModule } from '../admin/admin.module';
 import { AuthModule } from '../auth/auth.module';
+import { ClientModule } from '../client/client.module';
 
 
 
@@ -13,7 +14,7 @@ const routes: Routes = [
   {
     path:'',
     component:HomeComponent
-  }, 
+  },
 {
   path:'about',
     component:AboutusComponent
@@ -32,7 +33,12 @@ const routes: Routes = [
   loadChildren:()=>AdminModule,
 
 }
+// ,
+// {
+//   path:'client',
+//   loadChildren:()=>ClientModule,
 
+// }
 ];
 
 @NgModule({
