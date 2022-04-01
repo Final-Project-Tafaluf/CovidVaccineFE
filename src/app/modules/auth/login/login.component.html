@@ -59,34 +59,53 @@
           <div class="row">
 
             <div class="input-field col s6">
-              <input id="last_name" type="text" class="validate" matInput formControlName="first_Name" [(ngModel)]="user.first_Name">
-              <label for="last_name">Full Name</label>
+              <input id="first_Name" type="text" class="validate" matInput
+              formControlName="first_Name" [(ngModel)]="user.first_Name">
+              <label for="first_Name">Fisrt Name</label>
             </div>
 
             <div class="input-field col s6">
-              <input id="last_name" type="text" class="validate">
-              <label for="last_name">SSN</label>
-            </div>
-
-          </div>
-
-          <div class="row">
-
-            <div class="input-field col s6">
-              <input id="last_name" type="text" class="validate" matInput formControlName="address" [(ngModel)]="user.address">
-              <label for="last_name">Address</label>
-            </div>
-
-            <div class="input-field col s6">
-              <input id="last_name" type="text" class="validate" matInput formControlName="phone" [(ngModel)]="user.phone">
-              <label for="last_name">Phone</label>
+              <input id="last_name" type="text" class="validate" matInput
+              formControlName="last_Name" [(ngModel)]="user.last_Name">
+              <label for="last_Name">Last Name</label>
             </div>
 
           </div>
 
           <div class="row">
+
             <div class="input-field col s6">
-              <input id="email" type="email" class="validate" matInput formControlName="email" [(ngModel)]="user.email">
+              <input id="Ssn" type="text" class="validate" formControlName="ssn" [(ngModel)]="user.ssn">
+              <label for="Ssn">SSN</label>
+            </div>
+
+            <div class="input-field col s6" >
+              <input id="username" type="text" class="validate" matInput
+              formControlName="username" [(ngModel)]="user.username">
+              <label for="username">Username</label>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="input-field col s6">
+              <input id="address" type="text" class="validate" matInput
+              formControlName="address" [(ngModel)]="user.address">
+              <label for="address">Address</label>
+            </div>
+
+            <div class="input-field col s6">
+              <input id="phone" type="text" class="validate" matInput
+              formControlName="phone" [(ngModel)]="user.phone">
+              <label for="phone">Phone</label>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="email" type="email" class="validate" matInput
+              formControlName="email" [(ngModel)]="user.email">
               <label for="email">Email</label>
             </div>
 
@@ -98,7 +117,8 @@
 
           <div class="row">
             <div class="input-field col s6">
-              <input id="password" type="password" class="validate" matInput formControlName="password" [(ngModel)]="user.password">
+              <input id="password" type="password" class="validate" matInput
+              formControlName="password" [(ngModel)]="user.password">
               <label for="password">Password</label>
             </div>
 
@@ -114,40 +134,33 @@
               <label for="birthdate">Birthdate</label>
             </div>
             <div class="input-field col s6">
-
-              <input id="birthdate" type="date" class="validate" matInput formControlName="birthdate" [(ngModel)]="user.birthdate">
+              <input id="birthdate" type="date" class="validate" matInput
+              formControlName="birthdate" [(ngModel)]="user.birthdate">
             </div>
 
             <div class="input-field col s6">
               <label for="gender">Gender</label>
-              <input id="gender" type="text" class="validate" matInput formControlName="gender" [(ngModel)]="user.gender">
+              <input id="gender" type="text" class="validate" matInput
+              formControlName="gender" [(ngModel)]="user.gender">
             </div>
 
           </div>
 
           <div class="row">
-            <div>
-              <label for="image">Image</label>
-            </div>
             <div class="col s6">
-              <div class="file-input">
-                <input type="file" class="file" #file formControlName="image" [(ngModel)]="user.image" (change)="uploadFile(file.files)">
-                <label for="file" (click)="file.click()">Select file</label>
+              <div class="file-input d-flex justify-content-center">
+                <input type="file" class="file" #file
+                formControlName="image" [(ngModel)]="user.image" (change)="uploadFile(file.files)">
+                <label for="file" (click)="file.click()">Choose Your Image</label>
               </div>
               <!-- <input id="image" type="file" class="validate"> -->
             </div>
 
             <div class="input-field col s6" hidden>
-              <input id="role" type="text" class="validate">
+              <input id="role" type="text" class="validate"
+              formControlName="role" [(ngModel)]="user.role">
               <label for="role">Role</label>
             </div>
-
-            <div class="input-field col s6" >
-              <input id="username" type="text" class="validate" matInput formControlName="gender" [(ngModel)]="user.username">
-              <label for="username">Username</label>
-            </div>
-
-
 
           </div>
             <button

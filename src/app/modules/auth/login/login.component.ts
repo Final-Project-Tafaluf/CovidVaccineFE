@@ -31,7 +31,8 @@ export class LoginComponent implements OnInit {
   (
     {
     first_Name:new FormControl(),
-    Ssn:new FormControl(),
+    last_Name:new FormControl(),
+    ssn:new FormControl(),
     gender:new FormControl(),
     birthdate:new FormControl(),
     address:new FormControl(),
@@ -40,6 +41,7 @@ export class LoginComponent implements OnInit {
     email:new FormControl(),
     password:new FormControl(),
     username:new FormControl(),
+    role:new FormControl(),
     }
   )
   uploadFile(file:any){
