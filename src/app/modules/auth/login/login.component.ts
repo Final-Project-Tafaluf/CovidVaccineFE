@@ -56,7 +56,6 @@ export class LoginComponent implements OnInit {
   }
   save(){
     this.home.createUser(this.CreateForm.value);
-    window.location.reload();
   }
   submit(){
     this.auth.submit(this.email,this.password);

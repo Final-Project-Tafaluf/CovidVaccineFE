@@ -7,6 +7,7 @@
 		<li class="tab col s3"><a class="white-text active" href="#login">login</a></li>
 		<li class="tab col s3"><a class="white-text" href="#register">register</a></li>
 	</ul>
+  <!-- Login Form -->
     <div id="login" class="col s12">
       <form class="col s12">
         <div class="form-container">
@@ -52,6 +53,8 @@
           </div>
       </form>
     </div>
+
+    <!-- Register Form  -->
     <div id="register" class="col s12">
       <form class="col s12" [formGroup]="CreateForm">
         <div class="form-container">
@@ -69,7 +72,6 @@
               formControlName="last_Name" [(ngModel)]="user.last_Name">
               <label for="last_Name">Last Name</label>
             </div>
-
           </div>
 
           <div class="row">
