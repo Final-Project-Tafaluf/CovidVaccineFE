@@ -5,6 +5,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { HomeService } from './home.service';
 import jwt_decode from "jwt-decode";
+import { LocalStorageService } from '../local-storage.service';
+
 
 
 @Injectable({
@@ -13,7 +15,8 @@ import jwt_decode from "jwt-decode";
 export class AuthService {
 
   constructor(public spinner :NgxSpinnerService,
-    public home :HomeService,public router:Router, private http :HttpClient,private toaster:ToastrService) { }
+    public home :HomeService,public router:Router, private http :HttpClient,private toaster:ToastrService
+    ,private localStorageService:LocalStorageService) { }
 
     submit(email:any, password:any){
       var body ={
@@ -29,14 +32,10 @@ export class AuthService {
       }
       debugger;
       this.http.post('https://localhost:44327/api/JWT/login/',body,requestOptions)
-      .subscribe((res:any)=>{
+      .subscribe((response:any)=>{
         debugger
-        console.log(res);
-        var response=res.toString()
-        localStorage.setItem('token', response);
-        let data:any= jwt_decode(response);
-
-        localStorage.setItem('user',JSON.stringify({...data}))
+        console.log(response);
+        let data:any = this.localStorageService.setToken(response);
         if(data.role=='admin')
         window.location.href = "";
         else if (data.role=='client')
@@ -44,7 +43,7 @@ export class AuthService {
       },err=>{
         debugger
         this.router.navigate(['security/login']);
-        this.toaster.error('Somthing error ')
+        this.toaster.error(err)
       })
     }
 
