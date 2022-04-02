@@ -77,10 +77,10 @@ input:focus + label {
 }
 
 /* Adding an outline to the label on focus */
-input:focus + label {
-  outline: 1px solid #000;
-  outline: -webkit-focus-ring-color auto 2px;
-}
+// input:focus + label {
+//   outline: 1px solid #000;
+//   outline: -webkit-focus-ring-color auto 2px;
+// }
 
 .btnn{
   height: 50px;

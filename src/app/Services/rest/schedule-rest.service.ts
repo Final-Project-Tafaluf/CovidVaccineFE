@@ -4,14 +4,16 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { returnOrUpdate } from 'ol/extent';
+import { LocalStorageService } from '../local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScheduleRestService {
-  data:any;
+  centersData:any;
+  vaccinesData:any;
   constructor(public spinner :NgxSpinnerService,
-    public router:Router, private http :HttpClient,private toaster:ToastrService) {
+    public router:Router, private http :HttpClient,private toaster:ToastrService,private localStorageService:LocalStorageService) {
 
      }
      getAllCenters():any{
@@ -21,10 +23,10 @@ export class ScheduleRestService {
 
       return this.http.get('https://localhost:44327/api/healthcentervac/GetallHealthCenters').toPromise().then( (res)=>{
         debugger
-         this.data=res;
+         this.centersData=res;
        this.spinner.hide();
         this.toaster.success('Data Retrieved !!')
-        return this.data;
+        return this.centersData;
       }, err=>{
         //hide spinner
         this.spinner.hide();
@@ -35,6 +37,48 @@ export class ScheduleRestService {
       })
       
     }
-
-  
+    getAllvaccines():any{
+      //show spinner
+      this.spinner.show();
+      //hits apidebugger
+      debugger
+      return this.http.get('https://localhost:44327/api/vaccine/GetallVaccines').toPromise().then( (res)=>{
+        debugger
+         this.vaccinesData=res;
+       this.spinner.hide();
+        this.toaster.success('Data Retrieved !!')
+        return this.vaccinesData;
+      }, err=>{
+        //hide spinner
+        this.spinner.hide();
+         //Toastr
+        this.toaster.error(err.message);
+        this.toaster.error(err.status);
+        return err.message;
+      })
+      
+    }
+    sendRequest(data:any){
+      this.spinner.show();
+      debugger;
+      var token = this.localStorageService.getToken();
+      var tokenData: any = this.localStorageService.tokenDecode(token);
+      data.User_Id = Number(tokenData.nameid);
+      this.http.post('https://localhost:44327/api/UserRequest/CreateUserRequest/',data).subscribe((res)=>
+      {
+      if(res != "false")
+      {
+        this.spinner.hide();
+        this.toaster.success('Saved Successfully')
+      }
+      else{
+        this.spinner.hide();
+        this.toaster.error('Please Enter Valid data');
+      }
+      }, err=>{
+        console.log('faild');
+        this.spinner.hide();
+        this.toaster.error(err.message , err.status)
+      })
+    }
 }
