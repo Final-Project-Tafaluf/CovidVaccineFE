@@ -10,6 +10,12 @@ import { ManageUserComponent } from './manage-user/manage-user.component';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardContentComponent } from './dashboard-content/dashboard-content.component';
 import { DashboardManageUsersComponent } from './dashboard-manage-users/dashboard-manage-users.component';
+import { ManageHealthCenterComponent } from './manage-health-center/manage-health-center.component';
+import { ManageVaccineComponent } from './manage-vaccine/manage-vaccine.component';
+import { ManageAboutUsComponent } from './manage-about-us/manage-about-us.component';
+import { ManageContactUsComponent } from './manage-contact-us/manage-contact-us.component';
+import { ManageHomePageComponent } from './manage-home-page/manage-home-page.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 
 @NgModule({
@@ -20,7 +26,13 @@ import { DashboardManageUsersComponent } from './dashboard-manage-users/dashboar
     ManageHealthcenterComponent,
     ManageUserComponent,
     DashboardContentComponent,
-    DashboardManageUsersComponent
+    DashboardManageUsersComponent,
+    ManageHealthCenterComponent,
+    ManageVaccineComponent,
+    ManageAboutUsComponent,
+    ManageContactUsComponent,
+    ManageHomePageComponent,
+    UpdateProfileComponent
   ],
   imports: [
     CommonModule,
