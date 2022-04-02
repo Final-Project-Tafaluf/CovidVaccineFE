@@ -9,27 +9,28 @@ import { ToastrService } from 'ngx-toastr';
 export class UserProfileRestService {
 
   constructor(private spinner :NgxSpinnerService, private http:HttpClient, private toastr:ToastrService) { }
-  data :any;
+  data:any=[{}]
   selectedUser:any={};
 
   getUserProfileInfoByID(id:number){
-    //show spinner 
+    //show spinner
     this.spinner.show();
     //hits api
-    debugger; 
+    debugger;
     this.http.get('https://localhost:44327/User/GetUserById/'+id).subscribe((res)=>{
-      debugger;
+
       this.selectedUser=res;
+      debugger
       this.spinner.hide();
       this.toastr.success('Data Retieved !!')
     }, err=>{
-      //hide spinner 
-      this.spinner.hide(); 
+      //hide spinner
+      this.spinner.hide();
        //Toastr
       this.toastr.error(err.message);
       this.toastr.error(err.status);
     })
-     }
+    }
 
   updateUserProfile(body:any){
     debugger

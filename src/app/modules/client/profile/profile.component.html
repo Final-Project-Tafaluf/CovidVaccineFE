@@ -3,17 +3,13 @@
 <div class="body1">
   <div class="container">
     <div class="main-body">
-    
-          <!-- Breadcrumb -->
+
           <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
-              <!-- <li class="breadcrumb-item"><a href="index.html">Home</a></li> -->
-              <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li> -->
               <li class="breadcrumb-item active" aria-current="page">My Profile</li>
             </ol>
           </nav>
-          <!-- /Breadcrumb -->
-    
+
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card">
@@ -22,26 +18,17 @@
 
                     <!-- Profile pic -->
 
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
-                    <!-- <img src="https://www.hecmsenior.com/wp-content/uploads/2021/06/Profile-Pic-Icon.png" alt="Admin" class="rounded-circle" width="150"> -->
-                    
+                    <img src="../../../../assets/images/{{userProfileRestService.selectedUser.image}}" alt="Admin" class="rounded-circle" width="150">
+
                     <!-- /Profile pic -->
 
                     <div class="mt-3">
-                      <h4>John Doe</h4>
-                      <!-- <p class="text-secondary mb-1">Full Stack Developer</p>
-                      <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p> -->
-                      <!-- <button class="btn btn-primary">Upload Photo</button> -->
-
-          <!--- ////This is an button for edit page(edit-profile-componant) not just a dialog but there's no functionality in it just a page design -----------> 
-                      <!-- <button class="btn btn-primary" ><a class="ButtonAncher" href="client/EditProfile" >Edit</a></button> -->
-                      <!-- <button class="btn btn-outline-primary">Message</button> -->
+                      <h4>{{userProfileRestService.selectedUser.first_Name}}  {{userProfileRestService.selectedUser.last_Name}}</h4>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
 
             <div class="col-md-8">
               <div class="card mb-3">
@@ -62,7 +49,7 @@
                       <h6 class="mb-0">Last Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <!-- Kenneth Valdez --> 
+                      {{userProfileRestService.selectedUser.last_Name}}
                     </div>
                   </div>
                   <hr>
@@ -72,7 +59,7 @@
                       <h6 class="mb-0">Gender</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <!-- Male --> {{userProfileRestService.selectedUser.gender}}
+                      {{userProfileRestService.selectedUser.gender}}
                     </div>
                   </div>
                   <hr>
@@ -82,7 +69,7 @@
                       <h6 class="mb-0">Birthdate</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <!-- 22/2/2022 --> {{userProfileRestService.selectedUser.birthdate}}
+                      {{userProfileRestService.selectedUser.birthdate}}
                     </div>
                   </div>
                   <hr>
@@ -92,18 +79,17 @@
                       <h6 class="mb-0">Phone</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <!-- (962) 816-9029 --> {{userProfileRestService.selectedUser.phone}}
+                      {{userProfileRestService.selectedUser.phone}}
                     </div>
                   </div>
                   <hr>
-
 
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Address</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <!-- Amman, Tla'a Al-Ali --> {{userProfileRestService.selectedUser.address}}
+                      {{userProfileRestService.selectedUser.address}}
                     </div>
                   </div>
                   <hr>
@@ -113,7 +99,7 @@
                       <h6 class="mb-0">Email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <!-- example@domain.com  -->{{userProfileRestService.selectedUser.email}}
+                      {{userProfileRestService.selectedUser.email}}
                     </div>
                   </div>
                   <hr>
@@ -123,15 +109,28 @@
                       <h6 class="mb-0">Password</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      ********
+                      {{userProfileRestService.selectedUser.password}}
                     </div>
                   </div>
                   <hr>
-
                   <div class="row">
                     <div class="col-sm-12">
-                        <button class="btn btn-info " (click)="openUpdateDialog(userProfile.id,userProfile.first_Name,userProfile.gender,userProfile.birthdate,userProfile.address,userProfile.phone,userProfile.email,userProfile.password,userProfile.username)" >Edit</button>
-                      <!-- <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a> -->
+                        <button class="btn btn-info "
+                        (click)="openUpdateDialog(
+                          userProfileRestService.selectedUser.id,
+                          userProfileRestService.selectedUser.first_Name,
+                          userProfileRestService.selectedUser.last_Name,
+                          userProfileRestService.selectedUser.ssn,
+                          userProfileRestService.selectedUser.gender,
+                          userProfileRestService.selectedUser.birthdate,
+                          userProfileRestService.selectedUser.address,
+                          userProfileRestService.selectedUser.phone,
+                          userProfileRestService.selectedUser.email,
+                          userProfileRestService.selectedUser.password,
+                          userProfileRestService.selectedUser.username,
+                          userProfileRestService.selectedUser.image
+                          )" >Edit
+                        </button>
                     </div>
                   </div>
                 </div>
@@ -144,118 +143,150 @@
 
 
  <!------------------------------------------- Edit Profile/ Dialog section ------------------------------------->
- 
+
 
 
 <ng-template #callUpdateDialog >
 
-    <div class="body1">
-        <div class="container">
-            <div class="main-body">
-        
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
-                                    <div class="mt-3">
-                                        <h4>John Doe</h4>
-                                        <!-- <p class="text-secondary mb-1">Full Stack Developer</p>
-                                        <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p> -->
-                                        <button class="btn btn-primary">Upload Photo</button>
-                                        <!-- <button class="btn btn-outline-primary">Message</button> -->
-                                    </div>
-                                </div>
+  <div class="body1">
+    <div class="container">
+      <div class="main-body">
+          <!-- Breadcrumb -->
+          <nav aria-label="breadcrumb" class="main-breadcrumb">
+              <ol class="breadcrumb">
+                <!-- <li class="breadcrumb-item"><a href="index.html">Home</a></li> -->
+                <li class="breadcrumb-item"><a href="client/MyProfile">My Profile</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit</li>
+              </ol>
+          </nav>
+            <!-- /Breadcrumb -->
+          <div class="row" [formGroup]="UpdateForm">
+              <div class="col-lg-4">
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="d-flex flex-column align-items-center text-center">
+                              <img src="../../../../assets/images/{{userProfile.image}}" alt="Admin" class="rounded-circle" width="150">
+                              <div class="mt-3">
+                                  <h4 formControlName="image" [(ngModel)]="userProfile.image"></h4>
+                                  <input type="file" class="btn btn-primary" #file
+                                    formControlName="image" [(ngModel)]="userProfile.image" (change)="uploadFile(file.files)">
+
+                                    <label for="file" (click)="file.click()">Choose Your Image</label>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-8">
+                  <div class="card">
+                      <div class="card-body">
+
+                          <div class="row mb-3">
+                              <div class="col-sm-3">
+                                  <h6 class="mb-0">First Name</h6>
+                              </div>
+                              <div class="col-sm-9 text-secondary">
+                                  <input type="text" class="form-control" matInput formControlName="first_Name"
+                                  [(ngModel)]="userProfile.first_Name" [readonly]="true">
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Last Name</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input type="text" class="form-control" matInput formControlName="last_Name"
+                                [(ngModel)]="userProfile.last_Name" [readonly]="true">
                             </div>
                         </div>
-                    </div>
-    
-    <div class="col-lg-8">
-        <div class="card">
-            <div class="card-body" [formGroup]="UpdateForm">
-                <div class="row mb-3">
-                    <div class="col-sm-3">
-                        <h6 class="mb-0">First Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                        <input type="text" class="form-control" value="John Doe" matInput formControlName="first_Name"
-                        [(ngModel)]="userProfile.first_Name">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-sm-3">
-                        <h6 class="mb-0">Gender</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                        <input type="text" class="form-control" value="Male" matInput formControlName="gender"
-                        [(ngModel)]="userProfile.gender">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-sm-3">
-                        <h6 class="mb-0">Birthdate</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                        <input type="text" class="form-control" value="22/2/2022" matInput formControlName="birthdate"
-                        [(ngModel)]="userProfile.birthdate">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-sm-3">
-                        <h6 class="mb-0">Phone</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                        <input type="text" class="form-control" value="(962) 816-9029" matInput formControlName="phone"
-                        [(ngModel)]="userProfile.phone">
-                    </div>
-                </div>
-                
-                <div class="row mb-3">
-                    <div class="col-sm-3">
-                        <h6 class="mb-0">Address</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                        <input type="text" class="form-control" value="Amman, Tla'a Al-Ali" matInput formControlName="address"
-                        [(ngModel)]="userProfile.address">
-                    </div>
-                </div>
 
-                <div class="row mb-3">
-                    <div class="col-sm-3">
-                        <h6 class="mb-0">Email</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                        <input type="email" class="form-control" value="example@domain.com" matInput formControlName="email"
-                        [(ngModel)]="userProfile.email">
-                    </div>
-                </div>
+                        <div class="row mb-3">
+                          <div class="col-sm-3">
+                              <h6 class="mb-0">SSN</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                              <input type="text" class="form-control" matInput formControlName="ssn"
+                              [(ngModel)]="userProfile.ssn" [readonly]="true">
+                          </div>
+                      </div>
 
-                <div class="row mb-3">
-                    <div class="col-sm-3">
-                        <h6 class="mb-0">Password</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                        <input type="password" class="form-control" value="Password" matInput formControlName="password"
-                        [(ngModel)]="userProfile.password">
-                    </div>
-                </div>
+                          <div class="row mb-3">
+                              <div class="col-sm-3">
+                                  <h6 class="mb-0">Gender</h6>
+                              </div>
+                              <div class="col-sm-9 text-secondary">
+                                  <input type="text" class="form-control" value="Male" matInput formControlName="gender"
+                                  [(ngModel)]="userProfile.gender">
+                              </div>
+                          </div>
 
+                          <div class="row mb-3">
+                              <div class="col-sm-3">
+                                  <h6 class="mb-0">Birthdate</h6>
+                              </div>
+                              <div class="col-sm-9 text-secondary">
+                                  <input type="date" class="form-control" value="22/2/2022" matInput formControlName="birthdate"
+                                  [(ngModel)]="userProfile.birthdate">
+                              </div>
+                          </div>
 
-                <div class="row">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-9 text-secondary">
-                        <input (click)="update()" type="button" class="btn btn-primary px-4" value="Save Changes">
-                    </div>
-                </div>
-            </div>
-        </div>
+                          <div class="row mb-3">
+                              <div class="col-sm-3">
+                                  <h6 class="mb-0">Phone</h6>
+                              </div>
+                              <div class="col-sm-9 text-secondary">
+                                  <input type="text" class="form-control" value="(962) 816-9029" matInput formControlName="phone"
+                                  [(ngModel)]="userProfile.phone">
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <div class="col-sm-3">
+                                  <h6 class="mb-0">Address</h6>
+                              </div>
+                              <div class="col-sm-9 text-secondary">
+                                  <input type="text" class="form-control" value="Amman, Tla'a Al-Ali" matInput formControlName="address"
+                                  [(ngModel)]="userProfile.address">
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <div class="col-sm-3">
+                                  <h6 class="mb-0">Email</h6>
+                              </div>
+                              <div class="col-sm-9 text-secondary">
+                                  <input type="email" class="form-control" value="example@domain.com" matInput formControlName="email"
+                                  [(ngModel)]="userProfile.email" [readonly]="true">
+                              </div>
+                          </div>
+
+                          <div class="row mb-3">
+                              <div class="col-sm-3">
+                                  <h6 class="mb-0">Password</h6>
+                              </div>
+                              <div class="col-sm-9 text-secondary">
+                                  <input type="password" class="form-control" value="Password" matInput formControlName="password"
+                                  [(ngModel)]="userProfile.password">
+                              </div>
+                          </div>
+
+                          <div class="row">
+                              <div class="col-sm-3"></div>
+                              <div class="col-sm-9 text-secondary">
+                                  <input (click)="Update()" type="button" class="btn btn-primary px-4" value="Save Changes">
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
     </div>
-</div>
-</div>
-</div>
-</div>
+  </div>
+
 
 </ng-template>
 
-    <app-footer></app-footer>
+<app-footer></app-footer>
