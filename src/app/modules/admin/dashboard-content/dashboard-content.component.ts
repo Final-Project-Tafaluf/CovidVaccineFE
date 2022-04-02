@@ -12,10 +12,11 @@ export class DashboardContentComponent implements OnInit {
   constructor(public dashboardMainRestService:DashboardMainRestService) { }
 
   ngOnInit(): void {
-    this.dashboardMainRestService.getAll();
+    this.getAllUsers()
     // var count = data.length;
     // console.log(count);
 
   }
-
+  async getAllUsers(){
+    var usersData =await this.dashboardMainRestService.getAll();}
 }
