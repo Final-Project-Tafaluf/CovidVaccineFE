@@ -12,10 +12,12 @@ import { DashboardContentComponent } from './dashboard-content/dashboard-content
 import { DashboardManageUsersComponent } from './dashboard-manage-users/dashboard-manage-users.component';
 import { ManageHealthCenterComponent } from './manage-health-center/manage-health-center.component';
 import { ManageVaccineComponent } from './manage-vaccine/manage-vaccine.component';
-import { ManageAboutUsComponent } from './manage-about-us/manage-about-us.component';
 import { ManageContactUsComponent } from './manage-contact-us/manage-contact-us.component';
-import { ManageHomePageComponent } from './manage-home-page/manage-home-page.component';
-import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { EditHomePageComponent } from './edit-home-page/edit-home-page.component';
+import { EditAboutPageComponent } from './edit-about-page/edit-about-page.component';
+import { EditContactUsPageComponent } from './edit-contact-us-page/edit-contact-us-page.component';
+import { ManageSchedulesComponent } from './manage-schedules/manage-schedules.component';
+import { ManageUserRequestsComponent } from './manage-user-requests/manage-user-requests.component';
 
 
 @NgModule({
@@ -29,10 +31,12 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     DashboardManageUsersComponent,
     ManageHealthCenterComponent,
     ManageVaccineComponent,
-    ManageAboutUsComponent,
     ManageContactUsComponent,
-    ManageHomePageComponent,
-    UpdateProfileComponent
+    EditHomePageComponent,
+    EditAboutPageComponent,
+    EditContactUsPageComponent,
+    ManageSchedulesComponent,
+    ManageUserRequestsComponent
   ],
   imports: [
     CommonModule,

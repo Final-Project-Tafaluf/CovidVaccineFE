@@ -21,36 +21,61 @@
 						<label>Navigation</label>
 					</li>
 					<li class="nav-item" >
-					    <a href="admin/dashboard" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+					    <a href="" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Site Home</span></a>
 					</li>
 					<li class="nav-item" >
-					    <a href="admin/manageHealthCenter1" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Manage health center</span></a>
+					    <a href="admin/dashboard" class="nav-link "><span class="pcoded-micon"><i class="fas fa-chart-line"></i></span><span class="pcoded-mtext">Main Dashboard</span></a>
 					</li>
-                    <li class="nav-item">
-					    <a href="admin/manageVaccine" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Manage Vaccine</span></a>
+
+					<li class="nav-item pcoded-menu-caption">
+						<label>Users</label>
+					</li>
+
+					<li class="nav-item">
+					    <a  class="nav-link " (click)="goToManageUsers()"><span class="pcoded-micon"><i class="fas fa-user-friends"></i></span><span class="pcoded-mtext">Manage Users</span></a>
 					</li>
 
                     <li class="nav-item">
-					    <a href="admin/manageAboutUs" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Manage About Us</span></a>
+					    <a class="nav-link " (click)="goToManageSchedule()"><span class="pcoded-micon"><i class="fas fa-clipboard-list"></i></span><span class="pcoded-mtext">Manage Schedules</span></a>
 					</li>
 
-                    <li class="nav-item">
-					    <a href="admin/manageContactUs" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Manage Contact Us</span></a>
-					</li>   
-                    <li class="nav-item">
-					    <a href="admin/manageHomePage" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Manage HomePage</span></a>
-					</li>   
-                    
-                    <li class="nav-item">
-					    <a  class="nav-link " (click)="goToUsers()"><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Manage Users</span></a>
+					<li class="nav-item">
+					    <a class="nav-link " (click)="goToManageContactUs()"><span class="pcoded-micon"><i class="far fa-comments"></i></span><span class="pcoded-mtext">Manage Contact Us</span></a>
 					</li>
 
-                    <li class="nav-item">
-					    <a href="admin/UpdateProfile" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">UpdateProfile</span></a>
+					<li class="nav-item pcoded-menu-caption">
+						<label>Centers and Resources</label>
+					</li>
+					<li class="nav-item" >
+					    <a class="nav-link " (click)="goToManageHealthCenter()"><span class="pcoded-micon"><i class="far fa-hospital"></i></span><span class="pcoded-mtext">Manage health center</span></a>
 					</li>
                     <li class="nav-item">
-					    <a href="" class="nav-link " ><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">LOGOUT</span></a>
+					    <a  class="nav-link " (click)="goToManageVaccine()"><span class="pcoded-micon"><i class="fas fa-syringe"></i></span><span class="pcoded-mtext">Manage Vaccine</span></a>
 					</li>
+
+					<li class="nav-item pcoded-menu-caption">
+						<label>Pages</label>
+					</li>
+
+					<li class="nav-item">
+					    <a class="nav-link " (click)="goToEditHomePage()"><span class="pcoded-micon"><i class="far fa-newspaper"></i></span><span class="pcoded-mtext">Edit HomePage</span></a>
+					</li>
+
+					<li class="nav-item">
+					    <a class="nav-link " (click)="goToEditAboutUs()"><span class="pcoded-micon"><i class="far fa-address-card"></i></span><span class="pcoded-mtext">Edit About Us</span></a>
+					</li>
+
+					<li class="nav-item">
+					    <a class="nav-link "(click)="goToEditContactUs()"><span class="pcoded-micon"><i class="fas fa-comment-alt"></i></span><span class="pcoded-mtext">Edit Contact Us</span></a>
+					</li>
+
+                     
+					
+
+                     <!-- <br>
+                    <li class="nav-item">
+					    <a href="" class="nav-link " ><span class="pcoded-micon"><i class="fas fa-sign-out-alt"></i></span><span class="pcoded-mtext">LOGOUT</span></a>
+					</li> -->
 
                     
 
@@ -67,7 +92,7 @@
 					<a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
 					<a href="#!" class="b-brand">
 						<!-- ========   change your logo hear   ============ -->
-						<img src="./assets/flat-able-lite-dashboard/images/logo.png" alt="" class="logo">
+						<img src="../../../assets/life_care/images/logo.png" alt="" class="logo">
 						<img src="./assets/flat-able-lite-dashboard/images/logo-icon.png" alt="" class="logo-thumb">
 					</a>
 					<a href="#!" class="mob-toggler">
@@ -85,7 +110,9 @@
 								</button>
 							</div>
 						</li>
-						<li class="nav-item">
+						<!-- ========   Dropdown lists here   ============ -->
+
+						<!-- <li class="nav-item">
 							<div class="dropdown">
 								<a class="dropdown-toggle h-drop" href="#" data-toggle="dropdown">
 									Dropdown
@@ -151,9 +178,25 @@
 									</div>
 								</div>
 							</div>
+						</li> -->
+					</ul>
+					<ul class="navbar-nav ml-auto">
+						
+						<li>
+							<div>
+								<li><a href="index.html" ><i class="feather icon-log-out m-r-5"></i> Logout</a></li>
+							</div>
 						</li>
 					</ul>	
 				</div>
 	</header>
 </body>
-<app-dashboard-content *ngIf="toggle"></app-dashboard-content>
+<app-dashboard-content *ngIf="ContentToggle"></app-dashboard-content>
+<app-dashboard-manage-users *ngIf="ManageUsersToggle"></app-dashboard-manage-users>
+<app-manage-vaccine *ngIf="ManageVaccineToggle"></app-manage-vaccine>
+<app-manage-health-center *ngIf="ManageHealthCenterToggle"></app-manage-health-center>
+<app-manage-contact-us *ngIf="ManageContactUsToggle"></app-manage-contact-us>
+<app-manage-schedules *ngIf="ManageScheduleToggle"></app-manage-schedules>
+<app-edit-home-page *ngIf="EditHomePageToggle"></app-edit-home-page>
+<app-edit-about-page *ngIf="EditAboutUsToggle"></app-edit-about-page>
+<app-edit-contact-us-page *ngIf="EditContactUsToggle"></app-edit-contact-us-page>
