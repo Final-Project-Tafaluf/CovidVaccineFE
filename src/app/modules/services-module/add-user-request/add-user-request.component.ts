@@ -28,7 +28,7 @@ export class AddUserRequestComponent implements OnInit {
   constructor(public scheduleRestService: ScheduleRestService) {}
 
   ngOnInit(): void {
-    debugger;
+    // debugger;
     this.generateMap();
     this.scheduleRestService.getAllvaccines();
   }

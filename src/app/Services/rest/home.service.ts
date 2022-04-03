@@ -19,7 +19,7 @@ export class HomeService {
     //show spinner
     this.spinner.show();
     //hits api
-    debugger;
+    // debugger;
     this.http.get('https://localhost:44327/User/GetUserByName/'+name).subscribe((res)=>{
       this.data=res;
       console.log(this.data);
@@ -54,7 +54,7 @@ getAllUser(){
 
 createUser(data:any){
   this.spinner.show();
-  debugger;
+  // debugger;
   data.image=this.display_Image;
   data.role_Id = 2;
   this.http.post('https://localhost:44327/User/CreateUser/',data).subscribe((res)=>
@@ -85,7 +85,7 @@ updateUser(body:any){
 
 uploadAttachment(file:FormData)
 {
-  debugger;
+  // debugger;
   this.http.post('https://localhost:44327/User/Upload/',file)
   .subscribe((res:any)=>{
     if(res)

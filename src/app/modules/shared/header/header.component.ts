@@ -39,12 +39,12 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    debugger;
+    // debugger;
     this.checkLogin();
   }
 
   checkLogin(): void {
-    debugger;
+    // debugger;
     var token = this.localStorageService.getToken();
 
     if (token) {
@@ -66,9 +66,9 @@ export class HeaderComponent implements OnInit {
   }
 
   activeNav(value: string) {
-    debugger;
+    // debugger;
     for (let key in this.activeObj) {
-      debugger;
+      // debugger;
       if (key == value) {
         //this.activeObj[key] ="active";
       } else {

@@ -15,9 +15,9 @@ export class DashboardMainRestService {
     //show spinner
     this.spinner.show();
     //hits api
-    debugger
+    // debugger
     return this.http.get('https://localhost:44327/User/GetAllUsers/').toPromise().then( (res)=>{
-      debugger
+      // debugger
       this.data=res;
       this.spinner.hide();
       this.toastr.success('Data Retrieved !!')

@@ -12,7 +12,7 @@ export class ContactUsRestService {
   data :any; 
   createContact(data:any){
     this.spinner.show();
-    debugger;
+    // debugger;
     this.http.post('https://localhost:44327/api/ContactUs/create_contactus/',data).subscribe((res)=>{
       console.log('done');
       this.spinner.hide();
@@ -29,7 +29,7 @@ export class ContactUsRestService {
     this.spinner.show();
     //hits api
     this.http.get('https://localhost:44327/api/ContactUs/getallcontactus/').subscribe((res)=>{
-      debugger
+      // debugger
       this.data=res;
       this.spinner.hide();
       this.toastr.success('Data Retrieved !!')
@@ -50,12 +50,12 @@ export class ContactUsRestService {
     })
   }
   getContactsBySubject(Subject:string){
-    debugger
+    // debugger
     if (!Subject) {
       Subject='null';
     }
     this.http.get('https://localhost:44327/api/ContactUs/GetContactFeedbackBySubject/'+Subject).subscribe((res)=>{
-      debugger
+      // debugger
       this.data=res;
       this.spinner.hide();
       this.toastr.success('Data Retrieved !!')
