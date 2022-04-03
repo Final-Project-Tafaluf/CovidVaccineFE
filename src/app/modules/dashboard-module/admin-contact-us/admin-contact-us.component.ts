@@ -40,7 +40,7 @@ export class AdminContactUsComponent implements OnInit {
   }
 
   inputValue(ev: any) {
-    debugger;
+    // debugger;
     this.contactSubjectSearch = ev.target.value;
     console.log(ev.target.value);
   }

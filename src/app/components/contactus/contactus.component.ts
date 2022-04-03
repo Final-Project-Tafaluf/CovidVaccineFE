@@ -19,7 +19,7 @@ export class ContactusComponent implements OnInit {
   ngOnInit(): void {
   }
   send(){
-    debugger
+    // debugger
     this.contactUsRestService.createContact(this.CreateForm.value);
     
   }

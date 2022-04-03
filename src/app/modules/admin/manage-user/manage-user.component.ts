@@ -26,7 +26,7 @@ export class ManageUserComponent implements OnInit {
   }
 
   search(){
-    debugger;
+    // debugger;
     this.home.getbyName(this.first_Name.toString());
     }
 

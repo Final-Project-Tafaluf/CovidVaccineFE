@@ -1,0 +1,11 @@
+.page_container{
+    margin-top: 100px;
+}
+
+.remove_btn:hover{
+    // padding: 2px;
+    position: absolute;
+    background-color: rgb(208, 221, 217);
+    transition: .7s;
+    cursor: pointer;
+}

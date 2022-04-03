@@ -30,10 +30,10 @@ export class AuthService {
       const requestOptions={
         headers:new HttpHeaders(headerDir)
       }
-      debugger;
+      // debugger;
       this.http.post('https://localhost:44327/api/JWT/login/',body,requestOptions)
       .subscribe((response:any)=>{
-        debugger
+        // debugger
         console.log(response);
         let data:any = this.localStorageService.setToken(response);
         if(data.role=='admin')
@@ -41,7 +41,7 @@ export class AuthService {
         else if (data.role=='client')
         this.router.navigate(['contact'])
       },err=>{
-        debugger
+        // debugger
         this.router.navigate(['security/login']);
         this.toaster.error(err)
       })
