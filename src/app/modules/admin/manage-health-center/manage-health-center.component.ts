@@ -23,6 +23,8 @@ export class ManageHealthCenterComponent implements OnInit {
   {
     this.dialog.open(CreateHealthCenterComponent);
   }
+ 
+  
 
   openUpdateDailog(id1 :any,
     center_Name1 :any,center_Phone1:any,center_Location1:any){
@@ -60,6 +62,7 @@ export class ManageHealthCenterComponent implements OnInit {
   // }
   update(){
     this.manageHealthCenterRestService.updateHeathCenter(this.UpdateForm.value);
+    this.dialog.closeAll();
   }
   openDeleteDailog(id:number)
   {
@@ -69,10 +72,14 @@ export class ManageHealthCenterComponent implements OnInit {
         {
           if(result=='yes')
           this.manageHealthCenterRestService.deleteItem(id);
-          else if(result=='no')
-          console.log("Thank you ");
+          else if(result=='no'){
+            console.log("Thank you ");
+            this.dialog.closeAll();
+          }
+        
           
         }
       })
+      
   }
 }

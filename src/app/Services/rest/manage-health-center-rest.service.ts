@@ -56,6 +56,8 @@ export class ManageHealthCenterRestService {
       
        this.spinner.hide();
        this.toastr.success('saved Successfully :)');
+       this.getAll();
+      
      },error=>{
        this.spinner.hide();
        this.toastr.error(error.status,error.message);
@@ -65,7 +67,8 @@ export class ManageHealthCenterRestService {
    updateHeathCenter(body:any){
      this.http.put('https://localhost:44327/api/healthcentervac/UpdateCenter',body).subscribe((res)=>{
        this.toastr.success('updated Successfully :)');
-       window.location.reload();
+      //  window.location.reload();
+      this.getAll();
      },err=>{
        this.toastr.error(err.status,err.message);
      })
@@ -75,7 +78,8 @@ export class ManageHealthCenterRestService {
      deleteItem(id:number){
        this.http.delete('https://localhost:44327/api/healthcentervac/delete/'+id).subscribe((res)=>{
          this.toastr.success('Deleted Successfully :)');
-         window.location.reload();
+        //  window.location.reload();
+        this.getAll();
        },err=>{
          this.toastr.error(err.status,err.message);
        })
