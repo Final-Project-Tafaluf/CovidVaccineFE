@@ -19,12 +19,105 @@
         </div>
         <!-- [ breadcrumb ] end -->
         <!-- [ Main Content ] start -->
-        <div class="row">
-
-<p>manage Health Center- guys add what you want in this div</p>
-
-
-        </div>
+              <!-- prject ,team member start -->
+              <div class="col-xl-6 col-md-12">
+                <div class="card table-card">
+                    <div class="card-header">
+                        <h5>Manage Health Center</h5>
+                        <div class="card-header-right">
+                            <div class="btn-group card-option">
+                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="feather icon-more-horizontal"></i>
+                                </button>
+                                <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                                    <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                                    <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                                    <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
+                                    <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                          
+                                           Center Number 
+                                        </th>
+                                        <th>Center Name</th>
+                                        <th>Center Location</th>
+                                        <th>Center Phone</th>
+                                        <th>Operation</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let center of manageHealthCenterRestService.data" >
+                                     
+                                        <td>{{center.id}}</td>
+                                        <td>{{center.center_Name}}</td>
+                                        <td>{{center.center_Location}}</td>
+                                        <td>{{center.center_Phone}}</td>
+                                        <td> 
+                                          
+                                            <!-- <button (click)="openDeleteDailog(center.id)">Delete</button> -->
+                                            <button type="button" class="btn  btn-danger" (click)="openDeleteDailog(center.id)">Delete</button>
+                                            <!-- <button (click)="openUpdateDailog(center.id,
+                                            center.center_Name,center.center_Phone,center.center_Location)">Update</button> -->
+                                            
+                                            <button type="button" class="btn  btn-secondary" (click)="openUpdateDailog(center.id,
+                                            center.center_Name,center.center_Phone,center.center_Location)">Update</button>
+                                        </td>
+                                     </tr>
+                                    
+                                </tbody>
+                            </table>
+                            <ng-template #callUpdateDailog>
+                                <form [formGroup]="UpdateForm">
+                                    <ul>
+                                <li>
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Enter the Center Name</mat-label>
+                                        <input type="text" matInput formControlName="center_Name"
+                                         [(ngModel)]="center.center_Name">
+                                      </mat-form-field> </li> 
+                                      <li>
+                                        <mat-form-field class="example-full-width" appearance="fill">
+                                            <mat-label>Enter the Center Phone</mat-label>
+                                            <input type="text" matInput formControlName="center_Phone"
+                                             [(ngModel)]="center.center_Phone">
+                                          </mat-form-field> </li> 
+                                          <li>
+                                            <mat-form-field class="example-full-width" appearance="fill">
+                                                <mat-label>Enter the Center Locatoin</mat-label>
+                                                <input type="text" matInput formControlName="center_Location"
+                                                 [(ngModel)]="center.center_Location">
+                                              </mat-form-field> </li> 
+                                      
+                                    </ul>
+                                    <button (click)="update()">Update</button>
+                                
+                                </form>
+                                
+                                
+                                
+                                </ng-template>
+                                
+                                <ng-template #callDeleteDailog>
+                                
+                                <h2>Are you sure you want to delete this item?</h2>
+                                <button mat-button mat-dialog-close="no">No</button>
+                                <button mat-button mat-dialog-close="yes">yes</button>
+                                </ng-template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <button (click)="create()">Create</button> -->
+            <button type="button" class="btn  btn-primary" (click)="create()" >Create</button>
         <!-- [ Main Content ] end -->
     </div>
 </div>
