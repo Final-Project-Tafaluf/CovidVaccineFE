@@ -56,7 +56,7 @@ export class ProfileComponent implements OnInit {
       username:username1,
       image:image1
     }
-    debugger
+    // debugger
     this.UpdateForm.controls['id'].setValue(this.userProfile.id)
     this.UpdateForm.controls['ssn'].setValue(this.userProfile.ssn)
     this.UpdateForm.controls['email'].setValue(this.userProfile.email)
@@ -68,7 +68,7 @@ export class ProfileComponent implements OnInit {
 
   Update(){
     this.userProfileRestService.updateUserProfile(this.UpdateForm.value);
-    debugger
+    // debugger
   }
 
 

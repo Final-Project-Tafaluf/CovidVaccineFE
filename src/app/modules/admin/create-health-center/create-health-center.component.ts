@@ -11,7 +11,7 @@ export class CreateHealthCenterComponent implements OnInit {
   CreateForm:FormGroup=new FormGroup({
     center_Name: new FormControl(),
     center_Phone:new FormControl(),
-    center_Locatoin:new FormControl(),
+    center_Location:new FormControl(),
     centerVaccines:new FormControl(),
     scheduals:new FormControl()
   })

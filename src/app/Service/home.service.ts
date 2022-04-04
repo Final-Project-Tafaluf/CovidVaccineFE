@@ -79,7 +79,7 @@ export class HomeService {
   
   updateHeathCenter(body:any){
     // body.imagename=this.display_Image;
-    debugger
+    // debugger
     this.http.put('https://localhost:44327/api/healthcentervac/UpdateCenter',body).subscribe((res)=>{
       this.toastr.success('updated Successfully :)');
       window.location.reload();

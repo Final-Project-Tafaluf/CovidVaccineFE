@@ -24,10 +24,7 @@ import { ToastNoAnimationModule, ToastrModule } from 'ngx-toastr';
     ContactusComponent,
     AboutusComponent,
     HomeComponent,
-    TestimonialComponent,
- 
-
- 
+    TestimonialComponent,    
     ],
     imports: [
       BrowserModule,
