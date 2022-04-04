@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Add New Vaccine</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="CreateForm" class="example-form">
+    <ul>
+      <li>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Enter Vaccine Type</mat-label>
+          <input type="text" matInput formControlName="vaccine_Type" placeholder="vaccine Type">
+          <mat-error *ngIf="CreateForm.controls['vaccine_Type'].hasError('required')">
+            Vaccine Type is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </li>
+    </ul>
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button [disabled]="!CreateForm.valid" mat-button [mat-dialog-close]="true" (click)="save()"
+    cdkFocusInitial>Save</button>
+</mat-dialog-actions>
