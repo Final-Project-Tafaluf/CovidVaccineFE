@@ -22,8 +22,8 @@ export class ProfileComponent implements OnInit {
 
     var token = this.localStorageService.getToken();
     var tokenData: any = this.localStorageService.tokenDecode(token);
-    var userId : number = Number(tokenData.nameid) ;
-    this.userProfileRestService.getUserProfileInfoByID(88);
+    var userId : number = tokenData.nameid;
+    this.userProfileRestService.getUserProfileInfoByID(userId);
   }
   UpdateForm:FormGroup=new FormGroup({
     id:new FormControl(),
@@ -67,8 +67,8 @@ export class ProfileComponent implements OnInit {
   }
 
   Update(){
-    this.userProfileRestService.updateUserProfile(this.UpdateForm.value);
-    // debugger
+    this.home.updateUser(this.UpdateForm.value);
+    debugger
   }
 
 

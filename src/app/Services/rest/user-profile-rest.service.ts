@@ -39,6 +39,7 @@ export class UserProfileRestService {
 
   updateUserProfile(body: any) {
     // debugger
+
     this.http.put('https://localhost:44327/User/UpdateUser/', body).subscribe(
       (res) => {
         // debugger
