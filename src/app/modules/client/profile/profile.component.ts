@@ -20,9 +20,9 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // var token = this.localStorageService.getToken();
-    // var tokenData: any = this.localStorageService.tokenDecode(token);
-    // var userId : number = Number(tokenData.nameid) ;
+    var token = this.localStorageService.getToken();
+    var tokenData: any = this.localStorageService.tokenDecode(token);
+    var userId : number = Number(tokenData.nameid) ;
     this.userProfileRestService.getUserProfileInfoByID(88);
   }
   UpdateForm:FormGroup=new FormGroup({
