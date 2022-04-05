@@ -18,6 +18,7 @@ import { EditAboutPageComponent } from './edit-about-page/edit-about-page.compon
 import { EditContactUsPageComponent } from './edit-contact-us-page/edit-contact-us-page.component';
 import { ManageSchedulesComponent } from './manage-schedules/manage-schedules.component';
 import { ManageUserRequestsComponent } from './manage-user-requests/manage-user-requests.component';
+import { CreateVaccineComponent } from './create-vaccine/create-vaccine.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { ManageUserRequestsComponent } from './manage-user-requests/manage-user-
     EditAboutPageComponent,
     EditContactUsPageComponent,
     ManageSchedulesComponent,
-    ManageUserRequestsComponent
+    ManageUserRequestsComponent,
+    CreateVaccineComponent
   ],
   imports: [
     CommonModule,
