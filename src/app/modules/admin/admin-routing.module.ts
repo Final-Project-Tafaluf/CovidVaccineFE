@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContentComponent } from './content/content.component';
 import { CreateHealthCenterComponent } from './create-health-center/create-health-center.component';
+import { CreateVaccineComponent } from './create-vaccine/create-vaccine.component';
 import { DashboardContentComponent } from './dashboard-content/dashboard-content.component';
 import { DashboardManageUsersComponent } from './dashboard-manage-users/dashboard-manage-users.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -77,6 +78,10 @@ const routes: Routes = [
   {
     path:'manageUserRequests',
     component:ManageUserRequestsComponent
+  },
+  {
+    path:'createVaccine',
+    component:CreateVaccineComponent
   }
 ];
 
