@@ -76,6 +76,7 @@ createUser(data:any){
 }
 updateUser(body:any){
   body.image=this.display_Image;
+  debugger;
   this.http.put('https://localhost:44327/User/UpdateUser/',body).subscribe((res)=>{
     this.toastr.success('Updated Successfully :) ')
   },err=>{
