@@ -31,7 +31,7 @@ export class EditProfileInfoComponent implements OnInit {
   }
 
   save(){
-    this.userProfileRestService.updateUserProfile(this.UpdateForm.value);
+    this.userProfileRestService.updateUser(this.UpdateForm.value);
   }
 
   openUpdateDialog(){
