@@ -21,7 +21,81 @@
         <!-- [ Main Content ] start -->
         <div class="row">
 
-<p>edit home page- guys add what you want in this div</p>
+          <div class="demo-button-container">
+            <button mat-raised-button (click)="addData()" class="demo-button">
+              Add data
+            </button>
+            <button
+                mat-raised-button
+                (click)="updateData()"
+                class="demo-button">
+              Update data
+            </button>
+          </div>
+
+          <table mat-table [formGroup]="homeElement" class="mat-elevation-z8 demo-table">
+            <!-- Position Column -->
+            <ng-container matColumnDef="header_Logo">
+              <th mat-header-cell *matHeaderCellDef>header Logo</th>
+              <td mat-cell *matCellDef="let element">{{home.ele.header_Logo}}</td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="home_Image">
+              <th mat-header-cell *matHeaderCellDef>home Image</th>
+              <td mat-cell *matCellDef="let element">{{home.ele.home_Image}}</td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="contact_Image">
+              <th mat-header-cell *matHeaderCellDef>contact Image</th>
+              <td mat-cell *matCellDef="let element">{{home.ele.contact_Image}}</td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="about_Image">
+              <th mat-header-cell *matHeaderCellDef>about Image</th>
+              <td mat-cell *matCellDef="let element">{{home.ele.about_Image}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="about_Text">
+              <th mat-header-cell *matHeaderCellDef>about Text</th>
+              <td mat-cell *matCellDef="let element">{{home.ele.about_Text}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="news_Imageone">
+              <th mat-header-cell *matHeaderCellDef>Image one</th>
+              <td mat-cell *matCellDef="let element">{{home.ele.news_Imageone}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="news_Textone">
+              <th mat-header-cell *matHeaderCellDef>Text 1</th>
+              <td mat-cell *matCellDef="let element">{{home.ele.news_Textone}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="news_Imagetwo">
+              <th mat-header-cell *matHeaderCellDef>Image two</th>
+              <td mat-cell *matCellDef="let element">{{home.ele.news_Imagetwo}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="news_Texttwo">
+              <th mat-header-cell *matHeaderCellDef>Text 2</th>
+              <td mat-cell *matCellDef="let element">{{home.ele.news_Texttwo}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="news_Imagethree">
+              <th mat-header-cell *matHeaderCellDef>Image three</th>
+              <td mat-cell *matCellDef="let element">{{home.ele.news_Imagethree}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="news_Textthree">
+              <th mat-header-cell *matHeaderCellDef>Text 3</th>
+              <td mat-cell *matCellDef="let element">{{home.ele.news_Textthree}}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
 
 
         </div>

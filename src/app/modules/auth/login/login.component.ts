@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { HomeService } from 'src/app/Services/rest/home.service';
 import { AuthService } from 'src/app/Services/rest/auth-rest.service';
+import { UserProfileRestService } from 'src/app/Services/rest/user-profile-rest.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
 
 
   constructor(private spinner :NgxSpinnerService, private router:Router,
-    public home:HomeService, public auth:AuthService) {}
+    public home:HomeService, public auth:AuthService,public userProfileRestService:UserProfileRestService) {}
   ngOnInit(): void {
     console.log("this.isCheckedLocal",this.isCheckedLocal)
     console.log("this.isChecked",this.isChecked)
@@ -52,10 +53,10 @@ export class LoginComponent implements OnInit {
     // file[0]:'angular.png';
     const fromData=new FormData();
     fromData.append('file',fileUpload,fileUpload.name);
-    this.home.uploadAttachment(fromData);
+    this.userProfileRestService.uploadAttachment(fromData);
   }
   save(){
-    this.home.createUser(this.CreateForm.value);
+    this.userProfileRestService.createUser(this.CreateForm.value);
   }
   submit(){
     this.auth.submit(this.email,this.password);

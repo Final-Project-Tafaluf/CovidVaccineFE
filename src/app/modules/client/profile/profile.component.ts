@@ -4,7 +4,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { LocalStorageService } from 'src/app/Services/local-storage.service';
 import { HomeService } from 'src/app/Services/rest/home.service';
 import { UserProfileRestService } from 'src/app/Services/rest/user-profile-rest.service';
-import { EditProfileInfoComponent } from '../edit-profile-info/edit-profile-info.component';
 
 @Component({
   selector: 'app-profile',
@@ -67,7 +66,7 @@ export class ProfileComponent implements OnInit {
   }
 
   Update(){
-    this.home.updateUser(this.UpdateForm.value);
+    this.userProfileRestService.updateUser(this.UpdateForm.value);
     debugger
   }
 
@@ -80,7 +79,7 @@ export class ProfileComponent implements OnInit {
     // file[0]:'angular.png';
     const fromData=new FormData();
     fromData.append('file',fileUpload,fileUpload.name);
-    this.home.uploadAttachment(fromData);
+    this.userProfileRestService.uploadAttachment(fromData);
   }
 
 }
