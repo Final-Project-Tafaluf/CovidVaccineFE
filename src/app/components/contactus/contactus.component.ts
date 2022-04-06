@@ -13,6 +13,7 @@ export class ContactusComponent implements OnInit {
     MSG: new FormControl("",[Validators.required]),
     phone_Number:new FormControl("",[Validators.required]),
     email:new FormControl("",[Validators.required,Validators.email]),
+    testimonial:new FormControl(0)
   })
   constructor(public contactUsRestService:ContactUsRestService) { }
 

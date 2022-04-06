@@ -10,7 +10,8 @@ export class DashboardMainRestService {
   
   constructor(private http:HttpClient,
     private spinner :NgxSpinnerService,private toastr:ToastrService) { }
-    data:any;
+    data:any=[{}];
+    
   getAll():any{
     //show spinner
     this.spinner.show();
