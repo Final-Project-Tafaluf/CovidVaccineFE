@@ -41,14 +41,10 @@ export class ManageContactUsComponent implements OnInit {
 
 
 
-  openTestimonialDailog(
-    Name1 :any,Subject1:any,MSG1:any,testimonial1:any){
+  openTestimonialDailog(iDD:any,testimonial1:any){
     
      this.center={
-       
-       name:Name1,
-       subject:Subject1,
-       msg:MSG1,
+       id:iDD,
        testimonial:testimonial1
       
      }
@@ -59,9 +55,8 @@ export class ManageContactUsComponent implements OnInit {
    }
 
    TestimonialForm:FormGroup=new FormGroup({
-     name: new FormControl(),
-     subject:new FormControl(),
-     msg:new FormControl(),
+    id: new FormControl(),
+ 
      testimonial:new FormControl()
      
   })
@@ -69,7 +64,9 @@ export class ManageContactUsComponent implements OnInit {
   yes(){
   
     this.contactUsRestService.updatebytestimonial(this.TestimonialForm.value);
+    
   }
+
 
 
   openDeleteDailog(id:number)

@@ -111,11 +111,11 @@
 				<!-- <h5 class="text-center mb-5">Our team created best opportunities for your business.</h5> -->
         <div class="card col-md-12 mt-2" >
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="100000">
-              <div class="w-100 carousel-inner mb-5" role="listbox"  >
+              <div class="w-100 carousel-inner mb-5" role="listbox" *ngFor="let testimonial of contactUsRestService.data" >
                   <div class="carousel-item active">
                     <div class="bg"></div>
-                    <div class="row" *ngFor="let testimonial of contactUsRestService.data" >
-                      <div class="col-md-4" >
+                    <div class="row"  >
+                      <div class="col-md-6" >
                         <div class="carousel-caption" >
                             <div class="row" >
                               <div class="col-sm-3 col-4 align-items-start">
@@ -124,7 +124,7 @@
                               <div class="col-sm-9 col-8"  >
                               <h2>{{testimonial.name}} <span>{{testimonial.subject}}</span></h2>
                                 <small>{{testimonial.msg}}</small>
-                                <small class="smallest mute">- willi</small>
+                                
                               </div>
                             </div>
                         </div>

@@ -72,7 +72,7 @@
                             <td> 
                  <button type="button" class="btn  btn-danger" (click)="openDeleteDailog(cont.id)">Delete</button>
                  <button type="button" class="btn  btn-secondary" (click)="openTestimonialDailog(
-                 cont.name,cont.subject,cont.msg,cont.testimonial)">testimonial </button> 
+                 cont.id,cont.testimonial)">testimonial </button> 
                  <button type="button" class="btn  btn-primary" (click)="openDetailsDailog(cont.msg,cont.email)"> Detail </button>
                            
                             </td>
@@ -83,7 +83,14 @@
                  <ng-template #callTestimonialDailog>
                     <form [formGroup]="TestimonialForm">
                         <ul>
-                    <li>
+                            <li>
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>ID</mat-label>
+                                    <input type="number" matInput formControlName="id"
+                                     [(ngModel)]="center.id">
+                                  </mat-form-field> </li> 
+
+                    <!-- <li>
                         <mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Enter the ContactUs Name</mat-label>
                             <input type="text" matInput formControlName="name"
@@ -101,32 +108,20 @@
                                     <input type="text" matInput formControlName="msg"
                                      [(ngModel)]="center.msg">
                                   </mat-form-field> </li> 
-                                  <!-- <li>
-                                    <mat-form-field class="example-full-width" appearance="fill">
-                                        <mat-label>Enter the Email ContactUs</mat-label>
-                                        <input type="text" matInput formControlName="email"
-                                         [(ngModel)]="center.email">
-                                      </mat-form-field> </li>  -->
-                          
-                                      <!-- <li>
-                                        <mat-form-field class="example-full-width" appearance="fill">
-                                            <mat-label>Enter the phone_Number ContactUs </mat-label>
-                                            <input type="text" matInput formControlName="phone_Number"
-                                             [(ngModel)]="center.phone_Number">
-                                          </mat-form-field> </li>  -->
+                                  -->
                                           <li>
                                             <mat-form-field class="example-full-width" appearance="fill">
                                                 <mat-label>Enter the testimonial ContactUs</mat-label>
-                                                <input type="text" matInput formControlName="testimonial"
+                                                <input type="number" matInput formControlName="testimonial"
                                                  [(ngModel)]="center.testimonial">
                                               </mat-form-field> </li> 
                           
                         </ul>
                         <h2>Are you sure you want to Add Testimonial ?</h2>
-                        <button mat-button mat-dialog-close="no" >No</button>
-                        <button mat-button mat-dialog-close="yes" (click)="yes()" >yes</button>
+                        <!-- <button mat-button mat-dialog-close="no" >No</button>
+                        <button mat-button mat-dialog-close="yes">yes</button> -->
 
-                        <!-- <button (click)="Testimonial()">Testimonial</button> -->
+                        <button (click)="yes()">Testimonial</button>
                     
                     </form>
                     
