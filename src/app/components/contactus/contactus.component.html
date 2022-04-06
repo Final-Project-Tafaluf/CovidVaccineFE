@@ -1,11 +1,69 @@
 <app-header></app-header>
-<div id="getintouch" class="section wb wow fadeIn" style="padding-bottom:0;">
-<div class="container width_100">
-    <div class="heading">
-      <!-- <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span> -->
-      <h2>Get in Touch</h2>
+<div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
+    <div class="banner-section">
+      <div class="container text-center wow fadeInUp">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+            <li class="breadcrumb-item"><a href="">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Contact</li>
+          </ol>
+        </nav>
+        <h1 class="font-weight-normal">Contact</h1>
+      </div> <!-- .container -->
+    </div> <!-- .banner-section -->
+  </div>
+
+  <div class="page-section">
+    <div class="container">
+      <h1 class="text-center wow fadeInUp">Get in Touch</h1>
+
+      <form class="contact-form mt-5" [formGroup]="CreateForm">
+        <div class="row mb-3">
+          <div class="col-sm-6 py-2 wow fadeInLeft">
+            <label for="fullName">Name</label>
+            <input type="text" id="fullName" class="form-control"  formControlName="name" placeholder="Full name.." >
+            <mat-error *ngIf="CreateForm.controls['name'].hasError('required')">
+              Name is <strong>required</strong>
+            </mat-error>
+          </div>
+          <div class="col-sm-6 py-2 wow fadeInRight">
+            <label for="emailAddress">Email</label>
+            <input type="text" id="emailAddress" class="form-control" formControlName="email" placeholder="Email address.." >
+            <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
+              Email is <strong>required</strong>
+              </mat-error>
+          </div>
+          <div class="col-12 py-2 wow fadeInUp">
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" class="form-control" formControlName="phone_Number" placeholder="Enter Phone Number..">
+            <mat-error *ngIf="CreateForm.controls['phone_Number'].hasError('required')">
+              Phone number is <strong>required</strong>
+            </mat-error>
+          </div>
+          <div class="col-12 py-2 wow fadeInUp">
+            <label for="subject">Subject</label>
+            <select matNativeControl formControlName="subject">
+              <option value=""></option>
+              <option value="General">General</option>
+              <option value="Testimonial" selected>Testimonial</option>
+              <option value="Ask for help">Ask for help</option>
+            </select>
+            <mat-error *ngIf="CreateForm.controls['subject'].hasError('required')"> Subject is <strong>required</strong></mat-error>
+          </div>
+          <div class="col-12 py-2 wow fadeInUp">
+            <label for="message">Message</label>
+            <textarea id="message" class="form-control" rows="8" formControlName="MSG" placeholder="Enter Message.."></textarea>
+            <mat-error *ngIf="CreateForm.controls['MSG'].hasError('required')">
+              MSG is <strong>required</strong>
+           </mat-error>
+          </div>
+        </div>
+        <button [disabled]="!CreateForm.valid"  mat-button (click)="send()"  cdkFocusInitial value="Send Message" name="submit"  class="btn small">Send Message</button>
+      </form>
     </div>
-</div>
+  </div>
+<!-- <div id="getintouch" class="section wb wow fadeIn" style="padding-bottom:0;">
+
 <div class="contact-section">
 <div class="form-contant">
     <form [formGroup]="CreateForm">
@@ -22,7 +80,7 @@
             <mat-form-field class="example-full-width" appearance="fill">
               <input type="text"  matInput formControlName="email" placeholder="Email">
               <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
-               Email is <strong>required</strong>
+              Email is <strong>required</strong>
               </mat-error>
             </mat-form-field>
           </div>
@@ -48,7 +106,7 @@
           </div>
           <div class="col-md-12">
             <mat-form-field class="example-full-width" appearance="fill">
-              <textarea  rows="5" matInput formControlName="MSG" placeholder="Message"></textarea>  
+              <textarea  rows="5" matInput formControlName="MSG" placeholder="Message"></textarea>
                 <mat-error *ngIf="CreateForm.controls['MSG'].hasError('required')">
                   MSG is <strong>required</strong>
                </mat-error>
@@ -63,9 +121,9 @@
 <div class="mapouter">
   <div class="gmap_canvas">
     <iframe style="width: 100%;" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=jordan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-   
+
   </div>
 </div>
 </div>
-</div>
+</div> -->
 <app-footer></app-footer>
