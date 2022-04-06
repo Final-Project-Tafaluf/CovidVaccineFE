@@ -34,7 +34,7 @@ export class ManageHealthCenterComponent implements OnInit {
        center_Name:center_Name1,
        center_Phone:center_Phone1,
        center_Location:center_Location1,
-      
+
      }
      console.log(this.center);
      this.UpdateForm.controls['id'].setValue(this.center.id)
@@ -49,21 +49,12 @@ export class ManageHealthCenterComponent implements OnInit {
     centerVaccines:new FormControl(),
     scheduals:new FormControl()
   })
-  // uploadImage(file:any){
-  //   if(file.length===0)
-  //   return;
-  //   const uploadfile=<File>file[0];
-  //   // {
-  //   //   file[0]:'photo1.png',
-  //   // }
-  //   const formData=new FormData();
-  //   formData.append('file',uploadfile,uploadfile.name);
-  //   this.home.uploadAttachment(formData);
-  // }
+
   update(){
     this.manageHealthCenterRestService.updateHeathCenter(this.UpdateForm.value);
     this.dialog.closeAll();
   }
+
   openDeleteDailog(id:number)
   {
       const dialogRef=this.dialog.open(this.callDeleteDailog);
