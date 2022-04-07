@@ -35,7 +35,25 @@ export class DashboardManageUsersComponent implements OnInit {
     this.manageUsersRestService.getbyName(this.first_Name.toString());
     } */
 
-  CreateForm :FormGroup =new FormGroup
+    CreateForm :FormGroup =new FormGroup
+  (
+    {
+    first_Name:new FormControl(),
+    last_Name:new FormControl(),
+    ssn:new FormControl(),
+    gender:new FormControl(),
+    birthdate:new FormControl(),
+    address:new FormControl(),
+    image:new FormControl(),
+    phone:new FormControl(),
+    email:new FormControl(),
+    password:new FormControl(),
+    username:new FormControl(),
+    role:new FormControl(),
+    }
+  )
+
+  /* CreateForm :FormGroup =new FormGroup
   (
     {
       ssn:new FormControl(),
@@ -49,7 +67,7 @@ export class DashboardManageUsersComponent implements OnInit {
       image:new FormControl(),
       username:new FormControl()
     }
-  )
+  ) */
   openCreateDialog(){
     this.dialog.open(this.callCreateDialog)
   }
