@@ -104,78 +104,39 @@
 
 <!-- partial:index.partial.html -->
   <section class="pt-5 pb-5">
-			<div class="container">
+			<div class="containerTestimonial">
         <h1 class="text-center">Testimonial</h1>
 				<h2 class="text-center">What other say for us</h2>
 				<!-- <hr class="midline"> -->
 				<!-- <h5 class="text-center mb-5">Our team created best opportunities for your business.</h5> -->
-        <div class="card col-md-12 mt-2" >
+        <div class="card mt-2" >
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="100000">
-              <div class="w-100 carousel-inner mb-5" role="listbox" *ngFor="let testimonial of contactUsRestService.data" >
+              <div class="w-100 carousel-inner mb-5" role="listbox"  >
                   <div class="carousel-item active">
-                    <div class="bg"></div>
-                    <div class="row"  >
-                      <div class="col-md-6" >
-                        <div class="carousel-caption" >
+                      <div class="" >
+                        <div class="carousel-caption" *ngFor="let testimonial of contactUsRestService.data">
                             <div class="row" >
-                              <div class="col-sm-3 col-4 align-items-start">
+                              <div class=" align-items-center">
                                   <img src="../../../assets/life_care/images/Test.jpeg" alt="" class="rounded-circle img-fluid">
-                              </div>
-                              <div class="col-sm-9 col-8"  >
-                              <h2>{{testimonial.name}} <span>{{testimonial.subject}}</span></h2>
+                              <h2><span>{{testimonial.name}} </span></h2>
                                 <small>{{testimonial.msg}}</small>
-                                
                               </div>
                             </div>
                         </div>
-                      </div>
-                      <!-- <div class="col-md-6">
-                        <div class="carousel-caption">
-                            <div class="row">
-                              <div class="col-sm-3 col-4 align-items-start">
-                                  <img src="../../../assets/life_care/images/Test.jpeg" alt="" class="rounded-circle img-fluid">
-                              </div>
-                              <div class="col-sm-9 col-8">
-                                <h2>Helena Doe - <span>Architect</span></h2>
-                                <small>Well incremented. Comes with recommended workout. I'm using it to help with bladder leakage issues that I've been experiencing since a recent vasectomy.</small>
-                                <small class="smallest mute">- willi</small>
-                              </div>
-                            </div>
-                        </div>
-                      </div> -->
                     </div>
                   </div>
-                  <div class="carousel-item">
-                    <div class="bg"></div>
+                  <div class="carousel-item" *ngFor="let testimonial of contactUsRestService.data">
                         <div class="row">
-                       <!-- <div class="col-md-6 col-12">
+                      <div class="">
                         <div class="carousel-caption">
-                            <div class="row">
-                              <div class="col-sm-3 col-4 align-items-start">
+                              <div class=" align-items-center">
                                   <img src="../../../assets/life_care/images/Test.jpeg" alt="" class="rounded-circle img-fluid">
+
+                                <h2><span>{{testimonial.name}} </span></h2>
+                                <small>{{testimonial.msg}}.</small>
                               </div>
-                              <div class="col-sm-9 col-8">
-                              <h2>John Doe - <span>Ceo Mobile company</span></h2>
-                                <small>Well incremented. Comes with recommended workout. I'm using it to help with bladder leakage issues that I've been experiencing since a recent vasectomy.</small>
-                                <small class="smallest mute">- willi</small>
-                              </div>
-                            </div>
                         </div>
-                      </div>  -->
-                       <!-- <div class="col-md-6 col-12">
-                        <div class="carousel-caption">
-                            <div class="row">
-                              <div class="col-sm-3 col-4 align-items-start">
-                                  <img src="../../../assets/life_care/images/Test.jpeg" alt="" class="rounded-circle img-fluid">
-                              </div>
-                              <div class="col-sm-9 col-8">
-                              <h2>Helena Doe - <span>Architect</span></h2>
-                                <small>Well incremented. Comes with recommended workout. I'm using it to help with bladder leakage issues that I've been experiencing since a recent vasectomy.</small>
-                                <small class="smallest mute">- willi</small>
-                              </div>
-                            </div>
-                        </div>
-                      </div>  -->
+                      </div>
                     </div>
                   </div>
             </div>
