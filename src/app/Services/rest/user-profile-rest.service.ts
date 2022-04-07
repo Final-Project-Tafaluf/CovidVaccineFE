@@ -81,7 +81,7 @@ export class UserProfileRestService {
 
 createUser(data:any){
   this.spinner.show();
-  // debugger;
+  debugger;
   data.image=this.display_Image;
   data.role_Id = 2;
   this.http.post('https://localhost:44327/User/CreateUser/',data).subscribe((res)=>

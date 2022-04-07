@@ -66,8 +66,10 @@
   <div>
     <h1>Update </h1>
   </div>
-  <form [formGroup]="homeElement" style="width:300px">
-      <div class="">
+  <mat-dialog-content>
+
+  <form [formGroup]="homeElement" style="width:700px">
+      <div class="container">
         <div class="row ">
           <input type="file" #file placeholder="Choose Image"
           formControlName="header_logo" [(ngModel)]="element.header_logo" (change)="uploadImage(file.files)"
@@ -131,15 +133,18 @@
       </div>
       <button (click)="update()">Save</button>
   </form>
+  </mat-dialog-content>
   </ng-template>
 
   <ng-template #callCreateDailog>
     <div>
       <h1>Create New </h1>
     </div>
-    <form [formGroup]="homeElement" style="width:300px">
-        <div class="">
-          <div class="row ">
+    <mat-dialog-content>
+
+      <div class="container">
+    <form [formGroup]="homeElement" style="width:700px">
+          <div class="d-felx justify-content-center">
             <input type="file" #file placeholder="Choose Image"
             formControlName="header_logo" [(ngModel)]="element.header_logo" (change)="uploadImage(file.files)"
             style="display: none;">
@@ -151,7 +156,7 @@
             <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">Home Image</button>
           </div>
 
-          <div class="row">
+          <div class="d-felx justify-content-center">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>About Us</mat-label>
               <input type="text" matInput formControlName="about_Text"style="margin: 5px;">
@@ -162,7 +167,9 @@
             style="display: none;">
             <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">About Image</button>
           </div>
-          <div class="row">
+
+
+          <div class="d-felx justify-content-center">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>News One</mat-label>
               <input type="text" matInput formControlName="news_Textone" style="margin: 5px;">
@@ -173,7 +180,7 @@
             style="display: none;">
             <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News One Image</button>
           </div>
-          <div class="row">
+          <div class="">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>News Two</mat-label>
               <input type="text" matInput formControlName="news_Texttwo" style="margin: 5px;">
@@ -184,7 +191,7 @@
             style="display: none;">
             <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News Two Image</button>
           </div>
-          <div class="row">
+          <div class="d-felx justify-content-center">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>News Three</mat-label>
               <input type="text" matInput formControlName="news_Textthree" style="margin: 5px;">
@@ -195,9 +202,10 @@
             style="display: none;">
             <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News Three Image</button>
           </div>
-        </div>
-        <button (click)="Create()">Save</button>
-    </form>
+          <button (click)="Create()">Save</button>
+        </form>
+      </div>
+    </mat-dialog-content>
     </ng-template>
 <!-- [ Main Content ] end -->
 
