@@ -20,12 +20,185 @@
         <!-- [ breadcrumb ] end -->
         <!-- [ Main Content ] start -->
         <div class="row">
+          <div class="demo-button-container">
+            <button mat-raised-button (click)="createDialog()" class="demo-button">Create New</button>
+          </div>
+            <div class="table1">
+              <div class="table-header">
+                <div class="header__item">header Logo</div>
+                <div class="header__item">home Image</div>
+                <div class="header__item">contact Image</div>
+                <div class="header__item">about Image</div>
+                <div class="header__item">about Text</div>
+                <div class="header__item">Image one</div>
+                <div class="header__item">Text 1</div>
+                <div class="header__item">Image two</div>
+                <div class="header__item">Text 2</div>
+                <div class="header__item">Image three</div>
+                <div class="header__item">Text 3</div>
+                <div class="header__item">Option</div>
 
-<p>edit home page- guys add what you want in this div</p>
-
-
+              </div>
+              <div class="table-content">
+                <div class="table-row" *ngFor="let element of home.ele">
+                  <div class="table-data">{{element.header_logo}}</div>
+                  <div class="table-data">{{element.home_Image}}</div>
+                  <div class="table-data">{{element.contact_Image}}</div>
+                  <div class="table-data">{{element.about_Image}}</div>
+                  <div class="table-data">{{element.about_Text}}</div>
+                  <div class="table-data">{{element.news_Imageone}}</div>
+                  <div class="table-data">{{element.news_Textone}}</div>
+                  <div class="table-data">{{element.news_Imagetwo}}</div>
+                  <div class="table-data">{{element.news_Texttwo}}</div>
+                  <div class="table-data">{{element.news_Imagethree}}</div>
+                  <div class="table-data">{{element.news_Textthree}}</div>
+                  <div class="table-data">
+                    <button mat-raised-button (click)="updateDialog(element)" class="demo-button">Update</button>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
         <!-- [ Main Content ] end -->
     </div>
 </div>
+<ng-template #callUpdateDailog>
+  <div>
+    <h1>Update </h1>
+  </div>
+  <form [formGroup]="homeElement" style="width:300px">
+      <div class="">
+        <div class="row ">
+          <input type="file" #file placeholder="Choose Image"
+          formControlName="header_logo" [(ngModel)]="element.header_logo" (change)="uploadImage(file.files)"
+          style="display: none;">
+          <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">Header logo</button>
+
+          <input type="file" #file placeholder="Choose Image"
+          formControlName="contact_Image" [(ngModel)]="element.contact_Image" (change)="uploadImage(file.files)"
+          style="display: none;">
+          <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">Home Image</button>
+        </div>
+
+        <div class="row">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>About Us</mat-label>
+            <input type="text" matInput formControlName="about_Text"style="margin: 5px;"
+            [(ngModel)]="element.about_Text">
+          </mat-form-field>
+
+          <input type="file" #file placeholder="Choose Image"
+          formControlName="about_Image" [(ngModel)]="element.about_Image" (change)="uploadImage(file.files)"
+          style="display: none;">
+          <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">About Image</button>
+        </div>
+        <div class="row">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>News One</mat-label>
+            <input type="text" matInput formControlName="news_Textone" style="margin: 5px;"
+            [(ngModel)]="element.news_Textone">
+          </mat-form-field>
+
+          <input type="file" #file placeholder="Choose Image"
+          formControlName="news_Imageone" [(ngModel)]="element.news_Imageone" (change)="uploadImage(file.files)"
+          style="display: none;">
+          <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News One Image</button>
+        </div>
+        <div class="row">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>News Two</mat-label>
+            <input type="text" matInput formControlName="news_Texttwo" style="margin: 5px;"
+            [(ngModel)]="element.news_Texttwo">
+          </mat-form-field>
+
+          <input type="file" #file placeholder="Choose Image"
+          formControlName="news_Imagetwo" [(ngModel)]="element.news_Imagetwo" (change)="uploadImage(file.files)"
+          style="display: none;">
+          <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News Two Image</button>
+        </div>
+        <div class="row">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>News Three</mat-label>
+            <input type="text" matInput formControlName="news_Textthree" style="margin: 5px;"
+            [(ngModel)]="element.news_Textthree">
+          </mat-form-field>
+
+          <input type="file" #file placeholder="Choose Image"
+          formControlName="news_Imagethree" [(ngModel)]="element.news_Imagethree" (change)="uploadImage(file.files)"
+          style="display: none;">
+          <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News Three Image</button>
+        </div>
+      </div>
+      <button (click)="update()">Save</button>
+  </form>
+  </ng-template>
+
+  <ng-template #callCreateDailog>
+    <div>
+      <h1>Create New </h1>
+    </div>
+    <form [formGroup]="homeElement" style="width:300px">
+        <div class="">
+          <div class="row ">
+            <input type="file" #file placeholder="Choose Image"
+            formControlName="header_logo" [(ngModel)]="element.header_logo" (change)="uploadImage(file.files)"
+            style="display: none;">
+            <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">Header logo</button>
+
+            <input type="file" #file placeholder="Choose Image"
+            formControlName="contact_Image" [(ngModel)]="element.contact_Image" (change)="uploadImage(file.files)"
+            style="display: none;">
+            <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">Home Image</button>
+          </div>
+
+          <div class="row">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>About Us</mat-label>
+              <input type="text" matInput formControlName="about_Text"style="margin: 5px;">
+            </mat-form-field>
+
+            <input type="file" #file placeholder="Choose Image"
+            formControlName="about_Image" [(ngModel)]="element.about_Image" (change)="uploadImage(file.files)"
+            style="display: none;">
+            <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">About Image</button>
+          </div>
+          <div class="row">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>News One</mat-label>
+              <input type="text" matInput formControlName="news_Textone" style="margin: 5px;">
+            </mat-form-field>
+
+            <input type="file" #file placeholder="Choose Image"
+            formControlName="news_Imageone" [(ngModel)]="element.news_Imageone" (change)="uploadImage(file.files)"
+            style="display: none;">
+            <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News One Image</button>
+          </div>
+          <div class="row">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>News Two</mat-label>
+              <input type="text" matInput formControlName="news_Texttwo" style="margin: 5px;">
+            </mat-form-field>
+
+            <input type="file" #file placeholder="Choose Image"
+            formControlName="news_Imagetwo" [(ngModel)]="element.news_Imagetwo" (change)="uploadImage(file.files)"
+            style="display: none;">
+            <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News Two Image</button>
+          </div>
+          <div class="row">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>News Three</mat-label>
+              <input type="text" matInput formControlName="news_Textthree" style="margin: 5px;">
+            </mat-form-field>
+
+            <input type="file" #file placeholder="Choose Image"
+            formControlName="news_Imagethree" [(ngModel)]="element.news_Imagethree" (change)="uploadImage(file.files)"
+            style="display: none;">
+            <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News Three Image</button>
+          </div>
+        </div>
+        <button (click)="Create()">Save</button>
+    </form>
+    </ng-template>
 <!-- [ Main Content ] end -->
+
+

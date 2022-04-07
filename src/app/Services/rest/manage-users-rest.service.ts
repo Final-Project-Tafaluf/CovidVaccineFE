@@ -4,57 +4,15 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class UserProfileRestService {
-  constructor(
-    private spinner: NgxSpinnerService,
-    private http: HttpClient,
-    private toastr: ToastrService
-  ) {}
-  data: any = [{}];
-  selectedUser: any = {};
+export class ManageUsersRestService {
   display_Image:any;
+  selectedUser:any={};
+  data:any=[{}];
+  /* userdata:any={}; */
 
-  getUserProfileInfoByID(id: number) {
-    //show spinner
-    this.spinner.show();
-    //hits api
-    // debugger;
-    this.http.get('https://localhost:44327/User/GetUserById/' + id).subscribe(
-      (res) => {
-        this.selectedUser = res;
-        // debugger
-        this.spinner.hide();
-        this.toastr.success('Data Retieved !!');
-      },
-      (err) => {
-        //hide spinner
-        this.spinner.hide();
-        //Toastr
-        this.toastr.error(err.message);
-        this.toastr.error(err.status);
-      }
-    );
-  }
-
-  getAllUser(){
-    //show spinner
-    this.spinner.show();
-    //hits api
-    this.http.get('https://localhost:44327/User/AllUser/').subscribe((res)=>{
-      this.data=res;
-      this.spinner.hide();
-      this.toastr.success('Data Retrieved !!')
-    }, err=>{
-      //hide spinner
-      this.spinner.hide();
-       //Toastr
-      this.toastr.error(err.message);
-      this.toastr.error(err.status);
-    })
-  }
-
+  constructor(private spinner :NgxSpinnerService, private http:HttpClient, private toastr:ToastrService) { }
 
   getbyName(name:any){
     //show spinner
@@ -76,13 +34,26 @@ export class UserProfileRestService {
     })
 }
 
-
-
+getAllUser(){
+  //show spinner
+  this.spinner.show();
+  //hits api
+  this.http.get('https://localhost:44327/User/GetAllUsers/').subscribe((res)=>{
+    this.data=res;
+    this.spinner.hide();
+    this.toastr.success('Data Retrieved !!')
+  }, err=>{
+    //hide spinner
+    this.spinner.hide();
+     //Toastr
+    this.toastr.error(err.message);
+    this.toastr.error(err.status);
+  })
+}
 
 createUser(data:any){
   this.spinner.show();
-  // debugger;
-  data.image=this.display_Image;
+  /* data.image=this.display_Image; */
   data.role_Id = 2;
   this.http.post('https://localhost:44327/User/CreateUser/',data).subscribe((res)=>
   {
@@ -101,11 +72,12 @@ createUser(data:any){
     this.toastr.error(err.message , err.status)
   })
 }
+
 updateUser(body:any){
-  body.image=this.display_Image;
-  debugger;
+  /* body.image=this.display_Image; */
   this.http.put('https://localhost:44327/User/UpdateUser/',body).subscribe((res)=>{
     this.toastr.success('Updated Successfully :) ')
+    this.getAllUser();
   },err=>{
     this.toastr.error('something error ');
   })
@@ -133,7 +105,5 @@ delete(id:number){
   })
 
 }
-
-
 
 }

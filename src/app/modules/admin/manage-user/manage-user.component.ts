@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { HomeService } from 'src/app/Services/rest/home.service';
+import { UserProfileRestService } from 'src/app/Services/rest/user-profile-rest.service';
 @Component({
   selector: 'app-manage-user',
   templateUrl: './manage-user.component.html',
@@ -15,10 +16,10 @@ export class ManageUserComponent implements OnInit {
   userInfo:any={}
   first_Name:any=''
 
-  constructor(private dialog:MatDialog, public home:HomeService) { }
+  constructor(private dialog:MatDialog, public home:HomeService,public userProfileRestService:UserProfileRestService) { }
 
   ngOnInit(): void {
-    this.home.getAllUser();
+    this.userProfileRestService.getAllUser();
   }
   inputValue(ev:any){
     this.first_Name=ev.target.value;
@@ -27,7 +28,7 @@ export class ManageUserComponent implements OnInit {
 
   search(){
     // debugger;
-    this.home.getbyName(this.first_Name.toString());
+    this.userProfileRestService.getbyName(this.first_Name.toString());
     }
 
   CreateForm :FormGroup =new FormGroup
@@ -46,7 +47,7 @@ export class ManageUserComponent implements OnInit {
     this.dialog.open(this.callCreateDialog)
   }
   save(){
-    this.home.createUser(this.CreateForm.value);
+    this.userProfileRestService.createUser(this.CreateForm.value);
     console.log(this.userInfo);
 
     window.location.reload();
@@ -83,7 +84,7 @@ export class ManageUserComponent implements OnInit {
   }
 
   updateUser(){
-    this.home.updateUser(this.updatForm.value);
+    this.userProfileRestService.updateUser(this.updatForm.value);
     console.log(this.user);
     window.location.reload();
   }
@@ -95,7 +96,7 @@ export class ManageUserComponent implements OnInit {
     // file[0]:'angular.png';
     const fromData=new FormData();
     fromData.append('file',fileUpload,fileUpload.name);
-    this.home.uploadAttachment(fromData);
+    this.userProfileRestService.uploadAttachment(fromData);
   }
 
 
@@ -105,7 +106,7 @@ export class ManageUserComponent implements OnInit {
       if(res!==undefined)
       {
         if(res=="yes"){
-        this.home.delete(id);
+        this.userProfileRestService.delete(id);
         window.location.reload();
       }
         else if(res=="no")
