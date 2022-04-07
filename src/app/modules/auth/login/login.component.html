@@ -61,94 +61,164 @@
           <h3 class="teal-text">Welcome</h3>
           <div class="row">
 
+            <mat-form-field class="example-full-width">
             <div class="input-field col s6">
               <input id="first_Name" type="text" class="validate" matInput
               formControlName="first_Name" [(ngModel)]="user.first_Name">
               <label for="first_Name">Fisrt Name</label>
+              <mat-error *ngIf="myError('first_Name', 'required') ">
+                First Name is <strong>required</strong>
+                </mat-error>
+                
             </div>
+          </mat-form-field>
 
+            <mat-form-field class="example-full-width">
             <div class="input-field col s6">
               <input id="last_name" type="text" class="validate" matInput
               formControlName="last_Name" [(ngModel)]="user.last_Name">
               <label for="last_Name">Last Name</label>
+              <mat-error *ngIf="myError('last_Name', 'required') ">
+                Last Name is <strong>required</strong>
+                </mat-error>
             </div>
+          </mat-form-field>
           </div>
 
+          
           <div class="row">
-
+            <mat-form-field class="example-full-width">
             <div class="input-field col s6">
               <input id="Ssn" type="text" class="validate" formControlName="ssn" [(ngModel)]="user.ssn">
               <label for="Ssn">SSN</label>
+              <mat-error *ngIf="myError('Ssn', 'required') ">
+                Ssn is <strong>required</strong>
+              </mat-error>
             </div>
-
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
             <div class="input-field col s6" >
               <input id="username" type="text" class="validate" matInput
               formControlName="username" [(ngModel)]="user.username">
               <label for="username">Username</label>
+              <mat-error *ngIf="myError('username', 'required') ">
+                username is <strong>required</strong>
+              </mat-error>
             </div>
+          </mat-form-field>
           </div>
 
           <div class="row">
-
+            <mat-form-field class="example-full-width">
             <div class="input-field col s6">
               <input id="address" type="text" class="validate" matInput
               formControlName="address" [(ngModel)]="user.address">
               <label for="address">Address</label>
+              <mat-error *ngIf="myError('address', 'required') ">
+                Address is <strong>required</strong>
+              </mat-error>
             </div>
+          </mat-form-field>
 
+          <mat-form-field class="example-full-width">
             <div class="input-field col s6">
               <input id="phone" type="text" class="validate" matInput
               formControlName="phone" [(ngModel)]="user.phone">
               <label for="phone">Phone</label>
+              <mat-error *ngIf="myError('phone', 'required') ">
+                Phone is <strong>required</strong>
+              </mat-error>
             </div>
-
+          </mat-form-field>
           </div>
 
           <div class="row">
+            <mat-form-field class="example-full-width">
             <div class="input-field col s6">
               <input id="email" type="email" class="validate" matInput
               formControlName="email" [(ngModel)]="user.email">
               <label for="email">Email</label>
-            </div>
+              <mat-error *ngIf="myError('email', 'email') ">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="myError('email','required')">
+                Email is <strong>required</strong>
+                </mat-error>
 
+            </div>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
             <div class="input-field col ">
               <input id="email-confirm" type="email" class="validate">
               <label for="email-confirm">Email Confirmation</label>
+              <mat-error *ngIf="myError('email-confirm', 'required') ">
+                email-confirm is <strong>required</strong>
+              </mat-error>
             </div>
+          </mat-form-field>
           </div>
 
           <div class="row">
+            <mat-form-field class="example-full-width">
             <div class="input-field col s6">
               <input id="password" type="password" class="validate" matInput
               formControlName="password" [(ngModel)]="user.password">
               <label for="password">Password</label>
+              <mat-error *ngIf="myError('password', 'minlength')">
+                Please enter a valid password
+                </mat-error>
+                <mat-error *ngIf="myError('password','required')">
+                password is <strong>required</strong>
+                </mat-error>
             </div>
+          </mat-form-field>
 
+          <mat-form-field class="example-full-width">
             <div class="input-field col s6">
               <input id="password-confirm" type="password" class="validate">
               <label for="password-confirm">Password Confirmation</label>
+              <mat-error *ngIf="myError('password-confirm', 'minlength')">
+                Please enter a valid password
+                </mat-error>
+                <mat-error *ngIf="myError('password-confirm','required')">
+                password is <strong>required</strong>
+                </mat-error>
             </div>
-
+          </mat-form-field>
           </div>
 
+
           <div class="row">
+            <mat-form-field class="example-full-width">
             <div>
               <label for="birthdate">Birthdate</label>
+              <mat-error *ngIf="myError('birthdate','required')">
+                birthdate is <strong>required</strong>
+                </mat-error>
             </div>
             <div class="input-field col s6">
               <input id="birthdate" type="date" class="validate" matInput
               formControlName="birthdate" [(ngModel)]="user.birthdate">
+              
             </div>
+          </mat-form-field>
 
+          <mat-form-field class="example-full-width">
             <div class="input-field col s6">
               <label for="gender">Gender</label>
+              <mat-error *ngIf="myError('gender','required')">
+                Gender is <strong>required</strong>
+                </mat-error>
               <input id="gender" type="text" class="validate" matInput
               formControlName="gender" [(ngModel)]="user.gender">
             </div>
-
+          </mat-form-field>
           </div>
 
+
           <div class="row">
+           
             <div class="col s6">
               <div class="file-input d-flex justify-content-center">
                 <input type="file" class="file" #file
@@ -157,13 +227,15 @@
               </div>
               <!-- <input id="image" type="file" class="validate"> -->
             </div>
+      
 
+        
             <div class="input-field col s6" hidden>
               <input id="role" type="text" class="validate"
               formControlName="role" [(ngModel)]="user.role">
               <label for="role">Role</label>
             </div>
-
+          
           </div>
             <button
             class="btn waves-effect waves-light teal btnn" type="submit" name="action"
