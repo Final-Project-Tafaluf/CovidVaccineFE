@@ -91,5 +91,32 @@ export class CertificateRestService {
         }
       );
   }
+
+
+
+
+
+  ////////////////////
+  GetCertificateById(id: number) {
+    //show spinner
+    this.spinner.show();
+    //hits api
+    // debugger;
+    this.http.get('https://localhost:44327/api/Certificate/getcertificatebyid/' + id).subscribe(
+      (res) => {
+        this.data = res;
+        // debugger
+        this.spinner.hide();
+        this.toastr.success('Data Retieved !!');
+      },
+      (err) => {
+        //hide spinner
+        this.spinner.hide();
+        //Toastr
+        this.toastr.error(err.message);
+        this.toastr.error(err.status);
+      }
+    );
+  }
 //////////////END
 }
