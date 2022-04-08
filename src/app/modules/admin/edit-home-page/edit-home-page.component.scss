@@ -61,3 +61,50 @@ h1,h2,h3,h4,h5,h6 {
 	text-transform:uppercase;
 
 }
+
+
+
+.col-xl-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  margin-left: 10% !important;
+  margin-top: 3% !important;
+}
+
+button.btn.btn-primary{
+  margin-left: 17% !important;
+  margin-top: -2% !important;
+  transition: none;
+  color: #fff;
+  background-color: #1abc9c;
+  border-color: #1abc9c;
+  margin-top: 0px !important;
+  margin-right: 10px;
+}
+
+.card{
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  margin-right: -383px;
+  margin-left: 77px;
+  transition: box-shadow 0.2s ease-in-out;
+  border-top: 3px solid #8CDDCD;
+}
+
+.btn-secondary:hover {
+
+  background-image: none;
+
+}
+.btn-secondary{
+  transition: none;
+  margin: 5px;
+}
+
+
+.btn {
+  padding: 10px;
+  transition: none !important;
+  transform: none !important;
+  animation: none;
+}

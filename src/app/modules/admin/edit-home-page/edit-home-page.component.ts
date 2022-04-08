@@ -68,20 +68,18 @@ Create(){
   }
 
   uploadImage(file:any){
-    if(file.length===0)
+    if(file.length === 0)
     return;
     const uploadfile=<File>file[0];
     const formData=new FormData();
     formData.append('file',uploadfile,uploadfile.name);
     debugger
     this.home.uploadAttachment(formData);
-
   }
 
   update(){
     debugger
     this.home.updateHome(this.homeElement.value);
-
   }
 
 

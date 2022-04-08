@@ -40,6 +40,7 @@ getAllUser(){
   //hits api
   this.http.get('https://localhost:44327/User/GetAllUsers/').subscribe((res)=>{
     this.data=res;
+    debugger
     this.spinner.hide();
     this.toastr.success('Data Retrieved !!')
   }, err=>{
@@ -74,7 +75,8 @@ createUser(data:any){
 }
 
 updateUser(body:any){
-  /* body.image=this.display_Image; */
+  body.image=this.display_Image;
+  debugger
   this.http.put('https://localhost:44327/User/UpdateUser/',body).subscribe((res)=>{
     this.toastr.success('Updated Successfully :) ')
     this.getAllUser();
@@ -100,6 +102,7 @@ uploadAttachment(file:FormData)
 delete(id:number){
   this.http.delete('https://localhost:44327/User/DeleteUser/'+id).subscribe((res)=>{
     this.toastr.success('Deleted Successfully :) ')
+    this.getAllUser();
   },err=>{
     this.toastr.error('something error ');
   })
