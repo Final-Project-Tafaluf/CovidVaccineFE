@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     email:new FormControl('', [Validators.required,Validators.email]),
     password:new FormControl('', [Validators.required,Validators.minLength(8)]),
     username:new FormControl('', [Validators.required]),
-    role:new FormControl(),
+    role:new FormControl('', [Validators.required]),
     }
   )
   public myError = (controlName: string, errorName:

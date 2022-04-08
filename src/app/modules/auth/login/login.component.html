@@ -229,13 +229,16 @@
             </div>
       
 
-        
+            <mat-form-field class="example-full-width">
             <div class="input-field col s6" hidden>
               <input id="role" type="text" class="validate"
               formControlName="role" [(ngModel)]="user.role">
               <label for="role">Role</label>
+              <mat-error *ngIf="myError('role','required')">
+                Role is <strong>required</strong>
+                </mat-error>
             </div>
-          
+          </mat-form-field>
           </div>
             <button
             class="btn waves-effect waves-light teal btnn" type="submit" name="action"
