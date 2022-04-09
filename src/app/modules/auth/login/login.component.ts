@@ -29,21 +29,28 @@ export class LoginComponent implements OnInit {
 
   }
   CreateForm :FormGroup =new FormGroup
-  ({
-    first_Name:new FormControl(),
-    last_Name:new FormControl(),
-    ssn:new FormControl(),
-    gender:new FormControl(),
-    birthdate:new FormControl(),
-    address:new FormControl(),
-    image:new FormControl(),
-    phone:new FormControl(),
-    email:new FormControl(),
-    password:new FormControl(),
-    username:new FormControl(),
-    role:new FormControl(),
-    })
 
+  (
+    {
+    first_Name:new FormControl('', [Validators.required]),
+    last_Name:new FormControl('', [Validators.required]),
+    ssn:new FormControl('', [Validators.required]),
+    gender:new FormControl('', [Validators.required]),
+    birthdate:new FormControl('', [Validators.required]),
+    address:new FormControl('', [Validators.required]),
+    image:new FormControl(),
+    phone:new FormControl(''),
+    email:new FormControl('', [Validators.required,Validators.email]),
+    password:new FormControl('', [Validators.required,Validators.minLength(8)]),
+    username:new FormControl('', [Validators.required]),
+    role:new FormControl('', [Validators.required]),
+    }
+  )
+  public myError = (controlName: string, errorName:
+    string) => {
+    return
+    this.CreateForm.controls[controlName].hasError(errorName);
+    }
 
   uploadFile(file:any){
     if(file.length===0){
@@ -69,5 +76,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['security/register'])
       this.spinner.hide();
     }
+
+   
 
 }
