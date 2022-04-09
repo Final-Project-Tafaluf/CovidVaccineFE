@@ -136,14 +136,14 @@
       <div class="container">
         <div class="row ">
           <input type="file" #file placeholder="Choose Image"
-          formControlName="header_logo" [(ngModel)]="element.header_logo" (change)="uploadImage(file.files)"
+          formControlName="header_logo" [(ngModel)]="element.header_logo" (change)="uploadFile(file.files)"
           style="display: none;">
           <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">Header logo</button>
 
-          <input type="file" #file placeholder="Choose Image"
-          formControlName="contact_Image" [(ngModel)]="element.contact_Image" (change)="uploadImage(file.files)"
+          <input type="file" #file1 placeholder="Choose Image"
+          formControlName="home_Image" [(ngModel)]="element.home_Image" (change)="uploadHome(file.files)"
           style="display: none;">
-          <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">Home Image</button>
+          <button (click)="file1.click()" class="btn btn-success" style="margin: 5px;">Home Image</button>
         </div>
 
         <div class="row">
@@ -153,10 +153,15 @@
             [(ngModel)]="element.about_Text">
           </mat-form-field>
 
-          <input type="file" #file placeholder="Choose Image"
-          formControlName="about_Image" [(ngModel)]="element.about_Image" (change)="uploadImage(file.files)"
+          <input type="file" #file2 placeholder="Choose Image"
+          formControlName="about_Image" [(ngModel)]="element.about_Image" (change)="uploadAbout(file.files)"
           style="display: none;">
-          <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">About Image</button>
+          <button (click)="file2.click()" class="btn btn-success" style="margin: 5px;">About Image</button>
+
+          <input type="file" #file placeholder="Choose Image"
+          formControlName="contact_Image" [(ngModel)]="element.contact_Image" (change)="uploadContact(file.files)"
+          style="display: none;">
+          <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">Contact Image</button>
         </div>
         <div class="row">
           <mat-form-field class="example-full-width" appearance="fill">
@@ -166,7 +171,7 @@
           </mat-form-field>
 
           <input type="file" #file placeholder="Choose Image"
-          formControlName="news_Imageone" [(ngModel)]="element.news_Imageone" (change)="uploadImage(file.files)"
+          formControlName="news_Imageone" [(ngModel)]="element.news_Imageone" (change)="upload1(file.files)"
           style="display: none;">
           <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News One Image</button>
         </div>
@@ -178,7 +183,7 @@
           </mat-form-field>
 
           <input type="file" #file placeholder="Choose Image"
-          formControlName="news_Imagetwo" [(ngModel)]="element.news_Imagetwo" (change)="uploadImage(file.files)"
+          formControlName="news_Imagetwo" [(ngModel)]="element.news_Imagetwo" (change)="upload2(file.files)"
           style="display: none;">
           <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News Two Image</button>
         </div>
@@ -190,7 +195,7 @@
           </mat-form-field>
 
           <input type="file" #file placeholder="Choose Image"
-          formControlName="news_Imagethree" [(ngModel)]="element.news_Imagethree" (change)="uploadImage(file.files)"
+          formControlName="news_Imagethree" [(ngModel)]="element.news_Imagethree" (change)="upload3(file.files)"
           style="display: none;">
           <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News Three Image</button>
         </div>
@@ -210,12 +215,12 @@
     <form [formGroup]="homeElement" style="width:700px">
           <div class="d-felx justify-content-center">
             <input type="file" #file placeholder="Choose Image"
-            formControlName="header_logo" [(ngModel)]="element.header_logo" (change)="uploadImage(file.files)"
+            formControlName="header_logo" [(ngModel)]="element.header_logo" (change)="uploadFile(file.files)"
             style="display: none;">
             <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">Header logo</button>
 
             <input type="file" #file placeholder="Choose Image"
-            formControlName="contact_Image" [(ngModel)]="element.contact_Image" (change)="uploadImage(file.files)"
+            formControlName="contact_Image" [(ngModel)]="element.contact_Image" (change)="uploadFile(file.files)"
             style="display: none;">
             <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">Home Image</button>
           </div>
@@ -227,7 +232,7 @@
             </mat-form-field>
 
             <input type="file" #file placeholder="Choose Image"
-            formControlName="about_Image" [(ngModel)]="element.about_Image" (change)="uploadImage(file.files)"
+            formControlName="about_Image" [(ngModel)]="element.about_Image" (change)="uploadFile(file.files)"
             style="display: none;">
             <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">About Image</button>
           </div>
@@ -240,7 +245,7 @@
             </mat-form-field>
 
             <input type="file" #file placeholder="Choose Image"
-            formControlName="news_Imageone" [(ngModel)]="element.news_Imageone" (change)="uploadImage(file.files)"
+            formControlName="news_Imageone" [(ngModel)]="element.news_Imageone" (change)="uploadFile(file.files)"
             style="display: none;">
             <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News One Image</button>
           </div>
@@ -251,7 +256,7 @@
             </mat-form-field>
 
             <input type="file" #file placeholder="Choose Image"
-            formControlName="news_Imagetwo" [(ngModel)]="element.news_Imagetwo" (change)="uploadImage(file.files)"
+            formControlName="news_Imagetwo" [(ngModel)]="element.news_Imagetwo" (change)="uploadFile(file.files)"
             style="display: none;">
             <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News Two Image</button>
           </div>
@@ -262,7 +267,7 @@
             </mat-form-field>
 
             <input type="file" #file placeholder="Choose Image"
-            formControlName="news_Imagethree" [(ngModel)]="element.news_Imagethree" (change)="uploadImage(file.files)"
+            formControlName="news_Imagethree" [(ngModel)]="element.news_Imagethree" (change)="uploadFile(file.files)"
             style="display: none;">
             <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News Three Image</button>
           </div>

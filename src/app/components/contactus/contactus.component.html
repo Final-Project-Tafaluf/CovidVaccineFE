@@ -1,5 +1,6 @@
 <app-header></app-header>
-<div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
+<div *ngFor="let element of home.ele">
+  <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);" >
     <div class="banner-section">
       <div class="container text-center wow fadeInUp">
         <nav aria-label="Breadcrumb">
@@ -12,7 +13,7 @@
       </div> <!-- .container -->
     </div> <!-- .banner-section -->
   </div>
-
+</div>
   <div class="page-section">
     <div class="container">
       <h1 class="text-center wow fadeInUp">Get in Touch</h1>
@@ -57,7 +58,7 @@
               MSG is <strong>required</strong>
            </mat-error>
           </div>
-          
+
         </div>
         <button [disabled]="!CreateForm.valid"  mat-button (click)="send()"  cdkFocusInitial value="Send Message" name="submit"  class="btn small">Send Message</button>
       </form>
