@@ -177,13 +177,21 @@
               placeholder="Birthdate" >
             </mat-form-field>
           </li>
-
           <!-- <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Enter Password </mat-label>
+              <input id="password" type="password" matInput
+              formControlName="password" placeholder="password" >
+            </mat-form-field>
+          </li> -->
+          
+
+          <li>
             <input type="file" #file placeholder="Choose Image"
             formControlName="image" [(ngModel)]="user.image" (change)="uploadFile(file.files)"
             style="display:none;">
             <button class="btn btn-success"  (click)="file.click()">Upload Image</button>
-          </li> -->
+          </li>
         </ul>
     </form>
   </mat-dialog-content>

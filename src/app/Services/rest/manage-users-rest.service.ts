@@ -53,7 +53,7 @@ getAllUser(){
 
 createUser(data:any){
   this.spinner.show();
-  /* data.image=this.display_Image; */
+  data.image=this.display_Image;
   data.role_Id = 2;
   this.http.post('https://localhost:44327/User/CreateUser/',data).subscribe((res)=>
   {
