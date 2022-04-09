@@ -62,12 +62,78 @@
         <!-- [ Main Content ] end -->
     </div>
 </div>
+
+
+<div class="col-xl-6 col-md-12">
+  <div class="card table-card">
+      <div class="card-header">
+          <h5>Vaccines Data</h5>
+          <div class="card-header-right">
+              <div class="btn-group card-option">
+                  <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="feather icon-more-horizontal"></i>
+                  </button>
+                  <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                      <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                      <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                      <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
+                      <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
+                  </ul>
+
+                  <button type="button" class="btn  btn-primary" ><i class="fas fa-plus"></i> Add New</button>
+              </div>
+          </div>
+      </div>
+      <div class="card-body p-0">
+          <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                  <thead>
+                      <tr>
+                          <th>Vaccine Type</th>
+                          <th class="text-right">Operation</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let element of home.ele">
+                          <td>
+                              <div class="d-inline-block align-middle">
+
+                                  <div class="d-inline-block">
+                                      <h6>{{element.about_Text}}</h6>
+
+                                      <!-- <p class="text-muted m-b-0">Graphics Designer</p> -->
+                                  </div>
+                              </div>
+                          </td>
+                          <td class="text-right">
+                              <button type="button" class="btn  btn-secondary" (click)="updateDialog(element)">Edit</button>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 <ng-template #callUpdateDailog>
   <div>
     <h1>Update </h1>
   </div>
-  <form [formGroup]="homeElement" style="width:300px">
-      <div class="">
+  <mat-dialog-content>
+
+  <form [formGroup]="homeElement" style="width:700px">
+      <div class="container">
         <div class="row ">
           <input type="file" #file placeholder="Choose Image"
           formControlName="header_logo" [(ngModel)]="element.header_logo" (change)="uploadImage(file.files)"
@@ -131,15 +197,18 @@
       </div>
       <button (click)="update()">Save</button>
   </form>
+  </mat-dialog-content>
   </ng-template>
 
   <ng-template #callCreateDailog>
     <div>
       <h1>Create New </h1>
     </div>
-    <form [formGroup]="homeElement" style="width:300px">
-        <div class="">
-          <div class="row ">
+    <mat-dialog-content>
+
+      <div class="container">
+    <form [formGroup]="homeElement" style="width:700px">
+          <div class="d-felx justify-content-center">
             <input type="file" #file placeholder="Choose Image"
             formControlName="header_logo" [(ngModel)]="element.header_logo" (change)="uploadImage(file.files)"
             style="display: none;">
@@ -151,7 +220,7 @@
             <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">Home Image</button>
           </div>
 
-          <div class="row">
+          <div class="d-felx justify-content-center">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>About Us</mat-label>
               <input type="text" matInput formControlName="about_Text"style="margin: 5px;">
@@ -162,7 +231,9 @@
             style="display: none;">
             <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">About Image</button>
           </div>
-          <div class="row">
+
+
+          <div class="d-felx justify-content-center">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>News One</mat-label>
               <input type="text" matInput formControlName="news_Textone" style="margin: 5px;">
@@ -173,7 +244,7 @@
             style="display: none;">
             <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News One Image</button>
           </div>
-          <div class="row">
+          <div class="">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>News Two</mat-label>
               <input type="text" matInput formControlName="news_Texttwo" style="margin: 5px;">
@@ -184,7 +255,7 @@
             style="display: none;">
             <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News Two Image</button>
           </div>
-          <div class="row">
+          <div class="d-felx justify-content-center">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>News Three</mat-label>
               <input type="text" matInput formControlName="news_Textthree" style="margin: 5px;">
@@ -195,9 +266,10 @@
             style="display: none;">
             <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News Three Image</button>
           </div>
-        </div>
-        <button (click)="Create()">Save</button>
-    </form>
+          <button (click)="Create()">Save</button>
+        </form>
+      </div>
+    </mat-dialog-content>
     </ng-template>
 <!-- [ Main Content ] end -->
 

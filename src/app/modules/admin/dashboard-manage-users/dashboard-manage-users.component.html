@@ -69,8 +69,8 @@
                             <td>{{user.ssn}}</td>
                             <td>
                                 <div class="d-inline-block align-middle">
-                                    <img src="./assets/flat-able-lite-dashboard/images/user/avatar-4.jpg" alt="user image" class="img-radius wid-40 align-top m-r-15">
-                                    <!-- <img src="./assets/images/{{user.image}}"> -->
+                                    <!-- <img src="./assets/flat-able-lite-dashboard/images/user/avatar-4.jpg" alt="user image" class="img-radius wid-40 align-top m-r-15"> -->
+                                    <img class="img-radius wid-40 align-top m-r-15" src="../../../../assets/images/{{user.image}}">
                                     <div class="d-inline-block">
                                         <h6>{{user.first_Name+' '+user.last_Name}}</h6>
                                         <!-- <h6>{{user.first_Name}}</h6> -->
@@ -80,19 +80,33 @@
                             </td>
                             <!-- <td>{{user.last_Name}}</td> -->
                             <td>{{user.gender}}</td>
-                            <td>{{user.birthdate}}</td>
+                            <td>{{user.birthdate | customeDate}}</td>
                             <td>{{user.address}}</td>
                             <td>{{user.phone}}</td>
                             <td>{{user.email}}</td>
                             <td><label class="badge badge-light-success">{{user.dose_Number}}<i class="fas fa-check"></i></label></td>
                             <td class="text-right">
                                 <button type="button" class="btn  btn-danger" (click)="openDeleteDialog(user.id)">Delete</button>
-                                <button type="button" class="btn  btn-secondary" (click)="openUpdateDialog(user.id,user.ssn,
-                                user.first_Name,user.last_Name,user.gender,user.birthdate,user.address,user.phone,user.email,user.image,user.username,user.dose_Number)">Edit</button>
+                                <button type="button" class="btn  btn-secondary" (click)="openUpdateDialog(
+                                  user.id,
+                                  user.first_Name,
+                                  user.last_Name,
+                                  user.ssn,
+                                  user.gender,
+                                  user.birthdate,
+                                  user.address,
+                                  user.phone,
+                                  user.email,
+                                  user.password,
+                                  user.username,
+                                  user.image,
+                                  user.dose_Number,
+                                  user.role_Id
+                                )">Edit</button>
                                 <!-- <button type="button" class="btn  btn-danger" (click)="openDetailsDialog(user)">Details</button> -->
                             </td>
                         </tr>
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -113,24 +127,24 @@
 
 <ng-template #callCreateDialog>
     <mat-dialog-content class="mat-typography">
-  
+
     <form [formGroup]="CreateForm">
       <ul>
         <li>
           <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Enter SSN </mat-label>
-              <input type="text" matInput formControlName="ssn" 
+              <input type="text" matInput formControlName="ssn"
               placeholder="ssn">
             </mat-form-field>
           </li>
         <li>
           <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Enter First Name </mat-label>
-              <input type="text" matInput formControlName="first_Name" 
+              <input type="text" matInput formControlName="first_Name"
               placeholder="first name">
             </mat-form-field>
           </li>
-  
+
           <li>
           <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Enter Last Name </mat-label>
@@ -145,7 +159,7 @@
               placeholder="gender"  >
             </mat-form-field>
           </li>
-  
+
           <li>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Enter the address </mat-label>
@@ -153,7 +167,7 @@
               placeholder="address" >
             </mat-form-field>
           </li>
-  
+
           <li>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Enter Phone </mat-label>
@@ -169,7 +183,7 @@
               placeholder="email" >
             </mat-form-field>
           </li>
-  
+
           <li>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Enter Birthdate </mat-label>
@@ -177,13 +191,21 @@
               placeholder="Birthdate" >
             </mat-form-field>
           </li>
-
           <!-- <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Enter Password </mat-label>
+              <input id="password" type="password" matInput
+              formControlName="password" placeholder="password" >
+            </mat-form-field>
+          </li> -->
+          
+
+          <li>
             <input type="file" #file placeholder="Choose Image"
             formControlName="image" [(ngModel)]="user.image" (change)="uploadFile(file.files)"
             style="display:none;">
             <button class="btn btn-success"  (click)="file.click()">Upload Image</button>
-          </li> -->
+          </li>
         </ul>
     </form>
   </mat-dialog-content>
@@ -192,14 +214,14 @@
     <button [disabled]="!CreateForm.valid" mat-button [mat-dialog-close]="true"(click)="save()"  cdkFocusInitial>Save</button>
   </mat-dialog-actions>
   </ng-template>
-  
+
 
 
 <!--------------------------------------- Update Dialog --------------------------------------->
 
   <ng-template #callUpdateDialog>
     <mat-dialog-content class="mat-typography">
-      <form [formGroup]="updatForm">
+      <form [formGroup]="UpdateForm">
           <ul>
             <li>
               <mat-form-field class="example-full-width" appearance="fill">
@@ -215,7 +237,7 @@
                   placeholder="first name">
                 </mat-form-field>
               </li>
-  
+
               <li>
               <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Enter Last Name </mat-label>
@@ -230,7 +252,7 @@
                   placeholder="gender" [(ngModel)]="user.gender" >
                 </mat-form-field>
               </li>
-  
+
               <li>
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Enter Birthdate </mat-label>
@@ -246,7 +268,7 @@
                   placeholder="address" [(ngModel)]="user.address">
                 </mat-form-field>
               </li>
-  
+
               <li>
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Enter Phone </mat-label>
@@ -254,7 +276,7 @@
                   placeholder="phone" [(ngModel)]="user.phone">
                 </mat-form-field>
               </li>
-              
+
               <li>
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Enter Email </mat-label>
@@ -278,8 +300,8 @@
                   placeholder="dose_Number" [(ngModel)]="user.dose_Number">
                 </mat-form-field>
               </li>
-  
-  
+
+
               <li>
                 <input type="file" #file placeholder="Choose Image"
                 formControlName="image" [(ngModel)]="user.image" (change)="uploadFile(file.files)"
@@ -288,7 +310,7 @@
               </li>
             </ul>
             <!-- <button mat-button [mat-dialog-close]="true" (click)="updateUser()">Update</button> -->
-  
+
       </form>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
@@ -299,12 +321,12 @@
 
 
   <!--------------------------------------- Delete Dialog --------------------------------------->
-  
+
   <ng-template #callDeleteDialog>
   <h2>Are You Sure you want ti delete this item</h2>
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close="no">No</button>
     <button mat-button mat-dialog-close="yes" >Yes</button>
   </mat-dialog-actions>
-  
+
   </ng-template>
