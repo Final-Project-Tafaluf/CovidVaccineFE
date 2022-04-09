@@ -85,7 +85,7 @@ export class HomeService {
 
   uploadAttachment(file:FormData)
   {
-    // debugger;
+    debugger;
     this.http.post('https://localhost:44327/Home/Upload/',file)
     .subscribe((res:any)=>{
       if(res)

@@ -30,23 +30,26 @@ export class AuthService {
       const requestOptions={
         headers:new HttpHeaders(headerDir)
       }
-      // debugger;
+      debugger;
       this.http.post('https://localhost:44327/api/JWT/login/',body,requestOptions)
       .subscribe((response:any)=>{
         // debugger
         console.log(response);
         let data:any = this.localStorageService.setToken(response);
         if(data.role=='admin')
-        window.location.href = "";
+        window.location.href = "admin/dashboard";
         else if (data.role=='client')
-        this.router.navigate(['contact'])
+        this.router.navigate([""])
       },err=>{
-        // debugger
+        debugger
         this.router.navigate(['security/login']);
         this.toaster.error(err)
       })
     }
-
+    logout() {
+      this.router.navigate(['security/login']);
+      localStorage.clear();
+    }
 
 }
 

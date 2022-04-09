@@ -29,8 +29,7 @@ export class LoginComponent implements OnInit {
 
   }
   CreateForm :FormGroup =new FormGroup
-  (
-    {
+  ({
     first_Name:new FormControl(),
     last_Name:new FormControl(),
     ssn:new FormControl(),
@@ -43,8 +42,9 @@ export class LoginComponent implements OnInit {
     password:new FormControl(),
     username:new FormControl(),
     role:new FormControl(),
-    }
-  )
+    })
+
+
   uploadFile(file:any){
     if(file.length===0){
       return ;
@@ -56,9 +56,11 @@ export class LoginComponent implements OnInit {
     this.userProfileRestService.uploadAttachment(fromData);
   }
   save(){
+    debugger
     this.userProfileRestService.createUser(this.CreateForm.value);
   }
   submit(){
+    debugger
     this.auth.submit(this.email,this.password);
     }
 

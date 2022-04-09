@@ -18,11 +18,12 @@ export class DashboardManageUsersComponent implements OnInit {
   userInfo:any={}
   first_Name:any=''
   /* userDetails:any */
-  
+
   constructor(private dialog:MatDialog, public manageUsersRestService:ManageUsersRestService) { }
-  
+
   ngOnInit(): void {
     this.manageUsersRestService.getAllUser();
+
   }
 
   /* inputValue(ev:any){
@@ -79,50 +80,56 @@ export class DashboardManageUsersComponent implements OnInit {
   }
 
 
-  updatForm:FormGroup=new FormGroup
-  (
-    {
+  UpdateForm:FormGroup=new FormGroup({
     id:new FormControl(),
-    ssn:new FormControl(),
-    first_Name:new FormControl(),
-    last_Name:new FormControl(),
+    first_Name: new FormControl(),
+    last_Name: new FormControl(),
+    ssn: new FormControl(),
     gender:new FormControl(),
     birthdate:new FormControl(),
     address:new FormControl(),
     phone:new FormControl(),
-    email:new FormControl(),
     image:new FormControl(),
+    email:new FormControl(),
+    password:new FormControl(),
     username:new FormControl(),
-    dose_Number:new FormControl()
+    dose_Number : new FormControl(),
+    role_Id : new FormControl(),
+  })
+  openUpdateDialog(
+    id1 :any,first_Name1 :any,last_Name1 :any,ssn1 :any,gender1:any,birthdate1:any,
+    address1 :any,phone1:any,email1:any,password1:any,username1:any,image1:any,dose:any,role:any){
+      this.user={
+      id:id1,
+      first_Name:first_Name1,
+      last_Name:last_Name1,
+      ssn:ssn1,
+      gender:gender1,
+      birthdate:birthdate1,
+      address:address1,
+      phone:phone1,
+      email:email1,
+      password:password1,
+      username:username1,
+      image:image1,
+      dose_Number:dose,
+      role_Id : role
     }
-  )
-  openUpdateDialog(uid:any,ussn:any,fname:any,lname:any,ugender:any,bdate:any,uaddress:any,uphone:any,uemail:any,uimage:any,uusername:any,dnumber:any)
-  {
-    this.user=
-    {
-      id : uid,
-      ssn:ussn,
-      first_Name:fname,
-      last_Name:lname,
-      gender:ugender,
-      birthdate:bdate,
-      address:uaddress,
-      phone:uphone,
-      email:uemail,
-      image:uimage,
-      username:uusername,
-      dose_Number:dnumber
-    }
-    this.updatForm.controls['id'].setValue(uid);
+    this.UpdateForm.controls['id'].setValue(this.user.id)
+    this.UpdateForm.controls['ssn'].setValue(this.user.ssn)
+    this.UpdateForm.controls['email'].setValue(this.user.email)
+    this.UpdateForm.controls['password'].setValue(this.user.email)
+    this.UpdateForm.controls['role_Id'].setValue(this.user.role_Id)
+    debugger
     this.dialog.open(this.callUpdateDialog)
   }
 
   updateUser(){
-    this.manageUsersRestService.updateUser(this.updatForm.value);
+    this.manageUsersRestService.updateUser(this.UpdateForm.value);
     console.log(this.user);
     /* window.location.reload(); */
   }
-  
+
 
 
 
@@ -145,7 +152,8 @@ export class DashboardManageUsersComponent implements OnInit {
       {
         if(res=="yes"){
         this.manageUsersRestService.delete(id);
-        window.location.reload();
+        debugger
+        this.manageUsersRestService.getAllUser();
       }
         else if(res=="no")
         console.log("Thank you ");
@@ -156,7 +164,7 @@ export class DashboardManageUsersComponent implements OnInit {
   /* openDetailsDialog(user:any){
     this.userDetails=user;
     const dialogRef=this.dialog.open(this.callDetailsDialog);
-    
+
   } */
 
 
