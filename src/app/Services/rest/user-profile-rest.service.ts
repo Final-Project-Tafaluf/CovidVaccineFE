@@ -17,21 +17,17 @@ export class UserProfileRestService {
   display_Image:any;
 
   getUserProfileInfoByID(id: number) {
-    //show spinner
     this.spinner.show();
-    //hits api
     // debugger;
     this.http.get('https://localhost:44327/User/GetUserById/' + id).subscribe(
       (res) => {
         this.selectedUser = res;
-        // debugger
+        //debugger
         this.spinner.hide();
         this.toastr.success('Data Retieved !!');
       },
       (err) => {
-        //hide spinner
         this.spinner.hide();
-        //Toastr
         this.toastr.error(err.message);
         this.toastr.error(err.status);
       }
@@ -86,21 +82,61 @@ createUser(data:any){
   data.role_Id = 2;
   this.http.post('https://localhost:44327/User/CreateUser/',data).subscribe((res)=>
   {
-  if(res != "false")
-  {
-    this.spinner.hide();
-    this.toastr.success('Saved Successfully')
-  }
-  else{
-    this.spinner.hide();
-    this.toastr.error('Please Enter Valid SSN/Email/Username');
-  }
-  }, err=>{
-    console.log('faild');
-    this.spinner.hide();
-    this.toastr.error(err.message , err.status)
-  })
-}
+
+    console.log(res);
+    if(res == "created"){
+
+      this.spinner.hide();
+      this.toastr.success('Saved Successfully')
+    }
+    else if(res == "valid")
+    {
+      this.spinner.hide();
+      this.toastr.error('Please Enter Valid SSN');
+    }
+    else if(res == "email")
+    {
+      this.spinner.hide();
+      this.toastr.error('this email already used');
+    }
+    else if(res == "username")
+    {
+      this.spinner.hide();
+      this.toastr.error('this Username already used');
+    }
+    else if(res =="ssn")
+    {
+      this.spinner.hide();
+      this.toastr.error('ssn already used');
+    }
+    else{
+      this.spinner.hide();
+      this.toastr.error('Smoething Error !');
+    }
+
+  }, err=>
+    {
+      console.log('faild');
+      this.spinner.hide();
+      this.toastr.error(err.message , err.status)
+    }
+    )}
+
+  // if(res != "false")
+  // {
+  //   this.spinner.hide();
+  //   this.toastr.success('Saved Successfully')
+  // }
+  // else
+  // {
+  //   this.spinner.hide();
+  //   this.toastr.error('Please Enter Valid SSN/Email/Username');
+  // }}, err=>{
+  //   console.log('faild');
+  //   this.spinner.hide();
+  //   this.toastr.error(err.message , err.status)
+  // })
+//}
 updateUser(body:any){
   body.image=this.display_Image;
   debugger;
