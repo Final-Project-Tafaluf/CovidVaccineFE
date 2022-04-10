@@ -2,58 +2,111 @@
 
 <!-- My Request -->
 <div class="page_container">
-<div class="col-xl-6 col-md-12">
-    <div class="card table-card">
-        <div class="card-header">
-            <h5>My Request</h5>
-            <div class="card-header-right">
-                <div class="btn-group card-option">
-                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        <i class="feather icon-more-horizontal"></i>
-                    </button>
-                    <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                        <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i>
-                                    maximize</span><span style="display:none"><i class="feather icon-minimize"></i>
-                                    Restore</span></a></li>
-                        <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i>
-                                    collapse</span><span style="display:none"><i class="feather icon-plus"></i>
-                                    expand</span></a></li>
-                        <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i>
-                                reload</a></li>
-                        <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a>
-                        </li>
-                    </ul>
+    <div class="col-xl-6 col-md-12">
+        <div class="card table-card">
+            <div class="card-header">
+                <h5>My Request "under processing"</h5>
+                <div class="card-header-right">
+                    <div class="btn-group card-option">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <i class="feather icon-more-horizontal"></i>
+                        </button>
+                        <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                            <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i>
+                                        maximize</span><span style="display:none"><i class="feather icon-minimize"></i>
+                                        Restore</span></a></li>
+                            <li class="dropdown-item minimize-card"><a href="#!"><span><i
+                                            class="feather icon-minus"></i>
+                                        collapse</span><span style="display:none"><i class="feather icon-plus"></i>
+                                        expand</span></a></li>
+                            <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i>
+                                    reload</a></li>
+                            <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i>
+                                    remove</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Health center</th>
+                                <th>Request date</th>
+                                <th>Vaccine type</th>
+                                <th class="text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let userRequest of userRequests">
+                                <td>
+                                    <h6>{{userRequest.id}}</h6>
+                                </td>
+                                <td>{{userRequest.health_Center}}</td>
+                                <td>{{userRequest.request_date}}</td>
+                                <td><label class="badge badge-light-danger">{{userRequest.vaccine_Type}}</label></td>
+                                <td class="text-right">
+                                    <p class="remove_btn" (click)="removeRequest(userRequest.id)">Remove</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-        <div class="card-body p-0">
-            <div class="table-responsive">
-                <table class="table table-hover mb-0">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Health center</th>
-                            <th>Request date</th>
-                            <th>Vaccine type</th>
-                            <th class="text-right">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let userRequest of userRequests">
-                            <td>
-                                <h6>{{userRequest.id}}</h6>
-                            </td>
-                            <td>{{userRequest.health_Center}}</td>
-                            <td>{{userRequest.request_date}}</td>
-                            <td><label class="badge badge-light-danger">{{userRequest.vaccine_Type}}</label></td>
-                            <td class="text-right"> <p class="remove_btn" (click)="removeRequest()">Remove</p></td>
-                        </tr>
-                    </tbody>
-                </table>
+    </div>
+
+    <!-- schedule -->
+    <div class="projects-section" >
+        <div class="projects-section-header">
+            <p>Schedules</p>
+            <p class="time">December, 12</p>
+        </div>
+        <div class="projects-section-line">
+            <div class="projects-status">
+                <div class="item-status">
+                    <span class="status-number">3</span>
+                    <span class="status-type">Doses</span>
+                </div>
+                <div class="item-status">
+                    <span class="status-number">1</span>
+                    <span class="status-type">Requests</span>
+                </div>
+                <div class="item-status">
+                    <span class="status-number">62</span>
+                    <span class="status-type">Total Projects</span>
+                </div>
+            </div>
+        </div>
+        <div class="project-boxes jsGridView" >
+            <div class="project-box-wrapper" *ngFor="let userSchedule of userSchedules">
+                <div class="project-box" style="background-color: #fee4cb;">
+                    <div class="project-box-header">
+                        <span>Start: {{userSchedules.start_Time}} - End: {{userSchedules.end_Time}}</span>
+                    </div>
+                    <div class="project-box-content-header">
+                        <p class="box-content-header">{{userSchedules.dose}}</p>
+                        <p class="box-content-subheader">Health Center Name: {{userSchedules.dose}}</p>
+                    </div>
+                    <div class="box-progress-wrapper">
+                        <p class="box-progress-header">Vaccine type: {{userSchedules.vaccine_type}}</p>
+                        <div class="box-progress-bar">
+                            <span class="box-progress" style="width: 60%; background-color: #ff942e"></span>
+                        </div>
+                        <p class="box-progress-percentage">60%</p>
+                    </div>
+                    <div class="project-box-footer">
+                        <div class="days-left" style="color: #ff942e;">
+                            {{userSchedules.status}}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <app-footer></app-footer>
