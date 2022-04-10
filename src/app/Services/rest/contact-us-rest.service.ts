@@ -7,9 +7,11 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class ContactUsRestService {
-  
-  constructor(private spinner :NgxSpinnerService, private http:HttpClient, private toastr:ToastrService) { }
   data :any; 
+  constructor(private spinner :NgxSpinnerService, private http:HttpClient, private toastr:ToastrService) { }
+  
+ 
+  
   createContact(data:any){
     this.spinner.show();
     // debugger;
@@ -23,6 +25,9 @@ export class ContactUsRestService {
       this.toastr.error(err.message , err.status)
     })
   }
+
+ 
+
 
   getAllContact(){
     //show spinner
@@ -41,6 +46,29 @@ export class ContactUsRestService {
       this.toastr.error(err.status);
     })
   }
+
+  // updatebytestimonial(body:any){
+  //   this.http.put('https://localhost:44327/api/ContactUs/update_CONTACT_feedback',body).subscribe((res)=>{
+  //     this.toastr.success('updated Successfully :)');
+  //    //  window.location.reload();
+  //    this.getAllContact();
+  //   },err=>{
+  //     this.toastr.error(err.status,err.message);
+  //   })
+
+  // }
+
+  updatebytestimonial(body:any){
+    debugger
+   // body.image_path=this.display_image;
+    this.http.put('https://localhost:44327/api/ContactUs/update_CONTACT_feedback/',body).subscribe((res)=>{
+      this.toastr.success('updated succefully')
+      this.getAllContact();
+    }, err=>{
+      this.toastr.error(err.status,err.message);
+    });
+  }
+
   deleteItem(id:number){
     this.http.delete('https://localhost:44327/api/ContactUs/delete/'+id).subscribe((res)=>{
       this.toastr.success('Deleted Successfully :)');
@@ -63,4 +91,26 @@ export class ContactUsRestService {
       this.toastr.error(err.status,err.message);
     })
   }
+
+
+
+
+  getAllContactbytestimonial(){
+    //show spinner
+    this.spinner.show();
+    //hits api
+    this.http.get('https://localhost:44327/api/ContactUs/getallcontactusbytestimonial/').subscribe((res)=>{
+      // debugger
+      this.data=res;
+      this.spinner.hide();
+      this.toastr.success('Data Retrieved !!')
+    }, err=>{
+      //hide spinner
+      this.spinner.hide();
+       //Toastr
+      this.toastr.error(err.message);
+      this.toastr.error(err.status);
+    })
+  }
+
 }

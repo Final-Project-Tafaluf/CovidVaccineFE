@@ -11,7 +11,8 @@
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#!">Dashboard Analytics</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item active">Users</li>
                         </ul>
                     </div>
                 </div>
@@ -21,7 +22,97 @@
         <!-- [ Main Content ] start -->
         <div class="row">
 
-<p>manage users- guys add what you want in this div</p>
+<!-- prject ,team member start -->
+<div class="col-xl-6 col-md-12">
+    <div class="card table-card">
+        <div class="card-header">
+            <h5>Users Information</h5>
+            <div class="card-header-right">
+                <div class="btn-group card-option">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="feather icon-more-horizontal"></i>
+                    </button>
+                    <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                        <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                        <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                        <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
+                        <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
+                    </ul>
+
+                    <button type="button" class="btn  btn-primary" (click)="openCreateDialog()" ><i class="fas fa-plus"></i> Add New</button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>SSN</th>
+                            <th>Full Name</th>
+                            <!-- <th>First Name</th>
+                            <th>Last Name</th> -->
+                            <th>Gender</th>
+                            <th>Birthdate</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <!-- <th>Image</th> -->
+                            <!-- <th>Username</th> -->
+                            <th>Dose</th>
+                            <th>Opreation</th>
+                            <!-- <th class="text-right">Priority</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of manageUsersRestService.data">
+                            <td>{{user.ssn}}</td>
+                            <td>
+                                <div class="d-inline-block align-middle">
+                                    <!-- <img src="./assets/flat-able-lite-dashboard/images/user/avatar-4.jpg" alt="user image" class="img-radius wid-40 align-top m-r-15"> -->
+                                    <img class="img-radius wid-40 align-top m-r-15" src="../../../../assets/images/{{user.image}}">
+                                    <div class="d-inline-block">
+                                        <h6>{{user.first_Name+' '+user.last_Name}}</h6>
+                                        <!-- <h6>{{user.first_Name}}</h6> -->
+                                        <p class="text-muted m-b-0">@{{user.username}}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <!-- <td>{{user.last_Name}}</td> -->
+                            <td>{{user.gender}}</td>
+                            <td>{{user.birthdate | customeDate}}</td>
+                            <td>{{user.address}}</td>
+                            <td>{{user.phone}}</td>
+                            <td>{{user.email}}</td>
+                            <td><label class="badge badge-light-success">{{user.dose_Number}}<i class="fas fa-check"></i></label></td>
+                            <td class="text-right">
+                                <button type="button" class="btn  btn-danger" (click)="openDeleteDialog(user.id)">Delete</button>
+                                <button type="button" class="btn  btn-secondary" (click)="openUpdateDialog(
+                                  user.id,
+                                  user.first_Name,
+                                  user.last_Name,
+                                  user.ssn,
+                                  user.gender,
+                                  user.birthdate,
+                                  user.address,
+                                  user.phone,
+                                  user.email,
+                                  user.password,
+                                  user.username,
+                                  user.image,
+                                  user.dose_Number,
+                                  user.role_Id
+                                )">Edit</button>
+                                <!-- <button type="button" class="btn  btn-danger" (click)="openDetailsDialog(user)">Details</button> -->
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 
         </div>
@@ -29,3 +120,213 @@
     </div>
 </div>
 <!-- [ Main Content ] end -->
+
+
+
+<!--------------------------------------- create Dialog --------------------------------------->
+
+<ng-template #callCreateDialog>
+    <mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="CreateForm">
+      <ul>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Enter SSN </mat-label>
+              <input type="text" matInput formControlName="ssn"
+              placeholder="ssn">
+            </mat-form-field>
+          </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Enter First Name </mat-label>
+              <input type="text" matInput formControlName="first_Name"
+              placeholder="first name">
+            </mat-form-field>
+          </li>
+
+          <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Enter Last Name </mat-label>
+              <input type="text" matInput formControlName="last_Name"
+              placeholder="last name"  >
+            </mat-form-field>
+          </li>
+          <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Enter Gender </mat-label>
+              <input type="text" matInput formControlName="gender"
+              placeholder="gender"  >
+            </mat-form-field>
+          </li>
+
+          <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Enter the address </mat-label>
+              <input type="text" matInput formControlName="address"
+              placeholder="address" >
+            </mat-form-field>
+          </li>
+
+          <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Enter Phone </mat-label>
+              <input type="text" matInput formControlName="phone"
+              placeholder="phone" >
+            </mat-form-field>
+          </li>
+
+          <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Enter email </mat-label>
+              <input type="text" matInput formControlName="email"
+              placeholder="email" >
+            </mat-form-field>
+          </li>
+
+          <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Enter Birthdate </mat-label>
+              <input type="date" matInput formControlName="birthdate"
+              placeholder="Birthdate" >
+            </mat-form-field>
+          </li>
+          <!-- <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Enter Password </mat-label>
+              <input id="password" type="password" matInput
+              formControlName="password" placeholder="password" >
+            </mat-form-field>
+          </li> -->
+          
+
+          <li>
+            <input type="file" #file placeholder="Choose Image"
+            formControlName="image" [(ngModel)]="user.image" (change)="uploadFile(file.files)"
+            style="display:none;">
+            <button class="btn btn-success"  (click)="file.click()">Upload Image</button>
+          </li>
+        </ul>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button [disabled]="!CreateForm.valid" mat-button [mat-dialog-close]="true"(click)="save()"  cdkFocusInitial>Save</button>
+  </mat-dialog-actions>
+  </ng-template>
+
+
+
+<!--------------------------------------- Update Dialog --------------------------------------->
+
+  <ng-template #callUpdateDialog>
+    <mat-dialog-content class="mat-typography">
+      <form [formGroup]="UpdateForm">
+          <ul>
+            <li>
+              <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Enter SSN </mat-label>
+                  <input type="text" matInput formControlName="ssn" [(ngModel)]="user.ssn"
+                  placeholder="ssn">
+                </mat-form-field>
+              </li>
+            <li>
+              <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Enter First Name </mat-label>
+                  <input type="text" matInput formControlName="first_Name" [(ngModel)]="user.first_Name"
+                  placeholder="first name">
+                </mat-form-field>
+              </li>
+
+              <li>
+              <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Enter Last Name </mat-label>
+                  <input type="text" matInput formControlName="last_Name"
+                  placeholder="last name" [(ngModel)]="user.last_Name" >
+                </mat-form-field>
+              </li>
+              <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Enter Gender </mat-label>
+                  <input type="text" matInput formControlName="gender"
+                  placeholder="gender" [(ngModel)]="user.gender" >
+                </mat-form-field>
+              </li>
+
+              <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Enter Birthdate </mat-label>
+                  <input type="date" matInput formControlName="birthdate"
+                  placeholder="Birthdate" [(ngModel)]="user.birthdate">
+                </mat-form-field>
+              </li>
+
+              <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Enter the address </mat-label>
+                  <input type="text" matInput formControlName="address"
+                  placeholder="address" [(ngModel)]="user.address">
+                </mat-form-field>
+              </li>
+
+              <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Enter Phone </mat-label>
+                  <input type="text" matInput formControlName="phone"
+                  placeholder="phone" [(ngModel)]="user.phone">
+                </mat-form-field>
+              </li>
+
+              <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Enter Email </mat-label>
+                  <input type="text" matInput formControlName="email"
+                  placeholder="email" [(ngModel)]="user.email">
+                </mat-form-field>
+              </li>
+
+              <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Enter Username</mat-label>
+                  <input type="text" matInput formControlName="username"
+                  placeholder="username" [(ngModel)]="user.username">
+                </mat-form-field>
+              </li>
+
+              <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Enter dose number</mat-label>
+                  <input type="text" matInput formControlName="dose_Number"
+                  placeholder="dose_Number" [(ngModel)]="user.dose_Number">
+                </mat-form-field>
+              </li>
+
+
+              <li>
+                <input type="file" #file placeholder="Choose Image"
+                formControlName="image" [(ngModel)]="user.image" (change)="uploadFile(file.files)"
+                style="display:none;">
+                <button class="btn btn-success"  (click)="file.click()">Upload Image</button>
+              </li>
+            </ul>
+            <!-- <button mat-button [mat-dialog-close]="true" (click)="updateUser()">Update</button> -->
+
+      </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button [mat-dialog-close]="true" (click)="updateUser()">Update</button>
+      </mat-dialog-actions>
+  </ng-template>
+
+
+
+  <!--------------------------------------- Delete Dialog --------------------------------------->
+
+  <ng-template #callDeleteDialog>
+  <h2>Are You Sure you want ti delete this item</h2>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close="no">No</button>
+    <button mat-button mat-dialog-close="yes" >Yes</button>
+  </mat-dialog-actions>
+
+  </ng-template>

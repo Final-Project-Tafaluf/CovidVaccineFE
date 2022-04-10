@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { HomeService } from 'src/app/Services/rest/home.service';
 import { AuthService } from 'src/app/Services/rest/auth-rest.service';
+import { UserProfileRestService } from 'src/app/Services/rest/user-profile-rest.service';
 
 @Component({
   selector: 'app-login',
@@ -21,29 +22,36 @@ export class LoginComponent implements OnInit {
 
 
   constructor(private spinner :NgxSpinnerService, private router:Router,
-    public home:HomeService, public auth:AuthService) {}
+    public home:HomeService, public auth:AuthService,public userProfileRestService:UserProfileRestService) {}
   ngOnInit(): void {
     console.log("this.isCheckedLocal",this.isCheckedLocal)
     console.log("this.isChecked",this.isChecked)
 
   }
   CreateForm :FormGroup =new FormGroup
+
   (
     {
-    first_Name:new FormControl(),
-    last_Name:new FormControl(),
-    ssn:new FormControl(),
-    gender:new FormControl(),
-    birthdate:new FormControl(),
-    address:new FormControl(),
+    first_Name:new FormControl('', [Validators.required]),
+    last_Name:new FormControl('', [Validators.required]),
+    ssn:new FormControl('', [Validators.required]),
+    gender:new FormControl('', [Validators.required]),
+    birthdate:new FormControl('', [Validators.required]),
+    address:new FormControl('', [Validators.required]),
     image:new FormControl(),
-    phone:new FormControl(),
-    email:new FormControl(),
-    password:new FormControl(),
-    username:new FormControl(),
-    role:new FormControl(),
+    phone:new FormControl(''),
+    email:new FormControl('', [Validators.required,Validators.email]),
+    password:new FormControl('', [Validators.required,Validators.minLength(8)]),
+    username:new FormControl('', [Validators.required]),
+    role:new FormControl('', [Validators.required]),
     }
   )
+  public myError = (controlName: string, errorName:
+    string) => {
+    return
+    this.CreateForm.controls[controlName].hasError(errorName);
+    }
+
   uploadFile(file:any){
     if(file.length===0){
       return ;
@@ -52,12 +60,14 @@ export class LoginComponent implements OnInit {
     // file[0]:'angular.png';
     const fromData=new FormData();
     fromData.append('file',fileUpload,fileUpload.name);
-    this.home.uploadAttachment(fromData);
+    this.userProfileRestService.uploadAttachment(fromData);
   }
   save(){
-    this.home.createUser(this.CreateForm.value);
+    debugger
+    this.userProfileRestService.createUser(this.CreateForm.value);
   }
   submit(){
+    debugger
     this.auth.submit(this.email,this.password);
     }
 
@@ -66,5 +76,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['security/register'])
       this.spinner.hide();
     }
+
+   
 
 }

@@ -8,24 +8,28 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class HomeService {
-  display_Image:any;
+  logo_Image:any;
+  home_Image:any;
+  about_Image:any;
+  contact_Image:any;
+  news1_Image:any;
+  news2_Image:any;
+  news3_Image:any;
   selectedUser:any={};
   data:any=[{}]
 
+  ele : any = {}
+
   userdata:any={}
   constructor(private spinner :NgxSpinnerService, private http:HttpClient, private toastr:ToastrService) { }
-
-  getbyName(name:any){
+  getHome(){
     //show spinner
     this.spinner.show();
     //hits api
-    // debugger;
-    this.http.get('https://localhost:44327/User/GetUserByName/'+name).subscribe((res)=>{
-      this.data=res;
-      console.log(this.data);
-
+    this.http.get('https://localhost:44327/Home/GetHome/').subscribe((res)=>{
+      this.ele=res;
       this.spinner.hide();
-      this.toastr.success('Data Retieved !!')
+      this.toastr.success('Data Retrieved !!')
     }, err=>{
       //hide spinner
       this.spinner.hide();
@@ -33,83 +37,71 @@ export class HomeService {
       this.toastr.error(err.message);
       this.toastr.error(err.status);
     })
-}
-
-getAllUser(){
-  //show spinner
-  this.spinner.show();
-  //hits api
-  this.http.get('https://localhost:44327/User/AllUser/').subscribe((res)=>{
-    this.data=res;
-    this.spinner.hide();
-    this.toastr.success('Data Retrieved !!')
-  }, err=>{
-    //hide spinner
-    this.spinner.hide();
-     //Toastr
-    this.toastr.error(err.message);
-    this.toastr.error(err.status);
-  })
-}
-
-createUser(data:any){
-  this.spinner.show();
-  // debugger;
-  data.image=this.display_Image;
-  data.role_Id = 2;
-  this.http.post('https://localhost:44327/User/CreateUser/',data).subscribe((res)=>
-  {
-  if(res != "false")
-  {
-    this.spinner.hide();
-    this.toastr.success('Saved Successfully')
   }
-  else{
-    this.spinner.hide();
-    this.toastr.error('Please Enter Valid SSN/Email/Username');
+  createHome(data:any){
+    this.spinner.show();
+    // debugger;
+    data.header_Logo = this.logo_Image ;
+    data.home_Image =this.home_Image;
+    data.contact_Image=this.about_Image;
+    data.about_Image=this.contact_Image;
+    data.news_Imageone=this.news1_Image;
+    data.news_Imagetwo=this.news2_Image;
+    data.news_Imagethree=this.news3_Image;
+    this.http.post('https://localhost:44327/Home/CreateHome/',data).subscribe((res)=>
+    {
+    if(res != "false")
+    {
+      this.spinner.hide();
+      this.toastr.success('Saved Successfully')
+    }
+    else{
+      this.spinner.hide();
+      this.toastr.error('Something Error');
+    }
+    }, err=>{
+      console.log('faild');
+      this.spinner.hide();
+      this.toastr.error(err.message , err.status)
+    })
   }
-  }, err=>{
-    console.log('faild');
-    this.spinner.hide();
-    this.toastr.error(err.message , err.status)
-  })
-}
-updateUser(body:any){
-  body.image=this.display_Image;
-  debugger;
-  this.http.put('https://localhost:44327/User/UpdateUser/',body).subscribe((res)=>{
-    this.toastr.success('Updated Successfully :) ')
-  },err=>{
-    this.toastr.error('something error ');
-  })
-}
-
-uploadAttachment(file:FormData)
-{
-  // debugger;
-  this.http.post('https://localhost:44327/User/Upload/',file)
-  .subscribe((res:any)=>{
-    if(res)
-    console.log(res);
-    this.display_Image=res.image;
-  },err=>{
-    this.toastr.error(err.message , err.status);
-  })
-
-}
-
-delete(id:number){
-  this.http.delete('https://localhost:44327/User/DeleteUser/'+id).subscribe((res)=>{
-    this.toastr.success('Deleted Successfully :) ')
-  },err=>{
-    this.toastr.error('something error ');
-  })
-
-}
+  updateHome(body:any){
+    body.header_Logo = this.logo_Image ;
+    body.home_Image =this.home_Image;
+    body.contact_Image=this.about_Image;
+    body.about_Image=this.contact_Image;
+    body.news_Imageone=this.news1_Image;
+    body.news_Imagetwo=this.news2_Image;
+    body.news_Imagethree=this.news3_Image;
+    debugger;
+    this.http.put('https://localhost:44327/Home/UpdateHome/',body).subscribe((res)=>{
+      this.toastr.success('Updated Successfully :) ')
+    },err=>{
+      this.toastr.error('something error ');
+    })
+  }
 
 
 
+  uploadAttachment(file:FormData)
+  {
+    debugger;
+    this.http.post('https://localhost:44327/Home/Upload/',file)
+    .subscribe((res:any)=>{
+      if(res)
+      console.log(res);
+      this.logo_Image=res.header_Logo;
+      this.home_Image=res.home_Image;
+      this.about_Image=res.contact_Image;
+      this.contact_Image=res.about_Image;
+      this.news1_Image=res.news_Imageone;
+      this.news2_Image=res.news_Imagetwo;
+      this.news3_Image=res.news_Imagethree;
+    },err=>{
+      this.toastr.error(err.message , err.status);
+    })
 
+  }
 
 
 
