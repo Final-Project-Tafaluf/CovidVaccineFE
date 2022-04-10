@@ -30,7 +30,7 @@ export class AddUserRequestComponent implements OnInit {
   ngOnInit(): void {
     // debugger;
     this.generateMap();
-    this.scheduleRestService.getAllvaccines();
+    this.scheduleRestService.getAllVaccines();
   }
 
   async generateMap() {
