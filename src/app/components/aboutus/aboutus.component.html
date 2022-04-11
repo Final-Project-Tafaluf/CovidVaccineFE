@@ -1,17 +1,28 @@
 <app-header></app-header>
 
-<div id="about" class="section wow fadeIn" *ngFor="let element of home.ele">
-<div class="container">
-    <div class="heading" >
-      <span class="icon-logo"><img src="../../../assets/home/{{element.about_Image}}" alt="#"></span>
-      <h2>The Specialist Clinic</h2>
-    </div>
+<div *ngFor="let element of home.ele">
+  <div class="page-banner overlay-dark bg-image" style="background-image: url(../../../assets/home/{{element.about_Image}})" >
+    <div class="banner-section">
+      <div class="container text-center wow fadeInUp">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+            <li class="breadcrumb-item"><a href="">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">About Us</li>
+          </ol>
+        </nav>
+        <h1 class="font-weight-normal" style="color: #bcffd8;">About Us</h1>
+      </div> <!-- .container -->
+    </div> <!-- .banner-section -->
+  </div>
+</div>
+<div id="about" class="section wow fadeIn" >
+<div class="container" *ngFor="let element of home.ele">
     <!-- end title -->
     <div class="row">
       <div class="col-md-6">
           <div class="message-box">
             <h4>What We Do</h4>
-            <h2>Clinic Service   </h2>
+            <h2>Clinic Service</h2>
             <p class="lead"> {{element.about_Text}}</p>
           </div>
           <!-- end messagebox -->
@@ -20,7 +31,7 @@
       <div class="col-md-6">
           <div class="post-media wow fadeIn">
             <img src="../../../assets/home/{{element.about_Image}}" alt="" class="img-responsive">
-            <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
+            <!-- <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a> -->
           </div>
           <!-- end media -->
       </div>

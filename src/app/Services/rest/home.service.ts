@@ -91,7 +91,8 @@ export class HomeService {
     .subscribe((res:any)=>{
       if(res)
       console.log(res);
-      this.logoImage=res.header_logo;
+      this.logoImage=res.header_Logo;
+      debugger
     },err=>{
       this.toastr.error(err.message , err.status);
     })

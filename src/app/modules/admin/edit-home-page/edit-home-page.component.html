@@ -21,7 +21,7 @@
         <!-- [ Main Content ] start -->
         <div class="row">
           <div class="demo-button-container">
-            <button mat-raised-button (click)="createDialog()" class="demo-button">Create New</button>
+            <!-- <button mat-raised-button (click)="createDialog()" class="demo-button">Create New</button> -->
           </div>
             <div class="table1">
               <div class="table-header">
@@ -41,16 +41,17 @@
               </div>
               <div class="table-content">
                 <div class="table-row" *ngFor="let element of home.ele">
-                  <div class="table-data">{{element.header_logo}}</div>
-                  <div class="table-data">{{element.home_Image}}</div>
-                  <div class="table-data">{{element.contact_Image}}</div>
-                  <div class="table-data">{{element.about_Image}}</div>
+                  <!-- <div class="table-data"> {{element.header_logo}}</div> -->
+                  <img src="../../../../assets/home/{{element.header_Logo}}" alt="Admin" class="rounded-circle" width="100" height="100px">
+                  <img src="../../../../assets/home/{{element.home_Image }}" alt="Admin" class="rounded-circle" width="100" height="100px">
+                  <img src="../../../../assets/home/{{element.contact_Image}}" alt="Admin" class="rounded-circle" width="100" height="100px">
+                  <img src="../../../../assets/home/{{element.about_Image}}" alt="Admin" class="rounded-circle" width="100" height="100px">
                   <div class="table-data">{{element.about_Text}}</div>
-                  <div class="table-data">{{element.news_Imageone}}</div>
+                  <img src="../../../../assets/home/{{element.news_Imageone}}" alt="Admin" class="rounded-circle" width="100" height="100px">
                   <div class="table-data">{{element.news_Textone}}</div>
-                  <div class="table-data">{{element.news_Imagetwo}}</div>
+                  <img src="../../../../assets/home/{{element.news_Imagetwo}}" alt="Admin" class="rounded-circle" width="100" height="100px">
                   <div class="table-data">{{element.news_Texttwo}}</div>
-                  <div class="table-data">{{element.news_Imagethree}}</div>
+                  <img src="../../../../assets/home/{{element.news_Imagethree}}" alt="Admin" class="rounded-circle" width="100" height="100px">
                   <div class="table-data">{{element.news_Textthree}}</div>
                   <div class="table-data">
                     <button mat-raised-button (click)="updateDialog(element)" class="demo-button">Update</button>
@@ -64,7 +65,7 @@
 </div>
 
 
-<div class="col-xl-6 col-md-12">
+<!-- <div class="col-xl-6 col-md-12">
   <div class="card table-card">
       <div class="card-header">
           <h5>Vaccines Data</h5>
@@ -84,45 +85,113 @@
               </div>
           </div>
       </div>
-      <div class="card-body p-0">
+      <div class="card-body p-0" *ngFor="let element of home.ele">
           <div class="table-responsive">
               <table class="table table-hover mb-0">
                   <thead>
                       <tr>
-                          <th>Vaccine Type</th>
-                          <th class="text-right">Operation</th>
+                          <th>Header Logo</th>
+                          <th>Home Image</th>
+                          <th>Contact Image</th>
+                          <th>About Image</th>
+                          <th>About Text</th>
+                          <th>News one Image</th>
+                          <th>News one Text</th>
+                          <th>News Two Image</th>
+                          <th>News Two Text</th>
+                          <th>News Three Image</th>
+                          <th>News Three Text</th>
                       </tr>
                   </thead>
                   <tbody>
-                      <tr *ngFor="let element of home.ele">
-                          <td>
-                              <div class="d-inline-block align-middle">
-
-                                  <div class="d-inline-block">
-                                      <h6>{{element.about_Text}}</h6>
-
-                                  </div>
+                      <tr>
+                        <td class="txt text-right">
+                            <div class="d-inline-block align-middle">
+                                <div class="d-inline-block">
+                                    <h6>{{element.header_logo}}</h6>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="txt text-right">
+                          <div class="d-inline-block align-middle">
+                              <div class="d-inline-block">
+                                  <h6>{{element.home_Image}}</h6>
                               </div>
-                          </td>
-                          <td class="text-right">
-                              <button type="button" class="btn  btn-secondary" (click)="updateDialog(element)">Edit</button>
-                          </td>
+                          </div>
+                        </td>
+                        <td class="txt text-right">
+                          <div class="d-inline-block align-middle">
+                              <div class="d-inline-block">
+                                  <h6>{{element.contact_Image}}</h6>
+                              </div>
+                          </div>
+                        </td>
+                        <td class="txt text-right">
+                          <div class="d-inline-block align-middle">
+                              <div class="d-inline-block">
+                                  <h6>{{element.about_Image}}</h6>
+                              </div>
+                          </div>
+                        </td>
+                        <td class="txt text-right">
+                          <div class="d-inline-block align-middle">
+                              <div class="d-inline-block">
+                                  <h6>{{element.about_Text}}</h6>
+                              </div>
+                          </div>
+                        </td>
+                        <td class="txt text-right">
+                          <div class="d-inline-block align-middle">
+                              <div class="d-inline-block">
+                                  <h6>{{element.news_Imageone}}</h6>
+                              </div>
+                          </div>
+                        </td>
+                        <td class="txt text-right">
+                          <div class="d-inline-block align-middle">
+                              <div class="d-inline-block">
+                                  <h6>{{element.news_Textone}}</h6>
+                              </div>
+                          </div>
+                        </td>
+                        <td class="txt text-right">
+                          <div class="d-inline-block align-middle">
+                              <div class="d-inline-block">
+                                  <h6>{{element.news_Imagetwo}}</h6>
+                              </div>
+                          </div>
+                        </td>
+                        <td class="txt text-right">
+                          <div class="d-inline-block align-middle">
+                              <div class="d-inline-block">
+                                  <h6>{{element.news_Texttwo}}</h6>
+                              </div>
+                          </div>
+                        </td>
+                        <td class="txt text-right">
+                          <div class="d-inline-block align-middle">
+                              <div class="d-inline-block">
+                                  <h6>{{element.news_Imagethree}}</h6>
+                              </div>
+                          </div>
+                        </td>
+                        <td class="txt text-right">
+                          <div class="d-inline-block align-middle">
+                              <div class="d-inline-block">
+                                  <h6>{{element.news_Imagethree}}</h6>
+                              </div>
+                          </div>
+                        </td>
+                        <td class="text-right">
+                            <button type="button" class="btn  btn-secondary" (click)="updateDialog(element)">Edit</button>
+                        </td>
                       </tr>
                   </tbody>
               </table>
           </div>
       </div>
   </div>
-</div>
-
-
-
-
-
-
-
-
-
+</div> -->
 
 
 <ng-template #callUpdateDailog>
@@ -135,14 +204,14 @@
       <div class="container">
         <div class="row ">
           <input type="file" #file placeholder="Choose Image"
-          formControlName="header_logo" [(ngModel)]="element.header_logo" (change)="uploadFile(file.files)"
+          formControlName="header_Logo" [(ngModel)]="element.header_Logo" (change)="uploadFile(file.files)"
           style="display: none;">
           <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">Header logo</button>
 
-          <input type="file" #file placeholder="Choose Image"
-          formControlName="home_Image" [(ngModel)]="element.home_Image" (change)="uploadFile2(file.files)"
+          <input type="file" #file1 placeholder="Choose Image"
+          formControlName="home_Image" [(ngModel)]="element.home_Image" (change)="uploadFile2(file1.files)"
           style="display: none;">
-          <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">Home Image</button>
+          <button (click)="file1.click()" class="btn btn-success" style="margin: 5px;">Home Image</button>
         </div>
 
         <div class="row">
@@ -152,15 +221,15 @@
             [(ngModel)]="element.about_Text">
           </mat-form-field>
 
-          <!-- <input type="file" #file2 placeholder="Choose Image"
-          formControlName="about_Image" [(ngModel)]="element.about_Image" (change)="uploadAbout(file.files)"
+          <input type="file" #filea placeholder="Choose Image"
+          formControlName="about_Image" [(ngModel)]="element.about_Image" (change)="uploadAbout(filea.files)"
           style="display: none;">
-          <button (click)="file2.click()" class="btn btn-success" style="margin: 5px;">About Image</button>
+          <button (click)="filea.click()" class="btn btn-success" style="margin: 5px;">About Image</button>
 
-          <input type="file" #file placeholder="Choose Image"
-          formControlName="contact_Image" [(ngModel)]="element.contact_Image" (change)="uploadContact(file.files)"
+          <input type="file" #file3 placeholder="Choose Image"
+          formControlName="contact_Image" [(ngModel)]="element.contact_Image" (change)="uploadContact(file3.files)"
           style="display: none;">
-          <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">Contact Image</button> -->
+          <button (click)="file3.click()" class="btn btn-success" style="margin: 5px;">Contact Image</button>
         </div>
         <div class="row">
           <mat-form-field class="example-full-width" appearance="fill">
@@ -169,10 +238,10 @@
             [(ngModel)]="element.news_Textone">
           </mat-form-field>
 
-          <!-- <input type="file" #file placeholder="Choose Image"
-          formControlName="news_Imageone" [(ngModel)]="element.news_Imageone" (change)="upload1(file.files)"
+          <input type="file" #file4 placeholder="Choose Image"
+          formControlName="news_Imageone" [(ngModel)]="element.news_Imageone" (change)="upload1(file4.files)"
           style="display: none;">
-          <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News One Image</button> -->
+          <button (click)="file4.click()" class="btn btn-success" style="margin: 5px;">News One Image</button>
         </div>
         <div class="row">
           <mat-form-field class="example-full-width" appearance="fill">
@@ -181,10 +250,10 @@
             [(ngModel)]="element.news_Texttwo">
           </mat-form-field>
 
-          <!-- <input type="file" #file placeholder="Choose Image"
-          formControlName="news_Imagetwo" [(ngModel)]="element.news_Imagetwo" (change)="upload2(file.files)"
+          <input type="file" #file5 placeholder="Choose Image"
+          formControlName="news_Imagetwo" [(ngModel)]="element.news_Imagetwo" (change)="upload2(file5.files)"
           style="display: none;">
-          <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News Two Image</button> -->
+          <button (click)="file5.click()" class="btn btn-success" style="margin: 5px;">News Two Image</button>
         </div>
         <div class="row">
           <mat-form-field class="example-full-width" appearance="fill">
@@ -193,10 +262,10 @@
             [(ngModel)]="element.news_Textthree">
           </mat-form-field>
 
-          <!-- <input type="file" #file placeholder="Choose Image"
-          formControlName="news_Imagethree" [(ngModel)]="element.news_Imagethree" (change)="upload3(file.files)"
+          <input type="file" #file6 placeholder="Choose Image"
+          formControlName="news_Imagethree" [(ngModel)]="element.news_Imagethree" (change)="upload3(file6.files)"
           style="display: none;">
-          <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">News Three Image</button> -->
+          <button (click)="file6.click()" class="btn btn-success" style="margin: 5px;">News Three Image</button>
         </div>
       </div>
       <button (click)="update()">Save</button>
