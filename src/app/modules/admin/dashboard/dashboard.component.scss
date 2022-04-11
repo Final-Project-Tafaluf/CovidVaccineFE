@@ -37,6 +37,8 @@
 ul.nav.pcoded-inner-navbar {
     background-color: #2c3e50 !important;
     height: 2047px !important;
+    /* height: 3517px  !important; */
+    
 }
 
 img.logo {
@@ -47,4 +49,6 @@ img.logo {
 ul.pro-body {
     background-color: #ffffff;
 }
-
+a.nav-link {
+    cursor: pointer !important;
+}
