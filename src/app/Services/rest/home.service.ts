@@ -97,12 +97,15 @@ export class HomeService {
     })
 
   }
-  uploadHome(file:FormData)
+  uploadHome(file2:FormData)
   {
     debugger;
-    this.http.post('https://localhost:44327/Home/UploadHome/',file)
+    this.http.post('https://localhost:44327/Home/UploadImage/',file2)
     .subscribe((res:any)=>{
+      console.log(res);
+
       this.homeImage=res.home_Image;
+      debugger
     },err=>{
       this.toastr.error(err.message , err.status);
     })
