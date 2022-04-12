@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { CenterVaccineRestService } from 'src/app/Services/rest/center-vaccine-rest.service';
 
 @Component({
@@ -8,6 +9,12 @@ import { CenterVaccineRestService } from 'src/app/Services/rest/center-vaccine-r
   styleUrls: ['./manage-center-vaccine.component.scss']
 })
 export class ManageCenterVaccineComponent implements OnInit {
+
+  @ViewChild('callCreateDialog') callCreateDialog! :TemplateRef<any>
+  @ViewChild('callUpdateDialog') callUpdateDialog! :TemplateRef<any>
+  @ViewChild('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
+
+
   CreateForm:FormGroup=new FormGroup({
     number_Of_Vaccine: new FormControl(),
     expire_Date:new FormControl(),
@@ -24,22 +31,48 @@ export class ManageCenterVaccineComponent implements OnInit {
   })
 
   health : any ={}
-  constructor(public centerVaccineRestService : CenterVaccineRestService) { }
+  constructor(private dialog:MatDialog,public centerVaccineRestService : CenterVaccineRestService) { }
 
   ngOnInit(): void {
     this.centerVaccineRestService.getAll();
   }
 
   save(){
+    /* this.centerVaccineRestService.createCenter(this.CreateForm.value);
+    console.log(this.health); */
 
   }
-  openDeleteDailog(id:number){
-
+  
+  update(){
+    /* this.centerVaccineRestService.updateCenter(this.UpdateForm.value);
+    console.log(this.health); */
   }
-  openUpdateDailog(data:any){
+
+  openCreateDialog(){
+    this.dialog.open(this.callCreateDialog)
+  }
+
+  openUpdateDialog(data:any){
 this.health = data;
   }
-  update(){
+
+  openDeleteDialog(id:number){
+    const dialogRef=this.dialog.open(this.callDeleteDialog);
+      dialogRef.afterClosed().subscribe((result)=>{
+        if(result!=undefined)
+        {
+          if(result=='yes')
+          this.centerVaccineRestService.deleteItem(id);
+          else if(result=='no'){
+            console.log("Thank you ");
+            this.dialog.closeAll();
+          }
+        
+          
+        }
+      })
 
   }
+
+  
 }

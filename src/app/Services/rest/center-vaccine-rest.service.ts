@@ -24,4 +24,14 @@ export class CenterVaccineRestService {
       this.toastr.error(err.status);
     })
   }
+
+  deleteItem(id:number){
+    this.http.delete('https://localhost:44327/apiCenterVaccine/delete/'+id).subscribe((res)=>{
+      this.toastr.success('Deleted Successfully :)');
+     //  window.location.reload();
+     this.getAll();
+    },err=>{
+      this.toastr.error(err.status,err.message);
+    })
+  }
 }
