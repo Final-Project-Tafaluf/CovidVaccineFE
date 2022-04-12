@@ -25,6 +25,31 @@ export class CenterVaccineRestService {
     })
   }
 
+  createCenterVaccine(body:any){
+    this.spinner.show();
+    this.http.post('https:/localhost:44327/api/CenterVaccine/CreateCenterVaccine/',body).subscribe((res)=>{
+     
+      this.spinner.hide();
+      this.toastr.success('saved Successfully :)');
+      this.getAll();
+     
+    },error=>{
+      this.spinner.hide();
+      this.toastr.error(error.status,error.message);
+    })
+  }
+
+  updateCentervaccine(body:any){
+    this.http.put('https://localhost:44327/api/CenterVaccine/UpdateCenterVaccine',body).subscribe((res)=>{
+      this.toastr.success('updated Successfully :)');
+     //  window.location.reload();
+     this.getAll();
+    },err=>{
+      this.toastr.error(err.status,err.message);
+    })
+
+  }
+
   deleteItem(id:number){
     this.http.delete('https://localhost:44327/apiCenterVaccine/delete/'+id).subscribe((res)=>{
       this.toastr.success('Deleted Successfully :)');

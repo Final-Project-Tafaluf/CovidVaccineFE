@@ -38,14 +38,14 @@ export class ManageCenterVaccineComponent implements OnInit {
   }
 
   save(){
-    /* this.centerVaccineRestService.createCenter(this.CreateForm.value);
-    console.log(this.health); */
+    this.centerVaccineRestService.createCenterVaccine(this.CreateForm.value);
+    console.log(this.health);
 
   }
   
   update(){
-    /* this.centerVaccineRestService.updateCenter(this.UpdateForm.value);
-    console.log(this.health); */
+    this.centerVaccineRestService.updateCentervaccine(this.UpdateForm.value);
+    console.log(this.health);
   }
 
   openCreateDialog(){
@@ -56,22 +56,23 @@ export class ManageCenterVaccineComponent implements OnInit {
 this.health = data;
   }
 
-  openDeleteDialog(id:number){
-    const dialogRef=this.dialog.open(this.callDeleteDialog);
-      dialogRef.afterClosed().subscribe((result)=>{
-        if(result!=undefined)
+  openDeleteDialog(id: number) {
+    const dialogRef = this.dialog.open(this.callDeleteDialog);
+
+    dialogRef.afterClosed().subscribe((result) => 
+      {
+        if (result != undefined) 
         {
-          if(result=='yes')
-          this.centerVaccineRestService.deleteItem(id);
-          else if(result=='no'){
+          if (result == 'yes') this.centerVaccineRestService.deleteItem(id);
+
+          else if (result == 'no') 
+          {
             console.log("Thank you ");
             this.dialog.closeAll();
           }
-        
-          
         }
-      })
-
+      }
+    )
   }
 
   
