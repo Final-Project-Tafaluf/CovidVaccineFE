@@ -18,9 +18,7 @@
                     <!-- Profile pic -->
 
                     <img src="../../../../assets/images/{{userProfileRestService.selectedUser.image}}" alt="Admin" class="rounded-circle" width="150">
-
                     <!-- /Profile pic -->
-
                     <div class="mt-3">
                       <h4>{{userProfileRestService.selectedUser.first_Name}}  {{userProfileRestService.selectedUser.last_Name}}</h4>
                     </div>
@@ -35,10 +33,11 @@
 
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">First Name</h6>
+                      <h6 class="mb-0">First Name </h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                       {{userProfileRestService.selectedUser.first_Name}}
+                      <h1 ></h1>
                     </div>
                   </div>
                   <hr>
@@ -49,6 +48,16 @@
                     </div>
                     <div class="col-sm-9 text-secondary">
                       {{userProfileRestService.selectedUser.last_Name}}
+                    </div>
+                  </div>
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">SSN</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{userProfileRestService.selectedUser.ssn}}
                     </div>
                   </div>
                   <hr>
@@ -105,6 +114,16 @@
 
                   <div class="row">
                     <div class="col-sm-3">
+                      <h6 class="mb-0"> Username</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{userProfileRestService.selectedUser.username}}
+                    </div>
+                  </div>
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-sm-3">
                       <h6 class="mb-0">Password</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
@@ -150,7 +169,7 @@
   <!-- <app-edit-profile-info></app-edit-profile-info> use this way amjad -->
 
 <mat-dialog-content>
-  <div class="body1">
+  <div class="">
     <div class="container">
       <div class="main-body">
           <!-- Breadcrumb -->
@@ -172,7 +191,7 @@
                                 <div class="file-input d-flex justify-content-center">
                                   <input type="file" class="file" #file
                                   formControlName="image" [(ngModel)]="userProfile.image" (change)="uploadFile(file.files)">
-                                  <label for="file" (click)="file.click()">Choose Your Image</label>
+                                  <label for="file" (click)="file.click()"></label>
                                 </div>
                                 <!-- <input id="image" type="file" class="validate"> -->
                               </div>

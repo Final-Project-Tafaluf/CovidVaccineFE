@@ -51,6 +51,7 @@ Create(){
     this.element={
       id:data.id,
       header_Logo:data.header_Logo,
+      home_Image:data.home_Image,
       contact_Image:data.contact_Image,
       about_Image:data.about_Image,
       about_Text:data.about_Text,
@@ -67,14 +68,88 @@ Create(){
 
   }
 
-  uploadImage(file:any){
-    if(file.length === 0)
-    return;
-    const uploadfile=<File>file[0];
-    const formData=new FormData();
-    formData.append('file',uploadfile,uploadfile.name);
+  uploadFile(file:any){
+    if(file.length===0){
+      return ;
+    }
+    let fileUpload=<File>file[0];
+    // file[0]:'angular.png';
+    const fromData=new FormData();
+    fromData.append('file',fileUpload,fileUpload.name);
+    this.home.uploadAttachment(fromData);
+  }
+
+
+  uploadFile2(file:any){
+    if(file.length===0){
+      return ;
+    }
     debugger
-    this.home.uploadAttachment(formData);
+    let fileUpload=<File>file[0];
+    // file[0]:'angular.png';
+    const fromData=new FormData();
+    fromData.append('file',fileUpload,fileUpload.name);
+    this.home.uploadHome(fromData);
+  }
+  uploadHome(file:any){
+    if(file.length===0){
+      return ;
+    }
+    let fileUpload=<File>file[0];
+    // file[0]:'angular.png';
+    const fromData=new FormData();
+    fromData.append('file',fileUpload,fileUpload.name);
+    this.home.uploadHome(fromData);
+  }
+  uploadAbout(file:any){
+    if(file.length===0){
+      return ;
+    }
+    let fileUpload=<File>file[0];
+    // file[0]:'angular.png';
+    const fromData=new FormData();
+    fromData.append('file',fileUpload,fileUpload.name);
+    this.home.uploadAbout(fromData);
+  }
+  uploadContact(file:any){
+    if(file.length===0){
+      return ;
+    }
+    let fileUpload=<File>file[0];
+    // file[0]:'angular.png';
+    const fromData=new FormData();
+    fromData.append('file',fileUpload,fileUpload.name);
+    this.home.uploadContact(fromData);
+  }
+  upload1(file:any){
+    if(file.length===0){
+      return ;
+    }
+    let fileUpload=<File>file[0];
+    // file[0]:'angular.png';
+    const fromData=new FormData();
+    fromData.append('file',fileUpload,fileUpload.name);
+    this.home.upload1(fromData);
+  }
+  upload2(file:any){
+    if(file.length===0){
+      return ;
+    }
+    let fileUpload=<File>file[0];
+    // file[0]:'angular.png';
+    const fromData=new FormData();
+    fromData.append('file',fileUpload,fileUpload.name);
+    this.home.upload2(fromData);
+  }
+  upload3(file:any){
+    if(file.length===0){
+      return ;
+    }
+    let fileUpload=<File>file[0];
+    // file[0]:'angular.png';
+    const fromData=new FormData();
+    fromData.append('file',fileUpload,fileUpload.name);
+    this.home.upload3(fromData);
   }
 
   update(){
