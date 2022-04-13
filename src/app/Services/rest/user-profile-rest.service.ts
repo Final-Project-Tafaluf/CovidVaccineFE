@@ -82,6 +82,7 @@ createUser(data:any){
   data.role_Id = 2;
   this.http.post('https://localhost:44327/User/CreateUser/',data).subscribe((res)=>
   {
+    debugger
     console.log(res);
     if(res == "created"){
       this.spinner.hide();
@@ -114,7 +115,6 @@ createUser(data:any){
 
   }, err=>
     {
-      console.log('faild');
       this.spinner.hide();
       this.toastr.error(err.message , err.status)
     }

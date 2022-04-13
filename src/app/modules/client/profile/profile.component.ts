@@ -82,4 +82,5 @@ export class ProfileComponent implements OnInit {
     this.userProfileRestService.uploadAttachment(fromData);
   }
 
+
 }
