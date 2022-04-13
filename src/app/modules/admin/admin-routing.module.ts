@@ -12,7 +12,7 @@ import { EditHomePageComponent } from './edit-home-page/edit-home-page.component
 import { ManageCenterVaccineComponent } from './manage-center-vaccine/manage-center-vaccine.component';
 import { ManageContactUsComponent } from './manage-contact-us/manage-contact-us.component';
 import { ManageHealthCenterComponent } from './manage-health-center/manage-health-center.component';
-import { ManageHealthcenterComponent } from './manage-healthcenter/manage-healthcenter.component';
+// import { ManageHealthcenterComponent } from './manage-healthcenter/manage-healthcenter.component';
 import { ManageSchedulesComponent } from './manage-schedules/manage-schedules.component';
 import { ManageUserRequestsComponent } from './manage-user-requests/manage-user-requests.component';
 import { ManageUserComponent } from './manage-user/manage-user.component';
@@ -24,9 +24,10 @@ const routes: Routes = [
   {
     path:'dashboard',
     component:DashboardComponent
-  },{
-    path:'manageHealthCenter',
-    component:ManageHealthcenterComponent
+  },
+  {
+    path:'manageHealthCenter1',
+    component:ManageHealthCenterComponent
   },
   {
     path:'content',
@@ -47,10 +48,6 @@ const routes: Routes = [
   {
     path:'manageUsers',
     component:DashboardManageUsersComponent
-  },
-  {
-    path:'manageHealthCenter1',
-    component:ManageHealthCenterComponent
   },
   {
     path:'manageVaccine',

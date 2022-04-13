@@ -11,7 +11,7 @@ import { CreateVaccineComponent } from '../create-vaccine/create-vaccine.compone
 })
 export class ManageVaccineComponent implements OnInit {
   @ViewChild('callUpdateDailog') callUpdateDailog! :TemplateRef<any>
-  @ViewChild('callDeleteDailog') callDeleteDailog! :TemplateRef<any>
+  @ViewChild('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
   constructor(private dialog:MatDialog, public manageVaccineRestService:ManageVaccineRestService) { }
 vaccine:any;
   ngOnInit(): void {
@@ -21,8 +21,8 @@ vaccine:any;
   {
     this.dialog.open(CreateVaccineComponent);
   }
- 
-  
+
+
 
   openUpdateDailog(id1 :any,
     vaccine_Type1 :any){
@@ -39,15 +39,15 @@ vaccine:any;
      id:new FormControl('',Validators.required),
      vaccine_Type: new FormControl('',Validators.required)
   })
-  
+
   update(){
     this.manageVaccineRestService.updateVaccine(this.UpdateForm.value);
     this.dialog.closeAll();
   }
 
-  openDeleteDailog(id:number)
+  openDeleteDialog(id:number)
   {
-      const dialogRef=this.dialog.open(this.callDeleteDailog);
+      const dialogRef=this.dialog.open(this.callDeleteDialog);
       dialogRef.afterClosed().subscribe((result)=>{
         if(result!=undefined)
         {
@@ -59,7 +59,7 @@ vaccine:any;
           }
         }
       })
-      
+
   }
 
 }
