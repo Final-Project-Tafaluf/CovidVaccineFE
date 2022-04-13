@@ -56,7 +56,11 @@
                             <td>{{health.vaccine_Type}}</td>
                             <td>
                               <button type="button" class="btn  btn-danger" (click)="openDeleteDialog(health.id)">Delete</button>
-                              <button type="button" class="btn  btn-secondary" (click)="openUpdateDialog(health)">Update</button>
+                              <button type="button" class="btn  btn-secondary" (click)="openUpdateDialog(health.id,
+                              health.number_Of_Vaccine,
+                              health.expire_Date,
+                              health.center_Name,
+                              health.vaccine_Type)">Update</button>
                             </td>
                             
                           </tr>
@@ -70,7 +74,7 @@
                         <mat-form-field class="example-full-width" appearance="fill">
                           <mat-label># Of Vaccine</mat-label>
                           <input type="text" matInput formControlName="Number_Of_Vaccine"
-                          [(ngModel)]="health.Number_Of_Vaccine">
+                          [(ngModel)]="health.number_Of_Vaccine">
                         </mat-form-field> </li>
                       <li>
                         <mat-form-field class="example-full-width" appearance="fill">
@@ -88,13 +92,13 @@
                       <!-- the list down there in the create dialog ↓↓↓↓-->
 
 
-                      <li>
+                      <!-- <li>
                         <mat-form-field class="example-full-width" appearance="fill">
                           <mat-label>Center Name</mat-label>
                           <input type="text" matInput formControlName="center_Name"
                           [(ngModel)]="health.center_Name">
                         </mat-form-field>
-                      </li>
+                      </li> -->
                     </ul>
                     <button (click)="update()">Update</button>
                   </form>
@@ -121,7 +125,7 @@
 
 
 
-<!-- <h2 mat-dialog-title>Add Center Vaccine</h2>
+<h2 mat-dialog-title>Add Center Vaccine</h2>
 <mat-dialog-content class="mat-typography">
     <form [formGroup]="CreateForm" class="example-form">
       <ul>
@@ -167,5 +171,5 @@
 <mat-dialog-actions align="end">
 <button mat-button mat-dialog-close>Cancel</button>
 <button [disabled]="!CreateForm.valid" mat-button [mat-dialog-close]="true"(click)="save()"  cdkFocusInitial>Save</button>
-</mat-dialog-actions> -->
+</mat-dialog-actions>
 

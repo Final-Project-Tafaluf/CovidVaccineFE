@@ -52,8 +52,19 @@ export class ManageCenterVaccineComponent implements OnInit {
     this.dialog.open(this.callCreateDialog)
   }
 
-  openUpdateDialog(data:any){
-this.health = data;
+  openUpdateDialog(id1:any,NVaccine:any,EDate:any,center1:any,vaccine1:any){
+      this.health={
+        id:id1,
+        number_Of_Vaccine:NVaccine,
+        expire_Date:EDate,
+        center_Id:center1,
+        vaccine_Id:vaccine1
+    }
+    this.UpdateForm.controls['id'].setValue(this.health.id)
+    this.UpdateForm.controls['center_Id'].setValue(this.health.center_Id)
+    this.UpdateForm.controls['vaccine_Id'].setValue(this.health.vaccine_Id)
+    debugger
+    this.dialog.open(this.callUpdateDialog)
   }
 
   openDeleteDialog(id: number) {
