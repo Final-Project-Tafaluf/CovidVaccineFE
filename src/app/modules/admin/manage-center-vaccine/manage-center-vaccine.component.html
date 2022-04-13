@@ -100,7 +100,7 @@
                         </mat-form-field>
                       </li> -->
                     </ul>
-                    <button (click)="update()">Update</button>
+                    <button mat-button [mat-dialog-close]="true" (click)="update()">Update</button>
                   </form>
                 </ng-template>
 
@@ -124,7 +124,7 @@
 
 
 
-
+<ng-template #callCreateDialog>
 <h2 mat-dialog-title>Add Center Vaccine</h2>
 <mat-dialog-content class="mat-typography">
     <form [formGroup]="CreateForm" class="example-form">
@@ -141,12 +141,12 @@
             <input type="date" matInput formControlName="expire_Date" placeholder="Expire Date">
           </mat-form-field>
         </li>
-        <li>
+        <!-- <li>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Center Name</mat-label>
             <input type="number" matInput formControlName="center_Id" placeholder="Center Name">
           </mat-form-field>
-        </li>
+        </li> -->
         <li>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Vaccine Type</mat-label>
@@ -155,7 +155,7 @@
           </mat-form-field>
         </li>
 
-        <div *ngFor="let health of centerVaccineRestService.data">
+        <div>
           <select id="centers" formControlName="Center_Id">
             <option value="{{health.Center_Id}}" *ngFor="let health of centerVaccineRestService.data">
               {{health.center_Name}}
@@ -168,8 +168,9 @@
     </form>
 </mat-dialog-content>
 
+
 <mat-dialog-actions align="end">
 <button mat-button mat-dialog-close>Cancel</button>
 <button [disabled]="!CreateForm.valid" mat-button [mat-dialog-close]="true"(click)="save()"  cdkFocusInitial>Save</button>
 </mat-dialog-actions>
-
+</ng-template>
