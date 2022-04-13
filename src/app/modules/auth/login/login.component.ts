@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
     phone:new FormControl(),
     email:new FormControl('',[Validators.required,Validators.email]),
     password:new FormControl('',[Validators.required,Validators.minLength(8)]),
-    confirm_Password :new FormControl(),
+    confirm_Password :new FormControl('',[Validators.required,Validators.minLength(8)]),
     username:new FormControl('',Validators.required),
     role:new FormControl(),
     })
