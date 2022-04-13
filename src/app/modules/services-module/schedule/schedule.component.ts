@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { HelpersService } from 'src/app/Services/helpers.service';
 import { LocalStorageService } from 'src/app/Services/local-storage.service';
 import { ScheduleRestService } from 'src/app/Services/rest/schedule-rest.service';
 
@@ -12,7 +14,9 @@ export class ScheduleComponent implements OnInit {
   userRequests:any;
   userData:any;
   userSchedules:any;
-  constructor(public scheduleRestService: ScheduleRestService,private localStorageService: LocalStorageService) { }
+  newDate:Date = new Date();
+  @ViewChild('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
+  constructor(private dialog:MatDialog, public scheduleRestService: ScheduleRestService,private localStorageService: LocalStorageService,public helpersService: HelpersService) { }
 
   ngOnInit(): void {
     this.getUserDataFromLocal();
@@ -35,7 +39,38 @@ export class ScheduleComponent implements OnInit {
   async getUserSchedules(){
     debugger;
     this.userSchedules = await this.scheduleRestService.getScheduleByUserId(this.userData.nameid);
+    debugger;
     console.log("this.userSchedules",this.userSchedules);
+  }
+
+  checkStatus(status:any,toDate:any){
+    debugger;
+    if(new Date() >new Date(toDate) && status != 'Taken' ){
+      status = 'Absent';
+    }
+    return status;
+  }
+
+  saveCertificate(){
+
+  }
+
+  showDetails(){
+    
+  }
+
+  openDeleteDialog(id:any){
+    const dialogRef=this.dialog.open(this.callDeleteDialog);
+    dialogRef.afterClosed().subscribe((res)=>{
+      if(res!==undefined)
+      {
+        if(res=="yes"){
+        this.removeRequest(id);
+      }
+        else if(res=="no")
+        console.log("Thank you ");
+      }
+    })
   }
 
   removeRequest(requestId: number){

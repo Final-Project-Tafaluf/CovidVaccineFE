@@ -77,7 +77,7 @@ export class ScheduleRestService {
     //show spinner
     this.spinner.show();
     //hits api
-    debugger
+    // debugger
     return this.http
       .get(
         'https://localhost:44327/api/UserRequest/GetUserRequestByUserId/' +
@@ -86,7 +86,7 @@ export class ScheduleRestService {
       .toPromise()
       .then(
         (res) => {
-          debugger;
+          // debugger;
           this.RequestsData = res;
           this.spinner.hide();
           this.toaster.success('Data Retrieved !!');

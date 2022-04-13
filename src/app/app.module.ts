@@ -18,13 +18,14 @@ import { ToastNoAnimationModule, ToastrModule } from 'ngx-toastr';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     ContactusComponent,
     AboutusComponent,
     HomeComponent,
-    TestimonialComponent,    
+    TestimonialComponent,
     ],
     imports: [
       BrowserModule,

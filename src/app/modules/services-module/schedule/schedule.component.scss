@@ -4,7 +4,7 @@
 
 .remove_btn:hover{
     // padding: 2px;
-    position: absolute;
+    // position: absolute;
     background-color: rgb(208, 221, 217);
     transition: .7s;
     cursor: pointer;
@@ -920,4 +920,20 @@ button, a {
     right: 2px;
     top: 10px;
   }
+}
+.certificate_btn:hover{
+  cursor: pointer;
+}
+
+.details_btn:hover{
+  cursor: pointer;
+}
+.card-header{
+  padding: 0.5rem 0.5rem;
+}
+.box-content-subheader{
+  opacity: .8 !important;
+}
+.box-progress-header{
+  margin-bottom: 3px;
 }
