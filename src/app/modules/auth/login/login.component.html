@@ -12,44 +12,38 @@
       <form class="col s12">
         <div class="form-container">
           <h3 class="teal-text h3">Hello</h3>
-          <div class="row">
 
+          <div class="row">
+            <label>Email</label>
             <div class="input-field col s12">
-              <input [formControl]="email" id="email" type="email" class="validate">
-              <label for="email">Email</label>
-              <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
-                Please enter a valid email address
+              <input [formControl]="email" id="email" type="text" placeholder="Username"  class="validate">
+              <mat-error *ngIf="email.hasError('required')">
+                Please enter email address
               </mat-error>
             </div>
           </div>
 
           <div class="row">
+            <label>Password</label>
             <div class="input-field col s12">
-              <input [formControl]="password" id="password" type="password" class="validate">
-              <label for="password">Password</label>
-              <!-- <mat-error *ngIf="!password.hasError('required')">
-                Please enter a Strong Password
-              </mat-error>
+              <input [formControl]="password" id="password" type="password" placeholder="Password" class="validate">
               <mat-error *ngIf="password.hasError('required')">
-                Email is <strong>required</strong>
-              </mat-error> -->
+                Please enter password
+              </mat-error>
             </div>
           </div>
           <br>
             <button class="btn waves-effect waves-light teal btnn" type="submit" name="action"
-            [disabled]="!email.valid || !password.valid" (click)="submit()"
-            >Connect</button>
+            [disabled]="!email.valid || !password.valid" (click)="submit()">Connect</button>
             <br>
             <br>
-            <div class="level options">
+            <!-- <div class="level options">
               <div class="checkbox level-left">
                 <input type="checkbox" id="checkbox" [checked]="isChecked" [formControl]="isChecked" class="regular-checkbox">
                 <label for="checkbox"></label>
                 <span>Remember me</span>
               </div>
-
-              <a class="btn btn-link level-right" href="#">Forgot Password?</a>
-            </div>
+            </div> -->
           </div>
       </form>
     </div>
@@ -59,116 +53,109 @@
       <form class="col s12" [formGroup]="CreateForm">
         <div class="form-container">
           <h3 class="teal-text">Welcome</h3>
+
           <div class="row">
 
             <mat-form-field class="example-full-width">
-            <div class="input-field col s6">
-              <input id="first_Name" type="text" class="validate" matInput
-              formControlName="first_Name" [(ngModel)]="user.first_Name">
-              <label for="first_Name">Fisrt Name</label>
-              <mat-error *ngIf="myError('first_Name', 'required') ">
-                First Name is <strong>required</strong>
-                </mat-error>
-                
-            </div>
-          </mat-form-field>
+              <div class="input-field col s6">
+                <input id="first_Name" type="text" class="validate" matInput
+                formControlName="first_Name" >
+                <label for="first_Name">Fisrt Name</label>
+                <mat-error *ngIf="CreateForm.controls['first_Name'].hasError('required')">
+                  First Name is <strong>required</strong>
+                  </mat-error>
+              </div>
+            </mat-form-field>
 
             <mat-form-field class="example-full-width">
-            <div class="input-field col s6">
-              <input id="last_name" type="text" class="validate" matInput
-              formControlName="last_Name" [(ngModel)]="user.last_Name">
-              <label for="last_Name">Last Name</label>
-              <mat-error *ngIf="myError('last_Name', 'required') ">
-                Last Name is <strong>required</strong>
-                </mat-error>
-            </div>
-          </mat-form-field>
+              <div class="input-field col s6">
+                <input id="last_name" type="text" class="validate" matInput
+                formControlName="last_Name" >
+                <label for="last_Name">Last Name</label>
+                <mat-error *ngIf="CreateForm.controls['last_Name'].hasError('required')">
+                  Last Name is <strong>required</strong>
+                  </mat-error>
+              </div>
+            </mat-form-field>
+
           </div>
 
-          
+
           <div class="row">
             <mat-form-field class="example-full-width">
             <div class="input-field col s6">
-              <input id="Ssn" type="text" class="validate" formControlName="ssn" [(ngModel)]="user.ssn">
-              <label for="Ssn">SSN</label>
-              <mat-error *ngIf="myError('Ssn', 'required') ">
+              <input id="ssn" type="text" class="validate" formControlName="ssn">
+              <label for="ssn">SSN</label>
+              <mat-error *ngIf="CreateForm.controls['ssn'].hasError('required')">
                 Ssn is <strong>required</strong>
               </mat-error>
             </div>
           </mat-form-field>
           <mat-form-field class="example-full-width">
-            <div class="input-field col s6" >
-              <input id="username" type="text" class="validate" matInput
-              formControlName="username" [(ngModel)]="user.username">
-              <label for="username">Username</label>
-              <mat-error *ngIf="myError('username', 'required') ">
-                username is <strong>required</strong>
-              </mat-error>
+            <div class="input-field col s6">
+              <label for="gender">Gender</label>
+              <input id="gender" type="text" class="validate" matInput
+              formControlName="gender">
             </div>
           </mat-form-field>
+
           </div>
 
           <div class="row">
             <mat-form-field class="example-full-width">
             <div class="input-field col s6">
               <input id="address" type="text" class="validate" matInput
-              formControlName="address" [(ngModel)]="user.address">
+              formControlName="address">
               <label for="address">Address</label>
-              <mat-error *ngIf="myError('address', 'required') ">
-                Address is <strong>required</strong>
-              </mat-error>
             </div>
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
             <div class="input-field col s6">
               <input id="phone" type="text" class="validate" matInput
-              formControlName="phone" [(ngModel)]="user.phone">
+              formControlName="phone">
               <label for="phone">Phone</label>
-              <mat-error *ngIf="myError('phone', 'required') ">
-                Phone is <strong>required</strong>
-              </mat-error>
             </div>
           </mat-form-field>
           </div>
 
           <div class="row">
             <mat-form-field class="example-full-width">
-            <div class="input-field col s6">
-              <input id="email" type="email" class="validate" matInput
-              formControlName="email" [(ngModel)]="user.email">
-              <label for="email">Email</label>
-              <mat-error *ngIf="myError('email', 'email') ">
-                Please enter a valid email address
-              </mat-error>
-              <mat-error *ngIf="myError('email','required')">
-                Email is <strong>required</strong>
+              <div class="input-field col s6">
+                <input id="email" type="email" class="validate" matInput
+                formControlName="email" >
+                <label for="email">Email</label>
+                <mat-error *ngIf="CreateForm.controls['email'].hasError('email') && !CreateForm.controls['email'].hasError('required')">
+                  Please enter a valid email address
                 </mat-error>
+                <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
+                  Email is <strong>required</strong>
+                  </mat-error>
+              </div>
+            </mat-form-field>
 
-            </div>
-          </mat-form-field>
-
-          <mat-form-field class="example-full-width">
-            <div class="input-field col ">
-              <input id="email-confirm" type="email" class="validate">
-              <label for="email-confirm">Email Confirmation</label>
-              <mat-error *ngIf="myError('email-confirm', 'required') ">
-                email-confirm is <strong>required</strong>
-              </mat-error>
-            </div>
-          </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <div class="input-field col s6" >
+                <input id="username" type="text" class="validate" matInput
+                formControlName="username" >
+                <label for="username">Username</label>
+                <mat-error *ngIf="CreateForm.controls['username'].hasError('required')">
+                  username is <strong>required</strong>
+                </mat-error>
+              </div>
+            </mat-form-field>
           </div>
 
           <div class="row">
             <mat-form-field class="example-full-width">
             <div class="input-field col s6">
               <input id="password" type="password" class="validate" matInput
-              formControlName="password" [(ngModel)]="user.password">
+              formControlName="password" >
               <label for="password">Password</label>
-              <mat-error *ngIf="myError('password', 'minlength')">
-                Please enter a valid password
+              <mat-error *ngIf="CreateForm.controls['password'].hasError('minlength') && !CreateForm.controls['password'].hasError('required')">
+                Please enter a Strong password
                 </mat-error>
-                <mat-error *ngIf="myError('password','required')">
+                <mat-error *ngIf="CreateForm.controls['password'].hasError('required')">
                 password is <strong>required</strong>
                 </mat-error>
             </div>
@@ -176,13 +163,16 @@
 
           <mat-form-field class="example-full-width">
             <div class="input-field col s6">
-              <input id="password-confirm" type="password" class="validate">
-              <label for="password-confirm">Password Confirmation</label>
-              <mat-error *ngIf="myError('password-confirm', 'minlength')">
-                Please enter a valid password
-                </mat-error>
-                <mat-error *ngIf="myError('password-confirm','required')">
+              <input id="confirm_Password" type="password" class="validate" formControlName="confirm_Password" (change)="onChange()">
+              <label for="confirm_Password">Password Confirmation</label>
+              <mat-error *ngIf="CreateForm.controls['confirm_Password'].hasError('minlength') && !CreateForm.controls['confirm_Password'].hasError('required')">
+                Please enter strong password
+              </mat-error>
+              <mat-error *ngIf="CreateForm.controls['confirm_Password'].hasError('required')">
                 password is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="CreateForm.controls['confirm_Password'].hasError('mismatch')">
+                  Password Not Matched
                 </mat-error>
             </div>
           </mat-form-field>
@@ -193,32 +183,14 @@
             <mat-form-field class="example-full-width">
             <div>
               <label for="birthdate">Birthdate</label>
-              <mat-error *ngIf="myError('birthdate','required')">
-                birthdate is <strong>required</strong>
-                </mat-error>
             </div>
             <div class="input-field col s6">
               <input id="birthdate" type="date" class="validate" matInput
-              formControlName="birthdate" [(ngModel)]="user.birthdate">
-              
+              formControlName="birthdate" >
+
             </div>
           </mat-form-field>
 
-          <mat-form-field class="example-full-width">
-            <div class="input-field col s6">
-              <label for="gender">Gender</label>
-              <mat-error *ngIf="myError('gender','required')">
-                Gender is <strong>required</strong>
-                </mat-error>
-              <input id="gender" type="text" class="validate" matInput
-              formControlName="gender" [(ngModel)]="user.gender">
-            </div>
-          </mat-form-field>
-          </div>
-
-
-          <div class="row">
-           
             <div class="col s6">
               <div class="file-input d-flex justify-content-center">
                 <input type="file" class="file" #file
@@ -227,23 +199,25 @@
               </div>
               <!-- <input id="image" type="file" class="validate"> -->
             </div>
-      
+          </div>
+
+
+          <div class="row">
+
+
+
 
             <mat-form-field class="example-full-width">
             <div class="input-field col s6" hidden>
               <input id="role" type="text" class="validate"
-              formControlName="role" [(ngModel)]="user.role">
+              formControlName="role" >
               <label for="role">Role</label>
-              <mat-error *ngIf="myError('role','required')">
-                Role is <strong>required</strong>
-                </mat-error>
             </div>
           </mat-form-field>
           </div>
             <button
             class="btn waves-effect waves-light teal btnn" type="submit" name="action"
-            [disabled]="!CreateForm.valid" mat-button [mat-dialog-close]="true"(click)="save()"
-            cdkFocusInitial>Submit
+            [disabled]="!CreateForm.valid" (click)="save()">Submit
           </button>
         </div>
       </form>

@@ -25,6 +25,18 @@ export class DashboardComponent implements OnInit {
   }
 
 
+    goToMainDashboard(){
+    this.ContentToggle=true;
+    this.ManageUsersToggle=false;
+    this.ManageHealthCenterToggle=false;
+    this.ManageVaccineToggle=false;
+    this.EditAboutUsToggle=false;
+    this.EditContactUsToggle=false;
+    this.ManageContactUsToggle=false;
+    this.EditHomePageToggle=false;
+    this.ManageScheduleToggle=false;
+
+    }
     goToManageUsers(){
     this.ContentToggle=false;
     this.ManageUsersToggle=true;

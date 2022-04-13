@@ -5,7 +5,7 @@
 		<div class="navbar-wrapper  ">
 			<div class="navbar-content scroll-div " >
 
-				<div class="">
+				<!-- <div class="">
 
 					<div class="collapse" id="nav-user-link">
 						<ul class="list-unstyled">
@@ -14,7 +14,7 @@
 							<li class="list-group-item" (click)="signout()"><i class="feather icon-log-out m-r-5"></i>Log Out</li>
 						</ul>
 					</div>
-				</div>
+				</div> -->
 
 				<ul class="nav pcoded-inner-navbar ">
 					<li class="nav-item pcoded-menu-caption" >
@@ -24,7 +24,7 @@
 					    <a href="" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Site Home</span></a>
 					</li>
 					<li class="nav-item" >
-					    <a href="admin/dashboard" class="nav-link "><span class="pcoded-micon"><i class="fas fa-chart-line"></i></span><span class="pcoded-mtext">Main Dashboard</span></a>
+					    <a (click)="goToMainDashboard()" class="nav-link "><span class="pcoded-micon"><i class="fas fa-chart-line"></i></span><span class="pcoded-mtext">Main Dashboard</span></a>
 					</li>
 
 					<li class="nav-item pcoded-menu-caption">
@@ -47,10 +47,10 @@
 						<label>Centers and Resources</label>
 					</li>
 					<li class="nav-item" >
-					    <a class="nav-link " (click)="goToManageHealthCenter()"><span class="pcoded-micon"><i class="far fa-hospital"></i></span><span class="pcoded-mtext">Manage health center</span></a>
+					    <a class="nav-link " (click)="goToManageHealthCenter()"><span class="pcoded-micon"><i class="far fa-hospital"></i></span><span class="pcoded-mtext">Manage Health Centers</span></a>
 					</li>
                     <li class="nav-item">
-					    <a  class="nav-link " (click)="goToManageVaccine()"><span class="pcoded-micon"><i class="fas fa-syringe"></i></span><span class="pcoded-mtext">Manage Vaccine</span></a>
+					    <a  class="nav-link " (click)="goToManageVaccine()"><span class="pcoded-micon"><i class="fas fa-syringe"></i></span><span class="pcoded-mtext">Manage Vaccines</span></a>
 					</li>
 
 					<li class="nav-item pcoded-menu-caption">
@@ -101,7 +101,9 @@
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item">
+
+						<!-- ========   Search button here   ============ -->
+						<!-- <li class="nav-item">
 							<a href="#!" class="pop-search"><i class="feather icon-search"></i></a>
 							<div class="search-bar">
 								<input type="text" class="form-control border-0 shadow-none" placeholder="Search hear">
@@ -109,7 +111,7 @@
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
-						</li>
+						</li> -->
 						<!-- ========   Dropdown lists here   ============ -->
 
 						<!-- <li class="nav-item">

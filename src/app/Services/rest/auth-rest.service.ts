@@ -43,7 +43,7 @@ export class AuthService {
       },err=>{
         debugger
         this.router.navigate(['security/login']);
-        this.toaster.error(err)
+        this.toaster.error('Worng Username or Password')
       })
     }
     logout() {

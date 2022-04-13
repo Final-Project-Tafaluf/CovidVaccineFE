@@ -13,8 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastNoAnimationModule, ToastrModule } from 'ngx-toastr';
+import { TokenInterceptor } from 'src/Interceptor/token.interceptor';
 
 
 
@@ -41,8 +42,14 @@ import { ToastNoAnimationModule, ToastrModule } from 'ngx-toastr';
       }),
       HttpClientModule
       ],
-  
-  providers: [],
+
+      providers: [
+        {
+          provide:HTTP_INTERCEPTORS,
+          useClass:TokenInterceptor,
+          multi:true
+        }
+      ],
   bootstrap: [AppComponent],schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }
