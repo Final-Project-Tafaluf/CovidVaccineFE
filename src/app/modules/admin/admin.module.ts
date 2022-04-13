@@ -19,6 +19,7 @@ import { EditContactUsPageComponent } from './edit-contact-us-page/edit-contact-
 import { ManageSchedulesComponent } from './manage-schedules/manage-schedules.component';
 import { ManageUserRequestsComponent } from './manage-user-requests/manage-user-requests.component';
 import { CreateVaccineComponent } from './create-vaccine/create-vaccine.component';
+import { ReportComponent } from './report/report.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { CreateVaccineComponent } from './create-vaccine/create-vaccine.componen
     EditContactUsPageComponent,
     ManageSchedulesComponent,
     ManageUserRequestsComponent,
-    CreateVaccineComponent
+    CreateVaccineComponent,
+    ReportComponent
   ],
   imports: [
     CommonModule,
