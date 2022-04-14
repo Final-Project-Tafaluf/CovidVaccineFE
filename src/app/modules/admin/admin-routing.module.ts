@@ -1,3 +1,4 @@
+import { RepositionScrollStrategy } from '@angular/cdk/overlay';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContentComponent } from './content/content.component';
@@ -17,6 +18,7 @@ import { ManageSchedulesComponent } from './manage-schedules/manage-schedules.co
 import { ManageUserRequestsComponent } from './manage-user-requests/manage-user-requests.component';
 import { ManageUserComponent } from './manage-user/manage-user.component';
 import { ManageVaccineComponent } from './manage-vaccine/manage-vaccine.component';
+import { ReportComponent } from './report/report.component';
 
 
 const routes: Routes = [
@@ -85,9 +87,13 @@ const routes: Routes = [
     component:CreateVaccineComponent
   },
   {
+    path:'report',
+    component:ReportComponent
+  },
+  {
     path:'centerVaccine',
     component:ManageCenterVaccineComponent
-  }
+  },
 ];
 
 @NgModule({

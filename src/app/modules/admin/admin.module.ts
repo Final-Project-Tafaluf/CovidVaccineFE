@@ -19,6 +19,7 @@ import { EditContactUsPageComponent } from './edit-contact-us-page/edit-contact-
 import { ManageSchedulesComponent } from './manage-schedules/manage-schedules.component';
 import { ManageUserRequestsComponent } from './manage-user-requests/manage-user-requests.component';
 import { CreateVaccineComponent } from './create-vaccine/create-vaccine.component';
+import { ReportComponent } from './report/report.component';
 import { ManageCenterVaccineComponent } from './manage-center-vaccine/manage-center-vaccine.component';
 
 
@@ -40,6 +41,7 @@ import { ManageCenterVaccineComponent } from './manage-center-vaccine/manage-cen
     ManageSchedulesComponent,
     ManageUserRequestsComponent,
     CreateVaccineComponent,
+    ReportComponent,
     ManageCenterVaccineComponent
   ],
   imports: [
