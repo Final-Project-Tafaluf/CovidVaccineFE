@@ -2,6 +2,8 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { CenterVaccineRestService } from 'src/app/Services/rest/center-vaccine-rest.service';
+import { ManageHealthCenterRestService } from 'src/app/Services/rest/manage-health-center-rest.service';
+import { ManageVaccineRestService } from 'src/app/Services/rest/manage-vaccine-rest.service';
 
 @Component({
   selector: 'app-manage-center-vaccine',
@@ -31,38 +33,42 @@ export class ManageCenterVaccineComponent implements OnInit {
   })
 
   health : any ={}
-  constructor(private dialog:MatDialog,public centerVaccineRestService : CenterVaccineRestService) { }
+  constructor(
+    private dialog:MatDialog,
+    public centerVaccineRestService : CenterVaccineRestService,
+    public manageVaccineRestService:ManageVaccineRestService,
+    public manageHealthCenterRestService:ManageHealthCenterRestService) { }
 
   ngOnInit(): void {
     this.centerVaccineRestService.getAll();
+    this.manageHealthCenterRestService.getAll();
+    this.manageVaccineRestService.getAll();
+    debugger
   }
 
   save(){
     this.centerVaccineRestService.createCenterVaccine(this.CreateForm.value);
-    console.log(this.health);
-
+debugger
   }
-  
+
   update(){
     this.centerVaccineRestService.updateCentervaccine(this.UpdateForm.value);
     console.log(this.health);
   }
 
   openCreateDialog(){
-    this.dialog.open(this.callCreateDialog)
+    this.dialog.open(this.callCreateDialog);
   }
 
-  openUpdateDialog(id1:any,NVaccine:any,EDate:any,center1:any,vaccine1:any){
+  openUpdateDialog(data:any){
       this.health={
-        id:id1,
-        number_Of_Vaccine:NVaccine,
-        expire_Date:EDate,
-        center_Id:center1,
-        vaccine_Id:vaccine1
+        id:data.id,
+        number_Of_Vaccine:data.number_Of_Vaccine,
+        expire_Date:data.expire_Date,
+        center_Id:data.center_Id,
+        vaccine_Id:data.vaccine_Id
     }
     this.UpdateForm.controls['id'].setValue(this.health.id)
-    this.UpdateForm.controls['center_Id'].setValue(this.health.center_Id)
-    this.UpdateForm.controls['vaccine_Id'].setValue(this.health.vaccine_Id)
     debugger
     this.dialog.open(this.callUpdateDialog)
   }
@@ -70,13 +76,13 @@ export class ManageCenterVaccineComponent implements OnInit {
   openDeleteDialog(id: number) {
     const dialogRef = this.dialog.open(this.callDeleteDialog);
 
-    dialogRef.afterClosed().subscribe((result) => 
+    dialogRef.afterClosed().subscribe((result) =>
       {
-        if (result != undefined) 
+        if (result != undefined)
         {
           if (result == 'yes') this.centerVaccineRestService.deleteItem(id);
 
-          else if (result == 'no') 
+          else if (result == 'no')
           {
             console.log("Thank you ");
             this.dialog.closeAll();
@@ -86,5 +92,5 @@ export class ManageCenterVaccineComponent implements OnInit {
     )
   }
 
-  
+
 }
