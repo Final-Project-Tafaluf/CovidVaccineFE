@@ -15,7 +15,6 @@ import { ManageContactUsComponent } from './manage-contact-us/manage-contact-us.
 import { ManageHealthCenterComponent } from './manage-health-center/manage-health-center.component';
 // import { ManageHealthcenterComponent } from './manage-healthcenter/manage-healthcenter.component';
 import { ManageSchedulesComponent } from './manage-schedules/manage-schedules.component';
-import { ManageUserComponent } from './manage-user/manage-user.component';
 import { ManageVaccineComponent } from './manage-vaccine/manage-vaccine.component';
 import { ReportComponent } from './report/report.component';
 
@@ -37,10 +36,6 @@ const routes: Routes = [
   {
     path:'createHealthCenter',
     component:CreateHealthCenterComponent
-  },
-  {
-    path:'manageuser',
-    component:ManageUserComponent
   },
   {
     path:'dashboardContent',
