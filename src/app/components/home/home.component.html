@@ -1,6 +1,11 @@
 <app-header></app-header>
-
-<div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" >
+<div *ngFor="let element of home.ele">
+<div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4"
+style="
+background: linear-gradient(rgba(15, 23, 43, .6), rgba(15, 23, 43, .6)), url(../../../assets/home/{{element.home_Image}});
+background-repeat: no-repeat;
+background-size: cover;
+box-shadow: 0 2px 4px 0px rgb(0 0 0 / 30%) ">
 <div class="container">
     <div class="row">
       <div class="col-md-12 col-sm-12">
@@ -177,8 +182,7 @@
                   <!-- Post Meta -->
                   <div class="post-meta">
                     <h2>ways to move</h2>
-                    <p>Direct transmission during coughing or sneezing.</p>
-                    <p>Indirect transmission (touching surfaces and tools contaminated with the patient's secretions, and then touching the mouth, nose or eyes)</p>
+                    <p>{{element.news_Textone}}.</p>
                   </div>
                   <!-- Post Title -->
                 </div>
@@ -191,10 +195,8 @@
                   <!-- Post Meta -->
                   <div class="post-meta">
                     <h2>Symptoms of infection</h2>
-                    <p>high body temperature</p>
-                    <p>dry cough, vomiting</p>
-                    <p>runny nose</p>
-                    <p>Shortness of breath, pneumonia.</p>
+                    <p>{{element.news_Texttwo}}</p>
+
                   </div>
                   <!-- Post Title -->
                 </div>
@@ -207,10 +209,8 @@
                   <!-- Post Meta -->
                   <div class="post-meta">
                     <h2>Preventative measurements</h2>
-                    <p>Receiving the Corona vaccine against the virus</p>
-                    <p>Just the mask correctly, covering the nose and mouth</p>
-                    <p>Avoid shaking hands and kissing in meetings.</p>
-                    <p>Avoid direct contact with any suspected or confirmed case.</p>
+                    <p>{{element.news_Textthree}}</p>
+]
                   </div>
                   <!-- Post Title -->
 
@@ -221,7 +221,7 @@
   </div>
 </section>
 <!-- Blog Area End -->
-
+</div>
 <style>
 
   .content-box{

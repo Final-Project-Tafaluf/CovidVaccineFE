@@ -10,6 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditAboutPageComponent } from './edit-about-page/edit-about-page.component';
 import { EditContactUsPageComponent } from './edit-contact-us-page/edit-contact-us-page.component';
 import { EditHomePageComponent } from './edit-home-page/edit-home-page.component';
+import { ManageCenterVaccineComponent } from './manage-center-vaccine/manage-center-vaccine.component';
 import { ManageContactUsComponent } from './manage-contact-us/manage-contact-us.component';
 import { ManageHealthCenterComponent } from './manage-health-center/manage-health-center.component';
 import { ManageHealthcenterComponent } from './manage-healthcenter/manage-healthcenter.component';
@@ -88,7 +89,11 @@ const routes: Routes = [
   {
     path:'report',
     component:ReportComponent
-  }
+  },
+  {
+    path:'centerVaccine',
+    component:ManageCenterVaccineComponent
+  },
 ];
 
 @NgModule({

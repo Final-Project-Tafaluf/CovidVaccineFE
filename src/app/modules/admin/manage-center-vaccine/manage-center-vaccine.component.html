@@ -1,0 +1,176 @@
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+  <div class="pcoded-content">
+    <div class="page-header">
+        <div class="page-block">
+            <div class="row align-items-center">
+                <div class="col-md-12">
+                    <div class="page-header-title">
+                        <h5 class="m-b-10">Manage Health Center and Vaccine</h5>
+                    </div>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item active">Centers And Resources</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-12">
+      <div class="card table-card">
+          <div class="card-header">
+              <h5>Manage Health Center & Vaccine</h5>
+              <div class="card-header-right">
+                <div class="btn-group card-option">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="feather icon-more-horizontal"></i>
+                    </button>
+                    <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                        <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                        <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                        <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
+                        <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
+                    </ul>
+                    <button type="button" class="btn  btn-primary" (click)="openCreateDialog()" ><i class="fas fa-plus"></i> Create</button>
+                </div>
+              </div>
+          </div>
+          <div class="card-body p-0">
+              <div class="table-responsive">
+                  <table class="table table-hover mb-0">
+                      <thead>
+                          <tr>
+                            <th># Of Vaccine</th>
+                            <th>Expire Date</th>
+                            <th>Center Name</th>
+                            <th>Vaccine Type</th>
+                            <th>Operation</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let health of centerVaccineRestService.data" >
+                            <td>{{health.number_Of_Vaccine}}</td>
+                            <td>{{health.expire_Date | customeDate}}</td>
+                            <td>{{health.center_Name}}</td>
+                            <td>{{health.vaccine_Type}}</td>
+                            <td>
+                              <button type="button" class="btn  btn-danger" (click)="openDeleteDialog(health.id)">Delete</button>
+                              <button type="button" class="btn  btn-secondary" (click)="openUpdateDialog(health.id,
+                              health.number_Of_Vaccine,
+                              health.expire_Date,
+                              health.center_Name,
+                              health.vaccine_Type)">Update</button>
+                            </td>
+                            
+                          </tr>
+                      </tbody>
+                  </table>
+
+                <ng-template #callUpdateDialog>
+                  <form [formGroup]="UpdateForm">
+                    <ul>
+                      <li>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                          <mat-label># Of Vaccine</mat-label>
+                          <input type="text" matInput formControlName="Number_Of_Vaccine"
+                          [(ngModel)]="health.number_Of_Vaccine">
+                        </mat-form-field> </li>
+                      <li>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                          <mat-label>Expire Date</mat-label>
+                          <input type="date" matInput formControlName="expire_Date"
+                          [(ngModel)]="health.expire_Date">
+                        </mat-form-field>
+                      </li>
+                      <!-- <div *ngfor >
+                        <select formControlName="center_id">
+                          <option value="{{center id}}">{{center name}}</option>
+                        </select>
+                      </div> -->
+
+                      <!-- the list down there in the create dialog ↓↓↓↓-->
+
+
+                      <!-- <li>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                          <mat-label>Center Name</mat-label>
+                          <input type="text" matInput formControlName="center_Name"
+                          [(ngModel)]="health.center_Name">
+                        </mat-form-field>
+                      </li> -->
+                    </ul>
+                    <button mat-button [mat-dialog-close]="true" (click)="update()">Update</button>
+                  </form>
+                </ng-template>
+
+
+
+                <ng-template #callDeleteDialog>
+
+                  <h2>Are you sure you want to delete this item?</h2>
+                  <mat-dialog-actions align="end">
+                  <button mat-button mat-dialog-close="no">No</button>
+                  <button mat-button mat-dialog-close="yes">Yes</button>
+                </mat-dialog-actions>
+                </ng-template>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<ng-template #callCreateDialog>
+<h2 mat-dialog-title>Add Center Vaccine</h2>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="CreateForm" class="example-form">
+      <ul>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Number Of Vaccine</mat-label>
+            <input type="number" matInput formControlName="number_Of_Vaccine" placeholder="Number Of Vaccine">
+          </mat-form-field>
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Expire Date</mat-label>
+            <input type="date" matInput formControlName="expire_Date" placeholder="Expire Date">
+          </mat-form-field>
+        </li>
+        <!-- <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Center Name</mat-label>
+            <input type="number" matInput formControlName="center_Id" placeholder="Center Name">
+          </mat-form-field>
+        </li> -->
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Vaccine Type</mat-label>
+            <input type="number" matInput formControlName="vaccine_Id" placeholder="Vaccine Type">
+
+          </mat-form-field>
+        </li>
+
+        <div>
+          <select id="centers" formControlName="Center_Id">
+            <option value="{{health.Center_Id}}" *ngFor="let health of centerVaccineRestService.data">
+              {{health.center_Name}}
+            </option>
+          </select>
+        </div>
+
+
+      </ul>
+    </form>
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+<button mat-button mat-dialog-close>Cancel</button>
+<button [disabled]="!CreateForm.valid" mat-button [mat-dialog-close]="true"(click)="save()"  cdkFocusInitial>Save</button>
+</mat-dialog-actions>
+</ng-template>
