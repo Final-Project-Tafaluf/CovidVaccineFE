@@ -16,6 +16,7 @@ export class CertificateComponent implements OnInit {
  
   public openPDF(): void {
     let DATA: any = document.getElementById('htmlData');
+    debugger
     html2canvas(DATA).then((canvas) => {
       const FILEURI = canvas.toDataURL('image/png');
       let PDF = new jsPDF("landscape");
