@@ -5,7 +5,6 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { ContentComponent } from './content/content.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateHealthCenterComponent } from './create-health-center/create-health-center.component';
-import { ManageHealthcenterComponent } from './manage-healthcenter/manage-healthcenter.component';
 import { ManageUserComponent } from './manage-user/manage-user.component';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardContentComponent } from './dashboard-content/dashboard-content.component';
@@ -17,8 +16,8 @@ import { EditHomePageComponent } from './edit-home-page/edit-home-page.component
 import { EditAboutPageComponent } from './edit-about-page/edit-about-page.component';
 import { EditContactUsPageComponent } from './edit-contact-us-page/edit-contact-us-page.component';
 import { ManageSchedulesComponent } from './manage-schedules/manage-schedules.component';
-import { ManageUserRequestsComponent } from './manage-user-requests/manage-user-requests.component';
 import { CreateVaccineComponent } from './create-vaccine/create-vaccine.component';
+import { ReportComponent } from './report/report.component';
 import { ManageCenterVaccineComponent } from './manage-center-vaccine/manage-center-vaccine.component';
 import { ManangeUsersRequestsComponent } from './manange-users-requests/manange-users-requests.component';
 
@@ -28,7 +27,6 @@ import { ManangeUsersRequestsComponent } from './manange-users-requests/manange-
     ContentComponent,
     DashboardComponent,
     CreateHealthCenterComponent,
-    ManageHealthcenterComponent,
     ManageUserComponent,
     DashboardContentComponent,
     DashboardManageUsersComponent,
@@ -39,10 +37,11 @@ import { ManangeUsersRequestsComponent } from './manange-users-requests/manange-
     EditAboutPageComponent,
     EditContactUsPageComponent,
     ManageSchedulesComponent,
-    ManageUserRequestsComponent,
     CreateVaccineComponent,
     ManageCenterVaccineComponent,
-    ManangeUsersRequestsComponent
+    ManangeUsersRequestsComponent,
+    ReportComponent,
+    
   ],
   imports: [
     CommonModule,

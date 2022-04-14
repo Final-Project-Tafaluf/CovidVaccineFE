@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   EditHomePageToggle:boolean=false;
   ManageScheduleToggle:boolean=false;
   ManageUsersRequests:boolean=false;
+  ManageCentersVaccinesToggle:boolean=false;
 
 
  ngOnInit(): void {
@@ -37,6 +38,8 @@ export class DashboardComponent implements OnInit {
     this.EditHomePageToggle=false;
     this.ManageScheduleToggle=false;
     this.ManageUsersRequests=false;
+    this.ManageCentersVaccinesToggle=false;
+
     }
 
     goToManageUsers(){
@@ -50,6 +53,8 @@ export class DashboardComponent implements OnInit {
     this.EditHomePageToggle=false;
     this.ManageScheduleToggle=false;
     this.ManageUsersRequests=false;
+    this.ManageCentersVaccinesToggle=false;
+
     }
 
     goToManageHealthCenter(){
@@ -63,6 +68,22 @@ export class DashboardComponent implements OnInit {
     this.EditHomePageToggle=false;
     this.ManageScheduleToggle=false;
     this.ManageUsersRequests=false;
+    this.ManageCentersVaccinesToggle=false;
+
+    }
+
+    goToManageCentersVaccines(){
+    this.ContentToggle=false;
+    this.ManageUsersToggle=false;
+    this.ManageHealthCenterToggle=false;
+    this.ManageVaccineToggle=false;
+    this.EditAboutUsToggle=false;
+    this.EditContactUsToggle=false;
+    this.ManageContactUsToggle=false;
+    this.EditHomePageToggle=false;
+    this.ManageScheduleToggle=false;
+    this.ManageUsersRequests=false;
+    this.ManageCentersVaccinesToggle=true;
     }
 
     goToManageVaccine(){
@@ -76,6 +97,8 @@ export class DashboardComponent implements OnInit {
       this.EditHomePageToggle=false;
       this.ManageScheduleToggle=false;
       this.ManageUsersRequests=false;
+      this.ManageCentersVaccinesToggle=false;
+
     }
 
     goToEditAboutUs(){
@@ -89,6 +112,8 @@ export class DashboardComponent implements OnInit {
       this.EditHomePageToggle=false;
       this.ManageScheduleToggle=false;
       this.ManageUsersRequests=false;
+      this.ManageCentersVaccinesToggle=false;
+
     }
 
     goToEditContactUs(){
@@ -102,6 +127,8 @@ export class DashboardComponent implements OnInit {
     this.EditHomePageToggle=false;
     this.ManageScheduleToggle=false;
     this.ManageUsersRequests=false;
+    this.ManageCentersVaccinesToggle=false;
+
     }
 
     goToManageContactUs(){
@@ -115,6 +142,8 @@ export class DashboardComponent implements OnInit {
       this.EditHomePageToggle=false;
       this.ManageScheduleToggle=false;
       this.ManageUsersRequests=false;
+      this.ManageCentersVaccinesToggle=false;
+
     }
 
     goToEditHomePage(){
@@ -128,6 +157,8 @@ export class DashboardComponent implements OnInit {
       this.EditHomePageToggle=true;
       this.ManageScheduleToggle=false;
       this.ManageUsersRequests=false;
+      this.ManageCentersVaccinesToggle=false;
+
     }
 
     goToManageSchedule(){
@@ -141,6 +172,8 @@ export class DashboardComponent implements OnInit {
     this.EditHomePageToggle=false;
     this.ManageScheduleToggle=true;
     this.ManageUsersRequests=false;
+    this.ManageCentersVaccinesToggle=false;
+
     }
 
     goToManageUsersRequests(){
@@ -154,6 +187,7 @@ export class DashboardComponent implements OnInit {
       this.EditHomePageToggle=false;
       this.ManageScheduleToggle=false;
       this.ManageUsersRequests=true;
+      this.ManageCentersVaccinesToggle=false;
       }
 
     signout(){

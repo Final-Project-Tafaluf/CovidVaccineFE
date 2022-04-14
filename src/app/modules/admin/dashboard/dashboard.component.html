@@ -53,6 +53,9 @@
 					<li class="nav-item" >
 					    <a class="nav-link " (click)="goToManageHealthCenter()"><span class="pcoded-micon"><i class="far fa-hospital"></i></span><span class="pcoded-mtext">Manage Health Centers</span></a>
 					</li>
+					<li class="nav-item" >
+					    <a class="nav-link " (click)="goToManageCentersVaccines()"><span class="pcoded-micon"><i class="fas fa-briefcase-medical"></i></span><span class="pcoded-mtext">Manage Centers Vaccine</span></a>
+					</li>
                     <li class="nav-item">
 					    <a  class="nav-link " (click)="goToManageVaccine()"><span class="pcoded-micon"><i class="fas fa-syringe"></i></span><span class="pcoded-mtext">Manage Vaccines</span></a>
 					</li>
@@ -209,3 +212,4 @@
 <app-edit-about-page *ngIf="EditAboutUsToggle"></app-edit-about-page>
 <app-edit-contact-us-page *ngIf="EditContactUsToggle"></app-edit-contact-us-page>
 <app-manange-users-requests *ngIf="ManageUsersRequests"></app-manange-users-requests>
+<app-manage-center-vaccine *ngIf="ManageCentersVaccinesToggle"></app-manage-center-vaccine>

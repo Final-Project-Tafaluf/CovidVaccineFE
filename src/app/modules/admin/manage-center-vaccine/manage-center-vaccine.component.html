@@ -10,7 +10,8 @@
                     </div>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
-                        <li class="breadcrumb-item"><a href="#!">Dashboard Analytics</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item active">Centers And Resources</li>
                     </ul>
                 </div>
             </div>
@@ -31,7 +32,7 @@
                         <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
                         <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
                     </ul>
-                    <!-- <button type="button" class="btn  btn-primary" (click)="create()" >Create</button> -->
+                    <button type="button" class="btn  btn-primary" (click)="openCreateDialog()" ><i class="fas fa-plus"></i> Create</button>
                 </div>
               </div>
           </div>
@@ -44,60 +45,69 @@
                             <th>Expire Date</th>
                             <th>Center Name</th>
                             <th>Vaccine Type</th>
+                            <th>Operation</th>
                           </tr>
                       </thead>
                       <tbody>
                           <tr *ngFor="let health of centerVaccineRestService.data" >
                             <td>{{health.number_Of_Vaccine}}</td>
-                            <td>{{health.expire_Date | customeDate}}</td>
+                            <td>{{health.expire_Date }}</td>
                             <td>{{health.center_Name}}</td>
                             <td>{{health.vaccine_Type}}</td>
                             <td>
-                              <button type="button" class="btn  btn-danger" (click)="openDeleteDailog(health.id)">Delete</button>
-                              <button type="button" class="btn  btn-secondary" (click)="openUpdateDailog(health)">Update</button>
+                              <button type="button" class="btn  btn-danger" (click)="openDeleteDialog(health.id)">Delete</button>
+                              <button type="button" class="btn  btn-secondary"
+                              (click)="openUpdateDialog(health)">Update</button>
                             </td>
+
                           </tr>
                       </tbody>
                   </table>
 
-                <ng-template #callUpdateDailog>
+                <ng-template #callUpdateDialog>
                   <form [formGroup]="UpdateForm">
                     <ul>
                       <li>
                         <mat-form-field class="example-full-width" appearance="fill">
                           <mat-label># Of Vaccine</mat-label>
-                          <input type="text" matInput formControlName="Number_Of_Vaccine"
-                          [(ngModel)]="health.Number_Of_Vaccine">
+                          <input type="number" matInput formControlName="number_Of_Vaccine"
+                          [(ngModel)]="health.number_Of_Vaccine">
                         </mat-form-field> </li>
-                      <li>
-                        <mat-form-field class="example-full-width" appearance="fill">
-                          <mat-label>Expire Date</mat-label>
-                          <input type="date" matInput formControlName="expire_Date"
-                          [(ngModel)]="health.expire_Date">
-                        </mat-form-field>
-                      </li>
-                      <!-- <div *ngfor >
-                        <select formControlName="center_id">
-                          <option value="{{center id}}">{{center name}}</option>
-                        </select>
-                      </div> -->
-                      <li>
-                        <mat-form-field class="example-full-width" appearance="fill">
-                          <mat-label>Center Name</mat-label>
-                          <input type="text" matInput formControlName="center_Name"
-                          [(ngModel)]="health.center_Name">
-                        </mat-form-field>
-                      </li>
+                        <li>
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Expire Date</mat-label>
+                            <input type="date" matInput formControlName="expire_Date"
+                            [(ngModel)]="health.expire_Date">
+                          </mat-form-field>
+                        </li>
+                        <li>
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Center Id</mat-label>
+                            <input type="number" matInput formControlName="center_Id"
+                            [(ngModel)]="health.center_Id">
+                          </mat-form-field>
+                        </li>
+                        <li>
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Vaccine Id</mat-label>
+                            <input type="number" matInput formControlName="vaccine_Id"
+                            [(ngModel)]="health.vaccine_Id">
+                          </mat-form-field>
+                        </li>
                     </ul>
-                    <button (click)="update()">Update</button>
+                    <button mat-button [mat-dialog-close]="true" (click)="update()">Update</button>
                   </form>
                 </ng-template>
 
-                <ng-template #callDeleteDailog>
-                  <h2>Are you sure you want to delete this item?</h2>
-                  <button mat-button mat-dialog-close="no">No</button>
-                  <button mat-button mat-dialog-close="yes">yes</button>
-                </ng-template>
+
+
+  <ng-template #callDeleteDialog>
+      <h2>Are you sure you want to delete this item?</h2>
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close="no">No</button>
+        <button mat-button mat-dialog-close="yes">Yes</button>
+      </mat-dialog-actions>
+  </ng-template>
               </div>
           </div>
       </div>
@@ -106,10 +116,8 @@
 </div>
 
 
-
-
-
-<!-- <h2 mat-dialog-title>Add Center Vaccine</h2>
+<ng-template #callCreateDialog>
+<h2 mat-dialog-title>Add Center Vaccine</h2>
 <mat-dialog-content class="mat-typography">
     <form [formGroup]="CreateForm" class="example-form">
       <ul>
@@ -125,25 +133,30 @@
             <input type="date" matInput formControlName="expire_Date" placeholder="Expire Date">
           </mat-form-field>
         </li>
-        <li>
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Center Name</mat-label>
-            <input type="number" matInput formControlName="center_Id" placeholder="Center Name">
-          </mat-form-field>
-        </li>
-        <li>
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Vaccine Type</mat-label>
-            <input type="number" matInput formControlName="vaccine_Id" placeholder="Vaccine Type">
 
-          </mat-form-field>
-        </li>
+        <div>
+          <select id="centers" formControlName="center_Id">
+            <option  [ngValue]="center.id" *ngFor="let center of manageHealthCenterRestService.data">
+              {{center.center_Name}}
+            </option>
+          </select>
+        </div>
+
+        <div>
+          <select id="vaccines" formControlName="vaccine_Id">
+            <option [ngValue]="vac.id" *ngFor="let vac of manageVaccineRestService.data">
+              {{vac.vaccine_Type}}
+            </option>
+          </select>
+        </div>
+
       </ul>
     </form>
 </mat-dialog-content>
 
+
 <mat-dialog-actions align="end">
 <button mat-button mat-dialog-close>Cancel</button>
 <button [disabled]="!CreateForm.valid" mat-button [mat-dialog-close]="true"(click)="save()"  cdkFocusInitial>Save</button>
-</mat-dialog-actions> -->
-
+</mat-dialog-actions>
+</ng-template>
