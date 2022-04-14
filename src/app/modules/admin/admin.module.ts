@@ -20,6 +20,7 @@ import { ManageSchedulesComponent } from './manage-schedules/manage-schedules.co
 import { ManageUserRequestsComponent } from './manage-user-requests/manage-user-requests.component';
 import { CreateVaccineComponent } from './create-vaccine/create-vaccine.component';
 import { ManageCenterVaccineComponent } from './manage-center-vaccine/manage-center-vaccine.component';
+import { ManangeUsersRequestsComponent } from './manange-users-requests/manange-users-requests.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ManageCenterVaccineComponent } from './manage-center-vaccine/manage-cen
     ManageSchedulesComponent,
     ManageUserRequestsComponent,
     CreateVaccineComponent,
-    ManageCenterVaccineComponent
+    ManageCenterVaccineComponent,
+    ManangeUsersRequestsComponent
   ],
   imports: [
     CommonModule,

@@ -33,7 +33,7 @@ export class ScheduleComponent implements OnInit {
 
   async getUserRequests(){
     // debugger;
-      this.userRequests = await this.scheduleRestService.getUserRequest(this.userData.nameid);
+      this.userRequests = await this.scheduleRestService.getUserRequestById(this.userData.nameid);
   }
 
   async getUserSchedules(){

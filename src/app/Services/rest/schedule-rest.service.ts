@@ -12,8 +12,9 @@ import { LocalStorageService } from '../local-storage.service';
 export class ScheduleRestService {
   centersData: any;
   vaccinesData: any;
-  RequestsData: any;
-  UserScheduleData:any;
+  allRequestsData:any;
+  requestsData: any;
+  userScheduleData:any;
   constructor(
     public spinner: NgxSpinnerService,
     public router: Router,
@@ -73,7 +74,35 @@ export class ScheduleRestService {
         }
       );
   }
-  getUserRequest(USER_ID: any): any {
+
+  getUserAllUsersRequests(): any {
+    //show spinner
+    this.spinner.show();
+    //hits api
+    // debugger
+    return this.http
+      .get('https://localhost:44327/api/UserRequest/GetallUserRequests/')
+      .toPromise()
+      .then(
+        (res) => {
+          // debugger;
+          this.allRequestsData = res;
+          this.spinner.hide();
+          this.toaster.success('Data Retrieved !!');
+          return this.allRequestsData;
+        },
+        (err) => {
+          //hide spinner
+          this.spinner.hide();
+          //Toastr
+          this.toaster.error(err.message);
+          this.toaster.error(err.status);
+          return err.message;
+        }
+      );
+  }
+
+  getUserRequestById(USER_ID: any): any {
     //show spinner
     this.spinner.show();
     //hits api
@@ -87,10 +116,10 @@ export class ScheduleRestService {
       .then(
         (res) => {
           // debugger;
-          this.RequestsData = res;
+          this.requestsData = res;
           this.spinner.hide();
           this.toaster.success('Data Retrieved !!');
-          return this.RequestsData;
+          return this.requestsData;
         },
         (err) => {
           //hide spinner
@@ -161,10 +190,10 @@ export class ScheduleRestService {
       .then(
         (res) => {
           debugger;
-          this.UserScheduleData = res;
+          this.userScheduleData = res;
           this.spinner.hide();
           this.toaster.success('Data Retrieved !!');
-          return this.UserScheduleData;
+          return this.userScheduleData;
         },
         (err) => {
           //hide spinner
