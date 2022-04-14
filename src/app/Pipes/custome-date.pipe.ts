@@ -12,5 +12,6 @@ export class CustomeDatePipe implements PipeTransform {
     return date;
   }
 
+
 }
 // {{DATE|CUSTONMEdATE}}

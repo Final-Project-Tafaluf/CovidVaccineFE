@@ -34,6 +34,10 @@
 					<li class="nav-item">
 					    <a  class="nav-link " (click)="goToManageUsers()"><span class="pcoded-micon"><i class="fas fa-user-friends"></i></span><span class="pcoded-mtext">Manage Users</span></a>
 					</li>
+					
+                    <li class="nav-item">
+					    <a class="nav-link " (click)="goToManageUsersRequests()"><span class="pcoded-micon"><i class="fas fa-vial-circle-check"></i></span><span class="pcoded-mtext">Manage Users Requests</span></a>
+					</li>
 
                     <li class="nav-item">
 					    <a class="nav-link " (click)="goToManageSchedule()"><span class="pcoded-micon"><i class="fas fa-clipboard-list"></i></span><span class="pcoded-mtext">Manage Schedules</span></a>
@@ -207,4 +211,5 @@
 <app-edit-home-page *ngIf="EditHomePageToggle"></app-edit-home-page>
 <app-edit-about-page *ngIf="EditAboutUsToggle"></app-edit-about-page>
 <app-edit-contact-us-page *ngIf="EditContactUsToggle"></app-edit-contact-us-page>
+<app-manange-users-requests *ngIf="ManageUsersRequests"></app-manange-users-requests>
 <app-manage-center-vaccine *ngIf="ManageCentersVaccinesToggle"></app-manage-center-vaccine>
