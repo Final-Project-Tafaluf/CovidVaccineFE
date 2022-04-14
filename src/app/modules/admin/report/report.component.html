@@ -8,7 +8,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Manage Vaccines</h5>
+                            <h5 class="m-b-10">REPORT</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
@@ -22,9 +22,12 @@
         <!-- [ breadcrumb ] end -->
         <!-- [ Main Content ] start -->
         <div class="row">
-
+<div>
+    <button class="btn btn-info" (click)="openPDF()"><i class="fas fa-file-download"></i> Download Report</button> 
+</div>
 <!-- table -->
-<div class="col-xl-6 col-md-12">
+
+<div class="col-xl-6 col-md-12" id="htmlData">
     <div class="card table-card">
         <div class="card-header">
             <h5>Report</h5>

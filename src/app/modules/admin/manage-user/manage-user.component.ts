@@ -50,7 +50,7 @@ export class ManageUserComponent implements OnInit {
     this.userProfileRestService.createUser(this.CreateForm.value);
     console.log(this.userInfo);
 
-    window.location.reload();
+    this.userProfileRestService.getAllUser();
   }
 
   updatForm:FormGroup=new FormGroup
@@ -80,13 +80,16 @@ export class ManageUserComponent implements OnInit {
       phone:uphone
     }
     this.updatForm.controls['id'].setValue(uid);
+
     this.dialog.open(this.callUpdateDialog)
   }
 
   updateUser(){
     this.userProfileRestService.updateUser(this.updatForm.value);
     console.log(this.user);
-    window.location.reload();
+    this.userProfileRestService.getAllUser();
+
+
   }
   uploadFile(file:any){
     if(file.length===0){

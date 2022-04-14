@@ -38,8 +38,9 @@ h1,h2,h3,h4,h5,h6 {
 .table-header {
 	display:flex;
 	width:100%;
-	background:#000;
+	background:#1abc9c;
 	padding:($half-spacing-unit * 1.5) 0;
+  font-weight: 600;
 }
 
 .table-row {
@@ -48,7 +49,8 @@ h1,h2,h3,h4,h5,h6 {
 	padding:($half-spacing-unit * 1.5) 0;
 
 	&:nth-of-type(odd) {
-		background:$color-form-highlight;
+		background: #121f2d;
+    color: #fff;
 	}
 }
 
@@ -107,4 +109,10 @@ button.btn.btn-primary{
   transition: none !important;
   transform: none !important;
   animation: none;
+}
+
+.txt{
+  display: flex;
+    flex-wrap: wrap;
+    white-space: initial;
 }

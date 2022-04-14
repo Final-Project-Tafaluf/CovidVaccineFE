@@ -12,7 +12,7 @@ import { UserProfileRestService } from 'src/app/Services/rest/user-profile-rest.
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  email = new FormControl(localStorage.getItem("email"),[Validators.required,Validators.email]);
+  email = new FormControl(localStorage.getItem("email"),[Validators.required]);
   password = new FormControl(localStorage.getItem("password"));
 
   isCheckedLocal = localStorage.getItem("isChecked") == "true" ? true : false;
@@ -28,26 +28,42 @@ export class LoginComponent implements OnInit {
     console.log("this.isChecked",this.isChecked)
 
   }
-  CreateForm :FormGroup =new FormGroup
+  // CreateForm :FormGroup =new FormGroup
 
-  (
-    {
-    first_Name:new FormControl('', [Validators.required]),
-    last_Name:new FormControl('', [Validators.required]),
-    ssn:new FormControl('', [Validators.required]),
-    gender:new FormControl('', [Validators.required]),
-    birthdate:new FormControl('', [Validators.required]),
-    address:new FormControl('', [Validators.required]),
+  // (
+  //   {
+  //   first_Name:new FormControl('', [Validators.required]),
+  //   last_Name:new FormControl('', [Validators.required]),
+  //   ssn:new FormControl('', [Validators.required]),
+  //   gender:new FormControl(''),
+  //   birthdate:new FormControl(''),
+  //   address:new FormControl(''),
+  //   image:new FormControl(''),
+  //   phone:new FormControl(''),
+  //   email:new FormControl('', [Validators.required,Validators.email]),
+  //   password:new FormControl('', [Validators.required,Validators.minLength(8)]),
+  //   confirm_Password:new FormControl('',[Validators.required,Validators.minLength(8)]),
+  //   username:new FormControl('', [Validators.required]),
+  //   role:new FormControl(''),
+  //   }
+  // )
+
+  CreateForm :FormGroup =new FormGroup
+  ({
+    first_Name:new FormControl(),
+    last_Name:new FormControl(),
+    ssn:new FormControl(),
+    gender:new FormControl(),
+    birthdate:new FormControl(),
+    address:new FormControl(),
     image:new FormControl(),
-    phone:new FormControl(''),
-    email:new FormControl('', [Validators.required,Validators.email]),
-    password:new FormControl('', [Validators.required,Validators.minLength(8)]),
-    username:new FormControl('', [Validators.required]),
-    role:new FormControl('', [Validators.required]),
-    }
-  )
-  public myError = (controlName: string, errorName:
-    string) => {
+    phone:new FormControl(),
+    email:new FormControl(),
+    password:new FormControl(),
+    username:new FormControl(),
+    role:new FormControl(),
+    })
+  public myError = (controlName: string, errorName:string) => {
     return
     this.CreateForm.controls[controlName].hasError(errorName);
     }
@@ -77,6 +93,13 @@ export class LoginComponent implements OnInit {
       this.spinner.hide();
     }
 
-   
+    onChange(){
+      if(this.CreateForm.controls['password'].value==this.CreateForm.controls['confirmpassword'].value)
+      this.CreateForm.controls['confirmpassword'].setErrors(null);
+      else
+      this.CreateForm.controls['confirmpassword'].setErrors({mismatch:true});
+
+
+    }
 
 }

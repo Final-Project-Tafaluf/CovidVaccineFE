@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import jwt_decode from 'jwt-decode';
 import { LocalStorageService } from 'src/app/Services/local-storage.service';
+import { HomeService } from 'src/app/Services/rest/home.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -35,12 +36,14 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    public home : HomeService
   ) {}
 
   ngOnInit(): void {
     // debugger;
     this.checkLogin();
+    this.home.getHome();
   }
 
   checkLogin(): void {
