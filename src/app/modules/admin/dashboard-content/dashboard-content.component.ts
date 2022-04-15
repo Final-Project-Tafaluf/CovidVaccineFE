@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { data } from 'jquery';
-import { CenterVaccineRestService } from 'src/app/Services/rest/center-vaccine-rest.service';
 import { DashboardMainRestService } from 'src/app/Services/rest/dashboard-main-rest.service';
 
 @Component({
@@ -10,8 +8,7 @@ import { DashboardMainRestService } from 'src/app/Services/rest/dashboard-main-r
 })
 export class DashboardContentComponent implements OnInit {
 
-  constructor(public dashboardMainRestService:DashboardMainRestService,
-    public centerVaccineRestService : CenterVaccineRestService) { }
+  constructor(public dashboardMainRestService:DashboardMainRestService) { }
 
   ngOnInit(): void {
     this.dashboardMainRestService.numberOfUser();
@@ -20,6 +17,6 @@ export class DashboardContentComponent implements OnInit {
     this.dashboardMainRestService.numberOfMessage();
     this.dashboardMainRestService.numberOfFizer();
     this.dashboardMainRestService.numberOfSinopharm();
-this.centerVaccineRestService.getAll();
+    this.dashboardMainRestService.getCenter();
   }
 }

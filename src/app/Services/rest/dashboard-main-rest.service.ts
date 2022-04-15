@@ -11,6 +11,7 @@ export class DashboardMainRestService {
   constructor(private http:HttpClient,
     private spinner :NgxSpinnerService,private toastr:ToastrService) { }
     data:any=[{}];
+    user:any=[{}];
     centersData: any =[{}];
     vaccinesData: any=[{}];
     RequestsData: any =[{}];
@@ -22,9 +23,9 @@ export class DashboardMainRestService {
   numberOfUser():any{
     this.spinner.show();
     return this.http.get('https://localhost:44327/User/GetAllUsers/').toPromise().then( (res)=>{
-      this.data=res;
+      this.user=res;
       this.spinner.hide();
-      return this.data;
+      return this.user;
     }, err=>{
       this.spinner.hide();
       this.toastr.error(err.message);
@@ -70,7 +71,7 @@ export class DashboardMainRestService {
 
   numberOfFizer(){
     this.spinner.show();
-    this.http.get('https://localhost:44327/api/Report/NumberOfFizer/').subscribe((res)=>{
+    this.http.get('https://localhost:44327/api/CenterVaccine/NumberOfFizer/').subscribe((res)=>{
       this.fizer=res;
       this.spinner.hide();
     }, err=>{
@@ -81,7 +82,7 @@ export class DashboardMainRestService {
   }
   numberOfSinopharm(){
     this.spinner.show();
-    this.http.get('https://localhost:44327/api/Report/NumberOfSinopharm/').subscribe((res)=>{
+    this.http.get('https://localhost:44327/api/CenterVaccine/NumberOfSinopharm/').subscribe((res)=>{
       this.sinopharm=res;
       this.spinner.hide();
     }, err=>{
@@ -90,7 +91,18 @@ export class DashboardMainRestService {
       this.toastr.error(err.status);
     })
   }
-
-
+  getCenter(){
+    this.spinner.show();
+    this.http.get('https:/localhost:44327/api/CenterVaccine/GetallCenterVaccines').subscribe((res)=>{
+      this.data=res;
+      debugger
+      this.spinner.hide();
+      this.toastr.success('Data Retrieved !!')
+    }, err=>{
+      this.spinner.hide();
+      this.toastr.error(err.message);
+      this.toastr.error(err.status);
+    })
+  }
 
 }

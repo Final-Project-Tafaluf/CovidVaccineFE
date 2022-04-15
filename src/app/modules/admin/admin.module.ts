@@ -12,8 +12,6 @@ import { ManageHealthCenterComponent } from './manage-health-center/manage-healt
 import { ManageVaccineComponent } from './manage-vaccine/manage-vaccine.component';
 import { ManageContactUsComponent } from './manage-contact-us/manage-contact-us.component';
 import { EditHomePageComponent } from './edit-home-page/edit-home-page.component';
-import { EditAboutPageComponent } from './edit-about-page/edit-about-page.component';
-import { EditContactUsPageComponent } from './edit-contact-us-page/edit-contact-us-page.component';
 import { ManageSchedulesComponent } from './manage-schedules/manage-schedules.component';
 import { CreateVaccineComponent } from './create-vaccine/create-vaccine.component';
 import { ReportComponent } from './report/report.component';
@@ -32,14 +30,12 @@ import { ManangeUsersRequestsComponent } from './manange-users-requests/manange-
     ManageVaccineComponent,
     ManageContactUsComponent,
     EditHomePageComponent,
-    EditAboutPageComponent,
-    EditContactUsPageComponent,
     ManageSchedulesComponent,
     CreateVaccineComponent,
     ManageCenterVaccineComponent,
     ManangeUsersRequestsComponent,
     ReportComponent,
-    
+
   ],
   imports: [
     CommonModule,
