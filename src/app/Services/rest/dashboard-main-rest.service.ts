@@ -7,30 +7,90 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class DashboardMainRestService {
-  
+
   constructor(private http:HttpClient,
     private spinner :NgxSpinnerService,private toastr:ToastrService) { }
     data:any=[{}];
-    
-  getAll():any{
-    //show spinner
+    centersData: any =[{}];
+    vaccinesData: any=[{}];
+    RequestsData: any =[{}];
+    message:any =[{}];
+    fizer:any =[{}];
+    sinopharm:any =[{}];
+
+
+  numberOfUser():any{
     this.spinner.show();
-    //hits api
-    // debugger
     return this.http.get('https://localhost:44327/User/GetAllUsers/').toPromise().then( (res)=>{
-      // debugger
       this.data=res;
       this.spinner.hide();
-      this.toastr.success('Data Retrieved !!')
       return this.data;
     }, err=>{
-      //hide spinner
       this.spinner.hide();
-       //Toastr
       this.toastr.error(err.message);
       this.toastr.error(err.status);
       return err.message;
     })
   }
+  numberOfVaccien(){
+    this.spinner.show();
+    this.http.get('https:/localhost:44327/api/Vaccine/GetallVaccines').subscribe((res)=>{
+      this.vaccinesData=res;
+      this.spinner.hide();
+    }, err=>{
+      this.spinner.hide();
+      this.toastr.error(err.message);
+      this.toastr.error(err.status);
+    })
+  }
+
+  numberOfCenter(){
+    this.spinner.show();
+    this.http.get('https:/localhost:44327/api/CenterVaccine/GetallCenterVaccines').subscribe((res)=>{
+      this.centersData=res;
+      debugger
+      this.spinner.hide();
+    }, err=>{
+      this.spinner.hide();
+      this.toastr.error(err.message);
+      this.toastr.error(err.status);
+    })
+  }
+  numberOfMessage(){
+    this.spinner.show();
+    this.http.get('https://localhost:44327/api/ContactUs/getallcontactus/').subscribe((res)=>{
+      this.message=res;
+      this.spinner.hide();
+    }, err=>{
+      this.spinner.hide();
+      this.toastr.error(err.message);
+      this.toastr.error(err.status);
+    })
+  }
+
+  numberOfFizer(){
+    this.spinner.show();
+    this.http.get('https://localhost:44327/api/Report/NumberOfFizer/').subscribe((res)=>{
+      this.fizer=res;
+      this.spinner.hide();
+    }, err=>{
+      this.spinner.hide();
+      this.toastr.error(err.message);
+      this.toastr.error(err.status);
+    })
+  }
+  numberOfSinopharm(){
+    this.spinner.show();
+    this.http.get('https://localhost:44327/api/Report/NumberOfSinopharm/').subscribe((res)=>{
+      this.sinopharm=res;
+      this.spinner.hide();
+    }, err=>{
+      this.spinner.hide();
+      this.toastr.error(err.message);
+      this.toastr.error(err.status);
+    })
+  }
+
+
 
 }
