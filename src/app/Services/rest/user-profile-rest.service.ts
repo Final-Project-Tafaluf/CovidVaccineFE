@@ -34,6 +34,27 @@ export class UserProfileRestService {
     );
   }
 
+  getUserForScheduleByID(id: number) {
+    this.spinner.show();
+    // debugger;
+    return this.http.get('https://localhost:44327/User/GetUserById/' + id).toPromise()
+    .then(
+      (res) => {
+        this.selectedUser = res;
+        //debugger
+        this.spinner.hide();
+        this.toastr.success('Data Retieved !!');
+        return this.selectedUser 
+      },
+      (err) => {
+        this.spinner.hide();
+        this.toastr.error(err.message);
+        this.toastr.error(err.status);
+        return err;
+      }
+    );
+  }
+
   getAllUser(){
     //show spinner
     this.spinner.show();

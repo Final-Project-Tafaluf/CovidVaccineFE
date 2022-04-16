@@ -19,9 +19,9 @@ export class HomeService {
      private spinner :NgxSpinnerService,private toastr:ToastrService ) { }
 
   getById(id:number){
-     //show spinner 
+     //show spinner
      this.spinner.show();
-     //hits Api 
+     //hits Api
        this.http.get('https://localhost:44327/api/healthcentervac/GetHealthCenterById/'+id).subscribe((res)=>{
        this.selectedHealthCenter=res;
        this.spinner.hide();
@@ -33,7 +33,7 @@ export class HomeService {
      //hide spinner
      //res --> show toastr
   }
- 
+
   getAll(){
     //show spinner
     this.spinner.show();
@@ -50,13 +50,13 @@ export class HomeService {
       this.toastr.error(err.status);
     })
   }
-  
+
   //
   createHelthCenter(body:any){
     this.spinner.show();
    // body.imagename=this.display_Image;
     this.http.post('https:/localhost:44327/api/healthcentervac/CreateCenter/',body).subscribe((res)=>{
-     
+
       this.spinner.hide();
       this.toastr.success('saved Successfully :)');
     },error=>{
@@ -70,13 +70,13 @@ export class HomeService {
   //   .subscribe((res:any)=>{
   //     this.display_Image=res.imagename;
   //     console.log(this.display_Image);
-      
+
   //   },err=>{
   //     this.toastr.error(err.status,err.message);
   //   })
   // }
 
-  
+
   updateHeathCenter(body:any){
     // body.imagename=this.display_Image;
     // debugger
@@ -102,13 +102,13 @@ export class HomeService {
     //   this.http.post('https://localhost:44320/api/course/GetCourseByName',data)
     //   .subscribe((res)=>{
     //     console.log(res);
-        
+
     //     this.data=[res];
-        
+
     //   },err=>{
     //     this.toastr.error('something error');
     //   })
     // }
 
-    
+
 }

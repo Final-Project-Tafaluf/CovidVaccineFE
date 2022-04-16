@@ -11,13 +11,15 @@ import {MatButtonModule} from '@angular/material/button';
 import { CustomeDatePipe } from 'src/app/Pipes/custome-date.pipe';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { CheckScheduleStatusPipe } from 'src/app/Pipes/check-schedule-status.pipe';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    CustomeDatePipe
+    CustomeDatePipe,
+    CheckScheduleStatusPipe
 
   ],
   imports: [
@@ -42,6 +44,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatButtonModule,
     MatDialogModule,
     CustomeDatePipe,
+    CheckScheduleStatusPipe,
     MatNativeDateModule,
     MatDatepickerModule
   ]

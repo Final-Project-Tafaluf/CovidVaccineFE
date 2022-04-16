@@ -1,0 +1,96 @@
+
+.col-xl-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-left: 10% !important;
+    margin-top: 3% !important;
+}
+
+//when the add button down of the table uncomment this:
+
+/* button.btn.btn-primary{
+    margin-left: 17% !important;
+    margin-top: -2% !important;
+    transition: none;
+    color: #fff;
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+    margin-top: 0px !important;
+} */
+
+//when the add button on top of the table uncomment this:
+button.btn.btn-primary{
+    margin-left: 17% !important;
+    margin-top: -2% !important;
+    transition: none;
+    color: #fff;
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+    margin-top: 0px !important;
+    margin-right: 10px;
+}
+
+.card{
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    margin-right: -497px;
+    margin-left: -114px;
+    transition: box-shadow 0.2s ease-in-out;
+    border-top: 3px solid #8CDDCD;
+    table-layout:fixed;
+}
+
+.btn-secondary:hover {
+    
+    background-image: none;
+    
+}
+.btn-secondary{
+    transition: none;
+    margin: 5px;
+}
+
+
+.btn {
+     padding: 10px;
+     transition: none !important;
+    transform: none !important;
+    animation: none;
+}
+
+.btn-danger:hover {
+    color: #fff;
+    background-color: #e12e1c !important;
+    border-color: #d62c1a !important;
+}
+.btn-danger {
+    color: #fff;
+    background-color: #e74c3c !important;
+    border-color: #e74c3c !important;
+}
+
+// Add request dialog
+.form-contant_mod {
+    position: absolute;
+    right: 80px;
+    top: 15%;
+    width: 33%;
+    height:fit-content;
+    background: #c8d8e4;
+    z-index: 1;
+    opacity: .9;
+    padding: 40px;
+}
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+// .btn:hover {
+//     padding: initial !important;
+// }
+.map_form_container{
+    width: 1000px;
+    height: 700px;
+}
+

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { data } from 'jquery';
 import { DashboardMainRestService } from 'src/app/Services/rest/dashboard-main-rest.service';
 
 @Component({
@@ -12,11 +11,12 @@ export class DashboardContentComponent implements OnInit {
   constructor(public dashboardMainRestService:DashboardMainRestService) { }
 
   ngOnInit(): void {
-    /* this.getAllUsers() */
-    // var count = data.length;
-    // console.log(count);
-
+    this.dashboardMainRestService.numberOfUser();
+    this.dashboardMainRestService.numberOfVaccien();
+    this.dashboardMainRestService.numberOfCenter();
+    this.dashboardMainRestService.numberOfMessage();
+    this.dashboardMainRestService.numberOfFizer();
+    this.dashboardMainRestService.numberOfSinopharm();
+    this.dashboardMainRestService.getCenter();
   }
-  /* async getAllUsers(){
-    var usersData =await this.dashboardMainRestService.getAll();} */
 }
