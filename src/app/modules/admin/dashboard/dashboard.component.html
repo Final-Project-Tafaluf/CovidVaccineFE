@@ -3,72 +3,79 @@
 	<!-- [ navigation menu ] start -->
 	<nav class="pcoded-navbar  ">
 		<div class="navbar-wrapper  ">
-			<div class="navbar-content scroll-div " >
+			<div class="navbar-content scroll-div ">
 				<ul class="nav pcoded-inner-navbar ">
 
-					<li class="nav-item pcoded-menu-caption" >
+					<li class="nav-item pcoded-menu-caption">
 						<label>Navigation</label>
 					</li>
 
 					<li class="nav-item">
-            <a href="" class="nav-link ">
-              <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-              <span class="pcoded-mtext">Site Home</span>
-            </a>
+						<a href="" class="nav-link ">
+							<span class="pcoded-micon"><i class="feather icon-home"></i></span>
+							<span class="pcoded-mtext">Site Home</span>
+						</a>
 					</li>
 
-					<li class="nav-item" >
-            <a (click)="goToMainDashboard()" class="nav-link ">
-              <span class="pcoded-micon"><i class="fas fa-chart-line"></i></span>
-              <span class="pcoded-mtext">Main Dashboard</span>
-            </a>
+					<li class="nav-item">
+						<a (click)="goToMainDashboard()" class="nav-link ">
+							<span class="pcoded-micon"><i class="fas fa-chart-line"></i></span>
+							<span class="pcoded-mtext">Main Dashboard</span>
+						</a>
 					</li>
 
 					<li class="nav-item pcoded-menu-caption">
 						<label>Users</label>
 					</li>
 					<li class="nav-item">
-            <a  class="nav-link " (click)="goToManageUsers()">
-              <span class="pcoded-micon"><i class="fas fa-user-friends"></i></span>
-              <span class="pcoded-mtext">Manage Users</span>
-            </a>
-					</li>
-
-          <li class="nav-item">
-            <a class="nav-link " (click)="goToManageSchedule()">
-              <span class="pcoded-micon"><i class="fas fa-clipboard-list"></i></span>
-              <span class="pcoded-mtext">Manage Schedules</span>
-            </a>
+						<a class="nav-link " (click)="goToManageUsers()">
+							<span class="pcoded-micon"><i class="fas fa-user-friends"></i></span>
+							<span class="pcoded-mtext">Manage Users</span>
+						</a>
 					</li>
 
 					<li class="nav-item">
-            <a class="nav-link " (click)="goToManageContactUs()">
-              <span class="pcoded-micon"><i class="far fa-comments"></i></span>
-              <span class="pcoded-mtext">Manage Contact Us</span>
-            </a>
+						<a class="nav-link " (click)="goToManageUsersRequests()">
+							<span class="pcoded-micon"><i class="fas fa-vial-circle-check"></i></span>
+							<span class="pcoded-mtext">Manage Users Requests</span>
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link " (click)="goToManageSchedule()">
+							<span class="pcoded-micon"><i class="fas fa-clipboard-list"></i></span>
+							<span class="pcoded-mtext">Manage Schedules</span>
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link " (click)="goToManageContactUs()">
+							<span class="pcoded-micon"><i class="far fa-comments"></i></span>
+							<span class="pcoded-mtext">Manage Contact Us</span>
+						</a>
 					</li>
 
 					<li class="nav-item pcoded-menu-caption">
 						<label>Centers and Resources</label>
 					</li>
 
-					<li class="nav-item" >
-            <a class="nav-link " (click)="goToManageHealthCenter()">
-              <span class="pcoded-micon"><i class="far fa-hospital"></i></span>
-              <span class="pcoded-mtext">Manage Health Centers</span>
-            </a>
+					<li class="nav-item">
+						<a class="nav-link " (click)="goToManageHealthCenter()">
+							<span class="pcoded-micon"><i class="far fa-hospital"></i></span>
+							<span class="pcoded-mtext">Manage Health Centers</span>
+						</a>
 					</li>
-					<li class="nav-item" >
-            <a class="nav-link " (click)="goToManageCentersVaccines()">
-              <span class="pcoded-micon"><i class="fas fa-briefcase-medical"></i></span>
-              <span class="pcoded-mtext">Manage Centers Vaccine</span>
-            </a>
+					<li class="nav-item">
+						<a class="nav-link " (click)="goToManageCentersVaccines()">
+							<span class="pcoded-micon"><i class="fas fa-briefcase-medical"></i></span>
+							<span class="pcoded-mtext">Manage Centers Vaccine</span>
+						</a>
 					</li>
-          <li class="nav-item">
-            <a  class="nav-link " (click)="goToManageVaccine()">
-              <span class="pcoded-micon"><i class="fas fa-syringe"></i></span>
-              <span class="pcoded-mtext">Manage Vaccines</span>
-            </a>
+					<li class="nav-item">
+						<a class="nav-link " (click)="goToManageVaccine()">
+							<span class="pcoded-micon"><i class="fas fa-syringe"></i></span>
+							<span class="pcoded-mtext">Manage Vaccines</span>
+						</a>
 					</li>
 
 					<li class="nav-item pcoded-menu-caption">
@@ -76,10 +83,10 @@
 					</li>
 
 					<li class="nav-item">
-            <a class="nav-link " (click)="goToEditHomePage()">
-              <span class="pcoded-micon"><i class="far fa-newspaper"></i></span>
-              <span class="pcoded-mtext">Edit HomePage</span>
-            </a>
+						<a class="nav-link " (click)="goToEditHomePage()">
+							<span class="pcoded-micon"><i class="far fa-newspaper"></i></span>
+							<span class="pcoded-mtext">Edit HomePage</span>
+						</a>
 					</li>
 				</ul>
 			</div>
@@ -88,26 +95,27 @@
 	<!-- [ navigation menu ] end -->
 	<!-- [ Header ] start -->
 	<header class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
-				<div class="m-header">
-					<a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
-					<a href="#!" class="b-brand">
-						<!-- ========   change your logo hear   ============ -->
-						<img src="(../../../assets/home/{{element.header_Logo}}" alt="" class="logo">
-						<img src="./assets/flat-able-lite-dashboard/images/logo-icon.png" alt="" class="logo-thumb">
-					</a>
-					<a href="#!" class="mob-toggler">
-						<i class="feather icon-more-vertical"></i>
-					</a>
-				</div>
-				<div class="collapse navbar-collapse">
-					<ul class="navbar-nav ml-auto">
-						<li>
-							<div>
-								<li><a (click)="signout()" ><i class="feather icon-log-out m-r-5"></i> Logout</a></li>
-							</div>
-						</li>
-					</ul>
-				</div>
+		<div class="m-header">
+			<a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+			<a href="#!" class="b-brand">
+				<!-- ========   change your logo hear   ============ -->
+				<img src="(../../../assets/home/{{element.header_Logo}}" alt="" class="logo">
+				<img src="./assets/flat-able-lite-dashboard/images/logo-icon.png" alt="" class="logo-thumb">
+			</a>
+			<a href="#!" class="mob-toggler">
+				<i class="feather icon-more-vertical"></i>
+			</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="navbar-nav ml-auto">
+				<li>
+					<div>
+				<li><a (click)="signout()"><i class="feather icon-log-out m-r-5"></i> Logout</a></li>
+		</div>
+		</li>
+
+		</ul>
+		</div>
 	</header>
 </body>
 <app-dashboard-content *ngIf="ContentToggle"></app-dashboard-content>
@@ -118,3 +126,4 @@
 <app-manage-schedules *ngIf="ManageScheduleToggle"></app-manage-schedules>
 <app-edit-home-page *ngIf="EditHomePageToggle"></app-edit-home-page>
 <app-manage-center-vaccine *ngIf="ManageCentersVaccinesToggle"></app-manage-center-vaccine>
+<app-manange-users-requests *ngIf="ManageUsersRequests"></app-manange-users-requests>
