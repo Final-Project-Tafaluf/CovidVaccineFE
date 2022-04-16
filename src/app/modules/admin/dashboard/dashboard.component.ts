@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Services/rest/auth-rest.service';
+import { HomeService } from 'src/app/Services/rest/home.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,7 @@ import { AuthService } from 'src/app/Services/rest/auth-rest.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router:Router , public auth : AuthService) { }
+  constructor(private router:Router , public auth : AuthService ,public home : HomeService) { }
   ContentToggle:boolean=true;
   ManageUsersToggle:boolean=false;
   ManageHealthCenterToggle:boolean=false;
@@ -24,6 +25,8 @@ export class DashboardComponent implements OnInit {
 
 
  ngOnInit(): void {
+  this.home.getHome();
+
   }
 
 
