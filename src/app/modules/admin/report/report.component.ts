@@ -3,6 +3,7 @@ import jsPDF from 'jspdf';
 import { LocalStorageService } from 'src/app/Services/local-storage.service';
 import { ReportRestService } from 'src/app/Services/rest/report-rest.service';
 import html2canvas from 'html2canvas';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-report',
@@ -11,6 +12,7 @@ import html2canvas from 'html2canvas';
 })
 export class ReportComponent implements OnInit {
   @ViewChild('htmlData') htmlData!: ElementRef;
+  @ViewChild('Excel') Excel!: ElementRef; 
   constructor(public reportRestService:ReportRestService ,private localStorageService:LocalStorageService) { }
 
   public openPDF(): void {
@@ -25,10 +27,17 @@ export class ReportComponent implements OnInit {
       PDF.save('angular-demo.pdf');
     });
   }
+
+  //EXCEL
+  title = 'Excel';  
+  ExportTOExcel() {  
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(this.Excel.nativeElement);  
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();  
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');  
+    XLSX.writeFile(wb, 'ScoreSheet.xlsx');  
+  }  
+
   ngOnInit(): void {
-    var token = this.localStorageService.getToken();
-    var tokenData: any = this.localStorageService.tokenDecode(token);
-    var userId : number = tokenData.nameid;
     this.reportRestService.getNumberUser();
     this.reportRestService.getNumberUsersrequestes();
     this.reportRestService.getNumberVaccinatedPatient();
