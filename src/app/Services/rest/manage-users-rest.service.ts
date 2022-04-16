@@ -12,6 +12,7 @@ export class ManageUsersRestService {
   data:any=[{}];
   /* userdata:any={}; */
 
+  searchResult : any = [{}]
   constructor(private spinner :NgxSpinnerService, private http:HttpClient, private toastr:ToastrService) { }
 
   getbyName(name:any){
@@ -107,6 +108,17 @@ delete(id:number){
     this.toastr.error('something error ');
   })
 
+}
+searchUser(data:any)
+{
+  debugger
+  this.http.post('https://localhost:44327/User/SearchUser/',data)
+  .subscribe((res)=>{
+    this.data=res;
+    debugger
+  },err=>{
+    this.toastr.error('something error');
+  })
 }
 
 }

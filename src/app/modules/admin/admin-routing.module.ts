@@ -1,4 +1,3 @@
-import { RepositionScrollStrategy } from '@angular/cdk/overlay';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContentComponent } from './content/content.component';
@@ -7,15 +6,13 @@ import { CreateVaccineComponent } from './create-vaccine/create-vaccine.componen
 import { DashboardContentComponent } from './dashboard-content/dashboard-content.component';
 import { DashboardManageUsersComponent } from './dashboard-manage-users/dashboard-manage-users.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { EditAboutPageComponent } from './edit-about-page/edit-about-page.component';
-import { EditContactUsPageComponent } from './edit-contact-us-page/edit-contact-us-page.component';
 import { EditHomePageComponent } from './edit-home-page/edit-home-page.component';
 import { ManageCenterVaccineComponent } from './manage-center-vaccine/manage-center-vaccine.component';
 import { ManageContactUsComponent } from './manage-contact-us/manage-contact-us.component';
 import { ManageHealthCenterComponent } from './manage-health-center/manage-health-center.component';
-// import { ManageHealthcenterComponent } from './manage-healthcenter/manage-healthcenter.component';
 import { ManageSchedulesComponent } from './manage-schedules/manage-schedules.component';
 import { ManageVaccineComponent } from './manage-vaccine/manage-vaccine.component';
+import { ManangeUsersRequestsComponent } from './manange-users-requests/manange-users-requests.component';
 import { ReportComponent } from './report/report.component';
 
 
@@ -50,10 +47,6 @@ const routes: Routes = [
     component:ManageVaccineComponent
   },
   {
-    path:'editAboutPage',
-    component:EditAboutPageComponent
-  },
-  {
     path:'manageContactUs',
     component:ManageContactUsComponent
   },
@@ -62,12 +55,12 @@ const routes: Routes = [
     component:EditHomePageComponent
   },
   {
-    path:'editContactUsPage',
-    component:EditContactUsPageComponent
-  },
-  {
     path:'manageSchedules',
     component:ManageSchedulesComponent
+  },
+  {
+    path:'manageUsersRequests',
+    component:ManangeUsersRequestsComponent
   },
   {
     path:'createVaccine',

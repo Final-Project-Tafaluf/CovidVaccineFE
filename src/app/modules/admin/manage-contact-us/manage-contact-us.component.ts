@@ -13,79 +13,56 @@ export class ManageContactUsComponent implements OnInit {
   @ViewChild('callDeleteDailog') callDeleteDailog! :TemplateRef<any>
   @ViewChild('callDetailsDailog')callDetailsDailog! :TemplateRef<any>
   constructor(private dialog:MatDialog, public contactUsRestService:ContactUsRestService ) { }
+
   center:any={};
 
+  TestimonialForm:FormGroup=new FormGroup({
+    id: new FormControl(),
+    testimonial:new FormControl()
+})
   ngOnInit(): void {
     this.contactUsRestService.getAllContact();
   }
 
-  //detalis
   openDetailsDailog(MSG1:any,Email1:any){
     debugger
-     this.center={
+    this.center={
       msg:MSG1,
       email:Email1
-     }
-
-     this.dialog.open(this.callDetailsDailog);
-   }
-   Detail:FormGroup=new FormGroup({  
+    }
+    this.dialog.open(this.callDetailsDailog);
+  }
+  Detail:FormGroup=new FormGroup({
     msg:new FormControl(),
     email:new FormControl()
-   
   })
-
-  
- 
-/////////////////////////////
-
-
 
   openTestimonialDailog(iDD:any,testimonial1:any){
-    
-     this.center={
-       id:iDD,
-       testimonial:testimonial1
-      
-     }
-    
-     this.dialog.open(this.callTestimonialDailog);
-   
-//cont.testimonial
-   }
-
-   TestimonialForm:FormGroup=new FormGroup({
-    id: new FormControl(),
- 
-     testimonial:new FormControl()
-     
-  })
+    this.center={
+      id:iDD,
+      testimonial:testimonial1
+    }
+  this.dialog.open(this.callTestimonialDailog);
+}
 
   yes(){
-  
     this.contactUsRestService.updatebytestimonial(this.TestimonialForm.value);
-    
   }
-
-
 
   openDeleteDailog(id:number)
   {
-      const dialogRef=this.dialog.open(this.callDeleteDailog);
-      dialogRef.afterClosed().subscribe((result)=>{
-        if(result!=undefined)
-        {
-          if(result=='yes')
-          this.contactUsRestService.deleteItem(id);
-          else if(result=='no'){
-            console.log("Thank you ");
-            this.dialog.closeAll();
-          }
-        
-          
+    const dialogRef=this.dialog.open(this.callDeleteDailog);
+    dialogRef.afterClosed().subscribe((result)=>{
+      if(result!=undefined)
+      {
+        if(result=='yes')
+        this.contactUsRestService.deleteItem(id);
+        else if(result=='no'){
+          console.log("Thank you ");
+          this.dialog.closeAll();
         }
-      })
-      
+      }
+    })
   }
 
 }
