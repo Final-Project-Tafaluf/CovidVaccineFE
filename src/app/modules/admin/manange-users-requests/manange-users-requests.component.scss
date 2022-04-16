@@ -57,3 +57,40 @@ button.btn.btn-primary{
     transform: none !important;
     animation: none;
 }
+
+.btn-danger:hover {
+    color: #fff;
+    background-color: #e12e1c !important;
+    border-color: #d62c1a !important;
+}
+.btn-danger {
+    color: #fff;
+    background-color: #e74c3c !important;
+    border-color: #e74c3c !important;
+}
+
+// Add request dialog
+.form-contant_mod {
+    position: absolute;
+    right: 80px;
+    top: 15%;
+    width: 33%;
+    height:fit-content;
+    background: #c8d8e4;
+    z-index: 1;
+    opacity: .9;
+    padding: 40px;
+}
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+// .btn:hover {
+//     padding: initial !important;
+// }
+.map_form_container{
+    width: 1000px;
+    height: 700px;
+}
+
