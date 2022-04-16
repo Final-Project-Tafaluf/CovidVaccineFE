@@ -1,4 +1,3 @@
-import { RepositionScrollStrategy } from '@angular/cdk/overlay';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContentComponent } from './content/content.component';
@@ -13,6 +12,7 @@ import { ManageContactUsComponent } from './manage-contact-us/manage-contact-us.
 import { ManageHealthCenterComponent } from './manage-health-center/manage-health-center.component';
 import { ManageSchedulesComponent } from './manage-schedules/manage-schedules.component';
 import { ManageVaccineComponent } from './manage-vaccine/manage-vaccine.component';
+import { ManangeUsersRequestsComponent } from './manange-users-requests/manange-users-requests.component';
 import { ReportComponent } from './report/report.component';
 
 
@@ -57,6 +57,10 @@ const routes: Routes = [
   {
     path:'manageSchedules',
     component:ManageSchedulesComponent
+  },
+  {
+    path:'manageUsersRequests',
+    component:ManangeUsersRequestsComponent
   },
   {
     path:'createVaccine',
