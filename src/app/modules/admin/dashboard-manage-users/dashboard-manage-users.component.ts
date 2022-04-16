@@ -17,6 +17,7 @@ export class DashboardManageUsersComponent implements OnInit {
   user:any={}
   userInfo:any={}
   first_Name:any=''
+  info:any = ''
   /* userDetails:any */
 
   constructor(private dialog:MatDialog, public manageUsersRestService:ManageUsersRestService) { }
@@ -160,12 +161,14 @@ export class DashboardManageUsersComponent implements OnInit {
       }
     })
   }
-
-  /* openDetailsDialog(user:any){
-    this.userDetails=user;
-    const dialogRef=this.dialog.open(this.callDetailsDialog);
-
-  } */
-
+  inputValue(ev:any){
+    this.info=ev.target.value;
+  }
+  search(){
+    const user={
+      info:this.info
+    }
+    this.manageUsersRestService.searchUser(user);
+  }
 
 }

@@ -24,7 +24,7 @@
 } */
 
 //when the add button on top of the table uncomment this:
-button.btn.btn-primary{
+button.btn.btn-primary1{
     margin-left: 17% !important;
     margin-top: -2% !important;
     transition: none;
@@ -46,9 +46,9 @@ button.btn.btn-primary{
 }
 
 .btn-secondary:hover {
-    
+
     background-image: none;
-    
+
 }
 .btn-secondary{
     transition: none;
@@ -62,7 +62,7 @@ button.btn.btn-primary{
     transform: none !important;
     animation: none;
 }
-/* table 
+/* table
 {
     table-layout:fixed;
     width:2000px;
