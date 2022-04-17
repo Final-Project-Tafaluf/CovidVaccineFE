@@ -112,7 +112,7 @@ delete(id:number){
 searchUser(data:any)
 {
   debugger
-  this.http.post('https://localhost:44327/User/SearchUser/',data)
+  this.http.get('https://localhost:44327/User/SearchUser/'+data)
   .subscribe((res)=>{
     this.data=res;
     debugger

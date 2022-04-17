@@ -25,11 +25,17 @@ export class ManangeUsersRequestsComponent implements OnInit {
   @ViewChild('callAddScheduleDialog') callAddScheduleDialog! :TemplateRef<any>
   usersRequests:any;
   CreateForm: FormGroup = new FormGroup({
-    Health_Center: new FormControl('', [Validators.required]),
-    Vaccine_Type: new FormControl('', [Validators.required]),
-    // USER_ID: new FormControl("1",[Validators.required]),
-    Request_date: new FormControl('', [Validators.required]),
+    start_Time: new FormControl('', [Validators.required]),
+    end_Time: new FormControl('', [Validators.required]),
+    center_id: new FormControl('', [Validators.required]),
+    status: new FormControl('', [Validators.required]),
+    vaccine_id: new FormControl('', [Validators.required]),
+    dose: new FormControl('', [Validators.required]),
+    user_Id: new FormControl('', [Validators.required]),
+    // dose_taken_date: new FormControl(''),
+    // doctor_name: new FormControl(''),
   });
+
   constructor(private dialog:MatDialog, public scheduleRestService: ScheduleRestService,private localStorageService: LocalStorageService,public helpersService: HelpersService) { }
 
   ngOnInit(): void {
@@ -54,9 +60,25 @@ export class ManangeUsersRequestsComponent implements OnInit {
     })
   }
 
-  OpenAddScheduleDialog(id:any){
-    const dialogRef=this.dialog.open(this.callAddScheduleDialog);
-    this.generateMap();
+  OpenAddScheduleDialog(center_id:any,vaccine_id:any,request_date:any,user_Id:any){
+    debugger;
+    this.scheduleRestService.getAllVaccines();
+    this.CreateForm.controls['start_Time'].setValue(request_date);
+    this.CreateForm.controls['end_Time'].setValue(request_date);
+    this.CreateForm.controls['status'].setValue('Pending');
+    this.CreateForm.controls['vaccine_id'].setValue(vaccine_id);
+    this.CreateForm.controls['center_id'].setValue(center_id);
+    this.CreateForm.controls['user_Id'].setValue(user_Id);
+    
+    const dialogRef=this.dialog.open(this.callAddScheduleDialog, {
+      width: '1000px',
+      height:'548px',
+      position: {
+        bottom: '5px',
+        right: '30px'
+      }});
+
+      this.generateMap();
   }
 
   async generateMap() {
@@ -70,6 +92,7 @@ export class ManangeUsersRequestsComponent implements OnInit {
       const iconFeature = new Feature({
         geometry: new Point([coordinates[0], coordinates[1]]),
         name: centers[i].center_Name,
+        id: centers[i].id,
         population: 4000,
         rainfall: 500,
       });
@@ -119,7 +142,7 @@ export class ManangeUsersRequestsComponent implements OnInit {
         return feature;
       });
       if (feature) {
-        this.CreateForm.controls['Health_Center'].setValue((<any>feature).get('name'));
+        this.CreateForm.controls['center_id'].setValue((<any>feature).get('id'));
       } 
     });
 
@@ -152,9 +175,9 @@ export class ManangeUsersRequestsComponent implements OnInit {
     });
   }
   
-  removeRequest(requestId: number){
+  async removeRequest(requestId: number){
     debugger;
-    this.scheduleRestService.deleteUserRequestById(requestId);
-    this.getAllUsersRequests(); // To refresh the table
+    this.usersRequests = await this.scheduleRestService.deleteUserRequestById(requestId);
+    // this.getAllUsersRequests(); // To refresh the table
   }
 }
