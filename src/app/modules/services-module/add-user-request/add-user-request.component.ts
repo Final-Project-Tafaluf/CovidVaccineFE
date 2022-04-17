@@ -19,8 +19,8 @@ import { ScheduleRestService } from 'src/app/Services/rest/schedule-rest.service
 })
 export class AddUserRequestComponent implements OnInit {
   CreateForm: FormGroup = new FormGroup({
-    Health_Center: new FormControl('', [Validators.required]),
-    Vaccine_Type: new FormControl('', [Validators.required]),
+    center_id: new FormControl('', [Validators.required]),
+    vaccine_id: new FormControl('', [Validators.required]),
     // USER_ID: new FormControl("1",[Validators.required]),
     Request_date: new FormControl('', [Validators.required]),
   });
@@ -43,6 +43,7 @@ export class AddUserRequestComponent implements OnInit {
       const iconFeature = new Feature({
         geometry: new Point([coordinates[0], coordinates[1]]),
         name: centers[i].center_Name,
+        id:centers[i].id,
         population: 4000,
         rainfall: 500,
       });
@@ -92,7 +93,7 @@ export class AddUserRequestComponent implements OnInit {
         return feature;
       });
       if (feature) {
-        this.CreateForm.controls['Health_Center'].setValue((<any>feature).get('name'));
+        this.CreateForm.controls['center_id'].setValue((<any>feature).get('id'));
       } 
     });
 

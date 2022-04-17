@@ -132,16 +132,18 @@ export class ScheduleRestService {
       );
   }
   deleteUserRequestById(requestId:number){
-    this.http
+    debugger
+    return this.http
     .delete('https://localhost:44327/api/UserRequest/DeleteUserRequest/'+requestId)
-    .subscribe(
+    .toPromise()
+      .then(
       (res) => {
-        if (res != false) {
+        debugger
+        if (res) {
+          this.allRequestsData = res;
           this.spinner.hide();
-          this.toaster.success('Deleted Successfully');
-        } else {
-          this.spinner.hide();
-          this.toaster.error('Not deleted');
+          this.toaster.success('Data Retrieved !!');
+          return this.allRequestsData;
         }
       },
       (err) => {
@@ -153,10 +155,12 @@ export class ScheduleRestService {
   }
   sendRequest(data: any) {
     this.spinner.show();
-    // debugger;
+    debugger;
     var token = this.localStorageService.getToken();
     var tokenData: any = this.localStorageService.tokenDecode(token);
     data.User_Id = Number(tokenData.nameid);
+    data.center_id=Number(data.center_id);
+    data.vaccine_id=Number(data.vaccine_id);
     this.http
       .post('https://localhost:44327/api/UserRequest/CreateUserRequest/', data)
       .subscribe(
@@ -202,6 +206,31 @@ export class ScheduleRestService {
           this.toaster.error(err.message);
           this.toaster.error(err.status);
           return err.message;
+        }
+      );
+  }
+
+  createSchedule(data:any){
+    this.spinner.show();
+    debugger;
+    data.center_id=Number(data.center_id);
+    data.vaccine_id=Number(data.vaccine_id);
+    this.http
+      .post('https://localhost:44327/api/Schedual/CreateSchedual/', data)
+      .subscribe(
+        (res) => {
+          if (res != false) {
+            this.spinner.hide();
+            this.toaster.success('Saved Successfully');
+          } else {
+            this.spinner.hide();
+            this.toaster.error('You had an active request');
+          }
+        },
+        (err) => {
+          console.log('faild');
+          this.spinner.hide();
+          this.toaster.error(err.message, err.status);
         }
       );
   }

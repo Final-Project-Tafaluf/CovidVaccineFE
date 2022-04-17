@@ -17,3 +17,12 @@
     background: #f2f2f2;
     // box-shadow: 5px 5px 0 0px #fff;
 }
+.dropdown-menu > li > a{
+    color: #30392d !important;
+}
+.dropdown-menu > li > a :hover{
+    color: #151614 !important;
+}
+.navbar-nav a:hover{
+    -webkit-text-fill-color: inherit !important;
+}
