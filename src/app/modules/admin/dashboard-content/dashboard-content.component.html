@@ -1,7 +1,5 @@
-
 <!-- [ Main Content ] start -->
-<div class="pcoded-main-container"
-*ngFor="let fizer of dashboardMainRestService.fizer">
+<div class="pcoded-main-container" *ngFor="let fizer of dashboardMainRestService.fizer">
     <div class="pcoded-content" *ngFor="let sinopharm of dashboardMainRestService.sinopharm">
         <!-- [ breadcrumb ] start -->
         <div class="page-header">
@@ -29,7 +27,7 @@
                         <div class="col-sm-6 card-body br">
                             <div class="row">
                                 <div class="col-sm-4">
-                                  <i class="fas fa-user-friends"></i>
+                                    <i class="fas fa-user-friends"></i>
                                 </div>
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{dashboardMainRestService.user.length}}</h5>
@@ -38,16 +36,16 @@
                             </div>
                         </div>
                         <div class="col-sm-6 card-body">
-                          <div class="row">
-                              <div class="col-sm-4">
-                                  <i class="icon feather icon-mail text-c-yellow mb-1 d-block"></i>
-                              </div>
-                              <div class="col-sm-8 text-md-center">
-                                  <h5>{{dashboardMainRestService.message.length}}</h5>
-                                  <span>Mails</span>
-                              </div>
-                          </div>
-                      </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <i class="icon feather icon-mail text-c-yellow mb-1 d-block"></i>
+                                </div>
+                                <div class="col-sm-8 text-md-center">
+                                    <h5>{{dashboardMainRestService.message.length}}</h5>
+                                    <span>Mails</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -55,30 +53,30 @@
             <!-- table card-2 start -->
             <div class="col-md-12 col-xl-4">
                 <div class="card flat-card">
-                  <div class="row-table">
-                    <div class="col-sm-6 card-body br">
-                        <div class="row">
-                            <div class="col-sm-4">
-                              <i class="far fa-hospital"></i>
+                    <div class="row-table">
+                        <div class="col-sm-6 card-body br">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <i class="far fa-hospital"></i>
+                                </div>
+                                <div class="col-sm-8 text-md-center">
+                                    <h5>{{dashboardMainRestService.centersData.length}}</h5>
+                                    <span>Number Of Health Center</span>
+                                </div>
                             </div>
-                            <div class="col-sm-8 text-md-center">
-                                <h5>{{dashboardMainRestService.centersData.length}}</h5>
-                                <span>Number Of Health Center</span>
+                        </div>
+                        <div class="col-sm-6 card-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <i class="fas fa-syringe"></i>
+                                </div>
+                                <div class="col-sm-8 text-md-center">
+                                    <h5>{{dashboardMainRestService.vaccinesData.length}}</h5>
+                                    <span>Number Of Vaccine Type</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 card-body">
-                        <div class="row">
-                            <div class="col-sm-4">
-                              <i class="fas fa-syringe"></i>
-                            </div>
-                            <div class="col-sm-8 text-md-center">
-                                <h5>{{dashboardMainRestService.vaccinesData.length}}</h5>
-                                <span>Number Of Vaccine Type</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 </div>
             </div>
             <div class="col-md-12 col-xl-4">
@@ -103,33 +101,39 @@
                     </div>
                 </div>
             </div>
-                <div class="card table-card">
-                    <div class="card-header">
-                        <h5>Health Centers</h5>
-                    </div>
-                    <div class="card-body p-0">
-                      <div class="table-responsive">
-                          <table class="table table-hover mb-0">
-                              <thead>
-                                  <tr>
+            <div class="card table-card">
+                <div class="card-header">
+                    <h5>Health Centers</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr>
                                     <th>Center Name</th>
                                     <th>Vaccine Type</th>
                                     <th># Of Dose</th>
                                     <th>Expire Date</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr *ngFor="let health of dashboardMainRestService.data" >
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let health of dashboardMainRestService.data">
                                     <td>{{health.center_Name}}</td>
                                     <td>{{health.vaccine_Type}}</td>
                                     <td>{{health.number_Of_Vaccine}}</td>
                                     <td>{{health.expire_Date }}</td>
-                                  </tr>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+            </div>
+        </div>
+        <div class="card">
+            <div tabindex="1" id="ol-map" class="map-container">
+                <div id="popup"></div>
+            </div>
         </div>
     </div>
+
 </div>

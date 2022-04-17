@@ -20,7 +20,7 @@
         <!-- [ breadcrumb ] end -->
         <!-- [ Main Content ] start -->
         <div class="row">
-            <div class="col-xl-6 col-md-12">
+            <div class="col-md-12">
                 <div class="card table-card">
                     <div class="card-header">
                         <h5>Users requests</h5>
@@ -53,6 +53,7 @@
                             <table class="table table-hover mb-0">
                                  <tr>
                                     <th>ID</th>
+                                    <th>User</th>
                                     <th>Health center</th>
                                     <th>Request date</th>
                                     <th>Vaccine type</th>
@@ -61,14 +62,15 @@
                                 </tr>
                                 <tr *ngFor="let userRequest of usersRequests">
                                     <td>{{userRequest.id}}</td>
-                                    <td>{{userRequest.health_Center}}</td>
+                                    <td>{{userRequest.first_Name}} {{userRequest.last_Name}}</td>
+                                    <td>{{userRequest.center_name}}</td>
                                     <td>{{userRequest.request_date}}</td>
                                     <td><label class="badge badge-light-danger">{{userRequest.vaccine_Type}}</label>
                                     </td>
                                     <td>
                                         <button (click)="openDeleteDialog(userRequest.id)"
                                             class="btn  btn-danger">Delete</button>
-                                        <button (click)="OpenAddScheduleDialog(userRequest.id)"
+                                        <button (click)="OpenAddScheduleDialog(userRequest.center_id,userRequest.vaccine_id,userRequest.request_date,userRequest.user_Id)"
                                             class="btn  btn-secondary">Add schedule</button>
                                     </td>
                                 </tr>
@@ -91,25 +93,37 @@
                                         <div class="row">
                                             <mat-form-field class="col-md-12" appearance="fill">
                                                 <mat-label>Vaccine type</mat-label>
-                                                <select matNativeControl formControlName="Vaccine_Type">
-                                                    <option value="Default">Default</option>
+                                                <select matNativeControl formControlName="vaccine_id">
+                                                    <!-- <option value="Default">Default</option> -->
                                                     <option *ngFor="let vaccine of scheduleRestService.vaccinesData"
-                                                        [value]="vaccine.vaccine_Type">{{vaccine.vaccine_Type}}</option>
+                                                        [value]="vaccine.id">{{vaccine.vaccine_Type}}</option>
                                                 </select>
                                                 <mat-error
-                                                    *ngIf="CreateForm.controls['Vaccine_Type'].hasError('required')">
-                                                    Subject is <strong>required</strong></mat-error>
+                                                    *ngIf="CreateForm.controls['vaccine_id'].hasError('required')">
+                                                    Vaccine type is <strong>required</strong></mat-error>
                                             </mat-form-field>
                                             <mat-form-field class="col-md-12" appearance="fill">
                                                 <mat-label>Health center</mat-label>
-                                                <select matNativeControl formControlName="Health_Center">
-                                                    <option value="Default">Default</option>
+                                                <select matNativeControl formControlName="center_id">
+                                                    <!-- <option value="Default">Default</option> -->
                                                     <option *ngFor="let center of scheduleRestService.centersData"
-                                                        [value]="center.center_Name">{{center.center_Name}}</option>
+                                                        [value]="center.id">{{center.center_Name}}</option>
                                                 </select>
                                                 <mat-error
-                                                    *ngIf="CreateForm.controls['Health_Center'].hasError('required')">
-                                                    Subject is <strong>required</strong></mat-error>
+                                                    *ngIf="CreateForm.controls['center_id'].hasError('required')">
+                                                    Health center is <strong>required</strong></mat-error>
+                                            </mat-form-field>
+                                            <mat-form-field class="col-md-12" appearance="fill">
+                                                <mat-label>Dose</mat-label>
+                                                <select matNativeControl formControlName="dose">
+                                                    <!-- <option value="Default">Default</option> -->
+                                                    <option value="First">First</option>
+                                                    <option value="Second">Second</option>
+                                                    <option value="3rd">3rd</option>
+                                                </select>
+                                                <mat-error
+                                                    *ngIf="CreateForm.controls['dose'].hasError('required')">
+                                                    Dose is <strong>required</strong></mat-error>
                                             </mat-form-field>
 
                                             <!-- <mat-form-field class="col-md-12" appearance="fill">
@@ -120,8 +134,15 @@
                             </mat-form-field> -->
 
                                             <mat-form-field appearance="fill">
-                                                <mat-label>Choose a date</mat-label>
-                                                <input matInput [matDatepicker]="picker" formControlName="Request_date">
+                                                <mat-label>Start date</mat-label>
+                                                <input matInput [matDatepicker]="picker" formControlName="start_Time">
+                                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                <mat-datepicker #picker></mat-datepicker>
+                                            </mat-form-field>
+
+                                            <mat-form-field appearance="fill">
+                                                <mat-label>End a date</mat-label>
+                                                <input matInput [matDatepicker]="picker" formControlName="end_Time">
                                                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                                 <mat-datepicker #picker></mat-datepicker>
                                             </mat-form-field>
@@ -134,9 +155,9 @@
                             </mat-form-field> -->
                                             <div class="actions">
                                                 <button [disabled]="!CreateForm.valid" mat-button
-                                                    (click)="scheduleRestService.sendRequest(CreateForm.value)"
-                                                    cdkFocusInitial value="Send Message" name="submit" class="">Send
-                                                    Request</button>
+                                                    (click)="scheduleRestService.createSchedule(CreateForm.value)"
+                                                    cdkFocusInitial value="Send Message" name="submit" class="">Add
+                                                    schedule</button>
                                             </div>
                                         </div>
                                     </form>

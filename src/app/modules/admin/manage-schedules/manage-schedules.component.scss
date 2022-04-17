@@ -1,0 +1,45 @@
+//when the add button on top of the table uncomment this:
+button.btn.btn-primary{
+    margin-left: 17% !important;
+    margin-top: -2% !important;
+    transition: none;
+    color: #fff;
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+    margin-top: 0px !important;
+    margin-right: 10px;
+}
+
+.btn {
+    padding: 4px;
+    font-size: 12px;
+     transition: none !important;
+    transform: none !important;
+    animation: none;
+}
+
+.btn-danger:hover {
+    color: #fff;
+    background-color: #e12e1c !important;
+    border-color: #d62c1a !important;
+}
+.btn-danger {
+    color: #fff;
+    background-color: #e74c3c !important;
+    border-color: #e74c3c !important;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    transition: none;
+    margin-left: 5px;
+}
+
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #5a6268 !important;
+    border-color: #545b62 !important;
+    background-image: none;
+}

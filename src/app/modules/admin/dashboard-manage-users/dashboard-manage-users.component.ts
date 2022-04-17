@@ -165,10 +165,8 @@ export class DashboardManageUsersComponent implements OnInit {
     this.info=ev.target.value;
   }
   search(){
-    const user={
-      info:this.info
-    }
-    this.manageUsersRestService.searchUser(user);
+ 
+    this.manageUsersRestService.searchUser(this.info);
   }
 
 }

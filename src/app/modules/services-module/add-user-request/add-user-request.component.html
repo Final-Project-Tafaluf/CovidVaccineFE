@@ -6,21 +6,21 @@
 
             <mat-form-field class="col-md-12" appearance="fill">
               <mat-label>Vaccine type</mat-label>
-              <select matNativeControl formControlName="Vaccine_Type">
-                <option value="Default">Default</option>
-                <option *ngFor="let vaccine of scheduleRestService.vaccinesData" [value]="vaccine.vaccine_Type" >{{vaccine.vaccine_Type}}</option>
+              <select matNativeControl formControlName="vaccine_id">
+                <!-- <option value="Default">Default</option> -->
+                <option *ngFor="let vaccine of scheduleRestService.vaccinesData" [value]="vaccine.id" >{{vaccine.vaccine_Type}}</option>
               </select>
-              <mat-error *ngIf="CreateForm.controls['Vaccine_Type'].hasError('required')"> Subject is <strong>required</strong></mat-error>
+              <mat-error *ngIf="CreateForm.controls['vaccine_id'].hasError('required')"> Subject is <strong>required</strong></mat-error>
             </mat-form-field>
 
 
             <mat-form-field class="col-md-12" appearance="fill">
               <mat-label>Health center</mat-label>
-              <select matNativeControl formControlName="Health_Center"  >
-                <option value="Default">Default</option>
-                <option *ngFor="let center of scheduleRestService.centersData" [value]="center.center_Name" >{{center.center_Name}}</option>
+              <select matNativeControl formControlName="center_id"  >
+                <!-- <option value="Default">Default</option> -->
+                <option *ngFor="let center of scheduleRestService.centersData" [value]="center.id" >{{center.center_Name}}</option>
               </select>
-              <mat-error *ngIf="CreateForm.controls['Health_Center'].hasError('required')"> Subject is <strong>required</strong></mat-error>
+              <mat-error *ngIf="CreateForm.controls['center_id'].hasError('required')"> Subject is <strong>required</strong></mat-error>
             </mat-form-field>
 
             <!-- <mat-form-field class="col-md-12" appearance="fill">
