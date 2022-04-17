@@ -100,49 +100,9 @@
           <ul>
             <li>
               <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Dose Number</mat-label>
-                <input type="text" matInput formControlName="dose" placeholder="dose">
+                <mat-label>User ID</mat-label>
+                <input type="number" matInput formControlName="user_Id" placeholder="User ID">
               </mat-form-field>
-            </li>
-            <li>
-              <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Doctor Name</mat-label>
-                <input type="text" matInput formControlName="doctor_name" placeholder="Doctor Name">
-              </mat-form-field>
-            </li>
-            <div>
-                <select id="status" formControlName="status">
-                  <!-- <option  [ngValue]="schedule.status" *ngFor="let schedule of manageScheduleRestService.data">
-                    {{schedule.status}}
-                  </option> -->
-                  <option Value="Pending">Pending</option>
-                  <option Value="Taken">Taken</option>
-                  <option Value="Absent">Absent</option>
-                </select>
-              </div>
-            <!-- <li>
-              <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>status</mat-label>
-                <input type="text" matInput formControlName="status" placeholder="status">
-              </mat-form-field>
-            </li> -->
-            <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Start Time</mat-label>
-                    <input type="datetime-local" matInput formControlName="start_Time" placeholder="Start Time">
-                </mat-form-field>
-            </li>
-            <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>End Time</mat-label>
-                  <input type="datetime-local" matInput formControlName="end_Time" placeholder="End Time">
-                </mat-form-field>
-            </li>
-            <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>Dose Taken Date</mat-label>
-                  <input type="date" matInput formControlName="dose_taken_date" placeholder="Dose Taken Date">
-                </mat-form-field>
             </li>
             <!-- <li>
               <mat-form-field class="example-full-width" appearance="fill">
@@ -150,15 +110,7 @@
                 <input type="text" matInput formControlName="center_Id" placeholder="center_Id">
               </mat-form-field>
             </li> -->
-            <li>
-              <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>User ID</mat-label>
-                <input type="number" matInput formControlName="user_Id" placeholder="User ID">
-              </mat-form-field>
-            </li>
-
-    
-            <div>
+            <!-- <div>
               <select id="centers" formControlName="center_Id">
                 <option  [ngValue]="center.id" *ngFor="let center of manageHealthCenterRestService.data">
                   {{center.center_Name}}
@@ -172,8 +124,94 @@
                     {{vac.vaccine_Type}}
                   </option>
                 </select>
-              </div>
-    
+              </div> -->
+            
+          <li>
+              <mat-form-field appearance="fill">
+              <mat-label>Vaccine Name</mat-label>
+              <mat-select formControlName="vaccine_id">
+                <mat-option [value]="vac.id" *ngFor="let vac of manageVaccineRestService.data">
+                  {{vac.vaccine_Type}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </li>
+          <li>
+            <mat-form-field appearance="fill">
+              <mat-label>Dose Number</mat-label>
+              <mat-select formControlName="dose">
+                <mat-option value="First">First</mat-option>
+                <mat-option value="Second">Second</mat-option>
+                <mat-option value="Third">Third</mat-option>
+              </mat-select>
+            </mat-form-field>
+            </li>
+            <!-- <li>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Dose Number</mat-label>
+                <input type="text" matInput formControlName="dose" placeholder="dose">
+              </mat-form-field>
+            </li> -->
+            <li>
+              <mat-form-field appearance="fill">
+              <mat-label>Health Center Name</mat-label>
+              <mat-select formControlName="center_Id">
+                <mat-option [value]="center.id" *ngFor="let center of manageHealthCenterRestService.data">
+                  {{center.center_Name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </li>
+            <li>
+              <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Start Time</mat-label>
+                  <input type="datetime-local" matInput formControlName="start_Time" placeholder="Start Time">
+              </mat-form-field>
+          </li>
+          <li>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>End Time</mat-label>
+                <input type="datetime-local" matInput formControlName="end_Time" placeholder="End Time">
+              </mat-form-field>
+          </li>
+            <!-- <div>
+                <select id="status" formControlName="status">
+                  <option Value="Pending">Pending</option>
+                  <option Value="Taken">Taken</option>
+                  <option Value="Absent">Absent</option>
+                </select>
+              </div> -->
+              <!-- <li>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>status</mat-label>
+                <input type="text" matInput formControlName="status" placeholder="status">
+              </mat-form-field>
+            </li> -->
+            <li>
+              <mat-form-field appearance="fill">
+                <mat-label>Select Status</mat-label>
+                <mat-select formControlName="status">
+                  <mat-option value="Pending">Pending</mat-option>
+                  <mat-option value="Taken">Taken</mat-option>
+                  <mat-option value="Absent">Absent</mat-option>
+                </mat-select>
+              </mat-form-field>
+              </li>
+            
+              <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Dose Taken Date</mat-label>
+                  <input type="date" matInput formControlName="dose_taken_date" placeholder="Dose Taken Date">
+                </mat-form-field>
+            </li>
+            <li>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Doctor Name</mat-label>
+                <input type="text" matInput formControlName="doctor_name" placeholder="Doctor Name">
+              </mat-form-field>
+            </li>
+            
+            
           </ul>
         </form>
     </mat-dialog-content>
@@ -188,31 +226,87 @@
 
 
 <ng-template #callUpdateDialog>
+  <mat-dialog-content class="mat-typography">
     <form [formGroup]="UpdateForm">
       <ul>
-        <li>
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Dose Number</mat-label>
-            <input type="text" matInput formControlName="dose"
-            [(ngModel)]="schedule.dose">
-          </mat-form-field> </li>
+        
+            <li>
+              <mat-form-field appearance="fill">
+              <mat-label>Vaccine Name</mat-label>
+              <mat-select formControlName="vaccine_id" [(ngModel)]="schedule.vaccine_id">
+                <mat-option [value]="vac.id" *ngFor="let vac of manageVaccineRestService.data">
+                  {{vac.vaccine_Type}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </li>
+          <li>
+            <mat-form-field appearance="fill">
+              <mat-label>Dose Number</mat-label>
+              <mat-select formControlName="dose" [(ngModel)]="schedule.dose">
+                <mat-option value="First">First</mat-option>
+                <mat-option value="Second">Second</mat-option>
+                <mat-option value="Third">Third</mat-option>
+              </mat-select>
+            </mat-form-field>
+            </li>
           <!-- <li>
             <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>status</mat-label>
-              <input type="date" matInput formControlName="status"
-              [(ngModel)]="schedule.status">
+              <mat-label>Dose Number</mat-label>
+              <input type="text" matInput formControlName="dose"
+              [(ngModel)]="schedule.dose">
             </mat-form-field>
           </li> -->
-          <div>
-          <select id="status" formControlName="status" [(ngModel)]="schedule.status">
-            <!-- <option  [ngValue]="schedule.status" *ngFor="let schedule of manageScheduleRestService.data">
-              {{schedule.status}}
-            </option> -->
-            <option Value="Pending">pending</option>
-            <option Value="Taken">Taken</option>
-            <option Value="Absent">Absent</option>
-          </select>
-        </div>
+      <!-- <li>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>status</mat-label>
+                <input type="date" matInput formControlName="status"
+                [(ngModel)]="schedule.status">
+              </mat-form-field>
+            </li> -->
+
+            <!-- <div>
+            <select id="status" formControlName="status" [(ngModel)]="schedule.status">
+              <option Value="Pending">Pending</option>
+              <option Value="Taken">Taken</option>
+              <option Value="Absent">Absent</option>
+            </select>
+          </div> -->
+
+          <li>
+            <mat-form-field appearance="fill">
+              <mat-label>Select Status</mat-label>
+              <mat-select formControlName="status" [(ngModel)]="schedule.status">
+                <mat-option value="Pending">Pending</mat-option>
+                <mat-option value="Taken">Taken</mat-option>
+                <mat-option value="Absent">Absent</mat-option>
+              </mat-select>
+            </mat-form-field>
+            </li>
+            <li>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Dose Taken Date</mat-label>
+                <input type="date" matInput formControlName="dose_taken_date"
+                [(ngModel)]="schedule.dose_taken_date">
+              </mat-form-field>
+            </li>
+            <li>
+              <mat-form-field appearance="fill">
+              <mat-label>Health Center Name</mat-label>
+              <mat-select formControlName="center_Id" [(ngModel)]="schedule.center_Id">
+                <mat-option [value]="center.id" *ngFor="let center of manageHealthCenterRestService.data">
+                  {{center.center_Name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </li>
+          <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Doctor Name</mat-label>
+              <input type="text" matInput formControlName="doctor_name"
+              [(ngModel)]="schedule.doctor_name">
+            </mat-form-field>
+          </li>
           <li>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Start Time</mat-label>
@@ -227,14 +321,8 @@
               [(ngModel)]="schedule.end_Time">
             </mat-form-field>
           </li>
-          <li>
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Dose Taken Date</mat-label>
-              <input type="date" matInput formControlName="dose_taken_date"
-              [(ngModel)]="schedule.dose_taken_date">
-            </mat-form-field>
-          </li>
-          <li>
+          
+          <!-- <li>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Center ID</mat-label>
               <input type="number" matInput formControlName="center_Id"
@@ -247,17 +335,31 @@
               <input type="number" matInput formControlName="vaccine_id"
               [(ngModel)]="schedule.vaccine_id">
             </mat-form-field>
-          </li>
-          <li>
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Doctor Name</mat-label>
-              <input type="text" matInput formControlName="doctor_name"
-              [(ngModel)]="schedule.doctor_name">
-            </mat-form-field>
-          </li>
+          </li> -->
+          
+          <!-- <div>
+            <select id="centers" formControlName="center_Id" [(ngModel)]="schedule.center_Id">
+              <option  [ngValue]="center.id" *ngFor="let center of manageHealthCenterRestService.data">
+                {{center.center_Name}}
+              </option>
+            </select>
+          </div>
+  
+          <div>
+              <select id="vaccines" formControlName="vaccine_id" [(ngModel)]="schedule.vaccine_id">
+                <option [ngValue]="vac.id" *ngFor="let vac of manageVaccineRestService.data">
+                  {{vac.vaccine_Type}}
+                </option>
+              </select>
+            </div> -->
+            
       </ul>
-      <button mat-button [mat-dialog-close]="true" (click)="update()">Update</button>
     </form>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="true" (click)="update()">Update</button>
+  </mat-dialog-actions>
   </ng-template>
 
 
