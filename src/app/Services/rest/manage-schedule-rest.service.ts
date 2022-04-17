@@ -64,4 +64,24 @@ debugger
     })
   }
 
+  searchBetweenTwoDates(dateFrom:any,dateTo:any){
+    //show spinner
+    this.spinner.show();
+    //hits api
+    debugger;
+    this.http.get('https://localhost:44327/api/Schedual/SearchBetweenTwoDates/'+dateFrom+dateTo).subscribe((res)=>{
+      this.data=res;
+      console.log(this.data);
+
+      this.spinner.hide();
+      this.toastr.success('Data Retieved !!')
+    }, err=>{
+      //hide spinner
+      this.spinner.hide();
+       //Toastr
+      this.toastr.error(err.message);
+      this.toastr.error(err.status);
+    })
+}
+
 }

@@ -19,6 +19,9 @@
             </div>
         </div>
         <!-- [ breadcrumb ] end -->
+        <input type="date" [value] ="dateFrom" (change)="inputValue($event)">
+        <input type="date" [value] ="dateTo" (change)="inputValue1($event)">
+        <button (click)="search()">Search</button>
         <!-- [ Main Content ] start -->
         <div class="row">
 

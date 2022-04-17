@@ -16,6 +16,8 @@ export class ManageSchedulesComponent implements OnInit {
   @ViewChild('callUpdateDialog') callUpdateDialog! :TemplateRef<any>
   @ViewChild('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
 
+  dateFrom:any
+  dateTo:any
 
   CreateForm:FormGroup=new FormGroup({
     dose: new FormControl(),
@@ -109,5 +111,21 @@ debugger
       }
     )
   }
+
+  inputValue(ev:any){
+    this.dateFrom=ev.target.value;
+    debugger
+    console.log(ev.target.value);
+  }
+  inputValue1(ev1:any){
+    this.dateTo=ev1.target.value;
+    debugger
+    console.log(ev1.target.value);
+  }
+
+  search(){
+    debugger;
+    this.manageScheduleRestService.searchBetweenTwoDates(this.dateFrom,this.dateTo);
+    }
 
 }
