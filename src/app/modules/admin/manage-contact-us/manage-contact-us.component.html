@@ -87,25 +87,7 @@
                                      [(ngModel)]="center.id">
                                   </mat-form-field> </li>
 
-                    <!-- <li>
-                        <mat-form-field class="example-full-width" appearance="fill">
-                            <mat-label>Enter the ContactUs Name</mat-label>
-                            <input type="text" matInput formControlName="name"
-                             [(ngModel)]="center.name">
-                          </mat-form-field> </li>
-                          <li>
-                            <mat-form-field class="example-full-width" appearance="fill">
-                                <mat-label>Enter subject ContactUs</mat-label>
-                                <input type="text" matInput formControlName="subject"
-                                 [(ngModel)]="center.subject">
-                              </mat-form-field> </li>
-                              <li>
-                                <mat-form-field class="example-full-width" appearance="fill">
-                                    <mat-label>Enter the MSG ContactUs</mat-label>
-                                    <input type="text" matInput formControlName="msg"
-                                     [(ngModel)]="center.msg">
-                                  </mat-form-field> </li>
-                                  -->
+                  
                                           <li>
                                             <mat-form-field class="example-full-width" appearance="fill">
                                                 <mat-label>Enter the testimonial ContactUs</mat-label>
@@ -115,9 +97,6 @@
 
                         </ul>
                         <h2>Are you sure you want to Add Testimonial ?</h2>
-                        <!-- <button mat-button mat-dialog-close="no" >No</button>
-                        <button mat-button mat-dialog-close="yes">yes</button> -->
-
                         <button (click)="yes()">Testimonial</button>
 
                     </form>
@@ -139,18 +118,20 @@
                     <ng-template #callDetailsDailog>
                         <form [formGroup]="Detail">
                             <ul>
-                        <li>
-                            <mat-form-field class="example-full-width" appearance="fill">
-                                <mat-label>MSG</mat-label>
-                                <input type="text" matInput formControlName="msg"
-                                 [(ngModel)]="center.msg">
-                              </mat-form-field> </li>
+                       
                               <li>
                                 <mat-form-field class="example-full-width" appearance="fill">
-                                    <mat-label>Enter subject</mat-label>
+                                    <mat-label>Email</mat-label>
                                     <input type="text" matInput formControlName="email"
                                      [(ngModel)]="center.email">
                                   </mat-form-field> </li>
+
+                                  <li>
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>MSG</mat-label>
+                                        <input type="text" matInput formControlName="msg"
+                                         [(ngModel)]="center.msg">
+                                      </mat-form-field> </li>
                             </ul>
 
                         </form>
