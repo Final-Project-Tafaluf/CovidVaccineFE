@@ -128,6 +128,9 @@
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>User ID</mat-label>
                 <input type="number" matInput formControlName="user_Id" placeholder="User ID">
+                <mat-error *ngIf="CreateForm.controls['user_Id'].hasError('required')">
+                  UserID is <strong>Required</strong>
+                </mat-error>
               </mat-form-field>
             </li>
             <!-- <li>
@@ -160,6 +163,9 @@
                   {{vac.vaccine_Type}}
                 </mat-option>
               </mat-select>
+              <mat-error *ngIf="CreateForm.controls['vaccine_id'].hasError('required')">
+                Vaccine Name is <strong>Required</strong>
+              </mat-error>
             </mat-form-field>
           </li>
           <li>
@@ -170,6 +176,9 @@
                 <mat-option value="Second">Second</mat-option>
                 <mat-option value="Third">Third</mat-option>
               </mat-select>
+              <mat-error *ngIf="CreateForm.controls['dose'].hasError('required')">
+                Dose Number is <strong>Required</strong>
+              </mat-error>
             </mat-form-field>
             </li>
             <!-- <li>
@@ -186,18 +195,27 @@
                   {{center.center_Name}}
                 </mat-option>
               </mat-select>
+              <mat-error *ngIf="CreateForm.controls['center_Id'].hasError('required')">
+                Center Name is <strong>Required</strong>
+              </mat-error>
             </mat-form-field>
           </li>
             <li>
               <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Start Time</mat-label>
                   <input type="datetime-local" matInput formControlName="start_Time" placeholder="Start Time">
+                  <mat-error *ngIf="CreateForm.controls['start_Time'].hasError('required')">
+                    Start Time is <strong>Required</strong>
+                  </mat-error>
               </mat-form-field>
           </li>
           <li>
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>End Time</mat-label>
                 <input type="datetime-local" matInput formControlName="end_Time" placeholder="End Time">
+                <mat-error *ngIf="CreateForm.controls['end_Time'].hasError('required')">
+                  End Time is <strong>Required</strong>
+                </mat-error>
               </mat-form-field>
           </li>
             <!-- <div>
@@ -221,6 +239,9 @@
                   <mat-option value="Taken">Taken</mat-option>
                   <mat-option value="Absent">Absent</mat-option>
                 </mat-select>
+                <mat-error *ngIf="CreateForm.controls['status'].hasError('required')">
+                  Status is <strong>Required</strong>
+                </mat-error>
               </mat-form-field>
               </li>
             
@@ -264,6 +285,9 @@
                   {{vac.vaccine_Type}}
                 </mat-option>
               </mat-select>
+              <mat-error *ngIf="UpdateForm.controls['vaccine_id'].hasError('required')">
+                Vaccine Name is <strong>Required</strong>
+              </mat-error>
             </mat-form-field>
           </li>
           <li>
@@ -274,6 +298,9 @@
                 <mat-option value="Second">Second</mat-option>
                 <mat-option value="Third">Third</mat-option>
               </mat-select>
+              <mat-error *ngIf="UpdateForm.controls['dose'].hasError('required')">
+                Dose Number is <strong>Required</strong>
+              </mat-error>
             </mat-form-field>
             </li>
           <!-- <li>
@@ -307,6 +334,9 @@
                 <mat-option value="Taken">Taken</mat-option>
                 <mat-option value="Absent">Absent</mat-option>
               </mat-select>
+              <mat-error *ngIf="UpdateForm.controls['status'].hasError('required')">
+                Status is <strong>Required</strong>
+              </mat-error>
             </mat-form-field>
             </li>
             <li>
@@ -324,6 +354,9 @@
                   {{center.center_Name}}
                 </mat-option>
               </mat-select>
+              <mat-error *ngIf="UpdateForm.controls['center_Id'].hasError('required')">
+                Center Name is <strong>Required</strong>
+              </mat-error>
             </mat-form-field>
           </li>
           <li>
@@ -384,7 +417,7 @@
   </mat-dialog-content>
 
   <mat-dialog-actions align="end">
-    <button mat-button [mat-dialog-close]="true" (click)="update()">Update</button>
+    <button [disabled]="!CreateForm.valid" mat-button [mat-dialog-close]="true" (click)="update()">Update</button>
   </mat-dialog-actions>
   </ng-template>
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ManageHealthCenterRestService } from 'src/app/Services/rest/manage-health-center-rest.service';
 import { ManageScheduleRestService } from 'src/app/Services/rest/manage-schedule-rest.service';
@@ -20,28 +20,28 @@ export class ManageSchedulesComponent implements OnInit {
   dateTo:any
 
   CreateForm:FormGroup=new FormGroup({
-    dose: new FormControl(),
-    status:new FormControl(),
-    start_Time:new FormControl(),
-    end_Time:new FormControl(),
-    center_Id:new FormControl(),
-    user_Id:new FormControl(),
+    dose: new FormControl('',Validators.required),
+    status:new FormControl('',Validators.required),
+    start_Time:new FormControl('',Validators.required),
+    end_Time:new FormControl('',Validators.required),
+    center_Id:new FormControl('',Validators.required),
+    user_Id:new FormControl('',Validators.required),
     doctor_name:new FormControl(),
-    vaccine_id:new FormControl(),
+    vaccine_id:new FormControl('',Validators.required),
     dose_taken_date:new FormControl()
 
   })
 
   UpdateForm:FormGroup=new FormGroup({
     id: new FormControl(),
-    dose: new FormControl(),
-    status:new FormControl(),
+    dose: new FormControl('',Validators.required),
+    status:new FormControl('',Validators.required),
     start_Time:new FormControl(),
     end_Time:new FormControl(),
-    center_Id:new FormControl(),
-    user_Id:new FormControl(),
+    center_Id:new FormControl('',Validators.required),
+    user_Id:new FormControl('',Validators.required),
     doctor_name:new FormControl(),
-    vaccine_id:new FormControl(),
+    vaccine_id:new FormControl('',Validators.required),
     dose_taken_date:new FormControl()
   })
 
