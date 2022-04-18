@@ -12,6 +12,7 @@ import { CustomeDatePipe } from 'src/app/Pipes/custome-date.pipe';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { CheckScheduleStatusPipe } from 'src/app/Pipes/check-schedule-status.pipe';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { CheckScheduleStatusPipe } from 'src/app/Pipes/check-schedule-status.pip
     MatDialogModule,
     MatButtonModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatSelectModule
   ],
   exports:[
     MatFormFieldModule,
@@ -46,7 +48,8 @@ import { CheckScheduleStatusPipe } from 'src/app/Pipes/check-schedule-status.pip
     CustomeDatePipe,
     CheckScheduleStatusPipe,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatSelectModule
   ]
 })
 export class SharedModule { }

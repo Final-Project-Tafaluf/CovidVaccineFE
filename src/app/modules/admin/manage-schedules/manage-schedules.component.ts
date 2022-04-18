@@ -1,8 +1,9 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ManageHealthCenterRestService } from 'src/app/Services/rest/manage-health-center-rest.service';
 import { ManageScheduleRestService } from 'src/app/Services/rest/manage-schedule-rest.service';
+import { ManageVaccineRestService } from 'src/app/Services/rest/manage-vaccine-rest.service';
 
 @Component({
   selector: 'app-manage-schedules',
@@ -15,36 +16,46 @@ export class ManageSchedulesComponent implements OnInit {
   @ViewChild('callUpdateDialog') callUpdateDialog! :TemplateRef<any>
   @ViewChild('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
 
+  dateFrom:any
+  dateTo:any
 
   CreateForm:FormGroup=new FormGroup({
-    dose: new FormControl(),
-    status:new FormControl(),
-    start_Time:new FormControl(),
-    end_Time:new FormControl(),
-    center_Id:new FormControl(),
-    user_Id:new FormControl(),
+    dose: new FormControl('',Validators.required),
+    status:new FormControl('',Validators.required),
+    start_Time:new FormControl('',Validators.required),
+    end_Time:new FormControl('',Validators.required),
+    center_Id:new FormControl('',Validators.required),
+    user_Id:new FormControl('',Validators.required),
     doctor_name:new FormControl(),
+    vaccine_id:new FormControl('',Validators.required),
+    dose_taken_date:new FormControl()
 
   })
 
   UpdateForm:FormGroup=new FormGroup({
     id: new FormControl(),
-    dose: new FormControl(),
-    status:new FormControl(),
+    dose: new FormControl('',Validators.required),
+    status:new FormControl('',Validators.required),
     start_Time:new FormControl(),
     end_Time:new FormControl(),
-    center_Id:new FormControl(),
-    user_Id:new FormControl(),
-    doctor_name:new FormControl()
+    center_Id:new FormControl('',Validators.required),
+    user_Id:new FormControl('',Validators.required),
+    doctor_name:new FormControl(),
+    vaccine_id:new FormControl('',Validators.required),
+    dose_taken_date:new FormControl()
   })
 
   schedule : any ={}
 
-  constructor(private dialog:MatDialog,public manageScheduleRestService:ManageScheduleRestService,public manageHealthCenterRestService:ManageHealthCenterRestService) { }
+  constructor(private dialog:MatDialog,
+    public manageScheduleRestService:ManageScheduleRestService,
+    public manageHealthCenterRestService:ManageHealthCenterRestService,
+    public manageVaccineRestService:ManageVaccineRestService) { }
 
   ngOnInit(): void {
     this.manageScheduleRestService.getAll();
     this.manageHealthCenterRestService.getAll();
+    this.manageVaccineRestService.getAll();
   }
 
   save(){
@@ -71,7 +82,9 @@ debugger
         end_Time:data.end_Time,
         center_Id:data.center_Id,
         user_Id:data.user_Id,
-        doctor_name:data.doctor_name
+        doctor_name:data.doctor_name,
+        vaccine_id:data.vaccine_id,
+        dose_taken_date:data.dose_taken_date
     }
     this.UpdateForm.controls['id'].setValue(this.schedule.id)
     this.UpdateForm.controls['user_Id'].setValue(this.schedule.user_Id)
@@ -98,5 +111,21 @@ debugger
       }
     )
   }
+
+  inputValue(ev:any){
+    this.dateFrom=ev.target.value;
+    debugger
+    console.log(ev.target.value);
+  }
+  inputValue1(ev1:any){
+    this.dateTo=ev1.target.value;
+    debugger
+    console.log(ev1.target.value);
+  }
+
+  search(){
+    debugger;
+    this.manageScheduleRestService.searchBetweenTwoDates(this.dateFrom,this.dateTo);
+    }
 
 }
