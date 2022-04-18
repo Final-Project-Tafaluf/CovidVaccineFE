@@ -69,7 +69,7 @@ debugger
     this.spinner.show();
     //hits api
     debugger;
-    this.http.get('https://localhost:44327/api/Schedual/SearchBetweenTwoDates/'+dateFrom+dateTo).subscribe((res)=>{
+    this.http.get('https://localhost:44327/api/Schedual/SearchBetweenTwoDates/'+dateFrom+'/'+dateTo).subscribe((res)=>{
       this.data=res;
       console.log(this.data);
 
