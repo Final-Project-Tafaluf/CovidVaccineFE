@@ -43,10 +43,16 @@ button.btn.btn-primary{
     border-color: #545b62 !important;
     background-image: none;
 }
-element.style {
-    font-size: 16px !important;
-}
 
 element.style {
     background: #14df14 !important;
+}
+h2 {
+    font-size: 13px !important;
+    
+}
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    border-radius: 5px 4px 4px0 0;
+    padding: 0.75em .75em 0 .75em;
+    margin-right: 86px !important;
 }

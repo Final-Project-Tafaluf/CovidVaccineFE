@@ -69,35 +69,44 @@
                             <td>
                 <button type="button" class="btn  btn-danger" (click)="openDeleteDailog(cont.id)">Delete</button>
                 <button type="button" class="btn  btn-secondary" (click)="openTestimonialDailog(
-                cont.id,cont.testimonial)">testimonial </button>
+                cont.id,cont.testimonial,cont.subject,cont.msg)">testimonial </button>
                 <button type="button" class="btn  btn-info" (click)="openDetailsDailog(cont.msg,cont.email)"> Details </button>
 
                             </td>
                         </tr>
 
                     </tbody>
+                    
                 </table>
                 <ng-template #callTestimonialDailog>
                     <form [formGroup]="TestimonialForm">
+                        <h2>Are you sure you want to Add Testimonial ?</h2>
                         <ul>
                             <li>
-                                <mat-form-field class="example-full-width" appearance="fill">
-                                    <mat-label>ID</mat-label>
-                                    <input type="number" matInput formControlName="id"
-                                     [(ngModel)]="center.id">
-                                  </mat-form-field> </li>
+                                
 
-                  
-                                          <li>
-                                            <mat-form-field class="example-full-width" appearance="fill">
-                                                <mat-label>Enter the testimonial ContactUs</mat-label>
-                                                <input type="number" matInput formControlName="testimonial"
-                                                 [(ngModel)]="center.testimonial">
-                                              </mat-form-field> </li>
+                                              <li>
+                                                <mat-form-field class="example-full-width" appearance="fill">
+                                                    <mat-label>Subject</mat-label>
+                                                    <input [readonly]="true" type="text" matInput formControlName="subject"
+                                                     [(ngModel)]="center.subject">
+                                                  </mat-form-field> </li>
+                                                  
+                                                  <li>
+                                                    <mat-form-field class="example-full-width" appearance="fill">
+                                                        <mat-label>MSG</mat-label>
+                                                        <textarea row="8" [readonly]="true" type="text" matInput formControlName="msg"
+                                                         [(ngModel)]="center.msg">
+                                                        </textarea>
+                                                      </mat-form-field> </li>
+                                                     
+                                                   
 
                         </ul>
-                        <h2>Are you sure you want to Add Testimonial ?</h2>
-                        <button (click)="yes()">Testimonial</button>
+                       
+                        
+                        <button mat-button mat-dialog-close="no">No</button>
+                        <button mat-button mat-dialog-close="yes">Yes</button>
 
                     </form>
 
@@ -122,15 +131,16 @@
                               <li>
                                 <mat-form-field class="example-full-width" appearance="fill">
                                     <mat-label>Email</mat-label>
-                                    <input type="text" matInput formControlName="email"
+                                    <input type="text" [readonly]="true"  matInput formControlName="email" 
                                      [(ngModel)]="center.email">
                                   </mat-form-field> </li>
 
                                   <li>
                                     <mat-form-field class="example-full-width" appearance="fill">
                                         <mat-label>MSG</mat-label>
-                                        <input type="text" matInput formControlName="msg"
+                                        <textarea row="8" [readonly]="true" type="text" matInput formControlName="msg"
                                          [(ngModel)]="center.msg">
+                                        </textarea>
                                       </mat-form-field> </li>
                             </ul>
 

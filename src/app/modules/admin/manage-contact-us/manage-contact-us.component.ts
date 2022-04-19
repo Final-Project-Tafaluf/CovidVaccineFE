@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ContactUsRestService } from 'src/app/Services/rest/contact-us-rest.service';
 
@@ -17,8 +17,11 @@ export class ManageContactUsComponent implements OnInit {
   center:any={};
 
   TestimonialForm:FormGroup=new FormGroup({
-    id: new FormControl(),
-    testimonial:new FormControl()
+    id: new FormControl("",[Validators.required]),
+    testimonial:new FormControl("",[Validators.required]),
+    subject:new FormControl("",[Validators.required]),
+    msg:new FormControl("",[Validators.required])
+
 })
   ngOnInit(): void {
     this.contactUsRestService.getAllContact();
@@ -27,28 +30,58 @@ export class ManageContactUsComponent implements OnInit {
   openDetailsDailog(MSG1:any,Email1:any){
     debugger
     this.center={
-      msg:MSG1,
-      email:Email1
+      email:Email1,
+      msg:MSG1
     }
     this.dialog.open(this.callDetailsDailog);
   }
   Detail:FormGroup=new FormGroup({
-    msg:new FormControl(),
-    email:new FormControl()
+    msg:new FormControl({value: '', disabled: true}),
+    email:new FormControl({value: '', disabled: true}),
+    
   })
 
-  openTestimonialDailog(iDD:any,testimonial1:any){
+  openTestimonialDailog(iDD:any,testimonial1:any ,sub:any,ms:any){
     this.center={
       id:iDD,
-      testimonial:testimonial1
+      testimonial:testimonial1,
+      subject:sub,
+      msg:ms
+
+
     }
-  this.dialog.open(this.callTestimonialDailog);
+
+    const testimonialDaialog=this.dialog.open(this.callTestimonialDailog);
+
+    testimonialDaialog.afterClosed().subscribe((result)=>{
+    if(result!=undefined)
+    {
+      if(result=='yes'){
+     this.yes();
+     this.dialog.closeAll();
+      }
+      else if(result=='no'){
+       this.no();
+       this.dialog.closeAll();
+      }
+    }
+  })
 }
 
   yes(){
+    this.TestimonialForm.controls['id'].setValue(this.center.id);
+    this.TestimonialForm.controls['testimonial'].setValue(1);
     this.contactUsRestService.updatebytestimonial(this.TestimonialForm.value);
+
   }
 
+  no()
+  {
+    
+    this.TestimonialForm.controls['id'].setValue(this.center.id);
+    this.TestimonialForm.controls['testimonial'].setValue(0);
+    this.contactUsRestService.updatebytestimonial(this.TestimonialForm.value);
+  }
   openDeleteDailog(id:number)
   {
     const dialogRef=this.dialog.open(this.callDeleteDailog);
