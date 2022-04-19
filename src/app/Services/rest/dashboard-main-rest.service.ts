@@ -18,21 +18,21 @@ export class DashboardMainRestService {
     message:any =[{}];
     fizer:any =[{}];
     sinopharm:any =[{}];
+    report:any =[{}];
 
+getReport():any{
+  this.spinner.show();
+  this.http.get('https://localhost:44327/Report/GetReport/').subscribe((res)=>{
+    this.report=res;
+    debugger
+    this.spinner.hide();
+  }, err=>{
+    this.spinner.hide();
+    this.toastr.error(err.message);
+    this.toastr.error(err.status);
+  })
+}
 
-  numberOfUser():any{
-    this.spinner.show();
-    return this.http.get('https://localhost:44327/User/GetAllUsers/').toPromise().then( (res)=>{
-      this.user=res;
-      this.spinner.hide();
-      return this.user;
-    }, err=>{
-      this.spinner.hide();
-      this.toastr.error(err.message);
-      this.toastr.error(err.status);
-      return err.message;
-    })
-  }
   numberOfVaccien(){
     this.spinner.show();
     this.http.get('https:/localhost:44327/api/Vaccine/GetallVaccines').subscribe((res)=>{
@@ -45,18 +45,6 @@ export class DashboardMainRestService {
     })
   }
 
-  numberOfCenter(){
-    this.spinner.show();
-    this.http.get('https:/localhost:44327/api/CenterVaccine/GetallCenterVaccines').subscribe((res)=>{
-      this.centersData=res;
-      debugger
-      this.spinner.hide();
-    }, err=>{
-      this.spinner.hide();
-      this.toastr.error(err.message);
-      this.toastr.error(err.status);
-    })
-  }
   numberOfMessage(){
     this.spinner.show();
     this.http.get('https://localhost:44327/api/ContactUs/getallcontactus/').subscribe((res)=>{
@@ -69,28 +57,6 @@ export class DashboardMainRestService {
     })
   }
 
-  numberOfFizer(){
-    this.spinner.show();
-    this.http.get('https://localhost:44327/api/CenterVaccine/NumberOfFizer/').subscribe((res)=>{
-      this.fizer=res;
-      this.spinner.hide();
-    }, err=>{
-      this.spinner.hide();
-      this.toastr.error(err.message);
-      this.toastr.error(err.status);
-    })
-  }
-  numberOfSinopharm(){
-    this.spinner.show();
-    this.http.get('https://localhost:44327/api/CenterVaccine/NumberOfSinopharm/').subscribe((res)=>{
-      this.sinopharm=res;
-      this.spinner.hide();
-    }, err=>{
-      this.spinner.hide();
-      this.toastr.error(err.message);
-      this.toastr.error(err.status);
-    })
-  }
   getCenter(){
     this.spinner.show();
     this.http.get('https:/localhost:44327/api/CenterVaccine/GetallCenterVaccines').subscribe((res)=>{

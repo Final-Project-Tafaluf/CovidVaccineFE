@@ -100,7 +100,7 @@
                                         <button type="button" class="btn  btn-secondary"
                                         (click)="openUpdateDialog(schedule)">Update</button>
                                       </td>
-          
+
                                     </tr>
                                 </tbody>
                             </table>
@@ -146,7 +146,7 @@
                 </option>
               </select>
             </div>
-    
+
             <div>
                 <select id="vaccines" formControlName="vaccine_id">
                   <option [ngValue]="vac.id" *ngFor="let vac of manageVaccineRestService.data">
@@ -154,7 +154,7 @@
                   </option>
                 </select>
               </div> -->
-            
+
           <li>
               <mat-form-field appearance="fill">
               <mat-label>Vaccine Name</mat-label>
@@ -244,7 +244,7 @@
                 </mat-error>
               </mat-form-field>
               </li>
-            
+
               <li>
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Dose Taken Date</mat-label>
@@ -257,13 +257,13 @@
                 <input type="text" matInput formControlName="doctor_name" placeholder="Doctor Name">
               </mat-form-field>
             </li>
-            
-            
+
+
           </ul>
         </form>
     </mat-dialog-content>
-    
-    
+
+
     <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
     <button [disabled]="!CreateForm.valid" mat-button [mat-dialog-close]="true"(click)="save()"  cdkFocusInitial>Save</button>
@@ -276,7 +276,7 @@
   <mat-dialog-content class="mat-typography">
     <form [formGroup]="UpdateForm">
       <ul>
-        
+
             <li>
               <mat-form-field appearance="fill">
               <mat-label>Vaccine Name</mat-label>
@@ -380,7 +380,7 @@
               [(ngModel)]="schedule.end_Time">
             </mat-form-field>
           </li>
-          
+
           <!-- <li>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Center ID</mat-label>
@@ -395,7 +395,7 @@
               [(ngModel)]="schedule.vaccine_id">
             </mat-form-field>
           </li> -->
-          
+
           <!-- <div>
             <select id="centers" formControlName="center_Id" [(ngModel)]="schedule.center_Id">
               <option  [ngValue]="center.id" *ngFor="let center of manageHealthCenterRestService.data">
@@ -403,7 +403,7 @@
               </option>
             </select>
           </div>
-  
+
           <div>
               <select id="vaccines" formControlName="vaccine_id" [(ngModel)]="schedule.vaccine_id">
                 <option [ngValue]="vac.id" *ngFor="let vac of manageVaccineRestService.data">
@@ -411,13 +411,13 @@
                 </option>
               </select>
             </div> -->
-            
+
       </ul>
     </form>
   </mat-dialog-content>
 
   <mat-dialog-actions align="end">
-    <button [disabled]="!CreateForm.valid" mat-button [mat-dialog-close]="true" (click)="update()">Update</button>
+    <button [disabled]="!UpdateForm.valid" mat-button [mat-dialog-close]="true" (click)="update()">Update</button>
   </mat-dialog-actions>
   </ng-template>
 

@@ -1,6 +1,6 @@
 <!-- [ Main Content ] start -->
-<div class="pcoded-main-container" *ngFor="let fizer of dashboardMainRestService.fizer">
-    <div class="pcoded-content" *ngFor="let sinopharm of dashboardMainRestService.sinopharm">
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
         <!-- [ breadcrumb ] start -->
         <div class="page-header">
             <div class="page-block">
@@ -17,10 +17,8 @@
                 </div>
             </div>
         </div>
-        <!-- [ breadcrumb ] end -->
-        <!-- [ Main Content ] start -->
+
         <div class="row">
-            <!-- table card-1 start -->
             <div class="col-md-12 col-xl-4">
                 <div class="card flat-card">
                     <div class="row-table">
@@ -30,59 +28,142 @@
                                     <i class="fas fa-user-friends"></i>
                                 </div>
                                 <div class="col-sm-8 text-md-center">
-                                    <h5>{{dashboardMainRestService.user.length}}</h5>
-                                    <span>Total Patient</span>
+                                    <h5>{{dashboardMainRestService.report.number_of_patient}}</h5>
+                                    <span>Patients</span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6 card-body">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <i class="icon feather icon-mail text-c-yellow mb-1 d-block"></i>
+                                  <i class="fas fa-user-friends"></i>
                                 </div>
                                 <div class="col-sm-8 text-md-center">
-                                    <h5>{{dashboardMainRestService.message.length}}</h5>
-                                    <span>Mails</span>
+                                    <h5>{{dashboardMainRestService.report.number_of_admin}}</h5>
+                                    <span>Admins</span>
                                 </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row-table">
+                      <div class="col-sm-6 card-body br">
+                          <div class="row">
+                              <div class="col-sm-4">
+                                <i class="far fa-hospital"></i>
+                              </div>
+                              <div class="col-sm-8 text-md-center">
+                                  <h5>{{dashboardMainRestService.report.number_of_center}}</h5>
+                                  <span>Health Centers</span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-6 card-body">
+                          <div class="row">
+                              <div class="col-sm-4">
+                                  <i class="icon feather icon-mail text-c-yellow mb-1 d-block"></i>
+                              </div>
+                              <div class="col-sm-8 text-md-center">
+                                  <h5>{{dashboardMainRestService.message.length}}</h5>
+                                  <span>Mails</span>
+                              </div>
+                          </div>
+                      </div>
+
+                  </div>
+                </div>
+                <div class="card flat-card widget-primary-card">
+                  <div class="row-table">
+                      <div class="col-sm-3 card-body">
+                          <i class="feather icon-star-on"></i>
+                      </div>
+                      <div class="col-sm-9">
+                          <h4>{{dashboardMainRestService.report.number_of_user}}</h4>
+                          <h6>Total Users</h6>
+                      </div>
+                  </div>
+              </div>
+
+            </div>
+            <div class="col-md-12 col-xl-4">
+                <div class="card flat-card">
+                  <div class="row-table">
+                    <div class="col-sm-6 card-body br">
+                        <div class="row">
+                            <div class="col-sm-4">
+                              <i class="fas fa-user-friends"></i>
+                            </div>
+                            <div class="col-sm-8 text-md-center">
+                                <h5>{{dashboardMainRestService.report.number_of_absent}}</h5>
+                                <span>Absent</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 card-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <i class="fas fa-syringe"></i>
+                            </div>
+                            <div class="col-sm-8 text-md-center">
+                                <h5>{{dashboardMainRestService.report.number_of_request}}</h5>
+                                <span>Requests</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- table card-1 end -->
-            <!-- table card-2 start -->
-            <div class="col-md-12 col-xl-4">
-                <div class="card flat-card">
                     <div class="row-table">
                         <div class="col-sm-6 card-body br">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <i class="far fa-hospital"></i>
-                                </div>
-                                <div class="col-sm-8 text-md-center">
-                                    <h5>{{dashboardMainRestService.centersData.length}}</h5>
-                                    <span>Number Of Health Center</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 card-body">
                             <div class="row">
                                 <div class="col-sm-4">
                                     <i class="fas fa-syringe"></i>
                                 </div>
                                 <div class="col-sm-8 text-md-center">
-                                    <h5>{{dashboardMainRestService.vaccinesData.length}}</h5>
-                                    <span>Number Of Vaccine Type</span>
+                                    <h5>{{dashboardMainRestService.report.number_of_first}}</h5>
+                                    <span>First Dose</span>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-sm-6 card-body br">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <i class="fas fa-syringe"></i>
+                                </div>
+                                <div class="col-sm-8 text-md-center">
+                                    <h5>{{dashboardMainRestService.report.number_of_second}}</h5>
+                                    <span>Second Dose</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 card-body">
+                          <div class="row">
+                              <div class="col-sm-4">
+                                  <i class="fas fa-syringe"></i>
+                              </div>
+                              <div class="col-sm-8 text-md-center">
+                                  <h5>{{dashboardMainRestService.report.number_of_third}}</h5>
+                                  <span>Third Dose</span>
+                              </div>
+                          </div>
+                      </div>
                     </div>
                 </div>
+                <div class="card flat-card widget-purple-card">
+                  <div class="row-table">
+                      <div class="col-sm-3 card-body">
+                          <i class="fas fa-trophy"></i>
+                      </div>
+                      <div class="col-sm-9">
+                          <h4>{{dashboardMainRestService.report.total_vaccinated}}</h4>
+                          <h6>Total Dose Taken</h6>
+                      </div>
+                  </div>
+              </div>
+
             </div>
             <div class="col-md-12 col-xl-4">
                 <div class="card support-bar overflow-hidden">
                     <div class="card-body pb-0">
-                        <h2 class="m-0">{{fizer.number_of_fizer + sinopharm.number_of_sinopharm}}</h2>
+                        <h2 class="m-0">{{dashboardMainRestService.report.number_of_fizer + dashboardMainRestService.report.number_of_sinopharm}}</h2>
                         <span class="text-c-blue">Total Vaccine Dose</span>
                         <p class="mb-3 mt-3">Total number of Vaccine Dose that come in.</p>
                     </div>
@@ -90,11 +171,11 @@
                     <div class="card-footer bg-primary text-white">
                         <div class="row text-center">
                             <div class="col">
-                                <h4 class="m-0 text-white">{{fizer.number_of_fizer}}</h4>
+                                <h4 class="m-0 text-white">{{dashboardMainRestService.report.number_of_fizer}}</h4>
                                 <span>Fizer</span>
                             </div>
                             <div class="col">
-                                <h4 class="m-0 text-white">{{sinopharm.number_of_sinopharm}}</h4>
+                                <h4 class="m-0 text-white">{{dashboardMainRestService.report.number_of_sinopharm}}</h4>
                                 <span>Sinopharm</span>
                             </div>
                         </div>
