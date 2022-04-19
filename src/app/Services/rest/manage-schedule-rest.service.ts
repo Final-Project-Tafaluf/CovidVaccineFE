@@ -28,7 +28,7 @@ export class ManageScheduleRestService {
   createSchedule(body:any){
     this.spinner.show();
     debugger
-    this.http.post('https:/localhost:44327/api/Schedual/CreateSchedual/',body).subscribe((res)=>{
+    this.http.post('https://localhost:44327/api/Schedual/CreateSchedual/',body).subscribe((res)=>{
 debugger
       this.spinner.hide();
       this.toastr.success('saved Successfully :)');
@@ -42,7 +42,7 @@ debugger
 
   updateSchedule(body:any){
     debugger
-    this.http.put('https://localhost:44327/api/Schedual/UpdateSchedual',body).subscribe(res=>
+    this.http.put('https://localhost:44327/api/Schedual/UpdateSchedualAndVaccineNumber',body).subscribe(res=>
     {
       debugger
       this.toastr.success('updated Successfully');
@@ -63,5 +63,25 @@ debugger
       this.toastr.error(err.status,err.message);
     })
   }
+
+  searchBetweenTwoDates(dateFrom:any,dateTo:any){
+    //show spinner
+    this.spinner.show();
+    //hits api
+    debugger;
+    this.http.get('https://localhost:44327/api/Schedual/SearchBetweenTwoDates/'+dateFrom+'/'+dateTo).subscribe((res)=>{
+      this.data=res;
+      console.log(this.data);
+
+      this.spinner.hide();
+      this.toastr.success('Data Retieved !!')
+    }, err=>{
+      //hide spinner
+      this.spinner.hide();
+       //Toastr
+      this.toastr.error(err.message);
+      this.toastr.error(err.status);
+    })
+}
 
 }
