@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
-import { ContentComponent } from './content/content.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateHealthCenterComponent } from './create-health-center/create-health-center.component';
 import { SharedModule } from '../shared/shared.module';
@@ -21,7 +20,6 @@ import { ManangeUsersRequestsComponent } from './manange-users-requests/manange-
 
 @NgModule({
   declarations: [
-    ContentComponent,
     DashboardComponent,
     CreateHealthCenterComponent,
     DashboardContentComponent,

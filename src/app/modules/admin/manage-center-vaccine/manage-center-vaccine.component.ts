@@ -53,7 +53,6 @@ debugger
 
   update(){
     this.centerVaccineRestService.updateCentervaccine(this.UpdateForm.value);
-    console.log(this.health);
   }
 
   openCreateDialog(){
@@ -69,6 +68,8 @@ debugger
         vaccine_Id:data.vaccine_Id
     }
     this.UpdateForm.controls['id'].setValue(this.health.id)
+    this.UpdateForm.controls['center_Id'].setValue(this.health.center_Id)
+    this.UpdateForm.controls['vaccine_Id'].setValue(this.health.vaccine_Id)
     debugger
     this.dialog.open(this.callUpdateDialog)
   }

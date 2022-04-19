@@ -47,6 +47,7 @@ debugger
       debugger
       this.toastr.success('updated Successfully');
       this.getAll();
+
     },err=>
     {
       this.toastr.error(err.status,err.message);
@@ -71,6 +72,7 @@ debugger
     debugger;
     this.http.get('https://localhost:44327/api/Schedual/SearchBetweenTwoDates/'+dateFrom+'/'+dateTo).subscribe((res)=>{
       this.data=res;
+      debugger
       console.log(this.data);
 
       this.spinner.hide();

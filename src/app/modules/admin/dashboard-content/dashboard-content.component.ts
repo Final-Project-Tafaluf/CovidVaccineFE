@@ -22,12 +22,9 @@ export class DashboardContentComponent implements OnInit {
   constructor(public dashboardMainRestService:DashboardMainRestService, public scheduleRestService: ScheduleRestService,) { }
 
   ngOnInit(): void {
-    this.dashboardMainRestService.numberOfUser();
     this.dashboardMainRestService.numberOfVaccien();
-    this.dashboardMainRestService.numberOfCenter();
     this.dashboardMainRestService.numberOfMessage();
-    this.dashboardMainRestService.numberOfFizer();
-    this.dashboardMainRestService.numberOfSinopharm();
+    this.dashboardMainRestService.getReport();
     this.dashboardMainRestService.getCenter();
     this.generateMap();
   }
@@ -109,7 +106,7 @@ export class DashboardContentComponent implements OnInit {
       // const pixel = map.getEventPixel(evt.originalEvent);
       // const hit = map.hasFeatureAtPixel(pixel);
       // (<any>map.getTarget()).style.cursor = hit ? 'pointer' : '';
-     
+
     });
     // Close the popup when the map is moved
     map.on('movestart', function () {

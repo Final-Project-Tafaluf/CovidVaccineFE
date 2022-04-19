@@ -150,6 +150,7 @@ export class DashboardComponent implements OnInit {
     }
 
     goToEditHomePage(){
+
       this.ContentToggle=false;
       this.ManageUsersToggle=false;
       this.ManageHealthCenterToggle=false;
