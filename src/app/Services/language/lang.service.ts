@@ -14,7 +14,7 @@ export class LangService {
     // this.init();
   }
   async init() {
-    debugger
+    // debugger
     let result = this.localStorageService.getLanguage();
     if(result && (result == "en")) {
       this.initiateLangService('en');

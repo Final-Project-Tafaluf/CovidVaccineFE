@@ -98,12 +98,12 @@ export class UserProfileRestService {
 
 createUser(data:any){
   this.spinner.show();
-  debugger;
+  // debugger;
   data.image=this.display_Image;
   data.role_Id = 2;
   this.http.post('https://localhost:44327/User/CreateUser/',data).subscribe((res)=>
   {
-    debugger
+    // debugger
     console.log(res);
     if(res == "created"){
       this.spinner.hide();
@@ -158,7 +158,7 @@ createUser(data:any){
 //}
 updateUser(body:any){
   body.image=this.display_Image;
-  debugger;
+  // debugger;
   this.http.put('https://localhost:44327/User/UpdateUser/',body).subscribe((res)=>{
     this.toastr.success('Updated Successfully :) ')
   },err=>{

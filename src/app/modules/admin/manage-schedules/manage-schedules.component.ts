@@ -60,7 +60,7 @@ export class ManageSchedulesComponent implements OnInit {
 
   save(){
     this.manageScheduleRestService.createSchedule(this.CreateForm.value);
-debugger
+// debugger
   }
 
   update(){
@@ -88,7 +88,7 @@ debugger
     }
     this.UpdateForm.controls['id'].setValue(this.schedule.id)
     this.UpdateForm.controls['user_Id'].setValue(this.schedule.user_Id)
-    debugger
+    // debugger
     this.dialog.open(this.callUpdateDialog)
   }
 
@@ -114,17 +114,17 @@ debugger
 
   inputValue(ev:any){
     this.dateFrom=ev.target.value;
-    debugger
+    // debugger
     console.log(ev.target.value);
   }
   inputValue1(ev1:any){
     this.dateTo=ev1.target.value;
-    debugger
+    // debugger
     console.log(ev1.target.value);
   }
 
   search(){
-    debugger;
+    // debugger;
     this.manageScheduleRestService.searchBetweenTwoDates(this.dateFrom,this.dateTo);
     }
 

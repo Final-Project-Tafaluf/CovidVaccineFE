@@ -15,7 +15,7 @@ export class ManageScheduleRestService {
     this.spinner.show();
     this.http.get('https:/localhost:44327/api/Schedual/GetallScheduals').subscribe((res)=>{
       this.data=res;
-      debugger
+      // debugger
       this.spinner.hide();
       this.toastr.success('Data Retrieved !!')
     }, err=>{
@@ -27,9 +27,9 @@ export class ManageScheduleRestService {
 
   createSchedule(body:any){
     this.spinner.show();
-    debugger
+    // debugger
     this.http.post('https://localhost:44327/api/Schedual/CreateSchedual/',body).subscribe((res)=>{
-debugger
+// debugger
       this.spinner.hide();
       this.toastr.success('saved Successfully :)');
       this.getAll();
@@ -41,10 +41,10 @@ debugger
   }
 
   updateSchedule(body:any){
-    debugger
+    // debugger
     this.http.put('https://localhost:44327/api/Schedual/UpdateSchedualAndVaccineNumber',body).subscribe(res=>
     {
-      debugger
+      // debugger
       this.toastr.success('updated Successfully');
       this.getAll();
 
@@ -56,7 +56,7 @@ debugger
   }
 
   deleteItem(id:number){
-    debugger
+    // debugger
     this.http.delete('https://localhost:44327/api/Schedual/DeleteSchedual/'+id).subscribe((res)=>{
       this.toastr.success('Deleted Successfully :)');
     this.getAll();
@@ -69,10 +69,10 @@ debugger
     //show spinner
     this.spinner.show();
     //hits api
-    debugger;
+    // debugger;
     this.http.get('https://localhost:44327/api/Schedual/SearchBetweenTwoDates/'+dateFrom+'/'+dateTo).subscribe((res)=>{
       this.data=res;
-      debugger
+      // debugger
       console.log(this.data);
 
       this.spinner.hide();

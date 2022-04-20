@@ -28,7 +28,7 @@ export class ManageContactUsComponent implements OnInit {
   }
 
   openDetailsDailog(MSG1:any,Email1:any){
-    debugger
+    // debugger
     this.center={
       email:Email1,
       msg:MSG1

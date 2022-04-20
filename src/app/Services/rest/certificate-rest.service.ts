@@ -44,7 +44,7 @@ export class CertificateRestService {
   }
 
   updatebytestimonial(body:any){
-    debugger
+    // debugger
    // body.image_path=this.display_image;
     this.http.put('https://localhost:44327/api/Certificate/UpdateCertificate/',body).subscribe((res)=>{
       this.toastr.success('updated succefully')
@@ -75,7 +75,7 @@ export class CertificateRestService {
       .toPromise()
       .then(
         (res) => {
-          debugger;
+          // debugger;
           this.data = res;
           this.spinner.hide();
           this.toastr.success('Data Retrieved !!');

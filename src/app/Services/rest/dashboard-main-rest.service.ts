@@ -24,7 +24,7 @@ getReport():any{
   this.spinner.show();
   this.http.get('https://localhost:44327/Report/GetReport/').subscribe((res)=>{
     this.report=res;
-    debugger
+    // debugger
     this.spinner.hide();
   }, err=>{
     this.spinner.hide();
@@ -61,7 +61,7 @@ getReport():any{
     this.spinner.show();
     this.http.get('https:/localhost:44327/api/CenterVaccine/GetallCenterVaccines').subscribe((res)=>{
       this.data=res;
-      debugger
+      // debugger
       this.spinner.hide();
       this.toastr.success('Data Retrieved !!')
     }, err=>{

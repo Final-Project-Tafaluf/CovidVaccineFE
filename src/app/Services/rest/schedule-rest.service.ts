@@ -132,13 +132,13 @@ export class ScheduleRestService {
       );
   }
   deleteUserRequestById(requestId:number){
-    debugger
+    // debugger
     return this.http
     .delete('https://localhost:44327/api/UserRequest/DeleteUserRequest/'+requestId)
     .toPromise()
       .then(
       (res) => {
-        debugger
+        // debugger
         if (res) {
           this.allRequestsData = res;
           this.spinner.hide();
@@ -155,7 +155,7 @@ export class ScheduleRestService {
   }
   sendRequest(data: any) {
     this.spinner.show();
-    debugger;
+    // debugger;
     var token = this.localStorageService.getToken();
     var tokenData: any = this.localStorageService.tokenDecode(token);
     data.User_Id = Number(tokenData.nameid);
@@ -193,7 +193,7 @@ export class ScheduleRestService {
       .toPromise()
       .then(
         (res) => {
-          debugger;
+          // debugger;
           this.userScheduleData = res;
           this.spinner.hide();
           this.toaster.success('Data Retrieved !!');
@@ -212,7 +212,7 @@ export class ScheduleRestService {
 
   createSchedule(data:any){
     this.spinner.show();
-    debugger;
+    // debugger;
     data.center_id=Number(data.center_id);
     data.vaccine_id=Number(data.vaccine_id);
     this.http
