@@ -37,10 +37,11 @@ export class ProfileComponent implements OnInit {
     email:new FormControl(),
     password:new FormControl(),
     username:new FormControl(),
+    role_Id:new FormControl()
   })
   openUpdateDialog(
     id1 :any,first_Name1 :any,last_Name1 :any,ssn1 :any,gender1:any,birthdate1:any,
-    address1 :any,phone1:any,email1:any,password1:any,username1:any,image1:any){
+    address1 :any,phone1:any,email1:any,password1:any,username1:any,image1:any,role1:any){
       this.userProfile={
       id:id1,
       first_Name:first_Name1,
@@ -53,13 +54,15 @@ export class ProfileComponent implements OnInit {
       email:email1,
       password:password1,
       username:username1,
-      image:image1
+      image:image1,
+      role_Id:role1
     }
     // debugger
     this.UpdateForm.controls['id'].setValue(this.userProfile.id)
     this.UpdateForm.controls['ssn'].setValue(this.userProfile.ssn)
     this.UpdateForm.controls['email'].setValue(this.userProfile.email)
     this.UpdateForm.controls['username'].setValue(this.userProfile.username)
+    this.UpdateForm.controls['role_Id'].setValue(this.userProfile.role_Id)
     this.dialog.open(this.callUpdateDialog,{
       panelClass: 'dialog-container-custom'
     });

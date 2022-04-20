@@ -44,7 +44,7 @@ export class UserProfileRestService {
         //debugger
         this.spinner.hide();
         this.toastr.success('Data Retieved !!');
-        return this.selectedUser 
+        return this.selectedUser
       },
       (err) => {
         this.spinner.hide();
@@ -141,21 +141,6 @@ createUser(data:any){
     }
     )}
 
-  // if(res != "false")
-  // {
-  //   this.spinner.hide();
-  //   this.toastr.success('Saved Successfully')
-  // }
-  // else
-  // {
-  //   this.spinner.hide();
-  //   this.toastr.error('Please Enter Valid SSN/Email/Username');
-  // }}, err=>{
-  //   console.log('faild');
-  //   this.spinner.hide();
-  //   this.toastr.error(err.message , err.status)
-  // })
-//}
 updateUser(body:any){
   body.image=this.display_Image;
   // debugger;
