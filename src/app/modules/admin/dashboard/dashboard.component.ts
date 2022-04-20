@@ -214,7 +214,7 @@ export class DashboardComponent implements OnInit {
   }
 
   burgerToggelCode() {
-    debugger;
+    // debugger;
     // var vw = $(window)[0].innerWidth;
     // if (vw > 991) {
       $('.pcoded-navbar:not(.theme-horizontal)').toggleClass(

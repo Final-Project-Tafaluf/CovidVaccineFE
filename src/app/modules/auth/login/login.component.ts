@@ -77,11 +77,11 @@ export class LoginComponent implements OnInit {
     this.userProfileRestService.uploadAttachment(fromData);
   }
   save(){
-    debugger
+    // debugger
     this.userProfileRestService.createUser(this.CreateForm.value);
   }
   submit(){
-    debugger
+    // debugger
     this.auth.submit(this.email,this.password);
     }
 

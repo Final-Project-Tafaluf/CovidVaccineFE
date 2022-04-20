@@ -67,7 +67,7 @@ export class ProfileComponent implements OnInit {
 
   Update(){
     this.userProfileRestService.updateUser(this.UpdateForm.value);
-    debugger
+    // debugger
   }
 
 

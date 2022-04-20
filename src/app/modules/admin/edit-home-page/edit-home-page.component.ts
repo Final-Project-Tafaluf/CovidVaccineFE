@@ -47,7 +47,7 @@ Create(){
 
   }
   updateDialog(data :any){
-    debugger
+    // debugger
     this.element={
       id:data.id,
       header_Logo:data.header_Logo,
@@ -84,7 +84,7 @@ Create(){
     if(file.length===0){
       return ;
     }
-    debugger
+    // debugger
     let fileUpload=<File>file[0];
     // file[0]:'angular.png';
     const fromData=new FormData();
@@ -153,7 +153,7 @@ Create(){
   }
 
   update(){
-    debugger
+    // debugger
     this.home.updateHome(this.homeElement.value);
   }
 

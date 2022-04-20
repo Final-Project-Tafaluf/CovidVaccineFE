@@ -121,7 +121,7 @@ export class DashboardManageUsersComponent implements OnInit {
     this.UpdateForm.controls['email'].setValue(this.user.email)
     this.UpdateForm.controls['password'].setValue(this.user.email)
     this.UpdateForm.controls['role_Id'].setValue(this.user.role_Id)
-    debugger
+    // debugger
     this.dialog.open(this.callUpdateDialog)
   }
 
@@ -153,7 +153,7 @@ export class DashboardManageUsersComponent implements OnInit {
       {
         if(res=="yes"){
         this.manageUsersRestService.delete(id);
-        debugger
+        // debugger
         this.manageUsersRestService.getAllUser();
       }
         else if(res=="no")
