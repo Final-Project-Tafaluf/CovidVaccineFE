@@ -32,13 +32,13 @@ ngOnInit(): void {
   this.generateCreateMap()
 }
 save(){
-  debugger;
+  // debugger;
   this.manageHealthCenterRestService.createHelthCenter(this.CreateForm.value);
   this.dialog.closeAll();
 }
 
 async generateCreateMap() {
-  debugger;
+  // debugger;
   this.vectorSource = new VectorSource({});
   this.vectorLayer = new VectorLayer({
     source: this.vectorSource,
@@ -60,7 +60,7 @@ async generateCreateMap() {
   });
  
   map.on('click',  (evt) => {
-    debugger
+    // debugger
       var coordinates = evt.coordinate;
       const iconFeature = new Feature({
         geometry: new Point([coordinates[0], coordinates[1]]),

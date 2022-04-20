@@ -43,12 +43,12 @@ export class ManageCenterVaccineComponent implements OnInit {
     this.centerVaccineRestService.getAll();
     this.manageHealthCenterRestService.getAll();
     this.manageVaccineRestService.getAll();
-    debugger
+    // debugger
   }
 
   save(){
     this.centerVaccineRestService.createCenterVaccine(this.CreateForm.value);
-debugger
+// debugger
   }
 
   update(){
@@ -70,7 +70,7 @@ debugger
     this.UpdateForm.controls['id'].setValue(this.health.id)
     this.UpdateForm.controls['center_Id'].setValue(this.health.center_Id)
     this.UpdateForm.controls['vaccine_Id'].setValue(this.health.vaccine_Id)
-    debugger
+    // debugger
     this.dialog.open(this.callUpdateDialog)
   }
 

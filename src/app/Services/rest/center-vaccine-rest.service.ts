@@ -16,7 +16,7 @@ export class CenterVaccineRestService {
     this.spinner.show();
     this.http.get('https:/localhost:44327/api/CenterVaccine/GetallCenterVaccines').subscribe((res)=>{
       this.data=res;
-      debugger
+      // debugger
       this.spinner.hide();
       this.toastr.success('Data Retrieved !!')
     }, err=>{
@@ -28,9 +28,9 @@ export class CenterVaccineRestService {
 
   createCenterVaccine(body:any){
     this.spinner.show();
-    debugger
+    // debugger
     this.http.post('https:/localhost:44327/api/CenterVaccine/CreateCenterVaccine/',body).subscribe((res)=>{
-debugger
+// debugger
       this.spinner.hide();
       this.toastr.success('saved Successfully :)');
       this.getAll();
@@ -42,10 +42,10 @@ debugger
   }
 
   updateCentervaccine(body:any){
-    debugger
+    // debugger
     this.http.put('https://localhost:44327/api/CenterVaccine/UpdateCenterVaccine',body).subscribe(res=>
     {
-      debugger
+      // debugger
       this.toastr.success('updated Successfully');
       this.getAll();
     },err=>
@@ -56,7 +56,7 @@ debugger
   }
 
   deleteItem(id:number){
-    debugger
+    // debugger
     this.http.delete('https://localhost:44327/api/CenterVaccine/delete/'+id).subscribe((res)=>{
       this.toastr.success('Deleted Successfully :)');
     this.getAll();

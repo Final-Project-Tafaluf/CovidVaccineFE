@@ -59,7 +59,7 @@ export class ContactUsRestService {
   // }
 
   updatebytestimonial(body:any){
-    debugger
+    // debugger
    // body.image_path=this.display_image;
     this.http.put('https://localhost:44327/api/ContactUs/update_CONTACT_feedback/',body).subscribe((res)=>{
       this.toastr.success('updated succefully')
