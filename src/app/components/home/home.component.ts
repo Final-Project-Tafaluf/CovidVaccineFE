@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactUsRestService } from 'src/app/Services/rest/contact-us-rest.service';
+import { DashboardMainRestService } from 'src/app/Services/rest/dashboard-main-rest.service';
 import { HomeService } from 'src/app/Services/rest/home.service';
 
 @Component({
@@ -9,11 +10,14 @@ import { HomeService } from 'src/app/Services/rest/home.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public contactUsRestService:ContactUsRestService,public home : HomeService) { }
+  constructor(public contactUsRestService:ContactUsRestService,public home : HomeService,public dashboardMainRestService:DashboardMainRestService) { }
 
   ngOnInit(): void {
     this.contactUsRestService.getAllContactbytestimonial();
     this.home.getHome();
+    this.home.lastMonthCases();
+    this.home.lastMonthDeaths();
+    this.dashboardMainRestService.getReport();
   }
 
 

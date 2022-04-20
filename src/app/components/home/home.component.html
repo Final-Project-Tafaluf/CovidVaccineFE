@@ -31,38 +31,38 @@ box-shadow: 0 2px 4px 0px rgb(0 0 0 / 30%) ">
       <div class="row g-4">
           <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
               <div class="service-item rounded pt-3">
-                  <div class="p-4">
+                  <div class="p-4" style="min-height: 176.69px;">
                       <i class="fa fa-3x fa-syringe text-primary mb-4"></i>
-                      <h5 class="custom_h5">The number of recipients of the first operation</h5>
-                      <p class="custom_p">Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                      <h5 class="custom_h5">Total dose taken</h5>
+                      <p class="custom_p">{{dashboardMainRestService.report.total_vaccinated}}</p>
                   </div>
               </div>
           </div>
           <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
               <div class="service-item rounded pt-3">
-                  <div class="p-4">
-                      <i class="fa fa-3x fa-syringe text-primary mb-4"></i>
-                      <h5 class="custom_h5">The number of recipients of the second operation</h5>
-                      <p class="custom_p">Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                  <div class="p-4" style="min-height: 176.69px;">
+                      <i class="fa fa-3x fa-solid fa-heart-pulse text-primary mb-4"></i>
+                      <h5 class="custom_h5">Vaccination centers</h5>
+                      <p class="custom_p">{{dashboardMainRestService.report.number_of_center}}</p>
                   </div>
               </div>
           </div>
           <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
               <div class="service-item rounded pt-3">
-                  <div class="p-4">
+                  <div class="p-4" style="min-height: 176.69px;">
                     <!-- <i class="fa-solid fa-face-head-bandage"></i> -->
-                      <i class="fa fa-3x fa-user-injured text-primary mb-4"></i>
-                      <h5 class="custom_h5">The number of injuries</h5>
-                      <p class="custom_p">Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                      <i class="fa fa-3x fa-solid fa-square-virus text-primary mb-4"></i>
+                      <h5 class="custom_h5">Total cases in Jordan</h5>
+                      <p class="custom_p">{{home.cases[home.cases.length-1].Cases}}</p>
                   </div>
               </div>
           </div>
           <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
               <div class="service-item rounded pt-3">
-                  <div class="p-4">
+                  <div class="p-4" style="min-height: 176.69px;">
                       <i class="fa fa-3x fa-skull text-primary mb-4"></i>
-                      <h5 class="custom_h5">The number of deaths</h5>
-                      <p class="custom_p">Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                      <h5 class="custom_h5">Total deaths in Jordan</h5>
+                      <p class="custom_p">{{home.deaths[home.deaths.length-1].Cases}}</p>
                   </div>
               </div>
           </div>

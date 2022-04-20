@@ -13,6 +13,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { CheckScheduleStatusPipe } from 'src/app/Pipes/check-schedule-status.pipe';
 import {MatSelectModule} from '@angular/material/select';
+import { TranslatePipe } from 'src/app/Pipes/translate.pipe';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {MatSelectModule} from '@angular/material/select';
     HeaderComponent,
     FooterComponent,
     CustomeDatePipe,
-    CheckScheduleStatusPipe
+    CheckScheduleStatusPipe,
+    TranslatePipe
 
   ],
   imports: [
@@ -47,6 +49,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatDialogModule,
     CustomeDatePipe,
     CheckScheduleStatusPipe,
+    TranslatePipe,
     MatNativeDateModule,
     MatDatepickerModule,
     MatSelectModule
