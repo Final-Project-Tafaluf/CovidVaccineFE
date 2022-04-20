@@ -1,5 +1,5 @@
 //when the add button on top of the table uncomment this:
-button.btn.btn-primary{
+button.btn.btn-primary {
     margin-left: 17% !important;
     margin-top: -2% !important;
     transition: none;
@@ -13,7 +13,7 @@ button.btn.btn-primary{
 .btn {
     padding: 4px;
     font-size: 12px;
-     transition: none !important;
+    transition: none !important;
     transform: none !important;
     animation: none;
 }
@@ -23,6 +23,7 @@ button.btn.btn-primary{
     background-color: #e12e1c !important;
     border-color: #d62c1a !important;
 }
+
 .btn-danger {
     color: #fff;
     background-color: #e74c3c !important;
@@ -46,4 +47,22 @@ button.btn.btn-primary{
 
 .pcoded-main-container_mod {
     margin-left: 69px !important;
+}
+
+.map-container {
+    width: 375px;
+    height: 375px;
+    margin-left: 20px;
+}
+
+.map_form_container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.mat-dialog-container{
+    padding: 0 !important;
 }
