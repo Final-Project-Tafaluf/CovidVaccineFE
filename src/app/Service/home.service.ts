@@ -53,6 +53,7 @@ export class HomeService {
 
   //
   createHelthCenter(body:any){
+    debugger
     this.spinner.show();
    // body.imagename=this.display_Image;
     this.http.post('https:/localhost:44327/api/healthcentervac/CreateCenter/',body).subscribe((res)=>{

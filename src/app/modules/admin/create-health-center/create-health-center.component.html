@@ -1,65 +1,43 @@
+<h2 mat-dialog-title>Add Health Center</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="map_form_container">
 
-            <h2 mat-dialog-title>Add Health Center</h2>
-            <mat-dialog-content class="mat-typography">
-                <form [formGroup]="CreateForm" class="example-form">
-                    <ul>
-                        <li>
-                    <mat-form-field class="example-full-width" appearance="fill">
-                      <mat-label>Enter the center Name</mat-label>
-                      <input type="text" matInput formControlName="center_Name" placeholder="center name">
-                      <mat-error *ngIf="CreateForm.controls['center_Name'].hasError('required')">
-                        center name is <strong>required</strong>
-                      </mat-error>
-                    </mat-form-field>
-            </li>
-            <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>Enter the center Phone</mat-label>
-                  <input type="text" matInput formControlName="center_Phone" placeholder="center Phone">
-                  <mat-error *ngIf="CreateForm.controls['center_Phone'].hasError('required')">
-                    center Phone is <strong>required</strong>
-                  </mat-error>
-                </mat-form-field>
+    <form [formGroup]="CreateForm" class="example-form">
+      <ul>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter the center Name</mat-label>
+            <input type="text" matInput formControlName="center_Name" placeholder="center name">
+            <mat-error *ngIf="CreateForm.controls['center_Name'].hasError('required')">
+              center name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
         </li>
         <li>
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Enter the center Locatoin</mat-label>
-              <input type="text" matInput formControlName="center_Location" placeholder="center Location ">
-              <mat-error *ngIf="CreateForm.controls['center_Location'].hasError('required')">
-                center Locatoin is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-    </li>
-            
-                    <!-- <li>
-                        <input type="file" #file placeholder="Choose Image" 
-                        formControlName="imagename" (change)="uploadImage(file.files)" 
-                        style="display: none;"
-                        >
-                        <button (click)="file.click()" class="btn btn-success">Upload Image</button>
-                    </li> -->
-                    </ul>
-                  </form>
-            
-            <!-- </mat-dialog-content>
-            <mat-dialog-actions align="end">
-              <button mat-button mat-dialog-close>Cancel</button>
-              <button [disabled]="!CreateForm.valid" mat-button [mat-dialog-close]="true"(click)="save()"  cdkFocusInitial>Save</button>
-            </mat-dialog-actions>
-                     </mat-form-field> -->
-                <!-- <li>
-            <input type="file" #file placeholder="Choose Image" 
-            formControlName="imagename" (change)="uploadImage(file.files)" 
-            style="display: none;"
-            >
-            <button (click)="file.click()" class="btn btn-success">Upload Image</button>
-        </li> -->
-        <!-- </ul>
-      </form> -->
-
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter the center Phone</mat-label>
+            <input type="text" matInput formControlName="center_Phone" placeholder="center Phone">
+            <mat-error *ngIf="CreateForm.controls['center_Phone'].hasError('required')">
+              center Phone is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter the center Locatoin</mat-label>
+            <input type="text" matInput formControlName="center_Location" placeholder="center Location" (input)="changeIconLocation()">
+            <mat-error *ngIf="CreateForm.controls['center_Location'].hasError('required')">
+              center Locatoin is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </li>
+      </ul>
+    </form>
+    <div tabindex="1" id="ol-create-map" class="map-container"></div>
+  </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button [disabled]="!CreateForm.valid" mat-button [mat-dialog-close]="true"(click)="save()"  cdkFocusInitial>Save</button>
+  <button [disabled]="!CreateForm.valid" mat-button [mat-dialog-close]="true" (click)="save()"
+    cdkFocusInitial>Save</button>
 </mat-dialog-actions>
-
