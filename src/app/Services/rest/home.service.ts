@@ -32,7 +32,7 @@ export class HomeService {
       this.ele=res;
       this.spinner.hide();
       this.toastr.success('Data Retrieved !!')
-      debugger
+      // debugger
     }, err=>{
       //hide spinner
       this.spinner.hide();
@@ -76,7 +76,7 @@ export class HomeService {
     body.news_Imageone=this.news1Image;
     body.news_Imagetwo=this.news2Image;
     body.news_Imagethree=this.news3Image;
-    debugger;
+    // debugger;
     this.http.put('https://localhost:44327/Home/UpdateHome/',body).subscribe((res)=>{
       this.toastr.success('Updated Successfully :) ')
     },err=>{
@@ -93,7 +93,7 @@ export class HomeService {
       if(res)
       console.log(res);
       this.logoImage=res.header_Logo;
-      debugger
+      // debugger
     },err=>{
       this.toastr.error(err.message , err.status);
     })
@@ -101,13 +101,13 @@ export class HomeService {
   }
   uploadHome(file2:FormData)
   {
-    debugger;
+    // debugger;
     this.http.post('https://localhost:44327/Home/UploadImage/',file2)
     .subscribe((res:any)=>{
       console.log(res);
 
       this.homeImage=res.home_Image;
-      debugger
+      // debugger
     },err=>{
       this.toastr.error(err.message , err.status);
     })
@@ -126,7 +126,7 @@ export class HomeService {
   }
   uploadContact(file:FormData)
   {
-    debugger;
+    // debugger;
     this.http.post('https://localhost:44327/Home/UploadContact/',file)
     .subscribe((res:any)=>{
       this.contactImage=res.contact_Image;
@@ -172,7 +172,7 @@ export class HomeService {
 
   lastMonthCases(){
     // this.spinner.show();
-    debugger;
+    // debugger;
     var date = new Date();
     var firstDay = new Date(date.getFullYear(), date.getMonth(), 1).toISOString();
     var lastDay = new Date();
@@ -181,7 +181,7 @@ export class HomeService {
     var country = 'jordan';
     this.http.get(`https://api.covid19api.com/country/${country}/status/confirmed?from=${firstDay}&to=${lastDay}`).subscribe((res)=>{
       this.cases=res;
-      debugger
+      // debugger
       // this.spinner.hide();
     }, err=>{
       // this.spinner.hide();
@@ -193,7 +193,7 @@ export class HomeService {
 
   lastMonthDeaths(){
     // this.spinner.show();
-    debugger;
+    // debugger;
     var date = new Date();
     var firstDay = new Date(date.getFullYear(), date.getMonth(), 1).toISOString();
     var lastDay = new Date();
@@ -202,7 +202,7 @@ export class HomeService {
     var country = 'jordan';
     this.http.get(`https://api.covid19api.com/country/${country}/status/deaths?from=${firstDay}&to=${lastDay}`).subscribe((res)=>{
       this.deaths=res;
-      debugger
+      // debugger
       // this.spinner.hide();
     }, err=>{
       // this.spinner.hide();

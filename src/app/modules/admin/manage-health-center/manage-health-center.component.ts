@@ -80,7 +80,7 @@ export class ManageHealthCenterComponent implements OnInit {
       }) 
   }
   async generateUpdateMap(center_Location:any) {
-    debugger;
+    // debugger;
     this.vectorSource = new VectorSource({});
     this.vectorLayer = new VectorLayer({
       source: this.vectorSource,
@@ -120,7 +120,7 @@ export class ManageHealthCenterComponent implements OnInit {
     this.vectorSource.addFeatures([iconFeature]);
 
     map.on('click',  (evt) => {
-      debugger
+      // debugger
         var coordinates = evt.coordinate;
         const iconFeature = new Feature({
           geometry: new Point([coordinates[0], coordinates[1]]),

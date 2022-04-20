@@ -30,7 +30,7 @@ export class AuthService {
       const requestOptions={
         headers:new HttpHeaders(headerDir)
       }
-      debugger;
+      // debugger;
       this.http.post('https://localhost:44327/api/JWT/login/',body,requestOptions)
       .subscribe((response:any)=>{
         // debugger
@@ -41,7 +41,7 @@ export class AuthService {
         else if (data.role=='client')
         this.router.navigate([""])
       },err=>{
-        debugger
+        // debugger
         this.router.navigate(['security/login']);
         this.toaster.error('Worng Username or Password')
       })

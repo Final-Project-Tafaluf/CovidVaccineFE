@@ -41,7 +41,7 @@ getAllUser(){
   //hits api
   this.http.get('https://localhost:44327/User/GetAllUsers/').subscribe((res)=>{
     this.data=res;
-    debugger
+    // debugger
     this.spinner.hide();
     this.toastr.success('Data Retrieved !!')
   }, err=>{
@@ -77,7 +77,7 @@ createUser(data:any){
 
 updateUser(body:any){
   body.image=this.display_Image;
-  debugger
+  // debugger
   this.http.put('https://localhost:44327/User/UpdateUser/',body).subscribe((res)=>{
     this.toastr.success('Updated Successfully :) ')
     this.getAllUser();
@@ -111,11 +111,11 @@ delete(id:number){
 }
 searchUser(data:any)
 {
-  debugger
+  // debugger
   this.http.get('https://localhost:44327/User/SearchUser/'+data)
   .subscribe((res)=>{
     this.data=res;
-    debugger
+    // debugger
   },err=>{
     this.toastr.error('something error');
   })

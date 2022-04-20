@@ -61,7 +61,7 @@ export class ManangeUsersRequestsComponent implements OnInit {
   }
 
   OpenAddScheduleDialog(center_id:any,vaccine_id:any,request_date:any,user_Id:any){
-    debugger;
+    // debugger;
     this.scheduleRestService.getAllVaccines();
     this.CreateForm.controls['start_Time'].setValue(request_date);
     this.CreateForm.controls['end_Time'].setValue(request_date);
@@ -82,7 +82,7 @@ export class ManangeUsersRequestsComponent implements OnInit {
   }
 
   async generateMap() {
-    debugger;
+    // debugger;
     var centers = await this.scheduleRestService.getAllCenters();
     console.log('Data:', centers);
     const vectorSource = new VectorSource({});
@@ -176,7 +176,7 @@ export class ManangeUsersRequestsComponent implements OnInit {
   }
   
   async removeRequest(requestId: number){
-    debugger;
+    // debugger;
     this.usersRequests = await this.scheduleRestService.deleteUserRequestById(requestId);
     // this.getAllUsersRequests(); // To refresh the table
   }

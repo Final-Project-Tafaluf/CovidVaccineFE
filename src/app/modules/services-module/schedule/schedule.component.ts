@@ -78,14 +78,14 @@ export class ScheduleComponent implements OnInit {
   }
 
   async getUserSchedules(){
-    debugger;
+    // debugger;
     this.userSchedules = await this.scheduleRestService.getScheduleByUserId(this.userData.nameid);
-    debugger;
+    // debugger;
     console.log("this.userSchedules",this.userSchedules);
   }
 
   checkStatus(status:any,toDate:any){
-    debugger;
+    // debugger;
     if(new Date() >new Date(toDate) && status != 'Taken' ){
       status = 'Absent';
     }
@@ -99,7 +99,7 @@ export class ScheduleComponent implements OnInit {
     this.certificateVaccineType=vaccine_type;
     this.certificateDoctorName=doctor_name;
 
-    debugger;
+    // debugger;
     this.selectedUser= await this.userProfileRestService.getUserForScheduleByID(this.userData.nameid);
     console.log(this.userProfileRestService.selectedUser)
     const dialogRef=this.dialog.open(this.callCertificateDialog);
@@ -107,16 +107,16 @@ export class ScheduleComponent implements OnInit {
   }
 
   async openAllCertificatesDialog(){
-    debugger;
+    // debugger;
     this.selectedUser= await this.userProfileRestService.getUserForScheduleByID(this.userData.nameid);
     console.log(this.userProfileRestService.selectedUser);
     this.takenDoses = this.userSchedules.filter((ele:any)=>{return ele.status == "Taken"});
     const dialogRef=this.dialog.open(this.callAllCertificatesDialog);
     // this.openPDF();
   }
-  showDetails(center_location:string){
+  showDetails(center_location:string,center_name:string){
     const dialogRef=this.dialog.open(this.callMapDialog);
-    this.generateMap(center_location);
+    this.generateMap(center_location,center_name);
     dialogRef.afterClosed().subscribe((res)=>{
       if(res!==undefined)
       {
@@ -143,7 +143,7 @@ export class ScheduleComponent implements OnInit {
   }
 
   removeRequest(requestId: number){
-    debugger;
+    // debugger;
     this.scheduleRestService.deleteUserRequestById(requestId);
     this.getUserRequests(); // To refresh the table
   }
@@ -165,8 +165,8 @@ export class ScheduleComponent implements OnInit {
     }, 500);
    
   }
-  async generateMap(center_location:string) {
-    debugger;
+  async generateMap(center_location:string,center_name:string) {
+    // debugger;
     this.vectorSource = new VectorSource({});
     this.vectorLayer = new VectorLayer({
       source: this.vectorSource,
@@ -189,6 +189,7 @@ export class ScheduleComponent implements OnInit {
     });
         const iconFeature = new Feature({
           geometry: new Point([Number(centerArray[0]),Number(centerArray[1])]),
+          name: center_name,
         });
         const iconStyle = new Style({
           image: new Icon({
@@ -201,5 +202,43 @@ export class ScheduleComponent implements OnInit {
         iconFeature.setStyle(iconStyle);
         this.vectorSource.clear();
         this.vectorSource.addFeatures([iconFeature]);
+
+        const element = document.getElementById('popup') as HTMLElement;
+
+    const popup = new Overlay({
+      element: element,
+      positioning: 'bottom-center',
+      stopEvent: false,
+    });
+    map.addOverlay(popup);
+
+    // display popup on hover
+    map.on('pointermove', function (evt) {
+      const feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
+        return feature;
+      });
+      if (feature) {
+        // debugger
+        console.log('evt.coordinate',evt.coordinate)
+        popup.setPosition([evt.coordinate[0],evt.coordinate[1]+0.05]);
+        (<any>$(element)).popover({
+          placement: 'top',
+          html: true,
+          content: feature.get('name'),
+        });
+        (<any>$(element)).popover('show');
+      } else {
+        (<any>$(element)).popover('dispose');
+      }
+      // change mouse cursor when over marker
+      // const pixel = map.getEventPixel(evt.originalEvent);
+      // const hit = map.hasFeatureAtPixel(pixel);
+      // (<any>map.getTarget()).style.cursor = hit ? 'pointer' : '';
+
+    });
+    // Close the popup when the map is moved
+    map.on('movestart', function () {
+      (<any>$(element)).popover('dispose');
+    });
   }
 }
