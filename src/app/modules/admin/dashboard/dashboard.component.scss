@@ -1,3 +1,4 @@
+
 .icon {
     background: transparent !important;
     border-radius: 100%;
@@ -166,5 +167,12 @@ input.check-toggle-round-flat:checked+label:after {
 }
 
 #language-toggle {
+    cursor: pointer;
+}
+
+.pcoded-main-container_mod {
+    margin-left: 69px !important;
+}
+#mobile-collapse{
     cursor: pointer;
 }
