@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LangService } from 'src/app/Services/language/lang.service';
+import { LocalStorageService } from 'src/app/Services/local-storage.service';
 import { AuthService } from 'src/app/Services/rest/auth-rest.service';
 import { HomeService } from 'src/app/Services/rest/home.service';
 
@@ -10,7 +12,7 @@ import { HomeService } from 'src/app/Services/rest/home.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router:Router , public auth : AuthService ,public home : HomeService) { }
+  constructor(private router:Router , public auth : AuthService ,public home : HomeService, private localStorageService:LocalStorageService,private langService :LangService) { }
   ContentToggle:boolean=true;
   ManageUsersToggle:boolean=false;
   ManageHealthCenterToggle:boolean=false;
@@ -22,11 +24,11 @@ export class DashboardComponent implements OnInit {
   ManageScheduleToggle:boolean=false;
   ManageUsersRequests:boolean=false;
   ManageCentersVaccinesToggle:boolean=false;
-
+  langBoolean=false;
 
  ngOnInit(): void {
   this.home.getHome();
-
+  this.initiatLangBtn();
   }
 
 
@@ -198,4 +200,22 @@ export class DashboardComponent implements OnInit {
       this.auth.logout();
     }
 
+    initiatLangBtn(){
+      var lang = this.localStorageService.getLanguage();
+      if(lang && (lang == "en")) {
+        this.langBoolean = true;
+      } else {
+        this.langBoolean = false;
+      }
+    }
+
+    changeLanguage(event:any){
+      console.log("event",event.target.checked);
+      if (event.target.checked == true) {
+        this.localStorageService.langToEn();
+      }else{
+        this.localStorageService.langToAr();
+      }
+      window.location.reload();
+    }
 }

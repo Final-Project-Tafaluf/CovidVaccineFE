@@ -19,6 +19,14 @@ export class LocalStorageService {
   tokenDecode(token:any){
     return jwt_decode(token)
   }
+  getLanguage(){
+    return localStorage.getItem('language');
+  }
+  langToAr(){
+    localStorage.setItem('language', 'ar');
+  }
+  langToEn(){
+    localStorage.setItem('language', 'en');  }
 }
 
 
