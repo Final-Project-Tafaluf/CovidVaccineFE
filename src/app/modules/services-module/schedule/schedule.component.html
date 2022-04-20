@@ -81,6 +81,9 @@
                     <span class="status-type">Total</span>
                 </div>
             </div>
+            <div>
+              <button class="all_certificates_btn" (click)="openAllCertificatesDialog()">All Certificates</button>
+            </div>
         </div>
         <div class="project-boxes jsGridView">
             <div class="project-box-wrapper" *ngFor="let userSchedule of userSchedules">
@@ -101,15 +104,15 @@
                         <p class="box-progress-percentage">60%</p> -->
                     </div>
                     <div class="project-box-footer">
-                        <div class="days-left"
+                        <div class="days-left_mod"
                             [style.color]="userSchedule.status=='Taken'?'#1abc9c':userSchedule.end_Time < newDate.toISOString()?'red':'orange'">
                             {{userSchedule.status|checkScheduleStatus:userSchedule.end_Time}}
                         </div>
                         <div class="days-left certificate_btn" [style.color]="'brown'"
-                            *ngIf="userSchedule.status == 'Taken'" (click)="installCertificate(userSchedule.start_Time,userSchedule.dose,userSchedule.center_name,userSchedule.vaccine_type, userSchedule.doctor_name)">
+                            *ngIf="userSchedule.status == 'Taken'" (click)="openCertificateDialog(userSchedule.dose_taken_date,userSchedule.dose,userSchedule.center_name,userSchedule.vaccine_type, userSchedule.doctor_name)">
                             Certificate
                         </div>
-                        <div class="days-left details_btn" style="color: #7dc9e0;" (click)="showDetails()">
+                        <div class="days-left details_btn" style="color: #7dc9e0;" (click)="showDetails(userSchedule.center_location)">
                             Details
                         </div>
                     </div>
@@ -188,4 +191,73 @@
   </div>
   <button class="print_btn" (click)="savePDF()">Print</button>
 </ng-template>
+
+<ng-template  class="certificateTemplate" #callAllCertificatesDialog>
+  <div class="container pm-certificate-container" id="htmlData" >
+      <div class="outer-border"></div>
+      <div class="inner-border"></div>
+      <div class="pm-certificate-border col-xs-12">
+        <div class="row pm-certificate-header">
+          <div class="pm-certificate-title cursive col-xs-12 text-center">
+            <h3>COVID - 19 Vaccination <br>Certification</h3>
+          </div>
+        </div>
+        <div class="stamp"><img src="../../../../assets/images/Stamp.png" alt="stamp" width="150" height="140"></div>
+        <div class="row pm-certificate-body">
+          <hr>
+          <div class="col-xs-12">
+            <div class="row">
+              <div class="col-xs-2">
+                <!-- LEAVE EMPTY -->
+              </div>
+              <div>
+                <!-- <span class="pm-earned-text padding-0 block cursive">has earned</span> -->
+                <span class="pm-credits-text block bold sans">SSN: {{selectedUser.ssn}}</span>
+                <span class="pm-credits-text block bold sans">NAME: {{selectedUser.first_Name +' '+
+                  selectedUser.last_Name}} </span>
+                <span class="pm-credits-text block bold sans">Birthdate: {{selectedUser.birthdate |
+                  customeDate}}</span>
+                <!-- <span class="pm-credits-text block bold sans">PD175: 1.0 Credit Hours:</span> -->
+              </div>
+              <div class="col-xs-2">
+                <!-- LEAVE EMPTY -->
+              </div>
+              <div class="col-xs-12"></div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th> Dose Date </th>
+                    <th> Dose Number </th>
+                    <th> Vaccine Type </th>
+                    <th> Health Center </th>
+                    <th> Doctor Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let userSchedule of takenDoses">
+                    <td>{{userSchedule.dose_taken_date | customeDate}}</td>
+                    <td>{{userSchedule.dose}}</td>
+                    <td>{{userSchedule.vaccine_type}}</td>
+                    <td>{{userSchedule.center_name}}</td>
+                    <td>{{userSchedule.doctor_name}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="print_btn" (click)="savePDF()">Print</button>
+  </ng-template>
+  <ng-template  #callMapDialog >
+  <mat-dialog-actions align="end" style="position: relative;">
+    <button mat-button mat-dialog-close class="cancel_btn">Cancel</button>
+    <div tabindex="1" id="ol-map" class="map-container"></div>
+  </mat-dialog-actions>
+  </ng-template>
 <app-footer></app-footer>

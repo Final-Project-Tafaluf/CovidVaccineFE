@@ -6,6 +6,16 @@ import { LocalStorageService } from 'src/app/Services/local-storage.service';
 import { ScheduleRestService } from 'src/app/Services/rest/schedule-rest.service';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import Map from 'ol/Map';
+import View from 'ol/View';
+import TileLayer from 'ol/layer/Tile';
+import OSM from 'ol/source/OSM';
+import Style from 'ol/style/Style';
+import Icon from 'ol/style/Icon';
+import { Feature, Overlay } from 'ol';
+import { Point } from 'ol/geom';
+import VectorSource from 'ol/source/Vector';
+import VectorLayer from 'ol/layer/Vector';
 import { UserProfileRestService } from 'src/app/Services/rest/user-profile-rest.service';
 @Component({
   selector: 'app-schedule',
@@ -39,9 +49,14 @@ export class ScheduleComponent implements OnInit {
   certificateVaccineType:any;
   certificateDoctorName:any;
   newDate:Date = new Date();
+  takenDoses:any;
+  vectorSource:any;
+  vectorLayer:any;
   @ViewChild('htmlData') htmlData!: ElementRef;
   @ViewChild('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
+  @ViewChild('callMapDialog') callMapDialog! :TemplateRef<any>
   @ViewChild('callCertificateDialog') callCertificateDialog! :TemplateRef<any>
+  @ViewChild('callAllCertificatesDialog') callAllCertificatesDialog! :TemplateRef<any>
   constructor(private dialog:MatDialog, public scheduleRestService: ScheduleRestService,private localStorageService: LocalStorageService,public helpersService: HelpersService, public userProfileRestService:UserProfileRestService) { }
 
   ngOnInit(): void {
@@ -77,7 +92,7 @@ export class ScheduleComponent implements OnInit {
     return status;
   }
 
-  async installCertificate(date:any,dose:any,center_name:any,vaccine_type:any, doctor_name:any){
+  async openCertificateDialog(date:any,dose:any,center_name:any,vaccine_type:any, doctor_name:any){
     this.certificateDoseTakenDate=date;
     this.certificateDose=dose;
     this.certificateCenterName=center_name;
@@ -91,8 +106,26 @@ export class ScheduleComponent implements OnInit {
     // this.openPDF();
   }
 
-  showDetails(){
-    
+  async openAllCertificatesDialog(){
+    debugger;
+    this.selectedUser= await this.userProfileRestService.getUserForScheduleByID(this.userData.nameid);
+    console.log(this.userProfileRestService.selectedUser);
+    this.takenDoses = this.userSchedules.filter((ele:any)=>{return ele.status == "Taken"});
+    const dialogRef=this.dialog.open(this.callAllCertificatesDialog);
+    // this.openPDF();
+  }
+  showDetails(center_location:string){
+    const dialogRef=this.dialog.open(this.callMapDialog);
+    this.generateMap(center_location);
+    dialogRef.afterClosed().subscribe((res)=>{
+      if(res!==undefined)
+      {
+        if(res=="no"){
+        console.log("Thank you ");
+        this.dialog.closeAll();
+      }
+      }
+    })
   }
 
   openDeleteDialog(id:any){
@@ -131,5 +164,42 @@ export class ScheduleComponent implements OnInit {
       });
     }, 500);
    
+  }
+  async generateMap(center_location:string) {
+    debugger;
+    this.vectorSource = new VectorSource({});
+    this.vectorLayer = new VectorLayer({
+      source: this.vectorSource,
+    });
+    var centerArray = center_location.split(',');
+    var map = new Map({
+      view: new View({
+        projection: 'EPSG:4326',
+        center: [Number(centerArray[0]),Number(centerArray[1])],
+        zoom: 8,
+        minZoom: 7,
+      }),
+      layers: [
+        new TileLayer({
+          source: new OSM(),
+        }),
+        this.vectorLayer,
+      ],
+      target: 'ol-map',
+    });
+        const iconFeature = new Feature({
+          geometry: new Point([Number(centerArray[0]),Number(centerArray[1])]),
+        });
+        const iconStyle = new Style({
+          image: new Icon({
+            anchor: [0.5, 46],
+            anchorXUnits: 'fraction',
+            anchorYUnits: 'pixels',
+            src: '../../../../assets/life_care/images/icon-logo.png',
+          }),
+        });  
+        iconFeature.setStyle(iconStyle);
+        this.vectorSource.clear();
+        this.vectorSource.addFeatures([iconFeature]);
   }
 }
