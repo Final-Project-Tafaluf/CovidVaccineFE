@@ -65,7 +65,7 @@
                             <td>{{cont.msg}}</td>
                             <td>{{cont.email}} </td>
                             <td>{{cont.phone_Number}}</td>
-                            <td>{{cont.testimonial}}</td>
+                            <td>{{cont.testimonial | yesNo }}</td>
                             <td>
                 <button type="button" class="btn  btn-danger" (click)="openDeleteDailog(cont.id)">Delete</button>
                 <button type="button" class="btn  btn-secondary" (click)="openTestimonialDailog(

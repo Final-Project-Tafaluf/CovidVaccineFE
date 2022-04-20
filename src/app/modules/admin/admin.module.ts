@@ -16,6 +16,7 @@ import { CreateVaccineComponent } from './create-vaccine/create-vaccine.componen
 import { ReportComponent } from './report/report.component';
 import { ManageCenterVaccineComponent } from './manage-center-vaccine/manage-center-vaccine.component';
 import { ManangeUsersRequestsComponent } from './manange-users-requests/manange-users-requests.component';
+import { YesNoPipe } from 'src/app/Pipes/yes-no.pipe';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { ManangeUsersRequestsComponent } from './manange-users-requests/manange-
     ManageCenterVaccineComponent,
     ManangeUsersRequestsComponent,
     ReportComponent,
+    YesNoPipe
 
   ],
   imports: [

@@ -16,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastNoAnimationModule, ToastrModule } from 'ngx-toastr';
 import { TokenInterceptor } from 'src/Interceptor/token.interceptor';
+// import { YesNoPipe } from './Pipes/yes-no.pipe';
 
 
 
@@ -27,6 +28,7 @@ import { TokenInterceptor } from 'src/Interceptor/token.interceptor';
     AboutusComponent,
     HomeComponent,
     TestimonialComponent,
+    // YesNoPipe,
     ],
     imports: [
       BrowserModule,
