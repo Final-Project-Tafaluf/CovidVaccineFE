@@ -16,12 +16,13 @@ export class HomeService {
   news2Image:any;
   news3Image:any;
   selectedUser:any={};
-  data:any=[{}]
+  data:any=[{}];
+  homeElement : any = {};
+  ele : any = {};
+  userdata:any={};
+  cases:any;
+  deaths:any;
 
-  homeElement : any = {}
-  ele : any = {}
-
-  userdata:any={}
   constructor(private spinner :NgxSpinnerService, private http:HttpClient, private toastr:ToastrService) { }
   getHome(){
     //show spinner
@@ -169,9 +170,47 @@ export class HomeService {
 
   }
 
+  lastMonthCases(){
+    // this.spinner.show();
+    debugger;
+    var date = new Date();
+    var firstDay = new Date(date.getFullYear(), date.getMonth(), 1).toISOString();
+    var lastDay = new Date();
+    lastDay.setHours(3,0,0,0);
+    lastDay.toISOString(); 
+    var country = 'jordan';
+    this.http.get(`https://api.covid19api.com/country/${country}/status/confirmed?from=${firstDay}&to=${lastDay}`).subscribe((res)=>{
+      this.cases=res;
+      debugger
+      // this.spinner.hide();
+    }, err=>{
+      // this.spinner.hide();
+      this.toastr.error(err.message);
+      this.toastr.error(err.status);
+    })
+    
+  }
 
-
-
+  lastMonthDeaths(){
+    // this.spinner.show();
+    debugger;
+    var date = new Date();
+    var firstDay = new Date(date.getFullYear(), date.getMonth(), 1).toISOString();
+    var lastDay = new Date();
+    lastDay.setHours(3,0,0,0);
+    lastDay.toISOString(); 
+    var country = 'jordan';
+    this.http.get(`https://api.covid19api.com/country/${country}/status/deaths?from=${firstDay}&to=${lastDay}`).subscribe((res)=>{
+      this.deaths=res;
+      debugger
+      // this.spinner.hide();
+    }, err=>{
+      // this.spinner.hide();
+      this.toastr.error(err.message);
+      this.toastr.error(err.status);
+    })
+    
+  }
 
 
 
