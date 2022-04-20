@@ -72,28 +72,28 @@
                             <table class="table table-hover mb-0">
                                 <thead>
                                     <tr>
-                                      <th>User ID</th>
+                                      <th>Name</th>
                                       <th>Dose</th>
                                       <th>Status</th>
                                       <th>Start Time</th>
                                       <th>End Time</th>
                                       <th>Taken Date</th>
-                                      <th>Center ID</th>
-                                      <th>Vaccine ID</th>
+                                      <th>Center</th>
+                                      <th>Vaccine</th>
                                       <th>Doctor Name</th>
                                       <th>Operation</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let schedule of manageScheduleRestService.data" >
-                                      <td>{{schedule.user_Id}}</td>
+                                      <td>{{schedule.first_Name}} {{schedule.last_Name}}</td>
                                       <td>{{schedule.dose}}</td>
                                       <td>{{schedule.status }}</td>
                                       <td>{{schedule.start_Time|date:'MMM d, y, h:mm a'}}</td>
                                       <td>{{schedule.end_Time|date:'MMM d, y, h:mm a'}}</td>
                                       <td>{{schedule.dose_taken_date|date:'MMM d, y'}}</td>
-                                      <td>{{schedule.center_Id}}</td>
-                                      <td>{{schedule.vaccine_id}}</td>
+                                      <td>{{schedule.center_name}}</td>
+                                      <td>{{schedule.vaccine_Type}}</td>
                                       <td>{{schedule.doctor_name}}</td>
                                       <td>
                                         <button type="button" class="btn  btn-danger" (click)="openDeleteDialog(schedule.id)">Delete</button>
@@ -133,6 +133,19 @@
                 </mat-error>
               </mat-form-field>
             </li>
+            <li>
+              <mat-form-field appearance="fill">
+              <mat-label>Health Center Name</mat-label>
+              <mat-select formControlName="center_Id">
+                <mat-option [value]="center.id" *ngFor="let center of manageHealthCenterRestService.data">
+                  {{center.center_Name}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="CreateForm.controls['center_Id'].hasError('required')">
+                Center Name is <strong>Required</strong>
+              </mat-error>
+            </mat-form-field>
+          </li>
             <!-- <li>
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>center_Id</mat-label>
@@ -187,19 +200,7 @@
                 <input type="text" matInput formControlName="dose" placeholder="dose">
               </mat-form-field>
             </li> -->
-            <li>
-              <mat-form-field appearance="fill">
-              <mat-label>Health Center Name</mat-label>
-              <mat-select formControlName="center_Id">
-                <mat-option [value]="center.id" *ngFor="let center of manageHealthCenterRestService.data">
-                  {{center.center_Name}}
-                </mat-option>
-              </mat-select>
-              <mat-error *ngIf="CreateForm.controls['center_Id'].hasError('required')">
-                Center Name is <strong>Required</strong>
-              </mat-error>
-            </mat-form-field>
-          </li>
+            
             <li>
               <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Start Time</mat-label>
