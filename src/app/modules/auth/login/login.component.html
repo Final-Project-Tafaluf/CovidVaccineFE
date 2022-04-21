@@ -56,92 +56,72 @@
 
           <div class="row">
 
-            <!-- <mat-form-field class="example-full-width"> -->
-              <div class="input-field col s6">
-                <input id="first_Name" type="text" class="validate" matInput
-                formControlName="first_Name" >
+            <mat-form-field class=" input-field col s6" appearance="fill">
+              <!-- <div class=""> -->
                 <label for="first_Name">Fisrt Name</label>
+                <input id="first_Name" type="text" class="validate" matNativeControl
+                formControlName="first_Name" required>
                 <mat-error *ngIf="CreateForm.controls['first_Name'].hasError('required')">
                   First Name is <strong>required</strong>
                   </mat-error>
-              </div>
-            <!-- </mat-form-field> -->
+              <!-- </div> -->
+            </mat-form-field>
 
-            <!-- <mat-form-field class=""> -->
-              <div class="input-field col s6">
+            <mat-form-field class="input-field col s6" appearance="fill">
                 <input id="last_name" type="text" class="validate" matInput
-                formControlName="last_Name" >
+                formControlName="last_Name" matNativeControl>
                 <label for="last_Name">Last Name</label>
                 <mat-error *ngIf="CreateForm.controls['last_Name'].hasError('required')">
                   Last Name is <strong>required</strong>
                   </mat-error>
-              </div>
-            <!-- </mat-form-field> -->
+            </mat-form-field>
 
-            <!-- <mat-form-field class="example-full-width"> -->
-              <div class="input-field col s6">
-                <input id="ssn" type="text" class="validate" formControlName="ssn">
+            <mat-form-field class=" input-field col s6" appearance="fill">
+                <input id="ssn" type="text" class="validate" formControlName="ssn" matNativeControl>
                 <label for="ssn">SSN</label>
                 <mat-error *ngIf="CreateForm.controls['ssn'].hasError('required')">
                   Ssn is <strong>required</strong>
                 </mat-error>
-              </div>
-            <!-- </mat-form-field> -->
+            </mat-form-field>
           </div>
 
 
           <div class="row">
 
-          <!-- <mat-form-field class="example-full-width">
-            <div class="input-field col s6">
-              <label for="gender">Gender</label>
-              <input id="gender" type="text" class="validate" matInput
-              formControlName="gender">
-            </div>
-          </mat-form-field> -->
-          <!-- <mat-form-field class="example-full-width"> -->
-            <div>
-              <label for="birthdate">Birthdate</label>
-            </div>
-            <div class="input-field col s6">
+            <mat-form-field class="input-field col s6">
+              <mat-label for="birthdate">Birthdate</mat-label>
               <input id="birthdate" type="date" class="validate" matInput
               formControlName="birthdate" >
 
+            </mat-form-field>
+
+            <div class="input_field radio_option col s6" style="margin-top: 30px;">
+              <input type="radio"  id="rd1" value="male" formControlName="gender">
+              <label for="rd1">Male</label>
+
+              <input type="radio" id="rd2" value="female" formControlName="gender"  style="margin-left: 5px;" >
+              <label for="rd2">Female</label>
             </div>
-          <!-- </mat-form-field> -->
-
-          <div class="input_field radio_option col s6" style="margin-top: 30px;">
-            <input type="radio"  id="rd1" value="male" formControlName="gender">
-            <label for="rd1">Male</label>
-
-            <input type="radio" id="rd2" value="female" formControlName="gender"  style="margin-left: 5px;" >
-            <label for="rd2">Female</label>
-          </div>
           </div>
 
           <div class="row">
-              <!-- <mat-form-field class="example-full-width"> -->
-              <div class="input-field col s6">
+              <mat-form-field class="example-full-width input-field col s6">
                 <input id="address" type="text" class="validate" matInput
                 formControlName="address">
                 <label for="address">Address</label>
-              </div>
-            <!-- </mat-form-field> -->
+            </mat-form-field>
 
-            <!-- <mat-form-field class="example-full-width"> -->
-              <div class="input-field col s6">
+            <mat-form-field class="example-full-width input-field col s6">
                 <input id="phone" type="text" class="validate" matInput
                 formControlName="phone">
                 <label for="phone">Phone</label>
-              </div>
-            <!-- </mat-form-field> -->
+            </mat-form-field>
 
 
           </div>
 
           <div class="row">
-            <!-- <mat-form-field class="example-full-width"> -->
-              <div class="input-field col s6">
+            <mat-form-field class="example-full-width input-field col s6">
                 <input id="email" type="email" class="validate" matInput
                 formControlName="email" >
                 <label for="email">Email</label>
@@ -151,24 +131,20 @@
                 <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
                   Email is <strong>required</strong>
                   </mat-error>
-              </div>
-            <!-- </mat-form-field> -->
+            </mat-form-field>
 
-            <!-- <mat-form-field class="example-full-width"> -->
-              <div class="input-field col s6" >
+            <mat-form-field class="example-full-width input-field col s6">
                 <input id="username" type="text" class="validate" matInput
                 formControlName="username" >
                 <label for="username">Username</label>
                 <mat-error *ngIf="CreateForm.controls['username'].hasError('required')">
                   username is <strong>required</strong>
                 </mat-error>
-              </div>
-            <!-- </mat-form-field> -->
+            </mat-form-field>
           </div>
 
           <div class="row">
-            <!-- <mat-form-field class="example-full-width"> -->
-            <div class="input-field col s6">
+            <mat-form-field class="example-full-width input-field col s6">
               <input id="password" type="password" class="validate" matInput
               formControlName="password">
               <label for="password">Password</label>
@@ -178,11 +154,9 @@
                 <mat-error *ngIf="CreateForm.controls['password'].hasError('required')">
                 password is <strong>required</strong>
                 </mat-error>
-            </div>
-          <!-- </mat-form-field> -->
+          </mat-form-field>
 
-          <!-- <mat-form-field class="example-full-width"> -->
-            <div class="input-field col s6">
+          <mat-form-field class="example-full-width input-field col s6">
               <input id="confirm_Password" type="password" class="validate"
               formControlName="confirm_Password" (change)="onChange()">
               <label for="confirm_Password">Password Confirmation</label>
@@ -195,8 +169,7 @@
               <mat-error *ngIf="CreateForm.controls['confirm_Password'].hasError('mismatch')">
                   Password Not Matched
                 </mat-error>
-            </div>
-          <!-- </mat-form-field> -->
+          </mat-form-field>
           </div>
 
 
@@ -213,10 +186,6 @@
             </div>
           </div>
 
-
-          <div class="row">
-              <input id="role" type="text" class="validate" hidden formControlName="role" >
-          </div>
             <button
             class="btn waves-effect waves-light teal btnn" type="submit" name="action"
             [disabled]="!CreateForm.valid" (click)="save()">Submit

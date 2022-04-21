@@ -28,25 +28,6 @@ export class LoginComponent implements OnInit {
     console.log("this.isChecked",this.isChecked)
 
   }
-  // CreateForm :FormGroup =new FormGroup
-
-  // (
-  //   {
-  //   first_Name:new FormControl('', [Validators.required]),
-  //   last_Name:new FormControl('', [Validators.required]),
-  //   ssn:new FormControl('', [Validators.required]),
-  //   gender:new FormControl(''),
-  //   birthdate:new FormControl(''),
-  //   address:new FormControl(''),
-  //   image:new FormControl(''),
-  //   phone:new FormControl(''),
-  //   email:new FormControl('', [Validators.required,Validators.email]),
-  //   password:new FormControl('', [Validators.required,Validators.minLength(8)]),
-  //   confirm_Password:new FormControl('',[Validators.required,Validators.minLength(8)]),
-  //   username:new FormControl('', [Validators.required]),
-  //   role:new FormControl(''),
-  //   }
-  // )
 
   CreateForm :FormGroup =new FormGroup
   ({
