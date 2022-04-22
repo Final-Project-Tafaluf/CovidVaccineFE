@@ -18,10 +18,10 @@ export class AuthService {
     public home :HomeService,public router:Router, private http :HttpClient,private toaster:ToastrService
     ,private localStorageService:LocalStorageService) { }
 
-    submit(email:any, password:any){
+    submit(data:any){
       var body ={
-        username:email.value.toString(),
-        password:password.value.toString()
+        username:data.user_identifier,
+        password:data.password
       }
       const headerDir={
         'Content-Type':'application/json',

@@ -29,8 +29,8 @@ h5
 
 .form-container
 {
-	padding: 20px;
-	padding-top: 50px;
+	padding: 30px;
+	padding-top: 30px;
 }
 
 .confirmation-tabs-btn
@@ -61,7 +61,7 @@ h5
   font-weight: bold;
   cursor: pointer;
   transition: transform .2s ease-out;
-  margin-top: 50px;
+  // margin-top: 50px;
 }
 
 .file-name {
@@ -85,21 +85,18 @@ input:focus + label {
 
 .btnn{
   height: 50px;
-    left: 17%;
     width: 170px;
     border-radius: 17px;
-    margin: 30px;
+    // margin: 30px;
 }
 
-.row .col.s6 {
-  width: 100% !important;
-  margin-left: 0 !important;
+.btn:hover {
+  color: #373a3c;
+  box-shadow: none;
+  padding: 0;
+  transform: translate(0px, 0px);
 }
-.mat-form-field {
-  width: 50% !important;
-  font-size: inherit;
-  font-weight: 400;
-  line-height: 1.125;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  letter-spacing: normal;
+
+.teal-text{
+  margin-top: 0;
 }

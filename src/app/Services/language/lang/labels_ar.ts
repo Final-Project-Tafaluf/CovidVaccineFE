@@ -5,4 +5,7 @@ export const arabic = {
   edit: "تعديل",
   description: "الوصف",
   dashboard_analytics:"تحليل البيانات",
+  users:"المستخدمين",
+  admins:"المدراء",
+  absent: 'متغيب',
   };
