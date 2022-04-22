@@ -23,42 +23,98 @@
           <div class="demo-button-container">
             <!-- <button mat-raised-button (click)="createDialog()" class="demo-button">Create New</button> -->
           </div>
-            <div class="table1">
-              <div class="table-header">
-                <div class="header__item">header Logo</div>
-                <div class="header__item">home Image</div>
-                <div class="header__item">contact Image</div>
-                <div class="header__item">about Image</div>
-                <div class="header__item">about Text</div>
-                <div class="header__item">Image one</div>
-                <div class="header__item">Text 1</div>
-                <div class="header__item">Image two</div>
-                <div class="header__item">Text 2</div>
-                <div class="header__item">Image three</div>
-                <div class="header__item">Text 3</div>
-                <div class="header__item">Option</div>
 
-              </div>
-              <div class="table-content">
-                <div class="table-row" *ngFor="let element of home.ele">
-                  <!-- <div class="table-data"> {{element.header_logo}}</div> -->
-                  <img src="../../../../assets/home/{{element.header_Logo}}" alt="Admin" class="rounded-circle" width="100" height="100px">
-                  <img src="../../../../assets/home/{{element.home_Image }}" alt="Admin" class="rounded-circle" width="100" height="100px">
-                  <img src="../../../../assets/home/{{element.contact_Image}}" alt="Admin" class="rounded-circle" width="100" height="100px">
-                  <img src="../../../../assets/home/{{element.about_Image}}" alt="Admin" class="rounded-circle" width="100" height="100px">
-                  <div class="table-data">{{element.about_Text}}</div>
-                  <img src="../../../../assets/home/{{element.news_Imageone}}" alt="Admin" class="rounded-circle" width="100" height="100px">
-                  <div class="table-data">{{element.news_Textone}}</div>
-                  <img src="../../../../assets/home/{{element.news_Imagetwo}}" alt="Admin" class="rounded-circle" width="100" height="100px">
-                  <div class="table-data">{{element.news_Texttwo}}</div>
-                  <img src="../../../../assets/home/{{element.news_Imagethree}}" alt="Admin" class="rounded-circle" width="100" height="100px">
-                  <div class="table-data">{{element.news_Textthree}}</div>
-                  <div class="table-data">
-                    <button mat-raised-button (click)="updateDialog(element)" class="demo-button">Update</button>
-                  </div>
-                </div>
+          <div class="body1" *ngFor="let element of home.ele">
+            <div class="row">
+              <div class="col-sm-12">
+                  <button class="button.btn.btn-primary " style="width:170px;color: #1abc9c;     background: #2c3e50;" mat-raised-button (click)="updateDialog(element)"
+                  >Edit
+                  </button>
               </div>
             </div>
+            <div class="container">
+              <div class="main-body">
+
+                    <div class="row gutters-sm">
+                      <div class="col-md-8">
+                        <div class="card mb-3">
+                          <div class="card-body">
+
+                            <div class="row">
+                              <div class="col-sm-3 text-secondary">
+                                <h6 class="mb-0 ">Header Logo </h6>
+                              <img src="../../../../assets/home/{{element.header_Logo}}" alt="Admin" class="rounded-circle" width="100px" height="100px">
+                              </div>
+
+                              <div class="col-sm-3 text-secondary">
+                                <h6 class="mb-0">Home Image</h6>
+                              <img src="../../../../assets/home/{{element.home_Image }}" alt="Admin" class="rounded-circle" width="100" height="100px">
+                              </div>
+
+                              <div class="col-sm-3 text-secondary">
+                                <h6 class="mb-0">Contact Image</h6>
+                              <img src="../../../../assets/home/{{element.contact_Image}}" alt="Admin" class="rounded-circle" width="100" height="100px">
+                              </div>
+
+                            </div>
+                            <hr>
+
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <h6 class="mb-0">About Image</h6>
+                                <img src="../../../../assets/home/{{element.about_Image}}" alt="Admin" class="rounded-circle" width="100" height="100px">
+                              </div>
+                              <div class="col-sm-6">
+                                <h6 class="mb-0">About Text</h6>
+                                {{element.about_Text}}
+                              </div>
+                            </div>
+                            <hr>
+
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <h6 class="mb-0">News One Image</h6>
+                                <img src="../../../../assets/home/{{element.news_Imageone}}" alt="Admin" class="rounded-circle" width="100" height="100px">
+                              </div>
+                              <div class="col-sm-6">
+                                <h6 class="mb-0">News One Text</h6>
+                                {{element.news_Textone}}
+                              </div>
+                            </div>
+                            <hr>
+
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <h6 class="mb-0">News Two Image</h6>
+                                <img src="../../../../assets/home/{{element.news_Imagetwo}}" alt="Admin" class="rounded-circle" width="100" height="100px">
+                              </div>
+                              <div class="col-sm-6">
+                                <h6 class="mb-0">News Two Text</h6>
+                                {{element.news_Texttwo}}
+                              </div>
+                            </div>
+                            <hr>
+
+
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <h6 class="mb-0">News Three Image</h6>
+                                <img src="../../../../assets/home/{{element.news_Imagethree}}" alt="Admin" class="rounded-circle" width="100" height="100px">
+                              </div>
+                              <div class="col-sm-6">
+                                <h6 class="mb-0">News Three Text</h6>
+                                {{element.news_Textthree}}
+                              </div>
+                            </div>
+                            <hr>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+
         </div>
         <!-- [ Main Content ] end -->
     </div>

@@ -7,4 +7,5 @@ export const arabic = {
   dashboard_analytics:"تحليل البيانات",
   users:"المستخدمين",
   admins:"المدراء",
+  absent: 'متغيب',
   };

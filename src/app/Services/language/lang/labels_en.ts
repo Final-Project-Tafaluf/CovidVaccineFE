@@ -7,4 +7,5 @@ export const english = {
   dashboard_analytics:"Dashboard analytics",
   users:"USERS",
   admins:'ADMINS',
+  absent: 'ABSENT',
 };
