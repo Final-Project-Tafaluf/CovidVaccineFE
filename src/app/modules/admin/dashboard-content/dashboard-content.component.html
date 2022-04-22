@@ -11,7 +11,7 @@
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href=""><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#!">Dashboard Analytics</a></li>
+                            <li class="breadcrumb-item"><a href="#!">{{'dashboardAnalytics'|translate}}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{dashboardMainRestService.report.number_of_patient}}</h5>
                                 </div>
-                                <span>Users</span>
+                                <span>{{'users' | translate }} </span>
                             </div>
                         </div>
                         <div class="col-sm-6 card-body">
@@ -41,7 +41,7 @@
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{dashboardMainRestService.report.number_of_admin}}</h5>
                                 </div>
-                                <span>Admins</span>
+                                <span>{{'admin'|translate}}</span>
                             </div>
                         </div>
 
@@ -55,7 +55,7 @@
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{dashboardMainRestService.report.number_of_center}}</h5>
                                 </div>
-                                <span>Health Centers</span>
+                                <span>{{'healthcenter' |translate}}</span>
                             </div>
                         </div>
                         <div class="col-sm-6 card-body">
@@ -66,7 +66,7 @@
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{dashboardMainRestService.message.length}}</h5>
                                 </div>
-                                <span>Mails</span>
+                                <span>{{'mails'|translate}}</span>
                             </div>
                         </div>
 
@@ -79,7 +79,7 @@
                         </div>
                         <div class="col-sm-9">
                             <h4>{{dashboardMainRestService.report.number_of_user}}</h4>
-                            <h6>Total Users</h6>
+                            <h6>{{'totalusers'|translate}}</h6>
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{dashboardMainRestService.report.number_of_absent}}</h5>
                                 </div>
-                                <span>Absent</span>
+                                <span>{{'absent'|translate}}</span>
                             </div>
                         </div>
                         <div class="col-sm-6 card-body">
@@ -107,7 +107,7 @@
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{dashboardMainRestService.report.number_of_request}}</h5>
                                 </div>
-                                <span>Requests</span>
+                                <span>{{'requests'|translate}}</span>
                             </div>
                         </div>
                     </div>
@@ -120,7 +120,7 @@
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{dashboardMainRestService.report.number_of_first}}</h5>
                                 </div>
-                                <span>First Dose</span>
+                                <span>{{'firstdose'|translate}}</span>
                             </div>
                         </div>
                         <div class="col-sm-6 card-body br">
@@ -131,7 +131,7 @@
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{dashboardMainRestService.report.number_of_second}}</h5>
                                 </div>
-                                <span>Second Dose</span>
+                                <span>{{'seconddose'|translate}}</span>
                             </div>
                         </div>
                         <div class="col-sm-6 card-body">
@@ -142,7 +142,7 @@
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{dashboardMainRestService.report.number_of_third}}</h5>
                                 </div>
-                                <span>Third Dose</span>
+                                <span>{{'thirddose'|translate}}</span>
                             </div>
                         </div>
                     </div>
@@ -154,7 +154,7 @@
                         </div>
                         <div class="col-sm-9">
                             <h4>{{dashboardMainRestService.report.total_vaccinated}}</h4>
-                            <h6>Total Dose Taken</h6>
+                            <h6>{{'totaldosetaken'|translate}}</h6>
                         </div>
                     </div>
                 </div>
@@ -165,8 +165,8 @@
                     <div class="card-body pb-0">
                         <h2 class="m-0">{{dashboardMainRestService.report.number_of_fizer +
                             dashboardMainRestService.report.number_of_sinopharm}}</h2>
-                        <span class="text-c-blue">Total Vaccine Dose</span>
-                        <p class="mb-3 mt-3">Total number of Vaccine Dose that come in.</p>
+                        <span class="text-c-blue">{{'totalVaccineDose'|translate}}</span>
+                        <p class="mb-3 mt-3">{{'totalnovdtci'|translate}}</p>
                     </div>
                     <div id="support-chart"></div>
                     <div class="card-footer bg-primary text-white">
@@ -186,17 +186,17 @@
             <div class="col-md-12">
                 <div class="card table-card">
                     <div class="card-header">
-                        <h5>Health Centers</h5>
+                        <h5>{{'healthcenters'| translate}}</h5>
                     </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
                             <table class="table table-hover mb-0">
                                 <thead>
                                     <tr>
-                                        <th>Center Name</th>
-                                        <th>Vaccine Type</th>
-                                        <th># Of Dose</th>
-                                        <th>Expire Date</th>
+                                        <th>{{'centerName'|translate}}</th>
+                                        <th>{{'vaccineType'|translate}}</th>
+                                        <th>{{'NofDose'|translate}} </th>
+                                        <th>{{'expireDate'|translate}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
