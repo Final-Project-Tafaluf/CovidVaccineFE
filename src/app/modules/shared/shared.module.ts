@@ -14,7 +14,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { CheckScheduleStatusPipe } from 'src/app/Pipes/check-schedule-status.pipe';
 import {MatSelectModule} from '@angular/material/select';
 import { TranslatePipe } from 'src/app/Pipes/translate.pipe';
-
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { TranslatePipe } from 'src/app/Pipes/translate.pipe';
     MatButtonModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule
   ],
   exports:[
     MatFormFieldModule,
@@ -52,7 +53,8 @@ import { TranslatePipe } from 'src/app/Pipes/translate.pipe';
     TranslatePipe,
     MatNativeDateModule,
     MatDatepickerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule
   ]
 })
 export class SharedModule { }
