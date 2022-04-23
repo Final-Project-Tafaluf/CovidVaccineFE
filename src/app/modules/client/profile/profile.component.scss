@@ -122,4 +122,41 @@ div#cdk-overlay-0 {
 
 /* to make edit dialog bigger but it isn't apply!!!! */
 
+.btn {
+    padding: 10px 30px;
+    font-size: 12px;
+     transition: none !important;
+    transform: none !important;
+    animation: none;
+}
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #5a6268 !important;
+    border-color: #545b62 !important;
+    background-image: none;
+}
 
+.card-body1{
+    flex: 1 1 auto;
+    min-height: 1px;
+   /*  padding: 1rem 6.57rem !important; */
+    padding: 1rem ;
+    width: 30rem !important;
+}
+.mat-dialog-content {
+    display: block;
+    margin: 0 -24px;
+    padding: 0 24px;
+    /* max-height: 82vh; */
+    max-height: 87vh;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+::ng-deep .dialog-container-custom {
+    mat-dialog-container {
+        /* margin-top: 66px !important; */
+        margin-top: 39px !important;
+        padding: 0px 24px;
+    }
+  }
