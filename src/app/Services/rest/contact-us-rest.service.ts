@@ -7,11 +7,11 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class ContactUsRestService {
-  data :any; 
+  data :any;
   constructor(private spinner :NgxSpinnerService, private http:HttpClient, private toastr:ToastrService) { }
-  
- 
-  
+
+
+
   createContact(data:any){
     this.spinner.show();
     // debugger;
@@ -26,7 +26,7 @@ export class ContactUsRestService {
     })
   }
 
- 
+
 
 
   getAllContact(){
@@ -47,20 +47,7 @@ export class ContactUsRestService {
     })
   }
 
-  // updatebytestimonial(body:any){
-  //   this.http.put('https://localhost:44327/api/ContactUs/update_CONTACT_feedback',body).subscribe((res)=>{
-  //     this.toastr.success('updated Successfully :)');
-  //    //  window.location.reload();
-  //    this.getAllContact();
-  //   },err=>{
-  //     this.toastr.error(err.status,err.message);
-  //   })
-
-  // }
-
   updatebytestimonial(body:any){
-    // debugger
-   // body.image_path=this.display_image;
     this.http.put('https://localhost:44327/api/ContactUs/update_CONTACT_feedback/',body).subscribe((res)=>{
       this.toastr.success('updated succefully')
       this.getAllContact();

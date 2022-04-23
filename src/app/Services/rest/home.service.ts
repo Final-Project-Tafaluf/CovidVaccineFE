@@ -177,7 +177,7 @@ export class HomeService {
     var firstDay = new Date(date.getFullYear(), date.getMonth(), 1).toISOString();
     var lastDay = new Date();
     lastDay.setHours(3,0,0,0);
-    lastDay.toISOString(); 
+    lastDay.toISOString();
     var country = 'jordan';
     this.http.get(`https://api.covid19api.com/country/${country}/status/confirmed?from=${firstDay}&to=${lastDay}`).subscribe((res)=>{
       this.cases=res;
@@ -188,7 +188,7 @@ export class HomeService {
       this.toastr.error(err.message);
       this.toastr.error(err.status);
     })
-    
+
   }
 
   lastMonthDeaths(){
@@ -198,7 +198,7 @@ export class HomeService {
     var firstDay = new Date(date.getFullYear(), date.getMonth(), 1).toISOString();
     var lastDay = new Date();
     lastDay.setHours(3,0,0,0);
-    lastDay.toISOString(); 
+    lastDay.toISOString();
     var country = 'jordan';
     this.http.get(`https://api.covid19api.com/country/${country}/status/deaths?from=${firstDay}&to=${lastDay}`).subscribe((res)=>{
       this.deaths=res;
@@ -209,7 +209,7 @@ export class HomeService {
       this.toastr.error(err.message);
       this.toastr.error(err.status);
     })
-    
+
   }
 
 
