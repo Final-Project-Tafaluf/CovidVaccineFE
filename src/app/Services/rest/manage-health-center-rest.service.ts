@@ -17,9 +17,9 @@ export class ManageHealthCenterRestService {
     private spinner :NgxSpinnerService,private toastr:ToastrService) { }
 
     getById(id:number){
-      //show spinner 
+      //show spinner
       this.spinner.show();
-      //hits Api 
+      //hits Api
         this.http.get('https://localhost:44327/api/healthcentervac/GetHealthCenterById/'+id).subscribe((res)=>{
         this.selectedHealthCenter=res;
         this.spinner.hide();
@@ -30,64 +30,64 @@ export class ManageHealthCenterRestService {
       })
       //hide spinner
       //res --> show toastr
-   }
-  
-   getAll(){
-     //show spinner
-     this.spinner.show();
-     //hits api
-     this.http.get('https:/localhost:44327/api/healthcentervac/GetallHealthCenters').subscribe((res)=>{
-       this.data=res;
-       this.spinner.hide();
-       this.toastr.success('Data Retrieved !!')
-     }, err=>{
-       //hide spinner
-       this.spinner.hide();
-        //Toastr
-       this.toastr.error(err.message);
-       this.toastr.error(err.status);
-     })
-   }
-   
+  }
 
-   createHelthCenter(body:any){
-     this.spinner.show();
-     this.http.post('https:/localhost:44327/api/healthcentervac/CreateCenter/',body).subscribe((res)=>{
-      
-       this.spinner.hide();
-       this.toastr.success('saved Successfully :)');
-       this.getAll();
-      
-     },error=>{
-       this.spinner.hide();
-       this.toastr.error(error.status,error.message);
-     })
-   }
- 
-   updateHeathCenter(body:any){
-     this.http.put('https://localhost:44327/api/healthcentervac/UpdateCenter',body).subscribe((res)=>{
-       this.toastr.success('updated Successfully :)');
+  getAll(){
+    //show spinner
+    this.spinner.show();
+    //hits api
+    this.http.get('https:/localhost:44327/api/healthcentervac/GetallHealthCenters').subscribe((res)=>{
+      this.data=res;
+      this.spinner.hide();
+      this.toastr.success('Data Retrieved !!')
+    }, err=>{
+      //hide spinner
+      this.spinner.hide();
+      //Toastr
+      this.toastr.error(err.message);
+      this.toastr.error(err.status);
+    })
+  }
+
+
+  createHelthCenter(body:any){
+    this.spinner.show();
+    this.http.post('https:/localhost:44327/api/healthcentervac/CreateCenter/',body).subscribe((res)=>{
+
+      this.spinner.hide();
+      this.toastr.success('saved Successfully :)');
+      this.getAll();
+
+    },error=>{
+      this.spinner.hide();
+      this.toastr.error(error.status,error.message);
+    })
+  }
+
+  updateHeathCenter(body:any){
+    this.http.put('https://localhost:44327/api/healthcentervac/UpdateCenter',body).subscribe((res)=>{
+      this.toastr.success('updated Successfully :)');
+    //  window.location.reload();
+    this.getAll();
+    },err=>{
+      this.toastr.error(err.status,err.message);
+    })
+
+  }
+
+    deleteItem(id:number){
+      this.http.delete('https://localhost:44327/api/healthcentervac/delete/'+id).subscribe((res)=>{
+        this.toastr.success('Deleted Successfully :)');
       //  window.location.reload();
       this.getAll();
-     },err=>{
-       this.toastr.error(err.status,err.message);
-     })
- 
-   }
- 
-     deleteItem(id:number){
-       this.http.delete('https://localhost:44327/api/healthcentervac/delete/'+id).subscribe((res)=>{
-         this.toastr.success('Deleted Successfully :)');
-        //  window.location.reload();
-        this.getAll();
-       },err=>{
-         this.toastr.error(err.status,err.message);
-       })
-     }
-    
- 
+      },err=>{
+        this.toastr.error(err.status,err.message);
+      })
+    }
 
-     
-     
- 
+
+
+
+
+
 }

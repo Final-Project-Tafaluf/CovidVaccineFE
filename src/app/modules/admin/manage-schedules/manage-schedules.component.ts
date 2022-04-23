@@ -56,8 +56,14 @@ export class ManageSchedulesComponent implements OnInit {
     this.manageScheduleRestService.getAll();
     this.manageHealthCenterRestService.getAll();
     this.manageVaccineRestService.getAll();
+    // setInterval(()=>{
+    //   this.manageScheduleRestService.sendEmail();
+    // },3000);
   }
 
+  sendEmail(){
+    this.manageScheduleRestService.sendEmail();
+  }
   save(){
     this.manageScheduleRestService.createSchedule(this.CreateForm.value);
 // debugger

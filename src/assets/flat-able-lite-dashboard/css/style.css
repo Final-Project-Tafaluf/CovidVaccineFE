@@ -21673,11 +21673,11 @@ pre[class*=language-]:before {
         padding-right: 20px;
     }
 
-    /* .pcoded-navbar {
+    .pcoded-navbar {
         margin-left: -235px;
         position: absolute;
         height: calc(100% - 56px);
-    } */
+    }
 
     .pcoded-navbar .scroll-div.navbar-content {
         height: 100%;

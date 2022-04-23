@@ -39,6 +39,7 @@ export class ProfileComponent implements OnInit {
     username:new FormControl(),
     role_Id:new FormControl()
   })
+  defaultPass: string = '';
   openUpdateDialog(
     id1 :any,first_Name1 :any,last_Name1 :any,ssn1 :any,gender1:any,birthdate1:any,
     address1 :any,phone1:any,email1:any,password1:any,username1:any,image1:any,role1:any){
