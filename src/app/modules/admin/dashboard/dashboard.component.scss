@@ -41,7 +41,9 @@ ul.nav.pcoded-inner-navbar {
     /* height: 3517px  !important; */
 
 }
-
+li a.active{
+  color: #e74c3c;
+}
 img.logo {
     width: 162px;
     margin-left: -38px;
@@ -160,7 +162,7 @@ input.check-toggle-round-flat+label:after {
     transition: margin 0.2s;
 }
 
-input.check-toggle-round-flat:checked+label {}
+// input.check-toggle-round-flat:checked+label {}
 
 input.check-toggle-round-flat:checked+label:after {
     margin-left: 29px;

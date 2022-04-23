@@ -11,6 +11,7 @@ export class ManageScheduleRestService {
   constructor(private http:HttpClient,private spinner :NgxSpinnerService,private toastr:ToastrService) { }
 
   data :any ={};
+  email :any ={};
   getAll(){
     this.spinner.show();
     this.http.get('https:/localhost:44327/api/Schedual/GetallScheduals').subscribe((res)=>{
@@ -25,6 +26,28 @@ export class ManageScheduleRestService {
     })
   }
 
+  getPending(){
+    this.http.get('https:/localhost:44327/api/Schedual/GetPendingSchedual').subscribe((res)=>{
+      this.email=res;
+    }, err=>{
+      this.toastr.error(err.message);
+      this.toastr.error(err.status);
+    })
+  }
+  sendEmail(){
+    debugger
+    this.http.get('https:/localhost:44327/api/Schedual/GetPendingSchedual').subscribe((res)=>{
+      this.email=res;
+      debugger
+    })
+    this.http.post('https://localhost:44327/api/Schedual/SendEmail/',this.email).subscribe((result)=>{
+      debugger
+            this.toastr.success('Send Successfully :)');
+
+          },error=>{
+            this.toastr.error(error.status,error.message);
+          })
+  }
   createSchedule(body:any){
     this.spinner.show();
     // debugger
