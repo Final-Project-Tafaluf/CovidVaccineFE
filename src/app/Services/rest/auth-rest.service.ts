@@ -47,7 +47,9 @@ export class AuthService {
       })
     }
     logout() {
-      this.router.navigate(['security/login']);
+      window.location.href = "security/login";
+
+      //this.router.navigate(['security/login']);
       localStorage.clear();
     }
 

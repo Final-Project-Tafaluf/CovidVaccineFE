@@ -105,29 +105,15 @@ createUser(data:any){
   {
     // debugger
     console.log(res);
-    if(res == "created"){
+    if(res == true){
       this.spinner.hide();
       this.toastr.success('Saved Successfully')
+      window.location.reload()
     }
-    else if(res == "valid")
+    else if(res == false)
     {
       this.spinner.hide();
-      this.toastr.error('Please Enter Valid SSN');
-    }
-    else if(res == "email")
-    {
-      this.spinner.hide();
-      this.toastr.error('this email already used');
-    }
-    else if(res == "username")
-    {
-      this.spinner.hide();
-      this.toastr.error('this Username already used');
-    }
-    else if(res =="ssn")
-    {
-      this.spinner.hide();
-      this.toastr.error('ssn already used');
+      this.toastr.error('SSN Or Email Or Already Userd');
     }
     else{
       this.spinner.hide();

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ContactUsRestService } from 'src/app/Services/rest/contact-us-rest.service';
 import { DashboardMainRestService } from 'src/app/Services/rest/dashboard-main-rest.service';
 import { HomeService } from 'src/app/Services/rest/home.service';
@@ -10,7 +11,7 @@ import { HomeService } from 'src/app/Services/rest/home.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public contactUsRestService:ContactUsRestService,public home : HomeService,public dashboardMainRestService:DashboardMainRestService) { }
+  constructor(private spinner :NgxSpinnerService,public contactUsRestService:ContactUsRestService,public home : HomeService,public dashboardMainRestService:DashboardMainRestService) { }
 
   ngOnInit(): void {
     this.contactUsRestService.getAllContactbytestimonial();
