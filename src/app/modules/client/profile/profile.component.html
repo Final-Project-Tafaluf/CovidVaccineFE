@@ -5,6 +5,7 @@
 
           <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
               <li class="breadcrumb-item active" aria-current="page">My Profile</li>
             </ol>
           </nav>
@@ -17,10 +18,11 @@
 
                     <!-- Profile pic -->
 
-                    <img src="../../../../assets/images/{{userProfileRestService.selectedUser.image}}" alt="Admin" class="rounded-circle" width="150">
+                    <img src="../../../../assets/images/{{userProfileRestService.selectedUser.image}}" alt="Admin" onerror="this.src='../../../../assets/images/defaultProfilePic.png'" class="rounded-circle" width="150">
                     <!-- /Profile pic -->
                     <div class="mt-3">
                       <h4>{{userProfileRestService.selectedUser.first_Name}}  {{userProfileRestService.selectedUser.last_Name}}</h4>
+                      <p class="text-secondary mb-1">@{{userProfileRestService.selectedUser.username}}</p>
                     </div>
                   </div>
                 </div>
@@ -176,7 +178,7 @@
           <!-- Breadcrumb -->
           <nav aria-label="breadcrumb" class="main-breadcrumb">
               <ol class="breadcrumb">
-                <!-- <li class="breadcrumb-item"><a href="index.html">Home</a></li> -->
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item"><a href="client/MyProfile">My Profile</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Edit</li>
               </ol>
@@ -187,7 +189,7 @@
                   <div class="card">
                       <div class="card-body">
                           <div class="d-flex flex-column align-items-center text-center">
-                              <img src="../../../../assets/images/{{userProfile.image}}" alt="Admin" class="rounded-circle" width="150">
+                              <img src="../../../../assets/images/{{userProfile.image}}" onerror="this.src='../../../../assets/images/defaultProfilePic.png'" alt="Admin" class="rounded-circle" width="150">
                           </div>
                           <div class="col s6">
                                 <div class="file-input d-flex justify-content-center">
