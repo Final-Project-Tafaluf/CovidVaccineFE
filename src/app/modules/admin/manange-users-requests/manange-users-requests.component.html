@@ -23,7 +23,7 @@
             <div class="col-md-12">
                 <div class="card table-card">
                     <div class="card-header">
-                        <h5>Users requests</h5>
+                        <h5>{{'usersrequests'|translate}}</h5>
                         <div class="card-header-right">
                             <div class="btn-group card-option">
                                 <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
@@ -52,13 +52,12 @@
                         <div class="table-responsive">
                             <table class="table table-hover mb-0">
                                  <tr>
-                                    <th>ID</th>
-                                    <th>User</th>
-                                    <th>Health center</th>
-                                    <th>Request date</th>
-                                    <th>Vaccine type</th>
-                                    <!-- <th class="text-right">Actions</th> -->
-                                    <th>Actions</th>
+                                    <th>{{'id'|translate}}</th>
+                                    <th>{{'user'|translate}}</th>
+                                    <th>{{'healthcenter'|translate}}</th>
+                                    <th>{{'requestdate'|translate}}</th>
+                                    <th>{{'vaccinetype'|translate}}</th>
+                                    <th>{{'actions'|translate}}</th>
                                 </tr>
                                 <tr *ngFor="let userRequest of usersRequests">
                                     <td>{{userRequest.id}}</td>
