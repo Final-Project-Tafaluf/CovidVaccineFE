@@ -215,6 +215,9 @@
                               <div class="col-sm-9 text-secondary">
                                   <input type="text" class="form-control" matInput formControlName="first_Name"
                                   [(ngModel)]="userProfile.first_Name" [readonly]="true">
+                                  <mat-error *ngIf="UpdateForm.controls['first_Name'].hasError('required')">
+                                    First Name is <strong>Required</strong>
+                                  </mat-error>
                               </div>
                           </div>
 
@@ -225,6 +228,9 @@
                             <div class="col-sm-9 text-secondary">
                                 <input type="text" class="form-control" matInput formControlName="last_Name"
                                 [(ngModel)]="userProfile.last_Name" [readonly]="true">
+                                <mat-error *ngIf="UpdateForm.controls['last_Name'].hasError('required')">
+                                  Last Name is <strong>Required</strong>
+                                </mat-error>
                             </div>
                         </div>
 
@@ -245,6 +251,9 @@
                               <div class="col-sm-9 text-secondary">
                                   <input type="text" class="form-control" value="Male" matInput formControlName="gender"
                                   [(ngModel)]="userProfile.gender">
+                                  <mat-error *ngIf="UpdateForm.controls['gender'].hasError('required')">
+                                    Gender is <strong>Required</strong>
+                                  </mat-error>
                               </div>
                           </div>
 
@@ -255,6 +264,9 @@
                               <div class="col-sm-9 text-secondary">
                                   <input type="date" class="form-control" value="22/2/2022" matInput formControlName="birthdate"
                                   [(ngModel)]="userProfile.birthdate">
+                                  <mat-error *ngIf="UpdateForm.controls['birthdate'].hasError('required')">
+                                    Birthdate is <strong>Required</strong>
+                                  </mat-error>
                               </div>
                           </div>
 
@@ -265,6 +277,9 @@
                               <div class="col-sm-9 text-secondary">
                                   <input type="text" class="form-control" value="(962) 816-9029" matInput formControlName="phone"
                                   [(ngModel)]="userProfile.phone">
+                                  <mat-error *ngIf="UpdateForm.controls['phone'].hasError('required')">
+                                    Phone is <strong>Required</strong>
+                                  </mat-error>
                               </div>
                           </div>
 
@@ -275,6 +290,9 @@
                               <div class="col-sm-9 text-secondary">
                                   <input type="text" class="form-control" value="Amman, Tla'a Al-Ali" matInput formControlName="address"
                                   [(ngModel)]="userProfile.address">
+                                  <mat-error *ngIf="UpdateForm.controls['address'].hasError('required')">
+                                    Address is <strong>Required</strong>
+                                  </mat-error>
                               </div>
                           </div>
 
