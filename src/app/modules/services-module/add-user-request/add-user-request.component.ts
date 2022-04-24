@@ -7,7 +7,7 @@ import OSM from 'ol/source/OSM';
 import Style from 'ol/style/Style';
 import Icon from 'ol/style/Icon';
 import { Feature, Overlay } from 'ol';
-import { Point } from 'ol/geom';
+import { Point} from 'ol/geom';
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
 import { ScheduleRestService } from 'src/app/Services/rest/schedule-rest.service';
@@ -25,6 +25,7 @@ export class AddUserRequestComponent implements OnInit {
     Request_date: new FormControl('', [Validators.required]),
   });
   map: Map | undefined;
+  vectorSource:any;
   constructor(public scheduleRestService: ScheduleRestService) {}
 
   ngOnInit(): void {
@@ -35,17 +36,17 @@ export class AddUserRequestComponent implements OnInit {
 
   async generateMap() {
     var centers = await this.scheduleRestService.getAllCenters();
+    this.getUserLocationOnTheMap();
     console.log('Data:', centers);
-    const vectorSource = new VectorSource({});
 
+
+    this.vectorSource = new VectorSource({});
     for (let i = 0; i < centers.length; i++) {
       var coordinates = centers[i].center_Location.split(',');
       const iconFeature = new Feature({
         geometry: new Point([coordinates[0], coordinates[1]]),
         name: centers[i].center_Name,
         id:centers[i].id,
-        population: 4000,
-        rainfall: 500,
       });
       const iconStyle = new Style({
         image: new Icon({
@@ -53,15 +54,16 @@ export class AddUserRequestComponent implements OnInit {
           anchorXUnits: 'fraction',
           anchorYUnits: 'pixels',
           src: '../../../../assets/life_care/images/icon-logo.png',
+          scale: [.4, .4],
         }),
       });
 
       iconFeature.setStyle(iconStyle);
-      vectorSource.addFeatures([iconFeature]);
+      this.vectorSource.addFeatures([iconFeature]);
     }
 
     const vectorLayer = new VectorLayer({
-      source: vectorSource,
+      source: this.vectorSource,
     });
 
     var map = new Map({
@@ -123,6 +125,33 @@ export class AddUserRequestComponent implements OnInit {
     // Close the popup when the map is moved
     map.on('movestart', function () {
       (<any>$(element)).popover('dispose');
+    });
+  }
+  
+  getUserLocationOnTheMap(){
+    debugger;
+    navigator.geolocation.getCurrentPosition((position) => {
+      debugger;
+
+      console.log(position.coords.latitude, position.coords.longitude);
+      const iconFeature = new Feature({
+        geometry: new Point([position.coords.longitude,position.coords.latitude]),
+        name: 'user',
+        id:'user',
+      });
+      const iconStyle = new Style({
+        image: new Icon({
+          // anchor: [0.5, 160],
+          // anchorXUnits: 'fraction',
+          // anchorYUnits: 'pixels',
+          src: '../../../../assets/icons/person_icon.png',
+          scale: [.15, .15],
+          
+        }),
+      });
+
+      iconFeature.setStyle(iconStyle);
+      this.vectorSource.addFeatures([iconFeature]);
     });
   }
 
