@@ -44,15 +44,20 @@ button.btn.btn-primary{
     background-image: none;
 }
 .btn-light {
-    /* margin-top: 3px;
-    margin-left: 10px; */
-    margin-bottom: 10px;
+    margin-top: 3px;
+    margin-left: 10px;
+    margin-bottom: 20px;
     border-color: #f8f9fa !important;
     /* padding: 10px 183px !important; */
-    padding: 10px 175px !important;
+    /* padding: 10px 175px !important; */
+    padding: 17px 10px;
     border: none !important;
 }
 
-.pcoded-main-container_mod {
+/* .pcoded-main-container_mod {
     margin-left: 69px !important;
+} */
+
+.mat-form-field{
+    margin-left: 15px !important;
 }

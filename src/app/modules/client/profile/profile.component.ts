@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { LocalStorageService } from 'src/app/Services/local-storage.service';
 import { HomeService } from 'src/app/Services/rest/home.service';
@@ -26,13 +26,13 @@ export class ProfileComponent implements OnInit {
   }
   UpdateForm:FormGroup=new FormGroup({
     id:new FormControl(),
-    first_Name: new FormControl(),
-    last_Name: new FormControl(),
+    first_Name: new FormControl('',Validators.required),
+    last_Name: new FormControl('',Validators.required),
     ssn: new FormControl(),
-    gender:new FormControl(),
-    birthdate:new FormControl(),
-    address:new FormControl(),
-    phone:new FormControl(),
+    gender:new FormControl('',Validators.required),
+    birthdate:new FormControl('',Validators.required),
+    address:new FormControl('',Validators.required),
+    phone:new FormControl('',Validators.required),
     image:new FormControl(),
     email:new FormControl(),
     password:new FormControl(),
