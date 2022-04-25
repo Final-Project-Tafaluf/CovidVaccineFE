@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
   signoutFlag: boolean = false;
   contactFlag: boolean = false;
   serviceFlag: boolean = false;
-
+  username:string="";
   constructor(
     private router: Router,
     private localStorageService: LocalStorageService,
@@ -64,6 +64,7 @@ export class HeaderComponent implements OnInit {
         } else {
           this.dashboardFlag = false;
         }
+        this.username = data.unique_name;
       }
     }
   }
