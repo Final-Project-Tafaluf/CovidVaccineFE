@@ -26,14 +26,14 @@ export class AutherizationGuard implements CanActivate {
             }
             //acc , customer
             else {
-              this.toaster.warning(`this page for admin get out ${user.unique_name} ( う-´)づ︻╦̵̵̿╤── \(˚☐˚”)/`);
+              this.toaster.warning(`This page just for admins, get out ${user.unique_name} ( う-´)づ︻╦̵̵̿╤── \(˚☐˚”)/`);
               return false;
             }
             //
           }
   
           else {
-            this.toaster.warning('role name is undfined ');
+            this.toaster.warning('Role name is undfined');
             return false;
           }
         }
