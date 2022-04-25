@@ -4,7 +4,7 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
 import { HomeComponent } from './components/home/home.component';
 import { TestimonialComponent } from './components/testimonial/testimonial.component';
-import { AutherizationGuard } from './gard/autherization.guard';
+import { AutherizationGuard } from './guard/autherization.guard';
 import { AdminModule } from './modules/admin/admin.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { ClientModule } from './modules/client/client.module';
