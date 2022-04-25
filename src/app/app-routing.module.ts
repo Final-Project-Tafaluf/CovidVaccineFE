@@ -26,6 +26,11 @@ const routes: Routes = [
     component:TestimonialComponent
   },
   {
+    path:'',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
     path:'home',
     component: HomeComponent,
     pathMatch: 'full'
