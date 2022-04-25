@@ -1,33 +1,37 @@
 <app-header></app-header>
+<div>
+  <div class="page-banner overlay-dark bg-image"
+    style="background-image: url(../../../assets/home/ppro.jpg)">
+    <div class="banner-section">
+      <div class="container text-center wow fadeInUp">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+            <li class="breadcrumb-item"><a href="">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">My Profile</li>
+          </ol>
+        </nav>
+        <h1 class="font-weight-normal" style="color: #bcffd8;">My Profile</h1>
+      </div> <!-- .container -->
+    </div> <!-- .banner-section -->
+  </div>
+</div>
+
 <div class="body1">
   <div class="container">
     <div class="main-body">
 
-          <nav aria-label="breadcrumb" class="main-breadcrumb">
+          <!-- <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="index.html">Home</a></li>
               <li class="breadcrumb-item active" aria-current="page">My Profile</li>
             </ol>
-          </nav>
+          </nav> -->
 
           <div class="row gutters-sm">
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex flex-column align-items-center text-center">
+           
+            <!-- //////////////////////// -->
 
-                    <!-- Profile pic -->
-
-                    <img src="../../../../assets/images/{{userProfileRestService.selectedUser.image}}" alt="Admin" onerror="this.src='../../../../assets/images/defaultProfilePic.png'" class="rounded-circle" width="150">
-                    <!-- /Profile pic -->
-                    <div class="mt-3">
-                      <h4>{{userProfileRestService.selectedUser.first_Name}}  {{userProfileRestService.selectedUser.last_Name}}</h4>
-                      <p class="text-secondary mb-1">@{{userProfileRestService.selectedUser.username}}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
 
             <div class="col-md-8">
               <div class="card mb-3">
