@@ -18,7 +18,7 @@ import { ScheduleRestService } from 'src/app/Services/rest/schedule-rest.service
   styleUrls: ['./dashboard-content.component.scss']
 })
 export class DashboardContentComponent implements OnInit {
-
+  selected = 'Monthly';
   constructor(public dashboardMainRestService:DashboardMainRestService, public scheduleRestService: ScheduleRestService,) { }
 
   ngOnInit(): void {
