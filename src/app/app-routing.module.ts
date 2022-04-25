@@ -27,7 +27,13 @@ const routes: Routes = [
   },
   {
     path:'',
-    component: HomeComponent
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path:'home',
+    component: HomeComponent,
+    pathMatch: 'full'
   },
   {
     path:'security',
