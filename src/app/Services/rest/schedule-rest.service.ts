@@ -158,7 +158,7 @@ export class ScheduleRestService {
   }
   sendRequest(data: any) {
     this.spinner.show();
-    debugger;
+    //debugger;
     var token = this.localStorageService.getToken();
     var tokenData: any = this.localStorageService.tokenDecode(token);
     data.User_Id = Number(tokenData.nameid);
@@ -239,9 +239,9 @@ export class ScheduleRestService {
   }
   async getRouteCoordinates(fromArr: any, editArr: any) {
     // this.spinner.show();
-    debugger;
+    //debugger;
     return await $.get(`https://us1.locationiq.com/v1/directions/driving/${fromArr[1]},${fromArr[0]};${editArr[0]},${editArr[1]}?key=pk.8ed022a2e40a8df617a811d51b16d089&geometries=geojson&overview=full`, function(data, status){
-      debugger;
+      //debugger;
     return data.routes[0].geometry.coordinates;
     });
     }

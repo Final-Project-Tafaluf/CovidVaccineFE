@@ -80,6 +80,11 @@ export class HeaderComponent implements OnInit {
       console.log(this.activeObj);
     }
   }
+
+  public isActive(base: string): boolean {
+    return this.router.url.includes(`/${base}`);
+ }
+
   logout() {
     this.router.navigate(['security/login']);
     localStorage.clear();

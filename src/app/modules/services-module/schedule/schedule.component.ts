@@ -169,7 +169,7 @@ export class ScheduleComponent implements OnInit {
    
   }
   async generateMap(center_location:string,center_name:string) {
-    debugger;
+    //debugger;
     var centerArray = center_location.split(',');
     this.vectorSource = new VectorSource({});
     this.vectorLayer = new VectorLayer({
@@ -180,7 +180,7 @@ export class ScheduleComponent implements OnInit {
     setTimeout(async()=>{
     var routeCoordinatesArray = await this.scheduleRestService.getRouteCoordinates(this.userCoordinates,[Number(centerArray[0]),Number(centerArray[1])]);
     var routeCoordinatesArray1 =routeCoordinatesArray.routes[0].geometry.coordinates;
-    debugger;
+    //debugger;
     var routeLayer = new  VectorLayer({
       source: new VectorSource({
           features: [new Feature({ geometry: new LineString((<any>routeCoordinatesArray1), 'XY') })]
@@ -269,9 +269,9 @@ export class ScheduleComponent implements OnInit {
   },200)
   }
    getUserLocationOnTheMap(){
-    debugger;
+    //debugger;
     navigator.geolocation.getCurrentPosition( (position) => {
-      debugger;
+      //debugger;
       this.userCoordinates=[ position.coords.latitude, position.coords.longitude];
       console.log(position.coords.latitude, position.coords.longitude);
       const iconFeature = new Feature({

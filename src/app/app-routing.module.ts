@@ -26,8 +26,9 @@ const routes: Routes = [
     component:TestimonialComponent
   },
   {
-    path:'',
-    component: HomeComponent
+    path:'home',
+    component: HomeComponent,
+    pathMatch: 'full'
   },
   {
     path:'security',

@@ -129,9 +129,9 @@ export class AddUserRequestComponent implements OnInit {
   }
   
   getUserLocationOnTheMap(){
-    debugger;
+    //debugger;
     navigator.geolocation.getCurrentPosition((position) => {
-      debugger;
+      //debugger;
 
       console.log(position.coords.latitude, position.coords.longitude);
       const iconFeature = new Feature({

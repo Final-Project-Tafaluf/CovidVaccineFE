@@ -8,41 +8,38 @@ import { AdminModule } from '../admin/admin.module';
 import { AuthModule } from '../auth/auth.module';
 import { ClientModule } from '../client/client.module';
 
-
-
 const routes: Routes = [
   {
-    path:'',
-    component:HomeComponent
-  },
-{
-  path:'about',
-    component:AboutusComponent
-  }  ,{
-    path:'contact',
-    component:ContactusComponent
+    path: '',
+    component: HomeComponent,
   },
   {
-    path:'security',
-    loadChildren:()=>AuthModule
+    path: 'about',
+    component: AboutusComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactusComponent,
+  },
+  {
+    path: 'security',
+    loadChildren: () => AuthModule,
   },
 
+  {
+    path: 'admin',
+    loadChildren: () => AdminModule,
+  },
+  // ,
+  // {
+  //   path:'client',
+  //   loadChildren:()=>ClientModule,
 
-{
-  path:'admin',
-  loadChildren:()=>AdminModule,
-
-}
-// ,
-// {
-//   path:'client',
-//   loadChildren:()=>ClientModule,
-
-// }
+  // }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class SharedRoutingModule { }
+export class SharedRoutingModule {}
