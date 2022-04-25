@@ -1,7 +1,6 @@
 <app-header></app-header>
 <div>
-  <div class="page-banner overlay-dark bg-image"
-    style="background-image: url(../../../assets/home/ppro.jpg)">
+  <div class="page-banner overlay-dark bg-image" style="background-image: url(../../../assets/home/ppro.jpg)">
     <div class="banner-section">
       <div class="container text-center wow fadeInUp">
         <nav aria-label="Breadcrumb">
@@ -20,115 +19,135 @@
   <div class="container">
     <div class="main-body">
 
-          <!-- <nav aria-label="breadcrumb" class="main-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">My Profile</li>
-            </ol>
-          </nav> -->
+      <!-- <nav aria-label="breadcrumb" class="main-breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">My Profile</li>
+          </ol>
+        </nav> -->
+      <div class="row gutters-sm">
 
-          <div class="row gutters-sm">
-           
-            <!-- //////////////////////// -->
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-column align-items-center text-center">
 
-            
+                <!-- //////////////////////// -->
 
-            <div class="col-md-8">
-              <div class="card mb-3">
-                <div class="card-body">
+                <!-- Profile pic -->
 
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">First Name </h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{userProfileRestService.selectedUser.first_Name}}
-                      <h1 ></h1>
-                    </div>
-                  </div>
-                  <hr>
+                <img src="../../../../assets/images/{{userProfileRestService.selectedUser.image}}" alt="Admin"
+                  onerror="this.src='../../../../assets/images/defaultProfilePic.png'" class="rounded-circle"
+                  width="150">
+                <!-- /Profile pic -->
+                <div class="mt-3">
+                  <h4>{{userProfileRestService.selectedUser.first_Name}}
+                    {{userProfileRestService.selectedUser.last_Name}}</h4>
+                  <p class="text-secondary mb-1">@{{userProfileRestService.selectedUser.username}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Last Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{userProfileRestService.selectedUser.last_Name}}
-                    </div>
-                  </div>
-                  <hr>
 
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">SSN</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{userProfileRestService.selectedUser.ssn}}
-                    </div>
-                  </div>
-                  <hr>
 
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Gender</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{userProfileRestService.selectedUser.gender}}
-                    </div>
-                  </div>
-                  <hr>
+        <div class="col-md-8">
+          <div class="card mb-3">
+            <div class="card-body">
 
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Birthdate</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{userProfileRestService.selectedUser.birthdate | customeDate}}
-                    </div>
-                  </div>
-                  <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">First Name </h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{userProfileRestService.selectedUser.first_Name}}
+                  <h1></h1>
+                </div>
+              </div>
+              <hr>
 
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Phone</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{userProfileRestService.selectedUser.phone}}
-                    </div>
-                  </div>
-                  <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Last Name</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{userProfileRestService.selectedUser.last_Name}}
+                </div>
+              </div>
+              <hr>
 
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Address</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{userProfileRestService.selectedUser.address}}
-                    </div>
-                  </div>
-                  <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">SSN</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{userProfileRestService.selectedUser.ssn}}
+                </div>
+              </div>
+              <hr>
 
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Email</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{userProfileRestService.selectedUser.email}}
-                    </div>
-                  </div>
-                  <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Gender</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{userProfileRestService.selectedUser.gender}}
+                </div>
+              </div>
+              <hr>
 
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0"> Username</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{userProfileRestService.selectedUser.username}}
-                    </div>
-                  </div>
-                  <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Birthdate</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{userProfileRestService.selectedUser.birthdate | customeDate}}
+                </div>
+              </div>
+              <hr>
 
-                  <!-- <div class="row">
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Phone</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{userProfileRestService.selectedUser.phone}}
+                </div>
+              </div>
+              <hr>
+
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Address</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{userProfileRestService.selectedUser.address}}
+                </div>
+              </div>
+              <hr>
+
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Email</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{userProfileRestService.selectedUser.email}}
+                </div>
+              </div>
+              <hr>
+
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0"> Username</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{userProfileRestService.selectedUser.username}}
+                </div>
+              </div>
+              <hr>
+
+              <!-- <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Password</h6>
                     </div>
@@ -137,10 +156,9 @@
                     </div>
                   </div> 
                   <hr>-->
-                  <div class="row">
-                    <div class="col-sm-12">
-                        <button class="btn btn-info "
-                        (click)="openUpdateDialog(
+              <div class="row">
+                <div class="col-sm-12">
+                  <button class="btn btn-info " (click)="openUpdateDialog(
                           userProfileRestService.selectedUser.id,
                           userProfileRestService.selectedUser.first_Name,
                           userProfileRestService.selectedUser.last_Name,
@@ -154,91 +172,93 @@
                           userProfileRestService.selectedUser.username,
                           userProfileRestService.selectedUser.image,
                           userProfileRestService.selectedUser.role_Id
-                          )" >Edit
-                        </button>
-                    </div>
-                  </div>
+                          )">Edit
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 
- <!------------------------------------------- Edit Profile/ Dialog section ------------------------------------->
+<!------------------------------------------- Edit Profile/ Dialog section ------------------------------------->
 
 
 
-<ng-template #callUpdateDialog >
+<ng-template #callUpdateDialog>
 
   <!-- <app-edit-profile-info></app-edit-profile-info> use this way amjad -->
 
-<mat-dialog-content>
-  <div class="">
-    <div class="container">
-      <div class="main-body">
+  <mat-dialog-content>
+    <div class="">
+      <div class="container">
+        <div class="main-body">
           <!-- Breadcrumb -->
           <nav aria-label="breadcrumb" class="main-breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="client/MyProfile">My Profile</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Edit</li>
-              </ol>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="client/MyProfile">My Profile</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Edit</li>
+            </ol>
           </nav>
-            <!-- /Breadcrumb -->
+          <!-- /Breadcrumb -->
           <div class="row" [formGroup]="UpdateForm">
-              <div class="col-lg-4">
-                  <div class="card">
-                      <div class="card-body">
-                          <div class="d-flex flex-column align-items-center text-center">
-                              <img src="../../../../assets/images/{{userProfile.image}}" onerror="this.src='../../../../assets/images/defaultProfilePic.png'" alt="Admin" class="rounded-circle" width="150">
-                          </div>
-                          <div class="col s6">
-                                <div class="file-input d-flex justify-content-center">
-                                  <input type="file" class="file" #file
-                                  formControlName="image" [(ngModel)]="userProfile.image" (change)="uploadFile(file.files)" 
-                                  style="display:none;">
-                                  <button class="btn btn-success"  (click)="file.click()"><i class="fas fa-upload"></i> Upload Image</button>
-                                  <!-- <label for="file" (click)="file.click()"></label> -->
-                                </div>
-                                <!-- <input id="image" type="file" class="validate"> -->
-                          </div>
-                      </div>
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="../../../../assets/images/{{userProfile.image}}"
+                      onerror="this.src='../../../../assets/images/defaultProfilePic.png'" alt="Admin"
+                      class="rounded-circle" width="150">
                   </div>
+                  <div class="col s6">
+                    <div class="file-input d-flex justify-content-center">
+                      <input type="file" class="file" #file formControlName="image" [(ngModel)]="userProfile.image"
+                        (change)="uploadFile(file.files)" style="display:none;">
+                      <button class="btn btn-success" (click)="file.click()"><i class="fas fa-upload"></i> Upload
+                        Image</button>
+                      <!-- <label for="file" (click)="file.click()"></label> -->
+                    </div>
+                    <!-- <input id="image" type="file" class="validate"> -->
+                  </div>
+                </div>
               </div>
-              <div class="col-lg-8">
-                  <div class="card">
-                      <div class="card-body1">
+            </div>
+            <div class="col-lg-8">
+              <div class="card">
+                <div class="card-body1">
 
-                          <div class="row mb-3">
-                              <div class="col-sm-3">
-                                  <h6 class="mb-0">First Name</h6>
-                              </div>
-                              <div class="col-sm-9 text-secondary">
-                                  <input type="text" class="form-control" matInput formControlName="first_Name"
-                                  [(ngModel)]="userProfile.first_Name" [readonly]="true">
-                                  <mat-error *ngIf="UpdateForm.controls['first_Name'].hasError('required')">
-                                    First Name is <strong>Required</strong>
-                                  </mat-error>
-                              </div>
-                          </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">First Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control" matInput formControlName="first_Name"
+                        [(ngModel)]="userProfile.first_Name" [readonly]="true">
+                      <mat-error *ngIf="UpdateForm.controls['first_Name'].hasError('required')">
+                        First Name is <strong>Required</strong>
+                      </mat-error>
+                    </div>
+                  </div>
 
-                          <div class="row mb-3">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Last Name</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input type="text" class="form-control" matInput formControlName="last_Name"
-                                [(ngModel)]="userProfile.last_Name" [readonly]="true">
-                                <mat-error *ngIf="UpdateForm.controls['last_Name'].hasError('required')">
-                                  Last Name is <strong>Required</strong>
-                                </mat-error>
-                            </div>
-                        </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Last Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control" matInput formControlName="last_Name"
+                        [(ngModel)]="userProfile.last_Name" [readonly]="true">
+                      <mat-error *ngIf="UpdateForm.controls['last_Name'].hasError('required')">
+                        Last Name is <strong>Required</strong>
+                      </mat-error>
+                    </div>
+                  </div>
 
-                        <!-- <div class="row mb-3">
+                  <!-- <div class="row mb-3">
                           <div class="col-sm-3">
                               <h6 class="mb-0">SSN</h6>
                           </div>
@@ -248,59 +268,59 @@
                           </div>
                       </div> -->
 
-                          <div class="row mb-3">
-                              <div class="col-sm-3">
-                                  <h6 class="mb-0">Gender</h6>
-                              </div>
-                              <div class="col-sm-9 text-secondary">
-                                  <input type="text" class="form-control" value="Male" matInput formControlName="gender"
-                                  [(ngModel)]="userProfile.gender">
-                                  <mat-error *ngIf="UpdateForm.controls['gender'].hasError('required')">
-                                    Gender is <strong>Required</strong>
-                                  </mat-error>
-                              </div>
-                          </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Gender</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control" value="Male" matInput formControlName="gender"
+                        [(ngModel)]="userProfile.gender">
+                      <mat-error *ngIf="UpdateForm.controls['gender'].hasError('required')">
+                        Gender is <strong>Required</strong>
+                      </mat-error>
+                    </div>
+                  </div>
 
-                          <div class="row mb-3">
-                              <div class="col-sm-3">
-                                  <h6 class="mb-0">Birthdate</h6>
-                              </div>
-                              <div class="col-sm-9 text-secondary">
-                                  <input type="date" class="form-control" value="22/2/2022" matInput formControlName="birthdate"
-                                  [(ngModel)]="userProfile.birthdate">
-                                  <mat-error *ngIf="UpdateForm.controls['birthdate'].hasError('required')">
-                                    Birthdate is <strong>Required</strong>
-                                  </mat-error>
-                              </div>
-                          </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Birthdate</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="date" class="form-control" value="22/2/2022" matInput formControlName="birthdate"
+                        [(ngModel)]="userProfile.birthdate">
+                      <mat-error *ngIf="UpdateForm.controls['birthdate'].hasError('required')">
+                        Birthdate is <strong>Required</strong>
+                      </mat-error>
+                    </div>
+                  </div>
 
-                          <div class="row mb-3">
-                              <div class="col-sm-3">
-                                  <h6 class="mb-0">Phone</h6>
-                              </div>
-                              <div class="col-sm-9 text-secondary">
-                                  <input type="text" class="form-control" value="(962) 816-9029" matInput formControlName="phone"
-                                  [(ngModel)]="userProfile.phone">
-                                  <mat-error *ngIf="UpdateForm.controls['phone'].hasError('required')">
-                                    Phone is <strong>Required</strong>
-                                  </mat-error>
-                              </div>
-                          </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control" value="(962) 816-9029" matInput formControlName="phone"
+                        [(ngModel)]="userProfile.phone">
+                      <mat-error *ngIf="UpdateForm.controls['phone'].hasError('required')">
+                        Phone is <strong>Required</strong>
+                      </mat-error>
+                    </div>
+                  </div>
 
-                          <div class="row mb-3">
-                              <div class="col-sm-3">
-                                  <h6 class="mb-0">Address</h6>
-                              </div>
-                              <div class="col-sm-9 text-secondary">
-                                  <input type="text" class="form-control" value="Amman, Tla'a Al-Ali" matInput formControlName="address"
-                                  [(ngModel)]="userProfile.address">
-                                  <mat-error *ngIf="UpdateForm.controls['address'].hasError('required')">
-                                    Address is <strong>Required</strong>
-                                  </mat-error>
-                              </div>
-                          </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Address</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control" value="Amman, Tla'a Al-Ali" matInput
+                        formControlName="address" [(ngModel)]="userProfile.address">
+                      <mat-error *ngIf="UpdateForm.controls['address'].hasError('required')">
+                        Address is <strong>Required</strong>
+                      </mat-error>
+                    </div>
+                  </div>
 
-                          <!-- <div class="row mb-3">
+                  <!-- <div class="row mb-3">
                               <div class="col-sm-3">
                                   <h6 class="mb-0">Email</h6>
                               </div>
@@ -310,32 +330,32 @@
                               </div>
                           </div> -->
 
-                          <div class="row mb-3">
-                              <div class="col-sm-3">
-                                  <h6 class="mb-0">Password</h6>
-                              </div>
-                              <div class="col-sm-9 text-secondary">
-                                  <input type="text" class="form-control" value="Password" matInput formControlName="password"
-                                  [(ngModel)]="defaultPass" placeholder="**********">
-                              </div>
-                          </div>
-
-                          <div class="row">
-                              <div class="col-sm-3"></div>
-                              <div class="col-sm-9 text-secondary">
-                                  <input (click)="Update()" type="button" class="btn btn-primary px-4" value="Save Changes">
-                              </div>
-                          </div>
-
-                      </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Password</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control" value="Password" matInput formControlName="password"
+                        [(ngModel)]="defaultPass" placeholder="**********">
+                    </div>
                   </div>
+
+                  <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-9 text-secondary">
+                      <input (click)="Update()" type="button" class="btn btn-primary px-4" value="Save Changes">
+                    </div>
+                  </div>
+
+                </div>
               </div>
+            </div>
           </div>
+        </div>
       </div>
     </div>
-  </div>
 
-</mat-dialog-content>
+  </mat-dialog-content>
 </ng-template>
 
 <app-footer></app-footer>

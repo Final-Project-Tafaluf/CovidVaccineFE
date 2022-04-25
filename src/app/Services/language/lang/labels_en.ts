@@ -5,6 +5,7 @@ export const english = {
   edit: "Edit",
   description: "Description",
   dashboard_analytics:"Dashboard analytics",
+  dashboard:"Dashboard",
   users:"USERS",
   admin:"ADMINS",
   healthcenter:"HEALTH CENTERS",
@@ -61,7 +62,6 @@ export const english = {
   manageHealthCenterVaccine:"Manage Health Center & Vaccine",
   nOfVaccine:"# OF VACCINE",
   vaccinesData:"Vaccines Data",
-
   siteHome:"Site Home",
   mainDashboard:"Main Dashboard",
   manageUsers:"Manage Users",
@@ -75,7 +75,7 @@ export const english = {
   navigation:"Navigation",
   centersAndResources:"Centers and Resources",
   pages:"Pages",
-
+  manageSiteElements:"Manage Site Elements",
 
 
   

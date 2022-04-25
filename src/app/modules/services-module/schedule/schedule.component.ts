@@ -187,7 +187,7 @@ export class ScheduleComponent implements OnInit {
       }),
       style: new Style({
           fill: new Fill({ color: '#0091ea' }),
-          stroke: new Stroke({ color: '#0091ea', width: 4 })
+          stroke: new Stroke({ color: '#1abc9c', width: 4 })
       }),
       className: 'routeLayer'
   });

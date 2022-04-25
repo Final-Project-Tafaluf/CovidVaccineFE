@@ -1215,8 +1215,8 @@ span.pm-credits-text.block.bold.sans {
 }
 
 .map-container {
-  width: 375px;
-  height: 375px;
+  width: 425px;
+  height: 425px;
   margin-bottom: 18px;
 }
 
@@ -1234,6 +1234,7 @@ span.pm-credits-text.block.bold.sans {
 .cancel_btn{
   position: absolute;
   z-index: 9999;
-  top: -24px;
+  top: -27px;
   right: -2px;
+  height: 30px;
 }

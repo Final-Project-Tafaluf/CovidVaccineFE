@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   @ViewChild('callUpdateDialog') callUpdateDialog! :TemplateRef<any>
 
   constructor(private dialog:MatDialog,public userProfileRestService:UserProfileRestService,
-    private localStorageService:LocalStorageService,public home:HomeService) { }
+    private localStorageService:LocalStorageService) { }
   userProfile:any={};
 
   ngOnInit(): void {
