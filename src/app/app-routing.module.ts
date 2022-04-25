@@ -4,6 +4,7 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
 import { HomeComponent } from './components/home/home.component';
 import { TestimonialComponent } from './components/testimonial/testimonial.component';
+import { AutherizationGuard } from './gard/autherization.guard';
 import { AdminModule } from './modules/admin/admin.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { ClientModule } from './modules/client/client.module';
@@ -19,10 +20,11 @@ const routes: Routes = [
   },
   {
     path:'contact',
-    component:ContactusComponent
+    component:ContactusComponent,
+    canActivate:[AutherizationGuard]
   },
   {
-    path:'testimonial',
+    path:'testimonial', //Please remove me with my module and component
     component:TestimonialComponent
   },
   {
@@ -42,18 +44,21 @@ const routes: Routes = [
   {
     path:'admin',
     loadChildren:()=>AdminModule,
+    canActivate:[AutherizationGuard]
   },
   {
     path:'services',
     loadChildren:()=>ServicesModuleModule,
+    canActivate:[AutherizationGuard]
   },
   {
-    path:'dashboard',
+    path:'dashboard', //Please remove me with my module and component
     loadChildren:()=>DashboardModuleModule,
   },
   {
     path:'client',
     loadChildren:()=>ClientModule,
+    canActivate:[AutherizationGuard]   
   }
 ];
 
