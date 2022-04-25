@@ -60,7 +60,7 @@
                     <thead>
                         <tr>
                             <th>{{'ssn'|translate}}</th>
-                            <th>{{'fullName'|translate}}</th>                           
+                            <th>{{'fullName'|translate}}</th>
                             <th>{{'gender'|translate}}</th>
                             <th>{{'birthdate'|translate}}</th>
                             <th>{{'address'|translate}}</th>
@@ -68,7 +68,7 @@
                             <th>{{'email'|translate}}</th>
                             <th>{{'dose'|translate}}</th>
                             <th>{{'opreation'|translate}}</th>
-                            
+
                         </tr>
                     </thead>
                     <tbody>
@@ -107,7 +107,6 @@
                                   user.password,
                                   user.username,
                                   user.image,
-                                  user.dose_Number,
                                   user.role_Id
                                 )">Edit</button>
                                 <!-- <button type="button" class="btn  btn-danger" (click)="openDetailsDialog(user)">Details</button> -->
@@ -135,86 +134,130 @@
 <ng-template #callCreateDialog>
     <mat-dialog-content class="mat-typography">
 
-    <form [formGroup]="CreateForm">
-      <ul>
-        <li>
-          <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Enter SSN </mat-label>
-              <input type="text" matInput formControlName="ssn"
-              placeholder="ssn">
-            </mat-form-field>
-          </li>
-        <li>
-          <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Enter First Name </mat-label>
-              <input type="text" matInput formControlName="first_Name"
-              placeholder="first name">
-            </mat-form-field>
-          </li>
+      <form class="col s12" [formGroup]="CreateForm">
+        <div class="form-container">
+          <h3 class="teal-text">Welcome</h3>
 
-          <li>
-          <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Enter Last Name </mat-label>
-              <input type="text" matInput formControlName="last_Name"
-              placeholder="last name"  >
-            </mat-form-field>
-          </li>
-          <li>
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Enter Gender </mat-label>
-              <input type="text" matInput formControlName="gender"
-              placeholder="gender"  >
-            </mat-form-field>
-          </li>
+          <div class="row">
 
-          <li>
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Enter the address </mat-label>
-              <input type="text" matInput formControlName="address"
-              placeholder="address" >
+            <mat-form-field class="  col-6" appearance="fill">
+              <!-- <div class=""> -->
+              <mat-label>Fisrt Name</mat-label>
+              <input id="first_Name" matInput formControlName="first_Name">
+              <mat-error *ngIf="CreateForm.controls['first_Name'].hasError('required')">
+                First Name is <strong>required</strong>
+              </mat-error>
+              <!-- </div> -->
             </mat-form-field>
-          </li>
 
-          <li>
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Enter Phone </mat-label>
-              <input type="text" matInput formControlName="phone"
-              placeholder="phone" >
-            </mat-form-field>
-          </li>
+            <mat-form-field class=" col-6" appearance="fill">
+              <mat-label>Last Name</mat-label>
+              <input id="last_name" matInput formControlName="last_Name">
 
-          <li>
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Enter email </mat-label>
-              <input type="text" matInput formControlName="email"
-              placeholder="email" >
+              <mat-error *ngIf="CreateForm.controls['last_Name'].hasError('required')">
+                Last Name is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
-          </li>
 
-          <li>
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Enter Birthdate </mat-label>
-              <input type="date" matInput formControlName="birthdate"
-              placeholder="Birthdate" >
+            <mat-form-field class=" col-12" appearance="fill">
+              <mat-label>SSN</mat-label>
+              <input id="ssn"  formControlName="ssn" matInput>
+              <mat-error *ngIf="CreateForm.controls['ssn'].hasError('required')">
+                Ssn is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
-          </li>
-          <!-- <li>
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Enter Password </mat-label>
-              <input id="password" type="password" matInput
-              formControlName="password" placeholder="password" >
-            </mat-form-field>
-          </li> -->
+          </div>
 
 
-          <li>
-            <input type="file" #file placeholder="Choose Image"
-            formControlName="image" [(ngModel)]="user.image" (change)="uploadFile(file.files)"
-            style="display:none;">
-            <button class="btn btn-success"  (click)="file.click()">Upload Image</button>
-          </li>
-        </ul>
-    </form>
+          <div class="row">
+
+            <mat-form-field class=" col-6" appearance="fill">
+              <mat-label for="birthdate">Birthdate</mat-label>
+              <input type="date" id="birthdate" matInput formControlName="birthdate">
+            </mat-form-field>
+
+            <div class="input_field radio_option col-6" style="margin-top: 15px;">
+              <input type="radio" id="rd1" value="male" formControlName="gender">
+              <label for="rd1">Male</label>
+              <input type="radio" id="rd2" value="female" formControlName="gender" style="margin-left: 5px;">
+              <label for="rd2">Female</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <mat-form-field class=" col-6" appearance="fill">
+              <mat-label>Address</mat-label>
+              <input  matInput formControlName="address">
+            </mat-form-field>
+            <mat-form-field class=" col-6" appearance="fill">
+              <mat-label>Phone</mat-label>
+              <input id="phone" matInput formControlName="phone">
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-form-field class=" col-6" appearance="fill">
+              <mat-label>Email</mat-label>
+              <input id="email" matInput formControlName="email">
+              <mat-error
+                *ngIf="CreateForm.controls['email'].hasError('email') && !CreateForm.controls['email'].hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class=" col-6" appearance="fill">
+              <mat-label>Username</mat-label>
+              <input id="username" matInput formControlName="username">
+              <mat-error *ngIf="CreateForm.controls['username'].hasError('required')">
+                username is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-form-field class="col-6" appearance="fill">
+              <mat-label>Password</mat-label>
+              <input id="password" matInput formControlName="password">
+              <mat-error
+                *ngIf="CreateForm.controls['password'].hasError('minlength') && !CreateForm.controls['password'].hasError('required')">
+                Please enter a Strong password
+              </mat-error>
+              <mat-error *ngIf="CreateForm.controls['password'].hasError('required')">
+                password is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="col-6" appearance="fill">
+              <mat-label>Password Confirmation</mat-label>
+              <input id="confirm_Password" matInput formControlName="confirm_Password"
+                (change)="onChange()">
+              <mat-error
+                *ngIf="CreateForm.controls['confirm_Password'].hasError('minlength') && !CreateForm.controls['confirm_Password'].hasError('required')">
+                Please enter strong password
+              </mat-error>
+              <mat-error *ngIf="CreateForm.controls['confirm_Password'].hasError('required')">
+                password is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="CreateForm.controls['confirm_Password'].hasError('mismatch')">
+                Password Not Matched
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <!-- <div class="row">
+            <div class="col s6">
+              <div class="file-input d-flex justify-content-center">
+                <input type="file" class="file" #file formControlName="image" [(ngModel)]="user.image"
+                  (change)="uploadFile(file.files)">
+                <label for="file" (click)="file.click()">Choose Your Image</label>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </form>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
@@ -226,104 +269,165 @@
 
 <!--------------------------------------- Update Dialog --------------------------------------->
 
-  <ng-template #callUpdateDialog>
-    <mat-dialog-content class="mat-typography">
-      <form [formGroup]="UpdateForm">
-          <ul>
-            <li>
-              <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>Enter SSN </mat-label>
-                  <input type="text" matInput formControlName="ssn" [(ngModel)]="user.ssn"
-                  placeholder="ssn">
-                </mat-form-field>
-              </li>
-            <li>
-              <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>Enter First Name </mat-label>
-                  <input type="text" matInput formControlName="first_Name" [(ngModel)]="user.first_Name"
-                  placeholder="first name">
-                </mat-form-field>
-              </li>
+<ng-template #callUpdateDialog>
 
-              <li>
-              <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>Enter Last Name </mat-label>
-                  <input type="text" matInput formControlName="last_Name"
-                  placeholder="last name" [(ngModel)]="user.last_Name" >
-                </mat-form-field>
-              </li>
-              <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>Enter Gender </mat-label>
-                  <input type="text" matInput formControlName="gender"
-                  placeholder="gender" [(ngModel)]="user.gender" >
-                </mat-form-field>
-              </li>
+  <!-- <app-edit-profile-info></app-edit-profile-info> use this way amjad -->
 
-              <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>Enter Birthdate </mat-label>
-                  <input type="date" matInput formControlName="birthdate"
-                  placeholder="Birthdate" [(ngModel)]="user.birthdate">
-                </mat-form-field>
-              </li>
+  <mat-dialog-content>
+    <div class="">
+      <div class="container">
+        <div class="main-body">
+          <div class="row" [formGroup]="UpdateForm">
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="../../../../assets/images/{{userProfile.image}}"
+                      onerror="this.src='../../../../assets/images/defaultProfilePic.png'" alt="Admin"
+                      class="rounded-circle" width="150">
+                  </div>
+                  <div class="col s6">
+                    <div class="file-input d-flex justify-content-center">
+                      <input type="file" class="file" #file formControlName="image" [(ngModel)]="userProfile.image"
+                        (change)="uploadFile(file.files)" style="display:none;">
+                      <button class="btn btn-success" (click)="file.click()"><i class="fas fa-upload"></i> Upload
+                        Image</button>
+                      <!-- <label for="file" (click)="file.click()"></label> -->
+                    </div>
+                    <!-- <input id="image" type="file" class="validate"> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="card">
+                <div class="card-body1">
 
-              <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>Enter the address </mat-label>
-                  <input type="text" matInput formControlName="address"
-                  placeholder="address" [(ngModel)]="user.address">
-                </mat-form-field>
-              </li>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">First Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control" matInput formControlName="first_Name"
+                        [(ngModel)]="userProfile.first_Name" [readonly]="true">
+                      <mat-error *ngIf="UpdateForm.controls['first_Name'].hasError('required')">
+                        First Name is <strong>Required</strong>
+                      </mat-error>
+                    </div>
+                  </div>
 
-              <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>Enter Phone </mat-label>
-                  <input type="text" matInput formControlName="phone"
-                  placeholder="phone" [(ngModel)]="user.phone">
-                </mat-form-field>
-              </li>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Last Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control" matInput formControlName="last_Name"
+                        [(ngModel)]="userProfile.last_Name" [readonly]="true">
+                      <mat-error *ngIf="UpdateForm.controls['last_Name'].hasError('required')">
+                        Last Name is <strong>Required</strong>
+                      </mat-error>
+                    </div>
+                  </div>
 
-              <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>Enter Email </mat-label>
-                  <input type="text" matInput formControlName="email"
-                  placeholder="email" [(ngModel)]="user.email">
-                </mat-form-field>
-              </li>
+                  <!-- <div class="row mb-3">
+                          <div class="col-sm-3">
+                              <h6 class="mb-0">SSN</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                              <input type="text" class="form-control" matInput formControlName="ssn"
+                              [(ngModel)]="userProfile.ssn" [readonly]="true">
+                          </div>
+                      </div> -->
 
-              <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>Enter Username</mat-label>
-                  <input type="text" matInput formControlName="username"
-                  placeholder="username" [(ngModel)]="user.username">
-                </mat-form-field>
-              </li>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Gender</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control" value="Male" matInput formControlName="gender"
+                        [(ngModel)]="userProfile.gender">
+                      <mat-error *ngIf="UpdateForm.controls['gender'].hasError('required')">
+                        Gender is <strong>Required</strong>
+                      </mat-error>
+                    </div>
+                  </div>
 
-              <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>Enter dose number</mat-label>
-                  <input type="text" matInput formControlName="dose_Number"
-                  placeholder="dose_Number" [(ngModel)]="user.dose_Number">
-                </mat-form-field>
-              </li>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Birthdate</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="date" class="form-control" value="22/2/2022" matInput formControlName="birthdate"
+                        [(ngModel)]="userProfile.birthdate">
+                      <mat-error *ngIf="UpdateForm.controls['birthdate'].hasError('required')">
+                        Birthdate is <strong>Required</strong>
+                      </mat-error>
+                    </div>
+                  </div>
 
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control" value="(962) 816-9029" matInput formControlName="phone"
+                        [(ngModel)]="userProfile.phone">
+                      <mat-error *ngIf="UpdateForm.controls['phone'].hasError('required')">
+                        Phone is <strong>Required</strong>
+                      </mat-error>
+                    </div>
+                  </div>
 
-              <li>
-                <input type="file" #file placeholder="Choose Image"
-                formControlName="image" [(ngModel)]="user.image" (change)="uploadFile(file.files)"
-                style="display:none;">
-                <button class="btn btn-success"  (click)="file.click()">Upload Image</button>
-              </li>
-            </ul>
-            <!-- <button mat-button [mat-dialog-close]="true" (click)="updateUser()">Update</button> -->
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Address</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control" value="Amman, Tla'a Al-Ali" matInput
+                        formControlName="address" [(ngModel)]="userProfile.address">
+                      <mat-error *ngIf="UpdateForm.controls['address'].hasError('required')">
+                        Address is <strong>Required</strong>
+                      </mat-error>
+                    </div>
+                  </div>
 
-      </form>
-    </mat-dialog-content>
-    <mat-dialog-actions align="end">
-        <button mat-button [mat-dialog-close]="true" (click)="updateUser()">Update</button>
-      </mat-dialog-actions>
-  </ng-template>
+                  <!-- <div class="row mb-3">
+                              <div class="col-sm-3">
+                                  <h6 class="mb-0">Email</h6>
+                              </div>
+                              <div class="col-sm-9 text-secondary">
+                                  <input type="email" class="form-control" value="example@domain.com" matInput formControlName="email"
+                                  [(ngModel)]="userProfile.email" [readonly]="true">
+                              </div>
+                          </div> -->
+
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Password</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control" value="Password" matInput formControlName="password"
+                        [(ngModel)]="defaultPass" placeholder="**********">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-9 text-secondary">
+                      <input (click)="updateUser()" type="button" class="btn btn-primary px-4" value="Save Changes">
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </mat-dialog-content>
+</ng-template>
 
 
 
