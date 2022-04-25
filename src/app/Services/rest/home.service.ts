@@ -26,7 +26,7 @@ export class HomeService {
   constructor(private spinner :NgxSpinnerService, private http:HttpClient, private toastr:ToastrService) { }
   getHome(){
     //show spinner
-    debugger;
+    //debugger;
     this.spinner.show();
     //hits api
     this.http.get('https://localhost:44327/Home/GetHome/').subscribe((res)=>{
