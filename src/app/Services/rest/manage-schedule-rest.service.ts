@@ -35,13 +35,13 @@ export class ManageScheduleRestService {
     })
   }
   sendEmail(){
-    debugger
+    //debugger
     this.http.get('https:/localhost:44327/api/Schedual/GetPendingSchedual').subscribe((res)=>{
       this.email=res;
-      debugger
+      //debugger
     })
     this.http.post('https://localhost:44327/api/Schedual/SendEmail/',this.email).subscribe((result)=>{
-      debugger
+      //debugger
             this.toastr.success('Send Successfully :)');
 
           },error=>{

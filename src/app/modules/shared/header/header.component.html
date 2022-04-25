@@ -6,32 +6,32 @@
     <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault" >
       <ul class="navbar-nav ms-auto navbar-nav-scroll">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="">Home</a>
+                <a class="nav-link" aria-current="page" routerLink="/home" routerLinkActive="active">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" *ngIf='contactFlag' href="contact">Contact Us</a>
+              <a class="nav-link" *ngIf='contactFlag' routerLink="/contact" routerLinkActive="active">Contact Us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" *ngIf="dashboardFlag" href="admin/dashboard">Dashboard</a>
+                <a class="nav-link" *ngIf="dashboardFlag" routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" *ngIf='profileFlag' href="client/MyProfile">Profile</a>
+                <a class="nav-link" *ngIf='profileFlag' routerLink="/client/MyProfile" routerLinkActive="active">Profile</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false" *ngIf='serviceFlag' href="#">Services</a>
+                <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false" *ngIf='serviceFlag' [class.active]="isActive('services')">Services</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                    <li><a class="dropdown-item" *ngIf='serviceFlag' href="services/request-vac">Request vaccine</a></li>
-                    <li><a class="dropdown-item" *ngIf='serviceFlag' href="services/my-schedule">My schedule</a></li>
+                    <li><a class="dropdown-item" *ngIf='serviceFlag' routerLink="/services/request-vac" routerLinkActive="active">Request vaccine</a></li>
+                    <li><a class="dropdown-item" *ngIf='serviceFlag' routerLink="/services/my-schedule" routerLinkActive="active">My schedule</a></li>
                 </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link"  href="about">About US</a>
+              <a class="nav-link"  routerLink="/about" routerLinkActive="active">About US</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" *ngIf='loginFlag' href="security/login">SignUp</a>
+                <a class="nav-link" *ngIf='loginFlag' routerLink="/security/login" routerLinkActive="active">SignUp</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" *ngIf='loginFlag' href="security/login">Login</a>
+                <a class="nav-link" *ngIf='loginFlag' routerLink="/security/login" routerLinkActive="active">Login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link"  *ngIf='signoutFlag' (click)="logout()">Sign out</a>

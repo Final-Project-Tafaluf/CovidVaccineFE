@@ -11,9 +11,11 @@ import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import Style from 'ol/style/Style';
+import Fill from 'ol/style/Fill';
+import Stroke from 'ol/style/Stroke'
 import Icon from 'ol/style/Icon';
 import { Feature, Overlay } from 'ol';
-import { Point } from 'ol/geom';
+import { Point ,LineString } from 'ol/geom';
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
 import { UserProfileRestService } from 'src/app/Services/rest/user-profile-rest.service';
@@ -52,6 +54,7 @@ export class ScheduleComponent implements OnInit {
   takenDoses:any;
   vectorSource:any;
   vectorLayer:any;
+  userCoordinates:any;
   @ViewChild('htmlData') htmlData!: ElementRef;
   @ViewChild('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
   @ViewChild('callMapDialog') callMapDialog! :TemplateRef<any>
@@ -166,12 +169,32 @@ export class ScheduleComponent implements OnInit {
    
   }
   async generateMap(center_location:string,center_name:string) {
-    // debugger;
+    //debugger;
+    var centerArray = center_location.split(',');
     this.vectorSource = new VectorSource({});
     this.vectorLayer = new VectorLayer({
       source: this.vectorSource,
     });
-    var centerArray = center_location.split(',');
+
+    this.getUserLocationOnTheMap();
+    setTimeout(async()=>{
+    var routeCoordinatesArray = await this.scheduleRestService.getRouteCoordinates(this.userCoordinates,[Number(centerArray[0]),Number(centerArray[1])]);
+    var routeCoordinatesArray1 =routeCoordinatesArray.routes[0].geometry.coordinates;
+    //debugger;
+    var routeLayer = new  VectorLayer({
+      source: new VectorSource({
+          features: [new Feature({ geometry: new LineString((<any>routeCoordinatesArray1), 'XY') })]
+      }),
+      style: new Style({
+          fill: new Fill({ color: '#0091ea' }),
+          stroke: new Stroke({ color: '#0091ea', width: 4 })
+      }),
+      className: 'routeLayer'
+  });
+
+    
+
+    
     var map = new Map({
       view: new View({
         projection: 'EPSG:4326',
@@ -184,18 +207,21 @@ export class ScheduleComponent implements OnInit {
           source: new OSM(),
         }),
         this.vectorLayer,
+        routeLayer,
       ],
       target: 'ol-map',
     });
+    
         const iconFeature = new Feature({
           geometry: new Point([Number(centerArray[0]),Number(centerArray[1])]),
           name: center_name,
         });
         const iconStyle = new Style({
           image: new Icon({
-            anchor: [0.5, 46],
-            anchorXUnits: 'fraction',
-            anchorYUnits: 'pixels',
+            // anchor: [0.5, 46],
+            // anchorXUnits: 'fraction',
+            // anchorYUnits: 'pixels',
+            scale:[.4,.4],
             src: '../../../../assets/life_care/images/icon-logo.png',
           }),
         });  
@@ -239,6 +265,33 @@ export class ScheduleComponent implements OnInit {
     // Close the popup when the map is moved
     map.on('movestart', function () {
       (<any>$(element)).popover('dispose');
+    });
+  },200)
+  }
+   getUserLocationOnTheMap(){
+    //debugger;
+    navigator.geolocation.getCurrentPosition( (position) => {
+      //debugger;
+      this.userCoordinates=[ position.coords.latitude, position.coords.longitude];
+      console.log(position.coords.latitude, position.coords.longitude);
+      const iconFeature = new Feature({
+        geometry: new Point([position.coords.longitude,position.coords.latitude]),
+        name: 'user',
+        id:'user',
+      });
+      const iconStyle = new Style({
+        image: new Icon({
+          // anchor: [0.5, 160],
+          // anchorXUnits: 'fraction',
+          // anchorYUnits: 'pixels',
+          src: '../../../../assets/icons/person_icon.png',
+          scale: [.15, .15],
+          
+        }),
+      });
+
+      iconFeature.setStyle(iconStyle);
+      this.vectorSource.addFeatures([iconFeature]);
     });
   }
 }

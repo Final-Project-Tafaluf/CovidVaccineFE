@@ -12,9 +12,10 @@ import { LocalStorageService } from '../local-storage.service';
 export class ScheduleRestService {
   centersData: any;
   vaccinesData: any;
-  allRequestsData:any;
+  allRequestsData: any;
   requestsData: any;
-  userScheduleData:any;
+  userScheduleData: any;
+  routeCoordinatesArray: any;
   constructor(
     public spinner: NgxSpinnerService,
     public router: Router,
@@ -131,36 +132,38 @@ export class ScheduleRestService {
         }
       );
   }
-  deleteUserRequestById(requestId:number){
+  deleteUserRequestById(requestId: number) {
     // debugger
     return this.http
-    .delete('https://localhost:44327/api/UserRequest/DeleteUserRequest/'+requestId)
-    .toPromise()
+      .delete(
+        'https://localhost:44327/api/UserRequest/DeleteUserRequest/' + requestId
+      )
+      .toPromise()
       .then(
-      (res) => {
-        // debugger
-        if (res) {
-          this.allRequestsData = res;
+        (res) => {
+          // debugger
+          if (res) {
+            this.allRequestsData = res;
+            this.spinner.hide();
+            this.toaster.success('Data Retrieved !!');
+            return this.allRequestsData;
+          }
+        },
+        (err) => {
+          console.log('faild');
           this.spinner.hide();
-          this.toaster.success('Data Retrieved !!');
-          return this.allRequestsData;
+          this.toaster.error(err.message, err.status);
         }
-      },
-      (err) => {
-        console.log('faild');
-        this.spinner.hide();
-        this.toaster.error(err.message, err.status);
-      }
-    );
+      );
   }
   sendRequest(data: any) {
     this.spinner.show();
-    debugger;
+    //debugger;
     var token = this.localStorageService.getToken();
     var tokenData: any = this.localStorageService.tokenDecode(token);
     data.User_Id = Number(tokenData.nameid);
-    data.center_id=Number(data.center_id);
-    data.vaccine_id=Number(data.vaccine_id);
+    data.center_id = Number(data.center_id);
+    data.vaccine_id = Number(data.vaccine_id);
     this.http
       .post('https://localhost:44327/api/UserRequest/CreateUserRequest/', data)
       .subscribe(
@@ -210,11 +213,11 @@ export class ScheduleRestService {
       );
   }
 
-  createSchedule(data:any){
+  createSchedule(data: any) {
     this.spinner.show();
     // debugger;
-    data.center_id=Number(data.center_id);
-    data.vaccine_id=Number(data.vaccine_id);
+    data.center_id = Number(data.center_id);
+    data.vaccine_id = Number(data.vaccine_id);
     this.http
       .post('https://localhost:44327/api/Schedual/CreateSchedual/', data)
       .subscribe(
@@ -234,4 +237,12 @@ export class ScheduleRestService {
         }
       );
   }
+  async getRouteCoordinates(fromArr: any, editArr: any) {
+    // this.spinner.show();
+    //debugger;
+    return await $.get(`https://us1.locationiq.com/v1/directions/driving/${fromArr[1]},${fromArr[0]};${editArr[0]},${editArr[1]}?key=pk.8ed022a2e40a8df617a811d51b16d089&geometries=geojson&overview=full`, function(data, status){
+      //debugger;
+    return data.routes[0].geometry.coordinates;
+    });
+    }
 }
