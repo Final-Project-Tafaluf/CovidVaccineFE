@@ -15,6 +15,9 @@
     margin: 0;
     background: #1abc9c;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .service-widget h3:hover {
     background-color: #24cbaa;
@@ -260,4 +263,9 @@ background-color: #cd486b;
 }
 .team-area .social li.github a {
 background-color: #050505;
+}
+
+.section{
+  padding-top: 25px !important;
+  padding-bottom: 0 !important;
 }

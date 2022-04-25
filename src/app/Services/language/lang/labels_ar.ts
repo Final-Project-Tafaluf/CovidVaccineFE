@@ -5,6 +5,7 @@ export const arabic = {
   edit: "تعديل",
   description: "الوصف",
   dashboard_analytics:"تحليل البيانات",
+  dashboard:"لوحة القيادة",
   users:"المستخدمون",
   admin:"المدراء",
   healthcenter:" المركز الصحي",
@@ -60,7 +61,6 @@ export const arabic = {
   centerPhone:"هاتف المركز",
   manageHealthCenterVaccine:"إدارة المركز الصحي واللقاح",
   vaccinesData:"بيانات اللقاحات",
-
   siteHome:"الصفحة الرئيسية للموقع",
   mainDashboard:"لوحة القيادة الرئيسية",
   manageUsers:"ادارة المستخدمين",
@@ -74,6 +74,7 @@ export const arabic = {
   navigation:"ارشاد",
   centersAndResources:"المراكز والموارد",
   pages:"الصفحات",
+  manageSiteElements:"إدارة عناصر الموقع",
   
 
 

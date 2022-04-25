@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private spinner: NgxSpinnerService,
     private router: Router,
-    public home: HomeService,
+    // public home: HomeService,
     public auth: AuthService,
     public userProfileRestService: UserProfileRestService
   ) {}

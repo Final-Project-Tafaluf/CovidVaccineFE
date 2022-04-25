@@ -1,7 +1,7 @@
 <app-header></app-header>
-<div *ngFor="let element of home.ele">
+<div>
   <div class="page-banner overlay-dark bg-image"
-    style="background-image: url(../../../assets/home/{{element.contact_Image}})">
+    style="background-image: url(../../../assets/home/{{home.ele[0].contact_Image}})">
     <div class="banner-section">
       <div class="container text-center wow fadeInUp">
         <nav aria-label="Breadcrumb">
