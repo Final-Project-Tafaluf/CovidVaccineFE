@@ -138,7 +138,7 @@
           <div class="row">
             <mat-form-field class="col-6" appearance="fill">
               <mat-label>Password</mat-label>
-              <input id="password" matInput formControlName="password">
+              <input (change)="onChange()" id="password" matInput formControlName="password">
               <mat-error
                 *ngIf="CreateForm.controls['password'].hasError('minlength') && !CreateForm.controls['password'].hasError('required')">
                 Please enter a Strong password

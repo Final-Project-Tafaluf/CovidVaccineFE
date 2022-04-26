@@ -18,21 +18,21 @@
                 </div>
             </div>
         </div>
-        
+
         <br>
         <form>
           <div class="row">
             <div><button class="btn  btn-light" (click)="sendEmail()"> Send Email</button></div>
 
             <h6><i class="fas fa-filter"></i> {{'appointmentFiltering'|translate}}</h6>
-            
+
             <div >
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>From</mat-label>
                 <input type="datetime-local" matInput [value]="dateFrom" (change)="inputValue($event)">
                 <!-- <mat-hint>DD/MM/YYYY</mat-hint> -->
               </mat-form-field>
-            
+
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>To</mat-label>
                 <input type="datetime-local" matInput [value]="dateTo" (change)="inputValue1($event)">
@@ -428,6 +428,7 @@
   </mat-dialog-content>
 
   <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
     <button [disabled]="!UpdateForm.valid" mat-button [mat-dialog-close]="true" (click)="update()">Update</button>
   </mat-dialog-actions>
   </ng-template>
