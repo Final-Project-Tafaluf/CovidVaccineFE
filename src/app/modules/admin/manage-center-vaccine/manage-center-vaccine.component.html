@@ -17,6 +17,19 @@
             </div>
         </div>
     </div>
+
+    <h6><i class="fas fa-filter"></i> Filtering</h6>
+    <div class="input-group for_margin">
+      <div class="form-outline">
+        
+        <input id="search-focus" placeholder="Center Name,Vaccine Type"  type="text" id="form1" class="form-control"
+        [value] ="info" (change)="inputValue($event)" />
+      </div>
+      <button type="button" (click)="search()" class="btn btn-primary btn-primary_mod">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+
     <div class="col-md-12">
       <div class="card table-card">
           <div class="card-header">

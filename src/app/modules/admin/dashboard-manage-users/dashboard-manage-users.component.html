@@ -18,10 +18,12 @@
                 </div>
             </div>
         </div>
-
+        
+        <h6><i class="fas fa-filter"></i> Filtering</h6>
         <div class="input-group for_margin">
           <div class="form-outline">
-            <input id="search-focus" placeholder="User..."  type="text" id="form1" class="form-control"
+            
+            <input id="search-focus" placeholder="Name,SSN,Address,Gender..."  type="text" id="form1" class="form-control"
             [value] ="info" (change)="inputValue($event)" />
           </div>
           <button type="button" (click)="search()" class="btn btn-primary btn-primary_mod">

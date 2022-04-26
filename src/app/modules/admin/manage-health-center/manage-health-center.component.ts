@@ -26,6 +26,8 @@ export class ManageHealthCenterComponent implements OnInit {
   vectorLayer:any;
   constructor(private dialog:MatDialog, public manageHealthCenterRestService:ManageHealthCenterRestService) { }
   center:any={};
+  info:any = ''
+
   ngOnInit(): void {
     this.manageHealthCenterRestService.getAll();
   }
@@ -163,5 +165,13 @@ export class ManageHealthCenterComponent implements OnInit {
     iconFeature.setStyle(iconStyle);
     this.vectorSource.clear();
     this.vectorSource.addFeatures([iconFeature]);
+  }
+
+  inputValue(ev:any){
+    this.info=ev.target.value;
+  }
+  search(){
+
+    this.manageHealthCenterRestService.searchCenter(this.info);
   }
 }

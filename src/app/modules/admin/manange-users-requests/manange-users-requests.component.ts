@@ -37,6 +37,9 @@ export class ManangeUsersRequestsComponent implements OnInit {
   });
 
   constructor(private dialog:MatDialog, public scheduleRestService: ScheduleRestService,private localStorageService: LocalStorageService,public helpersService: HelpersService) { }
+  dateFrom:any
+  dateTo:any
+  info:any = ''
 
   ngOnInit(): void {
     this.getAllUsersRequests();
@@ -180,4 +183,26 @@ export class ManangeUsersRequestsComponent implements OnInit {
     this.usersRequests = await this.scheduleRestService.deleteUserRequestById(requestId);
     // this.getAllUsersRequests(); // To refresh the table
   }
+
+  inputValue(ev:any){
+    this.dateFrom=ev.target.value;
+    // debugger
+    console.log(ev.target.value);
+  }
+  inputValue1(ev1:any){
+    this.dateTo=ev1.target.value;
+    // debugger
+    console.log(ev1.target.value);
+  }
+  inputValue3(ev:any){
+    this.info=ev.target.value;
+  }
+
+  search(){
+    // debugger;
+    this.scheduleRestService.SearchUserRequest(this.info,this.dateFrom,this.dateTo);
+    }
+
+
+
 }

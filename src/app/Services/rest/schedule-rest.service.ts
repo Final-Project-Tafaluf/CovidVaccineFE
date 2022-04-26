@@ -16,6 +16,8 @@ export class ScheduleRestService {
   requestsData: any;
   userScheduleData: any;
   routeCoordinatesArray: any;
+
+  data :any ={};
   constructor(
     public spinner: NgxSpinnerService,
     public router: Router,
@@ -245,4 +247,26 @@ export class ScheduleRestService {
     return data.routes[0].geometry.coordinates;
     });
     }
+
+    SearchUserRequest(data:any,dateFrom:any,dateTo:any){
+      //show spinner
+      this.spinner.show();
+      //hits api
+      // debugger;
+      this.http.get('https://localhost:44327/api/UserRequest/SearchUserRequest/'+data+'/'+dateFrom+'/'+dateTo).subscribe((res)=>{
+        this.data=res;
+        // debugger
+  
+        this.spinner.hide();
+        this.toaster.success('Data Retieved !!')
+      }, err=>{
+        //hide spinner
+        this.spinner.hide();
+         //Toastr
+        this.toaster.error(err.message);
+        this.toaster.error(err.status);
+      })
+  }
+
+
 }

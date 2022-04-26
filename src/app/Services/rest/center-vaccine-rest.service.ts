@@ -64,4 +64,17 @@ export class CenterVaccineRestService {
       this.toastr.error(err.status,err.message);
     })
   }
+
+  searchCenterVaccine(data:any)
+{
+  // debugger
+  this.http.get('https://localhost:44327/api/CenterVaccine/SearchCenterVaccine/'+data)
+  .subscribe((res)=>{
+    this.data=res;
+    // debugger
+  },err=>{
+    this.toastr.error('something error');
+  })
+}
+
 }

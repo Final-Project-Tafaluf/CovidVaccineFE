@@ -18,6 +18,18 @@
                 </div>
             </div>
         </div>
+
+        <h6><i class="fas fa-filter"></i> Filtering</h6>
+        <div class="input-group for_margin">
+          <div class="form-outline">
+            
+            <input id="search-focus" placeholder="Vaccine Type"  type="text" id="form1" class="form-control"
+            [value] ="info" (change)="inputValue($event)" />
+          </div>
+          <button type="button" (click)="search()" class="btn btn-primary btn-primary_mod">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
         <!-- [ breadcrumb ] end -->
         <!-- [ Main Content ] start -->
         <div class="row">
