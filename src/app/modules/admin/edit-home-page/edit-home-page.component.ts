@@ -35,6 +35,7 @@ export class EditHomePageComponent implements OnInit {
     news_Textthree:new FormControl(),
     }
   )
+
   ngOnInit(): void {
     this.home.getHome();
   }
@@ -153,7 +154,7 @@ Create(){
   }
 
   update(){
-    // debugger
+    debugger
     this.home.updateHome(this.homeElement.value);
   }
 

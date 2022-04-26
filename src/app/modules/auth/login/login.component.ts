@@ -80,10 +80,8 @@ export class LoginComponent implements OnInit {
   }
 
   onChange() {
-    if (
-      this.CreateForm.controls['password'].value ==
-      this.CreateForm.controls['confirm_Password'].value
-    )
+    if (this.CreateForm.controls['password'].value ==
+      this.CreateForm.controls['confirm_Password'].value)
       this.CreateForm.controls['confirconfirm_Passwordmpassword'].setErrors(
         null
       );

@@ -154,6 +154,8 @@
                                  </mat-error>
                             </mat-form-field> -->
                                             <div class="actions">
+                                              <button mat-button mat-dialog-close>Cancel</button>
+
                                                 <button [disabled]="!CreateForm.valid" mat-button
                                                     (click)="scheduleRestService.createSchedule(CreateForm.value)"
                                                     cdkFocusInitial value="Send Message" name="submit" class="">Add

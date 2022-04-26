@@ -43,12 +43,6 @@
                     <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="feather icon-more-horizontal"></i>
                     </button>
-                    <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                        <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
-                        <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
-                        <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
-                        <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
-                    </ul>
 
                     <button type="button" class="btn  btn-primary1" (click)="openCreateDialog()" ><i class="fas fa-plus"></i> Add New</button>
                 </div>
@@ -66,7 +60,6 @@
                             <th>{{'address'|translate}}</th>
                             <th>{{'phone'|translate}}</th>
                             <th>{{'email'|translate}}</th>
-                            <th>{{'dose'|translate}}</th>
                             <th>{{'opreation'|translate}}</th>
 
                         </tr>
@@ -91,7 +84,6 @@
                             <td>{{user.address}}</td>
                             <td>{{user.phone}}</td>
                             <td>{{user.email}}</td>
-                            <td><label class="badge badge-light-success">{{user.dose_Number}}<i class="fas fa-check"></i></label></td>
                             <td class="text-right">
                                 <button type="button" class="btn  btn-danger" (click)="openDeleteDialog(user.id)">Delete</button>
                                 <button type="button" class="btn  btn-secondary" (click)="openUpdateDialog(
@@ -271,8 +263,6 @@
 
 <ng-template #callUpdateDialog>
 
-  <!-- <app-edit-profile-info></app-edit-profile-info> use this way amjad -->
-
   <mat-dialog-content>
     <div class="">
       <div class="container">
@@ -411,14 +401,18 @@
                     </div>
                   </div>
 
-                  <div class="row">
+                  <!-- <div class="row">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-9 text-secondary">
                       <input (click)="updateUser()" type="button" class="btn btn-primary px-4" value="Save Changes">
                     </div>
-                  </div>
+                  </div> -->
 
                 </div>
+                <mat-dialog-actions align="end">
+                  <button mat-button mat-dialog-close="no">Cancel</button>
+                  <input (click)="updateUser()" type="button" class="btn btn-primary px-4" value="Save Changes">
+                </mat-dialog-actions>
               </div>
             </div>
           </div>
