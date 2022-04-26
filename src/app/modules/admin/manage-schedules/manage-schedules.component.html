@@ -196,8 +196,12 @@
 
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
+<<<<<<< HEAD
     <button [disabled]="((!CreateForm.valid)|| (scheduleRestService.vaccinesData.length==0))" mat-button [mat-dialog-close]="true" (click)="save()"
       cdkFocusInitial>Save</button>
+=======
+    <button [disabled]="!UpdateForm.valid" mat-button [mat-dialog-close]="true" (click)="update()">Update</button>
+>>>>>>> 0307cd462eaa29c3d6debe24fca606142ed2aff1
   </mat-dialog-actions>
 </ng-template>
 

@@ -28,7 +28,8 @@
           <div class="body1" *ngFor="let element of home.ele">
             <div class="row">
               <div class="col-sm-12">
-                  <button class="button.btn.btn-primary " style="width:170px;color: #1abc9c;     background: #2c3e50;" mat-raised-button (click)="updateDialog(element)"
+                  <button class="button.btn.btn-primary " style="width:170px;color: #1abc9c;     background: #2c3e50;" mat-raised-button
+                  (click)="updateDialog(element)"
                   >Edit
                   </button>
               </div>
@@ -122,135 +123,6 @@
 </div>
 
 
-<!-- <div class="col-xl-6 col-md-12">
-  <div class="card table-card">
-      <div class="card-header">
-          <h5>Vaccines Data</h5>
-          <div class="card-header-right">
-              <div class="btn-group card-option">
-                  <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="feather icon-more-horizontal"></i>
-                  </button>
-                  <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                      <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
-                      <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
-                      <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
-                      <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
-                  </ul>
-
-                  <button type="button" class="btn  btn-primary" ><i class="fas fa-plus"></i> Add New</button>
-              </div>
-          </div>
-      </div>
-      <div class="card-body p-0" *ngFor="let element of home.ele">
-          <div class="table-responsive">
-              <table class="table table-hover mb-0">
-                  <thead>
-                      <tr>
-                          <th>Header Logo</th>
-                          <th>Home Image</th>
-                          <th>Contact Image</th>
-                          <th>About Image</th>
-                          <th>About Text</th>
-                          <th>News one Image</th>
-                          <th>News one Text</th>
-                          <th>News Two Image</th>
-                          <th>News Two Text</th>
-                          <th>News Three Image</th>
-                          <th>News Three Text</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                        <td class="txt text-right">
-                            <div class="d-inline-block align-middle">
-                                <div class="d-inline-block">
-                                    <h6>{{element.header_logo}}</h6>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="txt text-right">
-                          <div class="d-inline-block align-middle">
-                              <div class="d-inline-block">
-                                  <h6>{{element.home_Image}}</h6>
-                              </div>
-                          </div>
-                        </td>
-                        <td class="txt text-right">
-                          <div class="d-inline-block align-middle">
-                              <div class="d-inline-block">
-                                  <h6>{{element.contact_Image}}</h6>
-                              </div>
-                          </div>
-                        </td>
-                        <td class="txt text-right">
-                          <div class="d-inline-block align-middle">
-                              <div class="d-inline-block">
-                                  <h6>{{element.about_Image}}</h6>
-                              </div>
-                          </div>
-                        </td>
-                        <td class="txt text-right">
-                          <div class="d-inline-block align-middle">
-                              <div class="d-inline-block">
-                                  <h6>{{element.about_Text}}</h6>
-                              </div>
-                          </div>
-                        </td>
-                        <td class="txt text-right">
-                          <div class="d-inline-block align-middle">
-                              <div class="d-inline-block">
-                                  <h6>{{element.news_Imageone}}</h6>
-                              </div>
-                          </div>
-                        </td>
-                        <td class="txt text-right">
-                          <div class="d-inline-block align-middle">
-                              <div class="d-inline-block">
-                                  <h6>{{element.news_Textone}}</h6>
-                              </div>
-                          </div>
-                        </td>
-                        <td class="txt text-right">
-                          <div class="d-inline-block align-middle">
-                              <div class="d-inline-block">
-                                  <h6>{{element.news_Imagetwo}}</h6>
-                              </div>
-                          </div>
-                        </td>
-                        <td class="txt text-right">
-                          <div class="d-inline-block align-middle">
-                              <div class="d-inline-block">
-                                  <h6>{{element.news_Texttwo}}</h6>
-                              </div>
-                          </div>
-                        </td>
-                        <td class="txt text-right">
-                          <div class="d-inline-block align-middle">
-                              <div class="d-inline-block">
-                                  <h6>{{element.news_Imagethree}}</h6>
-                              </div>
-                          </div>
-                        </td>
-                        <td class="txt text-right">
-                          <div class="d-inline-block align-middle">
-                              <div class="d-inline-block">
-                                  <h6>{{element.news_Imagethree}}</h6>
-                              </div>
-                          </div>
-                        </td>
-                        <td class="text-right">
-                            <button type="button" class="btn  btn-secondary" (click)="updateDialog(element)">Edit</button>
-                        </td>
-                      </tr>
-                  </tbody>
-              </table>
-          </div>
-      </div>
-  </div>
-</div> -->
-
-
 <ng-template #callUpdateDailog>
   <div>
     <h1>Update </h1>
@@ -325,7 +197,8 @@
           <button (click)="file6.click()" class="btn btn-success" style="margin: 5px;">News Three Image</button>
         </div>
       </div>
-      <button (click)="update()">Save</button>
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button (click)="update()">Save</button>
   </form>
   </mat-dialog-content>
   </ng-template>

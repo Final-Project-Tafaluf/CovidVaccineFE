@@ -100,7 +100,8 @@
                             [(ngModel)]="health.vaccine_Id">
                           </mat-form-field>
                         </li> -->
-                      </div>
+                      </div>                
+                    <button mat-button mat-dialog-close>Cancel</button>
                     <button [disabled]="!UpdateForm.valid" mat-button [mat-dialog-close]="true" (click)="update()">Update</button>
                   </form>
                 </ng-template>

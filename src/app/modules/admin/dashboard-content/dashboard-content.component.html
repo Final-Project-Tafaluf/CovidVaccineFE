@@ -18,6 +18,19 @@
                 </div>
             </div>
         </div>
+        <div class="reportBtn">
+            <!-- still working on it: -->
+            <mat-form-field appearance="fill">
+                <mat-label>Report Interval</mat-label>
+                <mat-select [(value)]="selected">
+                  <mat-option value="Monthly">Monthly</mat-option>
+                  <mat-option value="Annual">Annual</mat-option>
+                </mat-select>
+              </mat-form-field>
+            <button type="button" class="btn  btn-success">XCEL</button>
+            <button type="button" class="btn  btn-danger">PDF</button>
+            
+        </div>
 
         <div class="row">
             <div class="col-md-12 col-xl-4">

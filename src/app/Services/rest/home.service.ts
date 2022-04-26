@@ -77,7 +77,7 @@ export class HomeService {
     body.news_Imageone=this.news1Image;
     body.news_Imagetwo=this.news2Image;
     body.news_Imagethree=this.news3Image;
-    // debugger;
+    debugger;
     this.http.put('https://localhost:44327/Home/UpdateHome/',body).subscribe((res)=>{
       this.toastr.success('Updated Successfully :) ')
     },err=>{
