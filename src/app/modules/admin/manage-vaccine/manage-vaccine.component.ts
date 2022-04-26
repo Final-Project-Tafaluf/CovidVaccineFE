@@ -14,6 +14,7 @@ export class ManageVaccineComponent implements OnInit {
   @ViewChild('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
   constructor(private dialog:MatDialog, public manageVaccineRestService:ManageVaccineRestService) { }
 vaccine:any;
+info:any = ''
   ngOnInit(): void {
     this.manageVaccineRestService.getAll();
   }
@@ -60,6 +61,14 @@ vaccine:any;
         }
       })
 
+  }
+
+  inputValue(ev:any){
+    this.info=ev.target.value;
+  }
+  search(){
+
+    this.manageVaccineRestService.searchVaccine(this.info);
   }
 
 }

@@ -38,9 +38,21 @@
                 <input type="datetime-local" matInput [value]="dateTo" (change)="inputValue1($event)">
                 <!-- <mat-hint>DD/MM/YYYY</mat-hint> -->
               </mat-form-field>
-              <button class="btn  btn-light" (click)="search()"><i class="fas fa-search"></i><strong> Search</strong></button>
+              
+              <!-- <button class="btn  btn-light" (click)="search()"><i class="fas fa-search"></i><strong> Search</strong></button> -->
             </div>
-
+            
+            <!-- <h6><i class="fas fa-filter"></i> Filtering</h6> -->
+          <div class="input-group for_margin">
+          <div class="form-outline">
+            <input id="search-focus" placeholder="Name,Dose,Status,Center,Vaccine"  type="text" id="form1" class="form-control"
+            [value] ="info" (change)="inputValue3($event)" />
+          </div>
+          <button type="button" (click)="search()" class="btn btn-primary btn-primary_mod">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+            
           </div>
         </form>
         <!-- [ Main Content ] start -->

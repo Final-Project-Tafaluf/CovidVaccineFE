@@ -18,6 +18,7 @@ export class ManageSchedulesComponent implements OnInit {
 
   dateFrom:any
   dateTo:any
+  info:any = ''
 
   CreateForm:FormGroup=new FormGroup({
     dose: new FormControl('',Validators.required),
@@ -128,10 +129,14 @@ export class ManageSchedulesComponent implements OnInit {
     // debugger
     console.log(ev1.target.value);
   }
+  inputValue3(ev:any){
+    this.info=ev.target.value;
+  }
 
   search(){
     // debugger;
-    this.manageScheduleRestService.searchBetweenTwoDates(this.dateFrom,this.dateTo);
+    this.manageScheduleRestService.SchedualSearch(this.info,this.dateFrom,this.dateTo);
     }
+
 
 }
