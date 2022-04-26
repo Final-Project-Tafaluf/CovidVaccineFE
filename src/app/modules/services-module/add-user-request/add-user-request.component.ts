@@ -92,11 +92,12 @@ export class AddUserRequestComponent implements OnInit {
     });
     map.addOverlay(popup);
     // display popup on click
-    map.on('click',  (evt) => {
+    map.on('click',  async (evt) => {
       const feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
         return feature;
       });
       if (feature) {
+        await this.scheduleRestService.getVaccinesByCenterId(Number((<any>feature).get('id')));
         this.CreateForm.controls['center_id'].setValue((<any>feature).get('id'));
       } 
     });

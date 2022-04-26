@@ -111,7 +111,7 @@ export class ScheduleRestService {
     //show spinner
     this.spinner.show();
     //hits apidebugger
-    // debugger;
+    debugger;
     return this.http
       .get(
         'https://localhost:44327/api/CenterVaccine/GetVaccinesByCenterId/' +
@@ -120,7 +120,7 @@ export class ScheduleRestService {
       .toPromise()
       .then(
         (res :any) => {
-          // debugger;
+          debugger;
           this.spinner.hide();
           // this.toaster.success('Data Retrieved !!');
           if(res.length>0){
@@ -173,7 +173,7 @@ export class ScheduleRestService {
     //show spinner
     this.spinner.show();
     //hits api
-    // debugger
+    debugger
     return this.http
       .get(
         'https://localhost:44327/api/UserRequest/GetUserRequestByUserId/' +
@@ -182,7 +182,7 @@ export class ScheduleRestService {
       .toPromise()
       .then(
         (res) => {
-          // debugger;
+          debugger;
           this.requestsData = res;
           this.spinner.hide();
           // this.toaster.success('Data Retrieved !!');

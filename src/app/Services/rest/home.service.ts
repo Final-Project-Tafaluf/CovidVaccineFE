@@ -45,7 +45,7 @@ export class HomeService {
   createHome(data:any){
     this.spinner.show();
     // debugger;
-    data.header_Logo = this.logoImage ;
+    data.header_Logo = this.logoImage;
     data.home_Image =this.homeImage;
     data.about_Image=this.aboutImage;
     data.contact_Image=this.contactImage;
@@ -69,17 +69,19 @@ export class HomeService {
       this.toastr.error(err.message , err.status)
     })
   }
-  updateHome(body:any){
-    body.header_logo = this.logoImage ;
-    body.home_Image =this.homeImage;
-    body.about_Image=this.aboutImage;
-    body.contact_Image=this.contactImage;
-    body.news_Imageone=this.news1Image;
-    body.news_Imagetwo=this.news2Image;
-    body.news_Imagethree=this.news3Image;
+  updateHome(data:any){
     debugger;
-    this.http.put('https://localhost:44327/Home/UpdateHome/',body).subscribe((res)=>{
+    data.header_Logo = this.logoImage?this.logoImage:data.header_Logo ;
+    data.home_Image =this.homeImage?this.homeImage:data.home_Image;
+    data.about_Image=this.aboutImage?this.aboutImage:data.about_Image;
+    data.contact_Image=this.contactImage?this.contactImage:data.contact_Image;
+    data.news_Imageone=this.news1Image?this.news1Image:data.news_Imageone;
+    data.news_Imagetwo=this.news2Image?this.news2Image:data.news_Imagetwo;
+    data.news_Imagethree=this.news3Image?this.news3Image:data.news_Imagethree;
+    debugger;
+    this.http.put('https://localhost:44327/Home/UpdateHome/',data).subscribe((res)=>{
       this.toastr.success('Updated Successfully :) ')
+      this.getHome();
     },err=>{
       this.toastr.error('something error ');
     })
@@ -106,7 +108,6 @@ export class HomeService {
     this.http.post('https://localhost:44327/Home/UploadImage/',file2)
     .subscribe((res:any)=>{
       console.log(res);
-
       this.homeImage=res.home_Image;
       // debugger
     },err=>{

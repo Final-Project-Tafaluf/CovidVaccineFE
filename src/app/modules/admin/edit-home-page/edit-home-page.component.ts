@@ -48,7 +48,7 @@ Create(){
 
   }
   updateDialog(data :any){
-    // debugger
+    debugger
     this.element={
       id:data.id,
       header_Logo:data.header_Logo,
