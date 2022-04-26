@@ -32,7 +32,7 @@ export class HomeService {
     this.http.get('https://localhost:44327/Home/GetHome/').subscribe((res)=>{
       this.ele=res;
       this.spinner.hide();
-      this.toastr.success('Data Retrieved !!')
+      // this.toastr.success('Data Retrieved !!')
       // debugger
     }, err=>{
       //hide spinner

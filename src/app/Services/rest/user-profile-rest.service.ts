@@ -24,7 +24,7 @@ export class UserProfileRestService {
         this.selectedUser = res;
         //debugger
         this.spinner.hide();
-        this.toastr.success('Data Retieved !!');
+        // this.toastr.success('Data Retieved !!');
       },
       (err) => {
         this.spinner.hide();
@@ -43,7 +43,7 @@ export class UserProfileRestService {
         this.selectedUser = res;
         //debugger
         this.spinner.hide();
-        this.toastr.success('Data Retieved !!');
+        // this.toastr.success('Data Retieved !!');
         return this.selectedUser
       },
       (err) => {

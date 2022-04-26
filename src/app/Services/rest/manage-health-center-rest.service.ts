@@ -39,7 +39,7 @@ export class ManageHealthCenterRestService {
     this.http.get('https:/localhost:44327/api/healthcentervac/GetallHealthCenters').subscribe((res)=>{
       this.data=res;
       this.spinner.hide();
-      this.toastr.success('Data Retrieved !!')
+      // this.toastr.success('Data Retrieved !!')
     }, err=>{
       //hide spinner
       this.spinner.hide();

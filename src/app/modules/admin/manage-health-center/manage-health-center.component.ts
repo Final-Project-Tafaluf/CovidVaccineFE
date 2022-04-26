@@ -113,6 +113,7 @@ export class ManageHealthCenterComponent implements OnInit {
         anchorXUnits: 'fraction',
         anchorYUnits: 'pixels',
         src: '../../../../assets/life_care/images/icon-logo.png',
+        scale:[0.5,0.5],
       }),
     });
     iconFeature.setStyle(iconStyle);
@@ -132,6 +133,7 @@ export class ManageHealthCenterComponent implements OnInit {
             anchorXUnits: 'fraction',
             anchorYUnits: 'pixels',
             src: '../../../../assets/life_care/images/icon-logo.png',
+            scale:[0.5,0.5],
           }),
         });
         this.UpdateForm.controls['center_Location'].setValue(`${coordinates[0]},${coordinates[1]}`);
@@ -158,6 +160,7 @@ export class ManageHealthCenterComponent implements OnInit {
         anchorXUnits: 'fraction',
         anchorYUnits: 'pixels',
         src: '../../../../assets/life_care/images/icon-logo.png',
+        scale:[0.5,0.5],
       }),
     });
     iconFeature.setStyle(iconStyle);

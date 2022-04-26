@@ -37,13 +37,13 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private localStorageService: LocalStorageService,
-    public home : HomeService
+    // public home : HomeService
   ) {}
 
   ngOnInit(): void {
     // debugger;
     this.checkLogin();
-    this.home.getHome();
+    // this.home.getHome();
   }
 
   checkLogin(): void {

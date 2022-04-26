@@ -36,8 +36,12 @@ export class ManageContactUsComponent implements OnInit {
     this.dialog.open(this.callDetailsDailog);
   }
   Detail:FormGroup=new FormGroup({
-    msg:new FormControl({value: '', disabled: true}),
-    email:new FormControl({value: '', disabled: true}),
+    msg:new FormControl({value: ''
+    // ,disabled: true
+    }),
+    email:new FormControl({value: ''
+    // , disabled: true
+  }),
     
   })
 

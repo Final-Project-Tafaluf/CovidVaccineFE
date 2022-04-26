@@ -18,72 +18,87 @@ import VectorLayer from 'ol/layer/Vector';
 @Component({
   selector: 'app-manange-users-requests',
   templateUrl: './manange-users-requests.component.html',
-  styleUrls: ['./manange-users-requests.component.scss']
+  styleUrls: ['./manange-users-requests.component.scss'],
 })
 export class ManangeUsersRequestsComponent implements OnInit {
-  @ViewChild('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
-  @ViewChild('callAddScheduleDialog') callAddScheduleDialog! :TemplateRef<any>
-  usersRequests:any;
+  @ViewChild('callDeleteDialog') callDeleteDialog!: TemplateRef<any>;
+  @ViewChild('callAddScheduleDialog') callAddScheduleDialog!: TemplateRef<any>;
+  usersRequests: any;
   CreateForm: FormGroup = new FormGroup({
     start_Time: new FormControl('', [Validators.required]),
     end_Time: new FormControl('', [Validators.required]),
     center_id: new FormControl('', [Validators.required]),
     status: new FormControl('', [Validators.required]),
-    vaccine_id: new FormControl('', [Validators.required]),
+    vaccine_id: new FormControl('', [
+      Validators.required,
+    ]),
     dose: new FormControl('', [Validators.required]),
     user_Id: new FormControl('', [Validators.required]),
-    // dose_taken_date: new FormControl(''),
-    // doctor_name: new FormControl(''),
   });
 
-  constructor(private dialog:MatDialog, public scheduleRestService: ScheduleRestService,private localStorageService: LocalStorageService,public helpersService: HelpersService) { }
+  constructor(
+    private dialog: MatDialog,
+    public scheduleRestService: ScheduleRestService,
+    private localStorageService: LocalStorageService,
+    public helpersService: HelpersService
+  ) {}
 
   ngOnInit(): void {
     this.getAllUsersRequests();
-
   }
-  async getAllUsersRequests(){
+  async getAllUsersRequests() {
     // debugger;
-      this.usersRequests = await this.scheduleRestService.getUserAllUsersRequests();
+    this.usersRequests = await this.scheduleRestService.getUserAllUsersRequests();
   }
-  openDeleteDialog(id:any){
-    const dialogRef=this.dialog.open(this.callDeleteDialog);
-    dialogRef.afterClosed().subscribe((res)=>{
-      if(res!==undefined)
-      {
-        if(res=="yes"){
-        this.removeRequest(id);
+  openDeleteDialog(id: any) {
+    const dialogRef = this.dialog.open(this.callDeleteDialog);
+    dialogRef.afterClosed().subscribe((res) => {
+      if (res !== undefined) {
+        if (res == 'yes') {
+          this.removeRequest(id);
+        } else if (res == 'no') console.log('Thank you ');
       }
-        else if(res=="no")
-        console.log("Thank you ");
-      }
-    })
+    });
   }
 
-  OpenAddScheduleDialog(center_id:any,vaccine_id:any,request_date:any,user_Id:any){
+  async OpenAddScheduleDialog(
+    center_id: any,
+    vaccine_id: any,
+    request_date: any,
+    user_Id: any
+  ) {
     // debugger;
-    this.scheduleRestService.getAllVaccines();
+    var checkLastUserTakenDose = await this.scheduleRestService.checkLastUserTakenDose(Number(user_Id));
+    // debugger;
+
+    var dose = this.doseGenerator(checkLastUserTakenDose);
     this.CreateForm.controls['start_Time'].setValue(request_date);
     this.CreateForm.controls['end_Time'].setValue(request_date);
     this.CreateForm.controls['status'].setValue('Pending');
-    this.CreateForm.controls['vaccine_id'].setValue(vaccine_id);
-    this.CreateForm.controls['center_id'].setValue(center_id);
+    this.CreateForm.controls['dose'].setValue(dose);
+    // debugger;
     this.CreateForm.controls['user_Id'].setValue(user_Id);
-    
-    const dialogRef=this.dialog.open(this.callAddScheduleDialog, {
+
+    const dialogRef = this.dialog.open(this.callAddScheduleDialog, {
       width: '1000px',
-      height:'548px',
+      height: '548px',
       position: {
         bottom: '5px',
-        right: '30px'
-      }});
+        right: '30px',
+      },
+    });
 
-      this.generateMap();
+    this.generateMap(center_id,vaccine_id);
   }
 
-  async generateMap() {
+  async generateMap(center_id:any, vaccine_id:any) {
     // debugger;
     var centers = await this.scheduleRestService.getAllCenters();
+    await this.scheduleRestService.getVaccinesByCenterId(center_id);
+    setTimeout(()=>{
+      this.CreateForm.controls['center_id'].setValue(center_id);
+      this.CreateForm.controls['vaccine_id'].setValue(vaccine_id);
+    },200)
     console.log('Data:', centers);
     const vectorSource = new VectorSource({});
 
@@ -137,13 +152,15 @@ export class ManangeUsersRequestsComponent implements OnInit {
     });
     map.addOverlay(popup);
     // display popup on click
-    map.on('click',  (evt) => {
+    map.on('click', (evt) => {
       const feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
         return feature;
       });
       if (feature) {
-        this.CreateForm.controls['center_id'].setValue((<any>feature).get('id'));
-      } 
+        this.CreateForm.controls['center_id'].setValue(
+          (<any>feature).get('id')
+        );
+      }
     });
 
     // display popup on hover
@@ -152,8 +169,8 @@ export class ManangeUsersRequestsComponent implements OnInit {
         return feature;
       });
       if (feature) {
-        console.log('evt.coordinate',evt.coordinate)
-        popup.setPosition([evt.coordinate[0],evt.coordinate[1]+0.05]);
+        console.log('evt.coordinate', evt.coordinate);
+        popup.setPosition([evt.coordinate[0], evt.coordinate[1] + 0.05]);
         (<any>$(element)).popover({
           placement: 'top',
           html: true,
@@ -167,17 +184,47 @@ export class ManangeUsersRequestsComponent implements OnInit {
       // const pixel = map.getEventPixel(evt.originalEvent);
       // const hit = map.hasFeatureAtPixel(pixel);
       // (<any>map.getTarget()).style.cursor = hit ? 'pointer' : '';
-     
     });
     // Close the popup when the map is moved
     map.on('movestart', function () {
       (<any>$(element)).popover('dispose');
     });
   }
-  
-  async removeRequest(requestId: number){
+
+  async handleHealthCenterchange() {
+    // debugger
+    var filterdVaccines = await this.scheduleRestService.getVaccinesByCenterId(
+      Number(this.CreateForm.controls['center_id'].value)
+    );
+    // debugger
+    if (filterdVaccines.length > 0) {
+      this.CreateForm.controls['vaccine_id'].enable();
+    } else {
+      this.CreateForm.controls['vaccine_id'].disable();
+    }
+  }
+  doseGenerator(check:string){
+    if (check == 'No') {
+      return 'First';
+    }
+    else if (check == 'First') {
+      return 'Second';      
+    }
+    else if (check == 'Second') {
+      return '3rd';      
+    }
+    else if (check == '3rd') {
+      return '';      
+    }
+    else{
+      return '';      
+    }
+  }
+  async removeRequest(requestId: number) {
     // debugger;
-    this.usersRequests = await this.scheduleRestService.deleteUserRequestById(requestId);
+    this.usersRequests = await this.scheduleRestService.deleteUserRequestById(
+      requestId
+    );
     // this.getAllUsersRequests(); // To refresh the table
   }
 }

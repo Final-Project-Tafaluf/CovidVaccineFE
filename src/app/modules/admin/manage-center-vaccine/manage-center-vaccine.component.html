@@ -66,20 +66,26 @@
 
                 <ng-template #callUpdateDialog>
                   <form [formGroup]="UpdateForm">
-                    <ul>
-                      <li>
-                        <mat-form-field class="example-full-width" appearance="fill">
+                    <div class="row width_update">      
+                        <mat-form-field class="col-md-12" appearance="fill">
                           <mat-label># Of Vaccine</mat-label>
-                          <input type="number" matInput formControlName="number_Of_Vaccine"
-                          [(ngModel)]="health.number_Of_Vaccine">
-                        </mat-form-field> </li>
-                        <li>
-                          <mat-form-field class="example-full-width" appearance="fill">
+                          <input type="number" matInput formControlName="number_Of_Vaccine">
+                          <mat-error
+                          *ngIf="CreateForm.controls['number_Of_Vaccine'].hasError('required')">
+                          Number Of vaccine is <strong>required</strong>
+                        </mat-error>
+                        </mat-form-field>
+                        
+                          <mat-form-field class="col-md-12" appearance="fill" >
                             <mat-label>Expire Date</mat-label>
-                            <input type="date" matInput formControlName="expire_Date"
-                            [(ngModel)]="health.expire_Date">
-                          </mat-form-field>
-                        </li>
+                            <input matInput [matDatepicker]="picker" formControlName="expire_Date">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                            <mat-error *ngIf="UpdateForm.controls['expire_Date'].hasError('required')">
+                              Expire date is <strong>Required</strong>
+                            </mat-error>
+                           </mat-form-field>
+                        
                         <!-- <li>
                           <mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Center Id</mat-label>
@@ -94,15 +100,15 @@
                             [(ngModel)]="health.vaccine_Id">
                           </mat-form-field>
                         </li> -->
-                    </ul>
-                    <button mat-button [mat-dialog-close]="true" (click)="update()">Update</button>
+                      </div>
+                    <button [disabled]="!UpdateForm.valid" mat-button [mat-dialog-close]="true" (click)="update()">Update</button>
                   </form>
                 </ng-template>
 
 
 
   <ng-template #callDeleteDialog>
-      <h2>Are you sure you want to delete this item?</h2>
+      <h6>Are you sure you want to delete this item?</h6>
       <mat-dialog-actions align="end">
         <button mat-button mat-dialog-close="no">No</button>
         <button mat-button mat-dialog-close="yes">Yes</button>
@@ -122,32 +128,52 @@
     <form [formGroup]="CreateForm" class="example-form">
       <ul>
         <li>
-          <mat-form-field class="example-full-width" appearance="fill">
+          <mat-form-field class="col-md-12" appearance="fill">
             <mat-label>Number Of Vaccine</mat-label>
             <input type="number" matInput formControlName="number_Of_Vaccine" placeholder="Number Of Vaccine">
+            <mat-error
+            *ngIf="CreateForm.controls['number_Of_Vaccine'].hasError('required')">
+            Number Of vaccine is <strong>required</strong>
+          </mat-error>
           </mat-form-field>
         </li>
         <li>
-          <mat-form-field class="example-full-width" appearance="fill">
+          <mat-form-field class="col-md-12" appearance="fill">
             <mat-label>Expire Date</mat-label>
             <input type="date" matInput formControlName="expire_Date" placeholder="Expire Date">
+            <mat-error
+            *ngIf="CreateForm.controls['expire_Date'].hasError('required')">
+            Expire date is <strong>required</strong>
+          </mat-error>
           </mat-form-field>
         </li>
 
         <div>
-          <select id="centers" formControlName="center_Id">
-            <option  [ngValue]="center.id" *ngFor="let center of manageHealthCenterRestService.data">
-              {{center.center_Name}}
-            </option>
-          </select>
+          <mat-form-field class="col-md-12" appearance="fill">
+            <mat-label>Health Center</mat-label>
+            <select matNativeControl formControlName="center_Id">
+                <!-- <option value="Default">Default</option> -->
+                <option *ngFor="let center of manageHealthCenterRestService.data"
+                    [value]="center.id">{{center.center_Name}}</option>
+            </select>
+            <mat-error
+                *ngIf="CreateForm.controls['center_Id'].hasError('required')">
+                Health center is <strong>required</strong></mat-error>
+        </mat-form-field>
         </div>
 
         <div>
-          <select id="vaccines" formControlName="vaccine_Id">
-            <option [ngValue]="vac.id" *ngFor="let vac of manageVaccineRestService.data">
-              {{vac.vaccine_Type}}
-            </option>
-          </select>
+          <mat-form-field class="col-md-12" appearance="fill">
+            <mat-label>VaccineType</mat-label>
+            <select matNativeControl formControlName="vaccine_Id">
+                <!-- <option value="Default">Default</option> -->
+                <option *ngFor="let vac of manageVaccineRestService.data"
+                    [value]="vac.id">{{vac.vaccine_Type}}</option>
+            </select>
+            <mat-error
+                *ngIf="CreateForm.controls['vaccine_Id'].hasError('required')">
+                Vaccine type is <strong>required</strong></mat-error>
+        </mat-form-field>
         </div>
 
       </ul>

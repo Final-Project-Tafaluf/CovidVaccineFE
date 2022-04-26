@@ -43,7 +43,7 @@ getAllUser(){
     this.data=res;
     // debugger
     this.spinner.hide();
-    this.toastr.success('Data Retrieved !!')
+    // this.toastr.success('Data Retrieved !!')
   }, err=>{
     //hide spinner
     this.spinner.hide();
