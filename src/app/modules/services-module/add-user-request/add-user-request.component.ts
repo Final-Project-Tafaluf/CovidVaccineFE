@@ -20,7 +20,9 @@ import { ScheduleRestService } from 'src/app/Services/rest/schedule-rest.service
 export class AddUserRequestComponent implements OnInit {
   CreateForm: FormGroup = new FormGroup({
     center_id: new FormControl('', [Validators.required]),
-    vaccine_id: new FormControl('', [Validators.required]),
+    vaccine_id: new FormControl('', 
+      Validators.required
+    ),
     // USER_ID: new FormControl("1",[Validators.required]),
     Request_date: new FormControl('', [Validators.required]),
   });
@@ -31,7 +33,7 @@ export class AddUserRequestComponent implements OnInit {
   ngOnInit(): void {
     // debugger;
     this.generateMap();
-    this.scheduleRestService.getAllVaccines();
+    // this.scheduleRestService.getAllVaccines();
   }
 
   async generateMap() {
@@ -90,11 +92,12 @@ export class AddUserRequestComponent implements OnInit {
     });
     map.addOverlay(popup);
     // display popup on click
-    map.on('click',  (evt) => {
+    map.on('click',  async (evt) => {
       const feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
         return feature;
       });
       if (feature) {
+        await this.scheduleRestService.getVaccinesByCenterId(Number((<any>feature).get('id')));
         this.CreateForm.controls['center_id'].setValue((<any>feature).get('id'));
       } 
     });
@@ -154,6 +157,17 @@ export class AddUserRequestComponent implements OnInit {
       this.vectorSource.addFeatures([iconFeature]);
     });
   }
-
+  async handleHealthCenterchange() {
+    // debugger
+    var filterdVaccines = await this.scheduleRestService.getVaccinesByCenterId(
+      Number(this.CreateForm.controls['center_id'].value)
+    );
+    // debugger
+    if (filterdVaccines.length > 0) {
+      this.CreateForm.controls['vaccine_id'].enable();
+    } else {
+      this.CreateForm.controls['vaccine_id'].disable();
+    }
+  }
   sendRequest() {}
 }

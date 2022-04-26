@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     private router: Router,
     public auth: AuthService,
-    public home: HomeService,
+    // public home: HomeService,
     private localStorageService: LocalStorageService,
     private langService: LangService
   ) {}
@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
   langBoolean = false;
 
   ngOnInit(): void {
-    this.home.getHome();
+    // this.home.getHome();
     this.initiatLangBtn();
   }
 

@@ -11,7 +11,8 @@
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a routerLink="/home"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item active"><a routerLink="/admin/dashboard">{{'dashboard' | translate}}</a></li>
+                            <li class="breadcrumb-item active"><a routerLink="/admin/dashboard">{{'dashboard' |
+                                    translate}}</a></li>
                             <li class="breadcrumb-item active">{{'manageContactUs' | translate}}</li>
                         </ul>
                     </div>
@@ -35,133 +36,127 @@
         <div class="row">
 
 
-<div class="col-md-12">
-    <div class="card table-card">
-        <div class="card-header">
-            <h5>{{'contactUsFormMessages'|translate}}</h5>
-            <div class="card-header-right">
-                <div class="btn-group card-option">
-                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="feather icon-more-horizontal"></i>
-                    </button>
-                    <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                        <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
-                        <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
-                        <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
-                        <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
-                    </ul>
-                    <!-- <button type="button" class="btn  btn-primary" (click)="create()" >Create</button> -->
-                </div>
-
-            </div>
-        </div>
-        <div class="card-body p-0">
-            <div class="table-responsive">
-                <table class="table table-hover mb-0">
-                    <thead>
-                        <tr>
-
-                            <th>{{'name'|translate}}</th>
-                            <th>{{'subject'|translate}}</th>
-                            <th>{{'message'|translate}}</th>
-                            <th>{{'email'|translate}}</th>
-                            <th>{{'phone'|translate}}</th>
-                            <th>{{'testimonial'|translate}}</th>
-                            <th>{{'operation'|translate}}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let cont of contactUsRestService.data" >
-                            <td>{{cont.name}}</td>
-                            <td>{{cont.subject}}</td>
-                            <td>{{cont.msg}}</td>
-                            <td>{{cont.email}} </td>
-                            <td>{{cont.phone_Number}}</td>
-                            <td>{{cont.testimonial | yesNo }}</td>
-                            <td>
-                <button type="button" class="btn  btn-danger" (click)="openDeleteDailog(cont.id)">Delete</button>
-                <button type="button" class="btn  btn-secondary" (click)="openTestimonialDailog(
+            <div class="col-md-12">
+                <div class="card table-card">
+                    <div class="card-header">
+                        <h5>{{'contactUsFormMessages'|translate}}</h5>
+                        <div class="card-header-right">
+                            <div class="btn-group card-option">
+                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <i class="feather icon-more-horizontal"></i>
+                                </button>
+                                <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                                    <li class="dropdown-item full-card"><a href="#!"><span><i
+                                                    class="feather icon-maximize"></i> maximize</span><span
+                                                style="display:none"><i class="feather icon-minimize"></i>
+                                                Restore</span></a></li>
+                                    <li class="dropdown-item minimize-card"><a href="#!"><span><i
+                                                    class="feather icon-minus"></i> collapse</span><span
+                                                style="display:none"><i class="feather icon-plus"></i> expand</span></a>
+                                    </li>
+                                    <li class="dropdown-item reload-card"><a href="#!"><i
+                                                class="feather icon-refresh-cw"></i> reload</a></li>
+                                    <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i>
+                                            remove</a></li>
+                                </ul>
+                                <!-- <button type="button" class="btn  btn-primary" (click)="create()" >Create</button> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>{{'name'|translate}}</th>
+                                        <th>{{'subject'|translate}}</th>
+                                        <th>{{'message'|translate}}</th>
+                                        <th>{{'email'|translate}}</th>
+                                        <th>{{'phone'|translate}}</th>
+                                        <th>{{'testimonial'|translate}}</th>
+                                        <th>{{'operation'|translate}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let cont of contactUsRestService.data">
+                                        <td>{{cont.name}}</td>
+                                        <td>{{cont.subject}}</td>
+                                        <td>{{cont.msg}}</td>
+                                        <td>{{cont.email}} </td>
+                                        <td>{{cont.phone_Number}}</td>
+                                        <td>{{cont.testimonial | yesNo }}</td>
+                                        <td>
+                                            <button type="button" class="btn  btn-danger"
+                                                (click)="openDeleteDailog(cont.id)">Delete</button>
+                                            <button type="button" class="btn  btn-secondary" (click)="openTestimonialDailog(
                 cont.id,cont.testimonial,cont.subject,cont.msg)">testimonial </button>
-                <button type="button" class="btn  btn-info" (click)="openDetailsDailog(cont.msg,cont.email)"> Details </button>
+                                            <button type="button" class="btn  btn-info"
+                                                (click)="openDetailsDailog(cont.msg,cont.email)"> Details </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <ng-template #callTestimonialDailog>
+                                <form [formGroup]="TestimonialForm">
+                                    <h6>Are you sure you want to Add Testimonial ?</h6>
+                                    <div class="row">
+                                    <mat-form-field class="col-md-12" appearance="fill">
+                                        <mat-label>Subject</mat-label>
+                                        <input type="text" matInput formControlName="subject"
+                                            [(ngModel)]="center.subject">
+                                    </mat-form-field>
 
-                            </td>
-                        </tr>
-
-                    </tbody>
-                    
-                </table>
-                <ng-template #callTestimonialDailog>
-                    <form [formGroup]="TestimonialForm">
-                        <h2>Are you sure you want to Add Testimonial ?</h2>
-                        <ul>
-                            <li>
-                                
-
-                                              <li>
-                                                <mat-form-field class="example-full-width" appearance="fill">
-                                                    <mat-label>Subject</mat-label>
-                                                    <input [readonly]="true" type="text" matInput formControlName="subject"
-                                                     [(ngModel)]="center.subject">
-                                                  </mat-form-field> </li>
-                                                  
-                                                  <li>
-                                                    <mat-form-field class="example-full-width" appearance="fill">
-                                                        <mat-label>MSG</mat-label>
-                                                        <textarea row="8" [readonly]="true" type="text" matInput formControlName="msg"
-                                                         [(ngModel)]="center.msg">
-                                                        </textarea>
-                                                      </mat-form-field> </li>
-                                                     
-                                                   
-
-                        </ul>
-                       
-                        
-                        <button mat-button mat-dialog-close="no">No</button>
-                        <button mat-button mat-dialog-close="yes">Yes</button>
-
-                    </form>
-
-
-
-                    </ng-template>
-
-                    <ng-template #callDeleteDailog>
-
-                    <h2>Are you sure you want to delete this item?</h2>
-                    <mat-dialog-actions align="end">
-                    <button mat-button mat-dialog-close="no">No</button>
-                    <button mat-button mat-dialog-close="yes">Yes</button>
-                    </mat-dialog-actions>
-                    </ng-template>
-
-                    <!-- ////////////////////////////Details//////////////////////// -->
-                    <ng-template #callDetailsDailog>
-                        <form [formGroup]="Detail">
-                            <ul>
-                       
-                              <li>
-                                <mat-form-field class="example-full-width" appearance="fill">
-                                    <mat-label>Email</mat-label>
-                                    <input type="text" [readonly]="true"  matInput formControlName="email" 
-                                     [(ngModel)]="center.email">
-                                  </mat-form-field> </li>
-
-                                  <li>
-                                    <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-form-field class="col-md-12" appearance="fill">
                                         <mat-label>MSG</mat-label>
-                                        <textarea row="8" [readonly]="true" type="text" matInput formControlName="msg"
-                                         [(ngModel)]="center.msg">
-                                        </textarea>
-                                      </mat-form-field> </li>
-                            </ul>
+                                        <textarea row="8" type="text" matInput formControlName="msg"
+                                            [(ngModel)]="center.msg">
+                                                        </textarea>
+                                    </mat-form-field>
+                                </div>
+                                    <button mat-button mat-dialog-close="no">No</button>
+                                    <button mat-button mat-dialog-close="yes">Yes</button>                                
+                                </form>
+                            </ng-template>
 
-                        </form>
-                        </ng-template>
+                            <ng-template #callDeleteDailog>
+
+                                <h6>Are you sure you want to delete this item?</h6>
+                                <mat-dialog-actions align="end">
+                                    <button mat-button mat-dialog-close="no">No</button>
+                                    <button mat-button mat-dialog-close="yes">Yes</button>
+                                </mat-dialog-actions>
+                            </ng-template>
+
+                            <!-- ////////////////////////////Details//////////////////////// -->
+                            <ng-template #callDetailsDailog>
+                                <form [formGroup]="Detail">
+                                    <ul>
+
+                                        <li>
+                                            <mat-form-field class="example-full-width" appearance="fill">
+                                                <mat-label>Email</mat-label>
+                                                <input type="text" [readonly]="true" matInput formControlName="email"
+                                                    [(ngModel)]="center.email">
+                                            </mat-form-field>
+                                        </li>
+
+                                        <li>
+                                            <mat-form-field class="example-full-width" appearance="fill">
+                                                <mat-label>MSG</mat-label>
+                                                <textarea row="8" [readonly]="true" type="text" matInput
+                                                    formControlName="msg" [(ngModel)]="center.msg">
+                                        </textarea>
+                                            </mat-form-field>
+                                        </li>
+                                    </ul>
+
+                                </form>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
 
         </div>
         <!-- [ Main Content ] end -->

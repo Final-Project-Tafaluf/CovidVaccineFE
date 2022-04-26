@@ -91,7 +91,7 @@
                                     <th>{{'vaccinetype'|translate}}</th>
                                     <th>{{'actions'|translate}}</th>
                                 </tr>
-                                <tr *ngFor="let userRequest of usersRequests">
+                                <tr *ngFor="let userRequest of this.scheduleRestService.allRequestsData">
                                     <td>{{userRequest.id}}</td>
                                     <td>{{userRequest.first_Name}} {{userRequest.last_Name}}</td>
                                     <td>{{userRequest.center_name}}</td>
@@ -122,20 +122,10 @@
                                     </div>
                                     <form [formGroup]="CreateForm" class="form-contant_mod">
                                         <div class="row">
-                                            <mat-form-field class="col-md-12" appearance="fill">
-                                                <mat-label>Vaccine type</mat-label>
-                                                <select matNativeControl formControlName="vaccine_id">
-                                                    <!-- <option value="Default">Default</option> -->
-                                                    <option *ngFor="let vaccine of scheduleRestService.vaccinesData"
-                                                        [value]="vaccine.id">{{vaccine.vaccine_Type}}</option>
-                                                </select>
-                                                <mat-error
-                                                    *ngIf="CreateForm.controls['vaccine_id'].hasError('required')">
-                                                    Vaccine type is <strong>required</strong></mat-error>
-                                            </mat-form-field>
+
                                             <mat-form-field class="col-md-12" appearance="fill">
                                                 <mat-label>Health center</mat-label>
-                                                <select matNativeControl formControlName="center_id">
+                                                <select matNativeControl formControlName="center_id" (change)="handleHealthCenterchange()">
                                                     <!-- <option value="Default">Default</option> -->
                                                     <option *ngFor="let center of scheduleRestService.centersData"
                                                         [value]="center.id">{{center.center_Name}}</option>
@@ -144,53 +134,45 @@
                                                     *ngIf="CreateForm.controls['center_id'].hasError('required')">
                                                     Health center is <strong>required</strong></mat-error>
                                             </mat-form-field>
+
+                                            <mat-form-field class="col-md-12" appearance="fill">
+                                                <mat-label>Vaccine type</mat-label>
+                                                <select matNativeControl formControlName="vaccine_id">
+                                                    <!-- <option value="Default">Default</option> -->
+                                                    <option *ngFor="let vaccine of scheduleRestService.vaccinesData"
+                                                        [value]="vaccine.vaccine_Id">{{vaccine.vaccine_Type}}</option>
+                                                </select>
+                                                <mat-error
+                                                    *ngIf="CreateForm.controls['vaccine_id'].hasError('required')">
+                                                    Vaccine type is <strong>required</strong></mat-error>
+                                            </mat-form-field>
+
                                             <mat-form-field class="col-md-12" appearance="fill">
                                                 <mat-label>Dose</mat-label>
-                                                <select matNativeControl formControlName="dose">
-                                                    <!-- <option value="Default">Default</option> -->
-                                                    <option value="First">First</option>
-                                                    <option value="Second">Second</option>
-                                                    <option value="3rd">3rd</option>
-                                                </select>
+                                                <input readonly="true" matInput formControlName="dose"/>
                                                 <mat-error
                                                     *ngIf="CreateForm.controls['dose'].hasError('required')">
                                                     Dose is <strong>required</strong></mat-error>
                                             </mat-form-field>
 
-                                            <!-- <mat-form-field class="col-md-12" appearance="fill">
-                                <input type="text"  matInput formControlName="REQUEST_DATE" placeholder="REQUEST_DATE">
-                                <mat-error *ngIf="CreateForm.controls['REQUEST_DATE'].hasError('required')">
-                                  Name is <strong>required</strong>
-                                 </mat-error>
-                            </mat-form-field> -->
-
                                             <mat-form-field appearance="fill">
                                                 <mat-label>Start date</mat-label>
-                                                <input matInput [matDatepicker]="picker" formControlName="start_Time">
-                                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                                <mat-datepicker #picker></mat-datepicker>
+                                                <input matInput [matDatepicker]="picker1" formControlName="start_Time">
+                                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                                <mat-datepicker #picker1></mat-datepicker>
                                             </mat-form-field>
 
                                             <mat-form-field appearance="fill">
                                                 <mat-label>End a date</mat-label>
-                                                <input matInput [matDatepicker]="picker" formControlName="end_Time">
-                                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                                <mat-datepicker #picker></mat-datepicker>
+                                                <input matInput [matDatepicker]="picker2" formControlName="end_Time">
+                                                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                                <mat-datepicker #picker2></mat-datepicker>
                                             </mat-form-field>
 
-                                            <!-- <mat-form-field class="example-full-width" appearance="fill" hidden="true">
-                                <input type="text"  matInput formControlName="USER_ID" placeholder="USER_ID">
-                                <mat-error *ngIf="CreateForm.controls['USER_ID'].hasError('required')">
-                                  Name is <strong>required</strong>
-                                 </mat-error>
-                            </mat-form-field> -->
                                             <div class="actions">
                                               <button mat-button mat-dialog-close>Cancel</button>
-
-                                                <button [disabled]="!CreateForm.valid" mat-button
-                                                    (click)="scheduleRestService.createSchedule(CreateForm.value)"
-                                                    cdkFocusInitial value="Send Message" name="submit" class="">Add
-                                                    schedule</button>
+                                                <button [disabled]="((!CreateForm.valid) || (scheduleRestService.vaccinesData.length==0))" mat-button
+                                                (click)="scheduleRestService.createSchedule(CreateForm.value,true)" cdkFocusInitial value="Send Message" name="submit" class="">Add schedule</button>
                                             </div>
                                         </div>
                                     </form>

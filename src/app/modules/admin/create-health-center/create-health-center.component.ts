@@ -72,6 +72,7 @@ async generateCreateMap() {
           anchorXUnits: 'fraction',
           anchorYUnits: 'pixels',
           src: '../../../../assets/life_care/images/icon-logo.png',
+          scale:[0.5,0.5],
         }),
       });
       this.CreateForm.controls['center_Location'].setValue(`${coordinates[0]},${coordinates[1]}`);
@@ -97,6 +98,7 @@ changeIconLocation(){
       anchorXUnits: 'fraction',
       anchorYUnits: 'pixels',
       src: '../../../../assets/life_care/images/icon-logo.png',
+      scale:[0.5,0.5],
     }),
   });
   iconFeature.setStyle(iconStyle);

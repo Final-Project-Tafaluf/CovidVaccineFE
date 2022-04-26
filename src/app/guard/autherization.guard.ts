@@ -16,7 +16,7 @@ export class AutherizationGuard implements CanActivate {
       if (token) {
         console.log(state);
         // /admin/dashboard
-        debugger
+        // debugger
         if (state.url.indexOf('admin') >= 0) {
           let user: any = this.localStorageService.tokenDecode(token);
           if (user) {
