@@ -17,8 +17,13 @@ export class ScheduleRestService {
   requestsData: any;
   userScheduleData: any;
   routeCoordinatesArray: any;
+
   checkLastUserTakenDoseString:any;
   allSchedulesData :any ={};
+
+
+  data :any ={};
+
   constructor(
     private dialog:MatDialog,
     public spinner: NgxSpinnerService,
@@ -388,6 +393,7 @@ export class ScheduleRestService {
   async getRouteCoordinates(fromArr: any, editArr: any) {
     // this.spinner.show();
     //debugger;
+
     return await $.get(
       `https://us1.locationiq.com/v1/directions/driving/${fromArr[1]},${fromArr[0]};${editArr[0]},${editArr[1]}?key=pk.8ed022a2e40a8df617a811d51b16d089&geometries=geojson&overview=full`,
       function (data, status) {
@@ -395,5 +401,24 @@ export class ScheduleRestService {
         return data.routes[0].geometry.coordinates;
       }
     );
+  }
+    SearchUserRequest(data:any,dateFrom:any,dateTo:any){
+      //show spinner
+      this.spinner.show();
+      //hits api
+      // debugger;
+      this.http.get('https://localhost:44327/api/UserRequest/SearchUserRequest/'+data+'/'+dateFrom+'/'+dateTo).subscribe((res)=>{
+        this.data=res;
+        // debugger
+  
+        this.spinner.hide();
+        this.toaster.success('Data Retieved !!')
+      }, err=>{
+        //hide spinner
+        this.spinner.hide();
+         //Toastr
+        this.toaster.error(err.message);
+        this.toaster.error(err.status);
+      })
   }
 }

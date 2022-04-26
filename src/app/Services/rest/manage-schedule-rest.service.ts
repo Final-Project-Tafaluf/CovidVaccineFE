@@ -91,12 +91,12 @@ export class ManageScheduleRestService {
     })
   }
 
-  searchBetweenTwoDates(dateFrom:any,dateTo:any){
+  SchedualSearch(data:any,dateFrom:any,dateTo:any){
     //show spinner
     this.spinner.show();
     //hits api
     // debugger;
-    this.http.get('https://localhost:44327/api/Schedual/SearchBetweenTwoDates/'+dateFrom+'/'+dateTo).subscribe((res)=>{
+    this.http.get('https://localhost:44327/api/Schedual/SchedualSearch/'+data+'/'+dateFrom+'/'+dateTo).subscribe((res)=>{
       this.data=res;
       // debugger
       console.log(this.data);

@@ -16,6 +16,7 @@ export class ManageCenterVaccineComponent implements OnInit {
   @ViewChild('callUpdateDialog') callUpdateDialog! :TemplateRef<any>
   @ViewChild('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
 
+  info:any = ''
 
   CreateForm:FormGroup=new FormGroup({
     number_Of_Vaccine: new FormControl('', [Validators.required]),
@@ -94,6 +95,14 @@ export class ManageCenterVaccineComponent implements OnInit {
         }
       }
     )
+  }
+
+  inputValue(ev:any){
+    this.info=ev.target.value;
+  }
+  search(){
+
+    this.centerVaccineRestService.searchCenterVaccine(this.info);
   }
 
 
