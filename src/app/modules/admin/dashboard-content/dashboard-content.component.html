@@ -27,13 +27,13 @@
                   <mat-option value="Annual">Annual</mat-option>
                 </mat-select>
               </mat-form-field>
-            <button type="button" class="btn  btn-success">XCEL</button>
-            <button type="button" class="btn  btn-danger">PDF</button>
+            <button type="button" (click)="ExportTOExcel()" class="btn  btn-success">XCEL</button>
+            <button type="button" (click)="openPDF()" class="btn  btn-danger">PDF</button>
             
         </div>
-
-        <div class="row">
-            <div class="col-md-12 col-xl-4">
+        
+        <div class="row"  #Excel>
+            <div class="col-md-12 col-xl-4" id="htmlData">
                 <div class="card flat-card">
                     <div class="row-table">
                         <div class="col-sm-6 card-body br">
@@ -99,7 +99,7 @@
                 </div>
 
             </div>
-            <div class="col-md-12 col-xl-4">
+            <div class="col-md-12 col-xl-4" >
                 <div class="card flat-card">
                     <div class="row-table">
                         <div class="col-sm-6 card-body br">
