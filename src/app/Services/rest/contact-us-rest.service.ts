@@ -37,7 +37,7 @@ export class ContactUsRestService {
       // debugger
       this.data=res;
       this.spinner.hide();
-      this.toastr.success('Data Retrieved !!')
+      // this.toastr.success('Data Retrieved !!');
     }, err=>{
       //hide spinner
       this.spinner.hide();
@@ -48,7 +48,9 @@ export class ContactUsRestService {
   }
 
   updatebytestimonial(body:any){
+    // debugger;
     this.http.put('https://localhost:44327/api/ContactUs/update_CONTACT_feedback/',body).subscribe((res)=>{
+      // debugger
       this.toastr.success('updated succefully')
       this.getAllContact();
     }, err=>{
@@ -90,7 +92,7 @@ export class ContactUsRestService {
       // debugger
       this.data=res;
       this.spinner.hide();
-      this.toastr.success('Data Retrieved !!')
+      // this.toastr.success('Data Retrieved !!')
     }, err=>{
       //hide spinner
       this.spinner.hide();
@@ -99,5 +101,17 @@ export class ContactUsRestService {
       this.toastr.error(err.status);
     })
   }
+
+  searchContact(data:any)
+{
+  // debugger
+  this.http.get('https://localhost:44327/api/ContactUs/SearchContact/'+data)
+  .subscribe((res)=>{
+    this.data=res;
+    // debugger
+  },err=>{
+    this.toastr.error('something error');
+  })
+}
 
 }

@@ -66,3 +66,44 @@ button.btn.btn-primary {
 .mat-dialog-container{
     padding: 0 !important;
 }
+.btn-primary_mod{
+    width: 53px;
+}
+.for_margin{
+    margin-bottom: 10px;
+}
+
+.pcoded-main-container_mod {
+    margin-left: 69px !important;
+}
+
+.btn {
+    padding: 4px;
+    font-size: 12px;
+     transition: none !important;
+    transform: none !important;
+    animation: none;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+    
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #159a80;
+    border-color: #148f77;
+    
+}
+.form-control {
+    width: 150%;
+}
+.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    margin-left: 105px !important;
+}
+
+.col-md-12{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}

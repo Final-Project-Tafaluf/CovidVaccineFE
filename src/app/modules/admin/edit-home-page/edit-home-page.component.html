@@ -130,31 +130,33 @@
   <mat-dialog-content>
 
   <form [formGroup]="homeElement" style="width:700px">
-      <div class="container">
+      <div class="container">  
         <div class="row ">
           <input type="file" #file placeholder="Choose Image"
           formControlName="header_Logo" [(ngModel)]="element.header_Logo" (change)="uploadFile(file.files)"
           style="display: none;">
           <button (click)="file.click()" class="btn btn-success" style="margin: 5px;">Header logo</button>
-
+        </div>
+        <div class="row ">
           <input type="file" #file1 placeholder="Choose Image"
           formControlName="home_Image" [(ngModel)]="element.home_Image" (change)="uploadFile2(file1.files)"
           style="display: none;">
           <button (click)="file1.click()" class="btn btn-success" style="margin: 5px;">Home Image</button>
-        </div>
-
+        </div>  
         <div class="row">
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>About Us</mat-label>
-            <input type="text" matInput formControlName="about_Text"style="margin: 5px;"
+            <input  matInput formControlName="about_Text"style="margin: 5px;"
             [(ngModel)]="element.about_Text">
           </mat-form-field>
-
+        </div>
+        <div class="row">
           <input type="file" #filea placeholder="Choose Image"
           formControlName="about_Image" [(ngModel)]="element.about_Image" (change)="uploadAbout(filea.files)"
           style="display: none;">
           <button (click)="filea.click()" class="btn btn-success" style="margin: 5px;">About Image</button>
-
+        </div>
+        <div class="row">
           <input type="file" #file3 placeholder="Choose Image"
           formControlName="contact_Image" [(ngModel)]="element.contact_Image" (change)="uploadContact(file3.files)"
           style="display: none;">
@@ -166,7 +168,8 @@
             <input type="text" matInput formControlName="news_Textone" style="margin: 5px;"
             [(ngModel)]="element.news_Textone">
           </mat-form-field>
-
+        </div>
+        <div class="row">
           <input type="file" #file4 placeholder="Choose Image"
           formControlName="news_Imageone" [(ngModel)]="element.news_Imageone" (change)="upload1(file4.files)"
           style="display: none;">
@@ -178,7 +181,8 @@
             <input type="text" matInput formControlName="news_Texttwo" style="margin: 5px;"
             [(ngModel)]="element.news_Texttwo">
           </mat-form-field>
-
+        </div>
+        <div class="row">
           <input type="file" #file5 placeholder="Choose Image"
           formControlName="news_Imagetwo" [(ngModel)]="element.news_Imagetwo" (change)="upload2(file5.files)"
           style="display: none;">
@@ -190,7 +194,8 @@
             <input type="text" matInput formControlName="news_Textthree" style="margin: 5px;"
             [(ngModel)]="element.news_Textthree">
           </mat-form-field>
-
+        </div>
+          <div class="row">
           <input type="file" #file6 placeholder="Choose Image"
           formControlName="news_Imagethree" [(ngModel)]="element.news_Imagethree" (change)="upload3(file6.files)"
           style="display: none;">

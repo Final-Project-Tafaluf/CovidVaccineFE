@@ -15,6 +15,7 @@ export class ManageContactUsComponent implements OnInit {
   constructor(private dialog:MatDialog, public contactUsRestService:ContactUsRestService ) { }
 
   center:any={};
+  info:any = ''
 
   TestimonialForm:FormGroup=new FormGroup({
     id: new FormControl("",[Validators.required]),
@@ -36,8 +37,12 @@ export class ManageContactUsComponent implements OnInit {
     this.dialog.open(this.callDetailsDailog);
   }
   Detail:FormGroup=new FormGroup({
-    msg:new FormControl({value: '', disabled: true}),
-    email:new FormControl({value: '', disabled: true}),
+    msg:new FormControl({value: ''
+    // ,disabled: true
+    }),
+    email:new FormControl({value: ''
+    // , disabled: true
+  }),
     
   })
 
@@ -97,5 +102,14 @@ export class ManageContactUsComponent implements OnInit {
       }
     })
   }
+
+  inputValue(ev:any){
+    this.info=ev.target.value;
+  }
+  search(){
+
+    this.contactUsRestService.searchContact(this.info);
+  }
+
 
 }

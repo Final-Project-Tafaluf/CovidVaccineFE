@@ -12,7 +12,6 @@ export class DashboardManageUsersComponent implements OnInit {
   @ViewChild('callCreateDialog') callCreateDialog! :TemplateRef<any>
   @ViewChild('callUpdateDialog') callUpdateDialog! :TemplateRef<any>
   @ViewChild('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
-  @ViewChild('callDeleteDialog') callDetailsDialog! :TemplateRef<any>
 
   userProfile:any={}
   userInfo:any={}
@@ -103,6 +102,7 @@ export class DashboardManageUsersComponent implements OnInit {
     this.UpdateForm.controls['email'].setValue(this.userProfile.email)
     this.UpdateForm.controls['username'].setValue(this.userProfile.username)
     this.UpdateForm.controls['role_Id'].setValue(this.userProfile.role_Id)
+    this.UpdateForm.controls['birthdate'].setValue(this.userProfile.birthdate)
     this.dialog.open(this.callUpdateDialog,{
       panelClass: 'dialog-container-custom'
     });

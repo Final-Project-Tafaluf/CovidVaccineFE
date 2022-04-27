@@ -18,10 +18,12 @@
                 </div>
             </div>
         </div>
-
+        
+        <h6><i class="fas fa-filter"></i> Filtering</h6>
         <div class="input-group for_margin">
           <div class="form-outline">
-            <input id="search-focus" placeholder="User..."  type="text" id="form1" class="form-control"
+            
+            <input id="search-focus" placeholder="Name,SSN,Address,Gender..."  type="text" id="form1" class="form-control"
             [value] ="info" (change)="inputValue($event)" />
           </div>
           <button type="button" (click)="search()" class="btn btn-primary btn-primary_mod">
@@ -163,9 +165,11 @@
 
           <div class="row">
 
-            <mat-form-field class=" col-6" appearance="fill">
-              <mat-label for="birthdate">Birthdate</mat-label>
-              <input type="date" id="birthdate" matInput formControlName="birthdate">
+            <mat-form-field appearance="fill">
+              <mat-label>Birthdate</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="birthdate">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
             <div class="input_field radio_option col-6" style="margin-top: 15px;">
@@ -347,11 +351,15 @@
                       <h6 class="mb-0">Birthdate</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="date" class="form-control" value="22/2/2022" matInput formControlName="birthdate"
-                        [(ngModel)]="userProfile.birthdate">
-                      <mat-error *ngIf="UpdateForm.controls['birthdate'].hasError('required')">
-                        Birthdate is <strong>Required</strong>
-                      </mat-error>
+                      <mat-form-field appearance="fill" >
+                        <!-- <mat-label>Birthdate</mat-label> -->
+                        <input matInput [matDatepicker]="picker" formControlName="birthdate">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error *ngIf="UpdateForm.controls['birthdate'].hasError('required')">
+                          Birthdate is <strong>Required</strong>
+                        </mat-error>
+                       </mat-form-field>
                     </div>
                   </div>
 
@@ -381,16 +389,6 @@
                     </div>
                   </div>
 
-                  <!-- <div class="row mb-3">
-                              <div class="col-sm-3">
-                                  <h6 class="mb-0">Email</h6>
-                              </div>
-                              <div class="col-sm-9 text-secondary">
-                                  <input type="email" class="form-control" value="example@domain.com" matInput formControlName="email"
-                                  [(ngModel)]="userProfile.email" [readonly]="true">
-                              </div>
-                          </div> -->
-
                   <div class="row mb-3">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Password</h6>
@@ -400,19 +398,13 @@
                         [(ngModel)]="defaultPass" placeholder="**********">
                     </div>
                   </div>
-
-                  <!-- <div class="row">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-9 text-secondary">
+                  <div class="div_btn" >
+                    <mat-dialog-actions align="end">
+                      <button mat-button mat-dialog-close="no">Cancel</button>
                       <input (click)="updateUser()" type="button" class="btn btn-primary px-4" value="Save Changes">
-                    </div>
-                  </div> -->
-
+                    </mat-dialog-actions>
+                  </div>
                 </div>
-                <mat-dialog-actions align="end">
-                  <button mat-button mat-dialog-close="no">Cancel</button>
-                  <input (click)="updateUser()" type="button" class="btn btn-primary px-4" value="Save Changes">
-                </mat-dialog-actions>
               </div>
             </div>
           </div>
@@ -428,7 +420,7 @@
   <!--------------------------------------- Delete Dialog --------------------------------------->
 
   <ng-template #callDeleteDialog>
-  <h2>Are You Sure you want to delete this item?</h2>
+  <h6>Are You Sure you want to delete this item?</h6>
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close="no">No</button>
     <button mat-button mat-dialog-close="yes" >Yes</button>

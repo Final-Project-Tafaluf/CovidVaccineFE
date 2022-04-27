@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { ScheduleRestService } from './schedule-rest.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ManageScheduleRestService {
 
-  constructor(private http:HttpClient,private spinner :NgxSpinnerService,private toastr:ToastrService) { }
+  constructor(private http:HttpClient,private spinner :NgxSpinnerService,private toastr:ToastrService,private scheduleRestService:ScheduleRestService) { }
 
   data :any ={};
   email :any ={};
@@ -52,7 +53,7 @@ export class ManageScheduleRestService {
     this.spinner.show();
     // debugger
     this.http.post('https://localhost:44327/api/Schedual/CreateSchedual/',body).subscribe((res)=>{
-// debugger
+    // debugger
       this.spinner.hide();
       this.toastr.success('saved Successfully :)');
       this.getAll();
@@ -64,12 +65,14 @@ export class ManageScheduleRestService {
   }
 
   updateSchedule(body:any){
-    // debugger
+    body.vaccine_id=Number(body.vaccine_id);
+    body.center_id=Number(body.center_id);
+    debugger
     this.http.put('https://localhost:44327/api/Schedual/UpdateSchedualAndVaccineNumber',body).subscribe(res=>
     {
-      // debugger
+      debugger
       this.toastr.success('updated Successfully');
-      this.getAll();
+      this.scheduleRestService.getAllSchedules();
 
     },err=>
     {
@@ -88,12 +91,12 @@ export class ManageScheduleRestService {
     })
   }
 
-  searchBetweenTwoDates(dateFrom:any,dateTo:any){
+  SchedualSearch(data:any,dateFrom:any,dateTo:any){
     //show spinner
     this.spinner.show();
     //hits api
     // debugger;
-    this.http.get('https://localhost:44327/api/Schedual/SearchBetweenTwoDates/'+dateFrom+'/'+dateTo).subscribe((res)=>{
+    this.http.get('https://localhost:44327/api/Schedual/SchedualSearch/'+data+'/'+dateFrom+'/'+dateTo).subscribe((res)=>{
       this.data=res;
       // debugger
       console.log(this.data);

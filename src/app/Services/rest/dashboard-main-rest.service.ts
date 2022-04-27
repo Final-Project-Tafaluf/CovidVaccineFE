@@ -37,7 +37,7 @@ getReport():any{
     this.spinner.show();
     this.http.get('https:/localhost:44327/api/Vaccine/GetallVaccines').subscribe((res)=>{
       this.vaccinesData=res;
-      this.spinner.hide();
+      // this.spinner.hide();
     }, err=>{
       this.spinner.hide();
       this.toastr.error(err.message);
@@ -49,7 +49,7 @@ getReport():any{
     this.spinner.show();
     this.http.get('https://localhost:44327/api/ContactUs/getallcontactus/').subscribe((res)=>{
       this.message=res;
-      this.spinner.hide();
+      // this.spinner.hide();
     }, err=>{
       this.spinner.hide();
       this.toastr.error(err.message);
@@ -62,8 +62,8 @@ getReport():any{
     this.http.get('https:/localhost:44327/api/CenterVaccine/GetallCenterVaccines').subscribe((res)=>{
       this.data=res;
       // debugger
-      this.spinner.hide();
-      this.toastr.success('Data Retrieved !!')
+      // this.spinner.hide();
+      // this.toastr.success('Data Retrieved !!')
     }, err=>{
       this.spinner.hide();
       this.toastr.error(err.message);

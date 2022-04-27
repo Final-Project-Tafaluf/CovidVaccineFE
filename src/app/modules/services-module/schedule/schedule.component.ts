@@ -112,7 +112,6 @@ export class ScheduleComponent implements OnInit {
   async openAllCertificatesDialog(){
     // debugger;
     this.selectedUser= await this.userProfileRestService.getUserForScheduleByID(this.userData.nameid);
-    console.log(this.userProfileRestService.selectedUser);
     this.takenDoses = this.userSchedules.filter((ele:any)=>{return ele.status == "Taken"});
     const dialogRef=this.dialog.open(this.callAllCertificatesDialog);
     // this.openPDF();

@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   isCheckedLocal = localStorage.getItem('isChecked') == 'true' ? true : false;
   isChecked = new FormControl(this.isCheckedLocal);
   user: any = {};
-
+  url = "assets/js/modelsupport.js";
   constructor(
     private spinner: NgxSpinnerService,
     private router: Router,
@@ -27,6 +27,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     console.log('this.isCheckedLocal', this.isCheckedLocal);
     console.log('this.isChecked', this.isChecked);
+    new Promise(resolve => {
+      console.log("resolving promise...");
+      this.loadScript();
+    });
   }
 
   LoginForm: FormGroup = new FormGroup({
@@ -90,5 +94,17 @@ export class LoginComponent implements OnInit {
       this.CreateForm.controls['confirm_Password'].setErrors({
         mismatch: true,
       });
+  }
+
+
+  
+  public loadScript() {
+      console.log("preparing to load...");
+      let node = document.createElement("script");
+      node.src = 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js';
+      node.type = "text/javascript";
+      node.async = true;
+      node.charset = "utf-8";
+      document.getElementsByTagName("head")[0].appendChild(node);
   }
 }

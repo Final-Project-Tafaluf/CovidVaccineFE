@@ -60,6 +60,7 @@ export const arabic = {
   centerLocation:"موقع المركز",
   centerPhone:"هاتف المركز",
   manageHealthCenterVaccine:"إدارة المركز الصحي واللقاح",
+  nOfVaccine:"عدد الجرعات",
   vaccinesData:"بيانات اللقاحات",
   siteHome:"الصفحة الرئيسية للموقع",
   mainDashboard:"لوحة القيادة الرئيسية",

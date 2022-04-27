@@ -38,7 +38,7 @@ export class DashboardContentComponent implements OnInit {
 
   async generateMap() {
     // debugger;
-    var centers = await this.scheduleRestService.getAllCenters();
+    var centers = await this.scheduleRestService.getAllCentersDashboard();
     console.log('Data:', centers);
     const vectorSource = new VectorSource({});
 
