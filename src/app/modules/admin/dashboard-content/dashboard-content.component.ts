@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DashboardMainRestService } from 'src/app/Services/rest/dashboard-main-rest.service';
 import Map from 'ol/Map';
 import View from 'ol/View';
@@ -11,6 +11,11 @@ import { Point } from 'ol/geom';
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
 import { ScheduleRestService } from 'src/app/Services/rest/schedule-rest.service';
+import { ReportRestService } from 'src/app/Services/rest/report-rest.service';
+import { LocalStorageService } from 'src/app/Services/local-storage.service';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-dashboard-content',
@@ -18,8 +23,10 @@ import { ScheduleRestService } from 'src/app/Services/rest/schedule-rest.service
   styleUrls: ['./dashboard-content.component.scss']
 })
 export class DashboardContentComponent implements OnInit {
+  @ViewChild('htmlData') htmlData!: ElementRef;
+  @ViewChild('Excel') Excel!: ElementRef; 
   selected = 'Monthly';
-  constructor(public dashboardMainRestService:DashboardMainRestService, public scheduleRestService: ScheduleRestService,) { }
+  constructor(public dashboardMainRestService:DashboardMainRestService, public scheduleRestService: ScheduleRestService,public reportRestService:ReportRestService ,private localStorageService:LocalStorageService) { }
 
   ngOnInit(): void {
     this.dashboardMainRestService.numberOfVaccien();
@@ -27,6 +34,10 @@ export class DashboardContentComponent implements OnInit {
     this.dashboardMainRestService.getReport();
     this.dashboardMainRestService.getCenter();
     this.generateMap();
+    new Promise(resolve => {
+      console.log("resolving promise...");
+      this.loadScript();
+    });
   }
 
   async generateMap() {
@@ -112,4 +123,35 @@ export class DashboardContentComponent implements OnInit {
       (<any>$(element)).popover('dispose');
     });
   }
+
+  public openPDF(): void {
+    let DATA: any = document.getElementById('htmlData');
+    html2canvas(DATA ,{ scale: 3 }).then((canvas) => {
+      const FILEURI = canvas.toDataURL('image/png');
+      let PDF = new jsPDF("landscape");
+      var width = PDF.internal.pageSize.getWidth();
+      var height = PDF.internal.pageSize.getHeight();
+      let position = 0;
+      PDF.addImage(FILEURI, 'PNG', 0, position, width, height);
+      PDF.save('angular-demo.pdf');
+    });
+  }
+
+  title = 'Excel';  
+  ExportTOExcel() {  
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(this.Excel.nativeElement);  
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();  
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');  
+    XLSX.writeFile(wb, 'ScoreSheet.xlsx');  
+  }  
+
+  public loadScript() {
+    console.log("preparing to load...");
+    let node = document.createElement("script");
+    node.src = '../../../assets/flat-able-lite-dashboard/js/pages/dashboard-main.js';
+    node.type = "text/javascript";
+    node.async = true;
+    node.charset = "utf-8";
+    document.getElementsByTagName("head")[0].appendChild(node);
+}
 }
