@@ -76,7 +76,20 @@ export const arabic = {
   centersAndResources:"المراكز والموارد",
   pages:"الصفحات",
   manageSiteElements:"إدارة عناصر الموقع",
-  
+  numberUsers:'عدد المستخدمين', 
+  numberAdmins:'عدد الأدارين',
+  numberOfCenters:'عدد مراكز التطعيم',
+  numberOfContacts:'عدد الرسائل',
+  totalUsers:'عدد المستخدمين الكلي',
+  numberOfAbsentUsers:'عدد المغيبين',
+  numberOfVaccineRequests:'عدد طلبات التطعيم',
+  firstDose:'الجرعة الأولى' ,
+  secondDose:'الجرعة الثانية' ,
+  thrdDose:'الجرعة الثالثة' ,
+  totalVaccinated:'عدد الملقحين' ,
+  totalDoses:'عدد الجرعات الكلي' ,
+  numberOfFizer:'عدد جرعات فيزار' ,
+  numberOfSinopharm:'عدد جرعات سنوفارم' ,
 
 
 

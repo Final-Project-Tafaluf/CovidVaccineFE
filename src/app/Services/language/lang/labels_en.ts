@@ -76,7 +76,20 @@ export const english = {
   centersAndResources:"Centers and Resources",
   pages:"Pages",
   manageSiteElements:"Manage Site Elements",
-
+  numberUsers:'Number users', 
+  numberAdmins:'Number admins',
+  numberOfCenters:'Number of centers',
+  numberOfContacts:'Number of contacts',
+  totalUsers:'Total users',
+  numberOfAbsentUsers:'Number of absent users',
+  numberOfVaccineRequests:'Number of vaccine requests',
+  firstDose:'First dose' ,
+  secondDose:'Second dose' ,
+  thrdDose:'3rd dose' ,
+  totalVaccinated:'Total vaccinated' ,
+  totalDoses:'Total doses' ,
+  numberOfFizer:'Number of fizer' ,
+  numberOfSinopharm:'Number ofsinopharm' ,
 
   
 
