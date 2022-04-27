@@ -34,6 +34,10 @@ export class DashboardContentComponent implements OnInit {
     this.dashboardMainRestService.getReport();
     this.dashboardMainRestService.getCenter();
     this.generateMap();
+    new Promise(resolve => {
+      console.log("resolving promise...");
+      this.loadScript();
+    });
   }
 
   async generateMap() {
@@ -122,7 +126,7 @@ export class DashboardContentComponent implements OnInit {
 
   public openPDF(): void {
     let DATA: any = document.getElementById('htmlData');
-    html2canvas(DATA).then((canvas) => {
+    html2canvas(DATA ,{ scale: 3 }).then((canvas) => {
       const FILEURI = canvas.toDataURL('image/png');
       let PDF = new jsPDF("landscape");
       var width = PDF.internal.pageSize.getWidth();
@@ -141,4 +145,13 @@ export class DashboardContentComponent implements OnInit {
     XLSX.writeFile(wb, 'ScoreSheet.xlsx');  
   }  
 
+  public loadScript() {
+    console.log("preparing to load...");
+    let node = document.createElement("script");
+    node.src = '../../../assets/flat-able-lite-dashboard/js/pages/dashboard-main.js';
+    node.type = "text/javascript";
+    node.async = true;
+    node.charset = "utf-8";
+    document.getElementsByTagName("head")[0].appendChild(node);
+}
 }

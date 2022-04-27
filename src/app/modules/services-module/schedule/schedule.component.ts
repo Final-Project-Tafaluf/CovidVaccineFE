@@ -153,7 +153,7 @@ export class ScheduleComponent implements OnInit {
    public async savePDF(): Promise<void> {
     let DATA: any = document.getElementById('htmlData');
     setTimeout(() => {
-      html2canvas(DATA).then((canvas) => {
+      html2canvas(DATA,{ scale: 3 }).then((canvas) => {
         /* let fileWidth = 208;
         let fileHeight = (canvas.height * fileWidth) / canvas.width; */
         const FILEURI = canvas.toDataURL('image/png');

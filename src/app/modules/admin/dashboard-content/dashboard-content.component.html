@@ -1,6 +1,6 @@
 <!-- [ Main Content ] start -->
 <div class="pcoded-main-container">
-    <div class="pcoded-content">
+    <div class="pcoded-content" >
         <!-- [ breadcrumb ] start -->
         <div class="page-header">
             <div class="page-block">
@@ -32,8 +32,8 @@
             
         </div>
         
-        <div class="row"  #Excel>
-            <div class="col-md-12 col-xl-4" id="htmlData">
+        <div class="row" id="htmlData" >
+            <div class="col-md-12 col-xl-4" >
                 <div class="card flat-card">
                     <div class="row-table">
                         <div class="col-sm-6 card-body br">
@@ -233,5 +233,43 @@
             </div>
         </div>
     </div>
-
+    <table class="table table-hover mb-0"  #Excel hidden="true">
+        <thead>
+            <tr>
+                <th>{{'numberUsers'| translate}}</th>
+                <th>{{'numberAdmins'| translate }}</th>
+                <th>{{'numberOfCenters'| translate }}</th>
+                <th>{{'numberOfContacts'| translate }}</th>
+                <th>{{'totalUsers'| translate }}</th>
+                <th>{{'numberOfAbsentUsers'| translate }}</th>
+                <th>{{'numberOfVaccineRequest'| translate }}</th>
+                <th>{{'firstDose'| translate}}</th>
+                <th>{{'secondDose'| translate}}</th>
+                <th>{{'thrdDose'| translate}}</th>
+                <th>{{'totalVaccinated'| translate}}</th>
+                <th>{{'totalDoses'| translate}}</th>
+                <th>{{'numberOfFizer'| translate}}</th>
+                <th>{{'numberOfSinopharm'| translate}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{dashboardMainRestService.report.number_of_patient}}</td>
+                <td>{{dashboardMainRestService.report.number_of_admin}}</td>
+                <td>{{dashboardMainRestService.report.number_of_center}}</td>
+                <td>{{dashboardMainRestService.message.length}}</td>
+                <td>{{dashboardMainRestService.report.number_of_user}}</td>
+                <td>{{dashboardMainRestService.report.number_of_absent}}</td>
+                <td>{{dashboardMainRestService.report.number_of_request}}</td>
+                <td>{{dashboardMainRestService.report.number_of_first}}</td>
+                <td>{{dashboardMainRestService.report.number_of_second}}</td>
+                <td>{{dashboardMainRestService.report.number_of_third}}</td>
+                <td>{{dashboardMainRestService.report.total_vaccinated}}</td>
+                <td>{{dashboardMainRestService.report.number_of_fizer +
+                    dashboardMainRestService.report.number_of_sinopharm}}</td>
+                <td>{{dashboardMainRestService.report.number_of_fizer}}</td>                
+                <td>{{dashboardMainRestService.report.number_of_sinopharm}}</td>                
+            </tr>
+        </tbody>
+    </table>
 </div>
