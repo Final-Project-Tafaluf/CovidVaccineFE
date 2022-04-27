@@ -50,7 +50,7 @@ button.btn.btn-primary{
 
 .width_update{
     width: 250px;
-  
+}  
 .btn-primary_mod{
     width: 53px;
 }
@@ -86,4 +86,9 @@ button.btn.btn-primary{
 }
 .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
     margin-left: 105px !important;
+}
+
+.col-md-12{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
