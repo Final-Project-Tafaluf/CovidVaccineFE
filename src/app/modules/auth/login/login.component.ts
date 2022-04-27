@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     // public home: HomeService,
     public auth: AuthService,
-    public userProfileRestService: UserProfileRestService
+    public userProfileRestService: UserProfileRestService ,
+    public home:HomeService
   ) {}
   ngOnInit(): void {
     console.log('this.isCheckedLocal', this.isCheckedLocal);
